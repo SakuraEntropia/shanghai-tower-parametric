@@ -1,0 +1,827 @@
+{
+  "schema_version": "completion-2.0",
+  "date": "2026-10-10",
+  "core": {
+    "source_ids": [
+      "D10",
+      "S13",
+      "B14_STRUCT",
+      "CROWN_NTUA_2014"
+    ],
+    "evidence_level": "推导值",
+    "source_locator": "Ding2010 PDF p3 Table1; Su2013 PDF p9 Fig5, p8 Fig3; B14 p34",
+    "source_version": "Z1-8: explicit D10 2010 zone thickness table; Z9: separately marked 2014 top-endpoint placement assumption, not a unified as-built table",
+    "outer_width_m": 30.0,
+    "inner_axes_x_m": [
+      -4.7,
+      4.7
+    ],
+    "inner_axes_y_m": [
+      -5.0,
+      5.0
+    ],
+    "partial_corner_side_end_m": 8.0,
+    "top_rectangle_axis": "Y",
+    "height_boundaries_m": [
+      -1.0,
+      33.45,
+      99.0,
+      173.7,
+      239.4,
+      314.1,
+      393.3,
+      465.4,
+      542.0,
+      579.293
+    ],
+    "outer_thickness_m": [
+      1.2,
+      1.2,
+      1.0,
+      0.8,
+      0.7,
+      0.6,
+      0.6,
+      0.6,
+      0.5
+    ],
+    "web_thickness_m": [
+      0.9,
+      0.9,
+      0.8,
+      0.7,
+      0.65,
+      0.6,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "zone9_thickness_scope": "0.5m published 2014 top endpoint; Z9 start/extent mapping remains derived",
+    "source_measurement": {
+      "file": "references/new_core/S13_p9.png",
+      "image_size_px": [
+        1697,
+        2400
+      ],
+      "projection": "orthographic plan; independent x/y calibration, no perspective warp",
+      "outer_bbox_px": [
+        729,
+        1739,
+        847,
+        1856
+      ],
+      "wall_axis_x_px": [
+        732,
+        769,
+        806,
+        844
+      ],
+      "wall_axis_y_px": [
+        1741,
+        1778,
+        1817,
+        1853
+      ],
+      "scale_x_m_px": 0.2542372881355932,
+      "scale_y_m_px": 0.2564102564102564,
+      "internal_axis_method": "use inner-line separation and enforce reflection symmetry; outer walls at +/- (15-t/2) independent of drawn black stroke width",
+      "pixel_error_px": 2,
+      "random_axis_error_m": 0.52,
+      "systematic_error": "Schematic drawing scaling and high-zone projection are unbounded; not fabrication coordinates"
+    },
+    "high_corner_measurement": {
+      "file": "references/new_core/S13_Fig3b_crop.png",
+      "method": "Affine/isometric schematic ratio: approx bridge image span172px vs cell diagonal projected256px gives cut depth~6.4m; side-end~8m after outer-wall offset. Rounded, +/-1.5m reading allowance. Yellow diagonal coupling members are not full-height concrete walls.",
+      "side_end_error_m": 1.5,
+      "systematic_error": "Image is illustrative isometric view; full affine camera/section unavailable; parameter remains待确认 as an installation dimension"
+    },
+    "conflicts": [
+      {
+        "item": "zone8 flange thickness",
+        "D10_2010_m": 0.6,
+        "B14_2014_top_endpoint_m": 0.5,
+        "resolution": "Z1-8 entity is explicitly a 2010 thickness reference, with 2014 endpoint only shown separately as provisional top zone. Do not label a coherent as-built thickness schedule."
+      }
+    ],
+    "uncertainty": "Unperforated idealized wall solids: openings, lintels, reinforcement and steel embedments omitted. Source figure traced axes apply directly only to the published Zone2 reference; transfer to other zones is a derived template. Shape height transitions assigned from source zone markers, exact conversion floors unresolved. Z9 three-cell orientation/top inherited demonstration; real core top unconfirmed. Core top fitted to NTUA Fig8 ~579.293m, +/-1.5m reading and unbounded version/datum uncertainty; not a confirmed terminal wall elevation."
+  },
+  "inner": {
+    "schema_version": "1.0",
+    "research_date": "2026-10-10",
+    "status": "CANDIDATE_FOR_ROOT_INTEGRATION",
+    "asbuilt_verified": false,
+    "source_candidate": {
+      "id": "D10",
+      "title": "上海中心大厦结构分析中若干关键问题",
+      "authors": "丁洁民等；完整作者与卷期由root按PDF封面登记",
+      "institution": "同济大学/同济建筑设计研究院责任团队",
+      "publication_date": "2010（论文版次；constructsteel存档路径2024/11不是发表日期）",
+      "url": "https://constructsteel.org/wp-content/uploads/2024/11/01-%E4%B8%8A%E6%B5%B7%E4%B8%AD%E5%BF%83%E5%A4%A7%E5%8E%A6%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90%E4%B8%AD%E8%8B%A5%E5%B9%B2%E5%85%B3%E9%94%AE%E9%97%AE%E9%A2%98_%E4%B8%81%E6%B4%81%E6%B0%91-ml-c.pdf",
+      "primary": true,
+      "local_path": "research/Ding_2010_structural.pdf",
+      "locator": "PDF p2/printed123 Fig3; PDF p3/printed124 Fig5",
+      "units": "m, mm; planar 9950/4925 dimensions",
+      "scale": "No scale stated; raster calibration only",
+      "limitations": "2010 design study, not construction drawings; Fig5 schematic may not have uniform scale; main profile widths may coincide with slab perimeter rather than glass reference line."
+    },
+    "geometry_principles": {
+      "plan_shape": "concentric circular standard floor plates; same centre through height; piecewise cylindrical stacks; no whole inner-cylinder twisting with A skin",
+      "source": "D10 p123 text and Fig3; B14_STRUCT p32",
+      "enclosed_inner_facade": "B wall follows standard circular slab perimeter; the glass reference offset to structural slab is unknown",
+      "mechanical_amenity_floor": "D10 Fig3b is triangular extended floor approaching A; cannot model every floor as the same circle",
+      "rotation": "Circle geometry has no visible plan rotation; module azimuth is unconfirmed and must remain an interface"
+    },
+    "measurement": {
+      "image": "references/new_inner/Ding-03.png",
+      "image_sha256": "a61a6e11106246601ec33e93f49e8349b9c521a5c5150fe39912d9446b3234a0",
+      "image_size_px": [
+        2093,
+        3188
+      ],
+      "render_command": "pdftoppm -f 2 -l 3 -r 300 -png research/Ding_2010_structural.pdf references/new_inner/Ding",
+      "source_view": "orthographic structural elevation, not site photograph",
+      "perspective_correction": "none; printed schematic assumed orthographic; no projective transform needed. Uniform scaling and source-version transfer are assumptions.",
+      "scale_m_per_px": 0.5788732394366197,
+      "calibration": "B14_STRUCT p32 bottom circular floorplate diameter82.2m / D10 Fig5 Zone1 measured width142px",
+      "calibration_version_conflict": "2014 published diameter applied to2010 schematic; 2014 book source plans are corrupt, so values are conditional and cannot be labelled final as-built.",
+      "pixel_line_error_each_edge_px": 2,
+      "uncertainty_formula": "delta_R_pixel ~= 0.5*k*4px + R*(4/142); add schematic/version allowance; use±1.5m candidate radius bound, no statistical interpretation",
+      "height_scale": "Not used; Fig5 lowest baseline is mat-top, not entrance0.000; tower632m cannot calibrate height directly from mat-top."
+    },
+    "zones": [
+      {
+        "zone": 1,
+        "z0_m": -1.0,
+        "z1_m": 33.45,
+        "radius_m": 41.1,
+        "raw_measured_radius_m": 41.1,
+        "pixel_measurement": {
+          "y_rows": [
+            1202,
+            1238
+          ],
+          "left_line_centre_x_px": 1496.5,
+          "right_line_centre_x_px": 1638.5,
+          "width_px": 142.0
+        },
+        "evidence_level": "推导值",
+        "source_ids": [
+          "D10",
+          "B14_STRUCT",
+          "S13"
+        ],
+        "source_locators": [
+          "D10 printed p124 Fig5",
+          "B14_STRUCT printed p32; Fig3.2 p33 images corrupt",
+          "S13 accepted manuscript p6 Fig1b"
+        ],
+        "radius_error_bound_m": 1.5,
+        "radius_error_scope": "Engineering estimate, not statistical CI; includes raster-line selection, schematic drawing and version transfer. As-built systematic error remains unbounded.",
+        "z_assignment": "S13 structural strengthening boundaries, not confirmed atrium start/end or architectural floor levels.",
+        "radius_assignment": "82.2m published bottom floor-plate diameter assigned to lower control zone; mapping is derived.",
+        "suggested_early_design_facets": 258,
+        "facet_count_evidence": "推导值: round(2*pi*radius/1.0m), G01 p16 preliminary module suggestion; not final shop panel count."
+      },
+      {
+        "zone": 2,
+        "z0_m": 33.45,
+        "z1_m": 99.0,
+        "radius_m": 37.9,
+        "raw_measured_radius_m": 37.9162,
+        "pixel_measurement": {
+          "y_rows": [
+            1090,
+            1160
+          ],
+          "left_line_centre_x_px": 1501.5,
+          "right_line_centre_x_px": 1632.5,
+          "width_px": 131.0
+        },
+        "evidence_level": "推导值",
+        "source_ids": [
+          "D10",
+          "B14_STRUCT",
+          "S13"
+        ],
+        "source_locators": [
+          "D10 printed p124 Fig5",
+          "B14_STRUCT printed p32; Fig3.2 p33 images corrupt",
+          "S13 accepted manuscript p6 Fig1b"
+        ],
+        "radius_error_bound_m": 1.5,
+        "radius_error_scope": "Engineering estimate, not statistical CI; includes raster-line selection, schematic drawing and version transfer. As-built systematic error remains unbounded.",
+        "z_assignment": "S13 structural strengthening boundaries, not confirmed atrium start/end or architectural floor levels.",
+        "radius_assignment": "D10 measured zone width / D10 measured Zone1 width * B14 bottom diameter / 2; rounded to 0.1m.",
+        "suggested_early_design_facets": 238,
+        "facet_count_evidence": "推导值: round(2*pi*radius/1.0m), G01 p16 preliminary module suggestion; not final shop panel count."
+      },
+      {
+        "zone": 3,
+        "z0_m": 99.0,
+        "z1_m": 173.7,
+        "radius_m": 35.3,
+        "raw_measured_radius_m": 35.3113,
+        "pixel_measurement": {
+          "y_rows": [
+            974,
+            1049
+          ],
+          "left_line_centre_x_px": 1506.0,
+          "right_line_centre_x_px": 1628.0,
+          "width_px": 122.0
+        },
+        "evidence_level": "推导值",
+        "source_ids": [
+          "D10",
+          "B14_STRUCT",
+          "S13"
+        ],
+        "source_locators": [
+          "D10 printed p124 Fig5",
+          "B14_STRUCT printed p32; Fig3.2 p33 images corrupt",
+          "S13 accepted manuscript p6 Fig1b"
+        ],
+        "radius_error_bound_m": 1.5,
+        "radius_error_scope": "Engineering estimate, not statistical CI; includes raster-line selection, schematic drawing and version transfer. As-built systematic error remains unbounded.",
+        "z_assignment": "S13 structural strengthening boundaries, not confirmed atrium start/end or architectural floor levels.",
+        "radius_assignment": "D10 measured zone width / D10 measured Zone1 width * B14 bottom diameter / 2; rounded to 0.1m.",
+        "suggested_early_design_facets": 222,
+        "facet_count_evidence": "推导值: round(2*pi*radius/1.0m), G01 p16 preliminary module suggestion; not final shop panel count."
+      },
+      {
+        "zone": 4,
+        "z0_m": 173.7,
+        "z1_m": 239.4,
+        "radius_m": 32.7,
+        "raw_measured_radius_m": 32.7063,
+        "pixel_measurement": {
+          "y_rows": [
+            844,
+            928
+          ],
+          "left_line_centre_x_px": 1510.5,
+          "right_line_centre_x_px": 1623.5,
+          "width_px": 113.0
+        },
+        "evidence_level": "推导值",
+        "source_ids": [
+          "D10",
+          "B14_STRUCT",
+          "S13"
+        ],
+        "source_locators": [
+          "D10 printed p124 Fig5",
+          "B14_STRUCT printed p32; Fig3.2 p33 images corrupt",
+          "S13 accepted manuscript p6 Fig1b"
+        ],
+        "radius_error_bound_m": 1.5,
+        "radius_error_scope": "Engineering estimate, not statistical CI; includes raster-line selection, schematic drawing and version transfer. As-built systematic error remains unbounded.",
+        "z_assignment": "S13 structural strengthening boundaries, not confirmed atrium start/end or architectural floor levels.",
+        "radius_assignment": "D10 measured zone width / D10 measured Zone1 width * B14 bottom diameter / 2; rounded to 0.1m.",
+        "suggested_early_design_facets": 205,
+        "facet_count_evidence": "推导值: round(2*pi*radius/1.0m), G01 p16 preliminary module suggestion; not final shop panel count."
+      },
+      {
+        "zone": 5,
+        "z0_m": 239.4,
+        "z1_m": 314.1,
+        "radius_m": 30.1,
+        "raw_measured_radius_m": 30.1014,
+        "pixel_measurement": {
+          "y_rows": [
+            718,
+            800
+          ],
+          "left_line_centre_x_px": 1515.0,
+          "right_line_centre_x_px": 1619.0,
+          "width_px": 104.0
+        },
+        "evidence_level": "推导值",
+        "source_ids": [
+          "D10",
+          "B14_STRUCT",
+          "S13"
+        ],
+        "source_locators": [
+          "D10 printed p124 Fig5",
+          "B14_STRUCT printed p32; Fig3.2 p33 images corrupt",
+          "S13 accepted manuscript p6 Fig1b"
+        ],
+        "radius_error_bound_m": 1.5,
+        "radius_error_scope": "Engineering estimate, not statistical CI; includes raster-line selection, schematic drawing and version transfer. As-built systematic error remains unbounded.",
+        "z_assignment": "S13 structural strengthening boundaries, not confirmed atrium start/end or architectural floor levels.",
+        "radius_assignment": "D10 measured zone width / D10 measured Zone1 width * B14 bottom diameter / 2; rounded to 0.1m.",
+        "suggested_early_design_facets": 189,
+        "facet_count_evidence": "推导值: round(2*pi*radius/1.0m), G01 p16 preliminary module suggestion; not final shop panel count."
+      },
+      {
+        "zone": 6,
+        "z0_m": 314.1,
+        "z1_m": 393.3,
+        "radius_m": 27.5,
+        "raw_measured_radius_m": 27.4965,
+        "pixel_measurement": {
+          "y_rows": [
+            597,
+            670
+          ],
+          "left_line_centre_x_px": 1519.5,
+          "right_line_centre_x_px": 1614.5,
+          "width_px": 95.0
+        },
+        "evidence_level": "推导值",
+        "source_ids": [
+          "D10",
+          "B14_STRUCT",
+          "S13"
+        ],
+        "source_locators": [
+          "D10 printed p124 Fig5",
+          "B14_STRUCT printed p32; Fig3.2 p33 images corrupt",
+          "S13 accepted manuscript p6 Fig1b"
+        ],
+        "radius_error_bound_m": 1.5,
+        "radius_error_scope": "Engineering estimate, not statistical CI; includes raster-line selection, schematic drawing and version transfer. As-built systematic error remains unbounded.",
+        "z_assignment": "S13 structural strengthening boundaries, not confirmed atrium start/end or architectural floor levels.",
+        "radius_assignment": "D10 measured zone width / D10 measured Zone1 width * B14 bottom diameter / 2; rounded to 0.1m.",
+        "suggested_early_design_facets": 173,
+        "facet_count_evidence": "推导值: round(2*pi*radius/1.0m), G01 p16 preliminary module suggestion; not final shop panel count."
+      },
+      {
+        "zone": 7,
+        "z0_m": 393.3,
+        "z1_m": 465.4,
+        "radius_m": 25.2,
+        "raw_measured_radius_m": 25.181,
+        "pixel_measurement": {
+          "y_rows": [
+            465,
+            552
+          ],
+          "left_line_centre_x_px": 1523.5,
+          "right_line_centre_x_px": 1610.5,
+          "width_px": 87.0
+        },
+        "evidence_level": "推导值",
+        "source_ids": [
+          "D10",
+          "B14_STRUCT",
+          "S13"
+        ],
+        "source_locators": [
+          "D10 printed p124 Fig5",
+          "B14_STRUCT printed p32; Fig3.2 p33 images corrupt",
+          "S13 accepted manuscript p6 Fig1b"
+        ],
+        "radius_error_bound_m": 1.5,
+        "radius_error_scope": "Engineering estimate, not statistical CI; includes raster-line selection, schematic drawing and version transfer. As-built systematic error remains unbounded.",
+        "z_assignment": "S13 structural strengthening boundaries, not confirmed atrium start/end or architectural floor levels.",
+        "radius_assignment": "D10 measured zone width / D10 measured Zone1 width * B14 bottom diameter / 2; rounded to 0.1m.",
+        "suggested_early_design_facets": 158,
+        "facet_count_evidence": "推导值: round(2*pi*radius/1.0m), G01 p16 preliminary module suggestion; not final shop panel count."
+      },
+      {
+        "zone": 8,
+        "z0_m": 465.4,
+        "z1_m": 542.0,
+        "radius_m": 23.25,
+        "raw_measured_radius_m": 22.1419,
+        "pixel_measurement": {
+          "y_rows": [
+            340,
+            415
+          ],
+          "left_line_centre_x_px": 1528.5,
+          "right_line_centre_x_px": 1605.0,
+          "width_px": 76.5
+        },
+        "evidence_level": "推导值",
+        "source_ids": [
+          "D10",
+          "B14_STRUCT",
+          "S13"
+        ],
+        "source_locators": [
+          "D10 printed p124 Fig5",
+          "B14_STRUCT printed p32; Fig3.2 p33 images corrupt",
+          "S13 accepted manuscript p6 Fig1b"
+        ],
+        "radius_error_bound_m": 1.5,
+        "radius_error_scope": "Engineering estimate, not statistical CI; includes raster-line selection, schematic drawing and version transfer. As-built systematic error remains unbounded.",
+        "z_assignment": "S13 structural strengthening boundaries, not confirmed atrium start/end or architectural floor levels.",
+        "radius_assignment": "46.5m published top floor-plate diameter assigned to Zone8; differs from D10 image-derived diameter by 2.21m, kept as explicit version/measurement discrepancy.",
+        "suggested_early_design_facets": 146,
+        "facet_count_evidence": "推导值: round(2*pi*radius/1.0m), G01 p16 preliminary module suggestion; not final shop panel count."
+      }
+    ],
+    "inner_top": {
+      "chosen_z_m": 542.0,
+      "evidence_level": "推导值",
+      "basis": "S13 Zone8/9 structural boundary mapped to end of ordinary B cylinders",
+      "conflict": "G01 p7 says Zone9 has no inner curtain or atrium, but G01 Fig2 observation starts580m and boutique boundary561m. Zone9 names in G01/S13 are not interchangeable. Final B termination somewhere in542–580m cannot be established from these sources.",
+      "model_instruction": "Build candidate B stacks through542m; retain top-of-B adjustable parameter and alternative upper control region; do not label542m confirmed finished B termination."
+    },
+    "B_system": {
+      "module_suggestion_m": 1.0,
+      "module_source": "G01 p16; proposed uniform with slight zone variations, compared with1.5m tenant planning",
+      "module_status": "已证实早期建议；实际分格数待确认",
+      "B8": "Bottom three floors of each atrium use insulating fire-resistant B8; system location supported by G01 Fig37 p17 and B14 fire chapter p86.",
+      "B1": "Fourth atrium floor through top use B1 unitized system with tempered/laminated and fire-resistant glass; no final node dimensions in public source.",
+      "B8_height_instruction": "Do not infer B8 exact13.5m from strengthening boundary. If a3×4.5m nominal display band is used, tag derived and actual atrium start offset unknown.",
+      "glass_config_versions": [
+        "G01 p9 proposed30mm 10+12air+8mm",
+        "B14_GREEN p24/25 8FT+12air+6FT",
+        "K16 later supplier8mm+12air+8mm, spatial assignment missing"
+      ],
+      "solidify_instruction": "Do not silently merge configs. Frame sections not dimensioned; use display section meta UNKNOWN and candidate assembly marked version."
+    },
+    "floorplate": {
+      "bottom_diameter_m": 82.2,
+      "top_diameter_m": 46.5,
+      "endpoint_source": "B14_STRUCT p32",
+      "status": "Published design endpoints confirmed; mapping each endpoint to Zone1/8 still derived.",
+      "standard_plate": "Circular floorplate; core opening footprint should follow actual core plan, not solid filled disc.",
+      "slab_thickness_source": "B14_STRUCT p38:typical office155mm composite total(80mm RC over75mm metal deck); MEP/Amenity200–250mm total(125–175mm RC over75mm deck); not150mm.",
+      "floors": "Only S13 anchors are direct nominal coordinates. Intermediate levels may be nominal4.5m candidate office bands; not a confirmed complete127/128 floor schedule.",
+      "occupied_top": "Owner O06 gives126th583.4m as accessible maximum; does not mean B wall exists through583.4m."
+    },
+    "new_conflicts": [
+      {
+        "source_id": "HQ14",
+        "source": "Wei Huang, Jiang Qian (Tongji University), The Correlation Between Complicated Lateral Load Resisting System of the Shanghai Tower;2014 WCCM/ECCM/ECFD p1",
+        "url": "https://congress.cimne.com/iacm-eccomas2014/admin/files/filePaper/p411.pdf",
+        "published_values": "83.6m base;42m Zone8;30m×30m core; analytical model124stories",
+        "scope": "Author analytical model cites Tongji2010 shaking-table research; not finished B-glass reference line",
+        "current_choice": "Keep B14_STRUCT82.2/46.5m as newer architect/structural author description; preserve83.6/42 conflict and permit switching dataset."
+      },
+      {
+        "source_id": "O02",
+        "published_values": "Current owner approximate standard-floor area zones2–6=5000/3900/3200/2700/2000m²",
+        "url": "https://www.shanghaitower.com/office.html",
+        "scope": "Approximate marketing floor area; area accounting/net-gross meaning not stated",
+        "current_choice": "Qualitative check only. No sqrt(area/pi) dimension adopted because accounting scope unknown."
+      }
+    ],
+    "needed_data": [
+      "Final B reference circle/polyline and slab edge radius by architectural zone; exact glass/slab offset",
+      "Atrium bottom/top levels and B8/B1 transition layer schedule",
+      "B upper termination and observation/crown enclosure plan",
+      "Final B panel index/mullion section/bay azimuth and final frit mapping",
+      "Final architectural floor-level sheet and core cut-outs at each slab"
+    ],
+    "modelling": {
+      "entity_start_m": 45.0,
+      "entity_stop_m": 542.0,
+      "nominal_band_height_m": 4.5,
+      "vertical_module_m": 1.0,
+      "glass_assembly_candidate_thickness_m": 0.026,
+      "glass_assembly_source": "B14_GREEN p24–25:8FT+12air+6FT; editable Solidify is only total-thickness proxy, not three detailed layers",
+      "frame_curve_radius_m": 0.025,
+      "frame_section_evidence": "待确认；50mm diameter circular proxy only, not real aluminum section",
+      "azimuth_deg": 0.0,
+      "azimuth_evidence": "待确认；local fixed0° sampling, no confirmed final panel seam azimuth",
+      "B8_mapping": "interface_only; atrium-start/first-floor levels unknown",
+      "curve_samples_per_circuit": 288
+    }
+  },
+  "crown": {
+    "schema_version": "crown-candidate-1.0",
+    "research_date": "2026-10-10",
+    "source_id_candidate": "CROWN_NTUA_2014",
+    "source": {
+      "title": "Structural Design Challenges of Shanghai Tower",
+      "authors": [
+        "Yi Zhu",
+        "Dennis Poon",
+        "Emmanuel E. Velivasakis",
+        "Steve (Qing) Zuo",
+        "Paul Fu"
+      ],
+      "institution": "Thornton Tomasetti; NTUA EEME invited-speaker proceedings host",
+      "publication_year": 2014,
+      "publication_date_precision": "Year inferred from PDF creation 2014-09-16; exact conference publication day not verified",
+      "link": "http://eeme.ntua.gr/proceedings/8th/Invited_Speakers/PAP_Velivasakis.pdf",
+      "type": "Designer-authored technical paper, institutional proceedings copy",
+      "primary": true,
+      "file": "research/Thornton_Structural_Challenges_NTUA.pdf",
+      "sha256": "816ded5b30123c3701b339e8a8278b21b2cc1d076a0ed2dbd4adb6b146dd05b9",
+      "locator": "PDFp13 Fig8 (Gensler section); PDFp14 Fig9 (Thornton current and original structural models)",
+      "version": "2014 file; Fig8 may contain an earlier architectural datum/version; no construction revision number",
+      "original_units": "Dimensions apparently mm; elevation labels m, OCR/manual digit ambiguity",
+      "limit": "Embedded section 953x931 pixels; exact 3D crown clipping coordinates not published; avoid claiming as-built accuracy"
+    },
+    "observed_topology": {
+      "evidence_level": "已证实（设计描述）",
+      "asbuilt_verified": false,
+      "crown": "Open crown with split-parabolic outline (Gensler 2014 p19); no horizontal cap",
+      "vertical_trusses": "Outer façade gravity load transfers directly to L118",
+      "radial_struts": "Lateral wind load transfers to core framing",
+      "kicker_trusses": "Support inner face and brace outer trusses above L129 roof",
+      "corner_bays": "Vertically braced bays at three corners, horizontal floor truss every other floor",
+      "tmd": "Design locates 1100-ton TMD above core at L125; final mass/version conflict remains",
+      "wind_turbines": "Design perimeter L122-L124",
+      "cooling_towers": "Design L128 around TMD",
+      "window_washing_track": "Follows crown top surface"
+    },
+    "measurement_protocol": {
+      "image": "references/new_crown/NTUA_original-000.png",
+      "width_px": 953,
+      "height_px": 931,
+      "view": "Architectural section, no camera perspective correction needed for projected drawing coordinates; cannot reconstruct out-of-section 3D coordinates",
+      "x_scale": "Three dimension bays printed 9850 or 9950 (low resolution ambiguity), not adopted for definitive plan coordinates",
+      "z_scale": "Right vertical dimension 39530 mm spans image y106 to y445",
+      "z_scale_m_per_pixel": 0.11660766961651918,
+      "anchor": "Model highest point 632m is independently confirmed; graph y106 is normalized to that value. Absolute offset between this section edition and public height is unresolved.",
+      "formula": "z_model(y)=632+(106-y)*(39.530/339)",
+      "pixel_error_px": 3,
+      "vertical_sampling_error_m": 0.35,
+      "total_model_height_error_m": "±1.5 (includes blur, calibration, source datum/version; not surveyed tolerance)",
+      "sampling": "Manual centerline points from original embedded image, enlarged only for viewing; interpolation adds no new resolution"
+    },
+    "projected_control_points": {
+      "high_branch": [
+        [
+          267,
+          142,
+          627.8021
+        ],
+        [
+          289,
+          136,
+          628.5018
+        ],
+        [
+          324,
+          130,
+          629.2014
+        ],
+        [
+          361,
+          125,
+          629.7845
+        ],
+        [
+          407,
+          119,
+          630.4841
+        ],
+        [
+          450,
+          113,
+          631.1837
+        ],
+        [
+          490,
+          108,
+          631.7668
+        ]
+      ],
+      "inner_low_branch": [
+        [
+          479,
+          371,
+          601.099
+        ],
+        [
+          510,
+          368,
+          601.4488
+        ],
+        [
+          545,
+          361,
+          602.265
+        ],
+        [
+          575,
+          351,
+          603.4311
+        ],
+        [
+          600,
+          336,
+          605.1802
+        ],
+        [
+          624,
+          318,
+          607.2792
+        ],
+        [
+          650,
+          300,
+          609.3781
+        ],
+        [
+          663,
+          293,
+          610.1944
+        ]
+      ],
+      "note": "These are section-projected rim/inner roof paths. Not equal to perimeter arc stations. Low branch valley about601.1m is inner crown surface, not outer perimeter clipping minimum."
+    },
+    "anchors": [
+      {
+        "id": "maximum_height",
+        "z_m": 632.0,
+        "evidence_level": "已证实",
+        "source_ids": [
+          "G01",
+          "G02"
+        ],
+        "uncertainty": "Nominal published height; surveyed datum unavailable"
+      },
+      {
+        "id": "section_left_outer_truss_top",
+        "z_m": 627.452,
+        "evidence_level": "推导值",
+        "pixel_xy": [
+          267,
+          145
+        ],
+        "error_m": 1.5
+      },
+      {
+        "id": "section_right_outer_truss_top",
+        "z_m": 610.194,
+        "evidence_level": "推导值",
+        "pixel_xy": [
+          669,
+          293
+        ],
+        "error_m": 1.5
+      },
+      {
+        "id": "main_inner_roof",
+        "z_m": 601.099,
+        "evidence_level": "推导值",
+        "pixel_y": 371,
+        "error_m": 1.5,
+        "source_floor_label": "L129 roof",
+        "scope": "Design roof plane; no tie to public 601.33m secondary field"
+      },
+      {
+        "id": "tmd_core_top",
+        "z_m": 579.293,
+        "evidence_level": "推导值",
+        "pixel_y": 558,
+        "error_m": 1.5,
+        "source_floor_label": "L125"
+      },
+      {
+        "id": "crown_support_base",
+        "z_m": 546.993,
+        "evidence_level": "推导值",
+        "pixel_y": 835,
+        "error_m": 1.5,
+        "source_floor_label": "L118"
+      }
+    ],
+    "floor_image_candidates": [
+      {
+        "source_floor_label": "L118",
+        "pixel_y": 835,
+        "z_m": 546.993,
+        "evidence_level": "推导值",
+        "error_m": 1.5,
+        "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+      },
+      {
+        "source_floor_label": "L119",
+        "pixel_y": 790,
+        "z_m": 552.24,
+        "evidence_level": "推导值",
+        "error_m": 1.5,
+        "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+      },
+      {
+        "source_floor_label": "L120",
+        "pixel_y": 752,
+        "z_m": 556.671,
+        "evidence_level": "推导值",
+        "error_m": 1.5,
+        "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+      },
+      {
+        "source_floor_label": "L121",
+        "pixel_y": 704,
+        "z_m": 562.269,
+        "evidence_level": "推导值",
+        "error_m": 1.5,
+        "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+      },
+      {
+        "source_floor_label": "L122",
+        "pixel_y": 670,
+        "z_m": 566.233,
+        "evidence_level": "推导值",
+        "error_m": 1.5,
+        "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+      },
+      {
+        "source_floor_label": "L123",
+        "pixel_y": 635,
+        "z_m": 570.315,
+        "evidence_level": "推导值",
+        "error_m": 1.5,
+        "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+      },
+      {
+        "source_floor_label": "L124",
+        "pixel_y": 600,
+        "z_m": 574.396,
+        "evidence_level": "推导值",
+        "error_m": 1.5,
+        "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+      },
+      {
+        "source_floor_label": "L125",
+        "pixel_y": 558,
+        "z_m": 579.293,
+        "evidence_level": "推导值",
+        "error_m": 1.5,
+        "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+      },
+      {
+        "source_floor_label": "L126",
+        "pixel_y": 524,
+        "z_m": 583.258,
+        "evidence_level": "推导值",
+        "error_m": 1.5,
+        "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+      },
+      {
+        "source_floor_label": "L127",
+        "pixel_y": 487,
+        "z_m": 587.572,
+        "evidence_level": "推导值",
+        "error_m": 1.5,
+        "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+      },
+      {
+        "source_floor_label": "L128",
+        "pixel_y": 445,
+        "z_m": 592.47,
+        "evidence_level": "推导值",
+        "error_m": 1.5,
+        "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+      }
+    ],
+    "implementation_candidate": {
+      "name": "photo_supported_open_back_crest_candidate",
+      "evidence_level": "推导值（形态拟合）",
+      "asbuilt_verified": false,
+      "ready_for_approximate_model": true,
+      "coordinate": "Existing 2014 mother-profile local XY and WP1 axis. s=normalized arclength along the remaining five arcs after full K2 corner exclusion. s direction and building north not recovered.",
+      "station_height_m": [
+        [
+          0,
+          610.194
+        ],
+        [
+          0.5,
+          632.0
+        ],
+        [
+          1,
+          627.452
+        ]
+      ],
+      "formula_left": "z(s)=632-(632-610.194)*(1-2*s)**2",
+      "formula_right": "z(s)=632-(632-627.452)*(2*s-1)**2",
+      "assumptions": [
+        "Mapping one section outer rim samples to s endpoints is underdetermined and chosen as fit interface.",
+        "Lowest station s=0.5 chosen as a mapping convention; source does not specify circumferential minimum station.",
+        "Two unequal ends preserve a split outline but its seam angles and geographic position are not surveyed.",
+        "The entire K2 arc exclusion is previous conservative guard, not the actual V-groove boundary.",
+        "Use all heights only as approximate form fit; no datum mixing disguised as precise geometry.",
+        "2026-10-10: Cosentini aerial photo confirms a raised back rim and two unequal lower V lips. Endpoint heights retained from section-image candidates; station mapping remains an uncalibrated visual fit."
+      ],
+      "uncertainty": "Section anchors ±1.5m; full circumferential interpolation/orientation unbounded from this section, conservatively label all crown cladding DERIVED and permit CAD replacement.",
+      "upper_surface": "Clip vertical/twisting shell at z_top(s); do not add planar top cover. Inner rain-collector branch needs separate geometry and coordinates, not inferred as exterior low point.",
+      "member_positions": "Only schematic topology from Fig9 until plan/erection coordinates are acquired; section/member sizes not verified",
+      "rim_mode": "split_crest_parabola"
+    },
+    "unresolved": [
+      "Final crown BIM trim coordinates; cut curve per perimeter station",
+      "Actual V-groove walls and endpoint map",
+      "Global orientation/section plane direction",
+      "Actual structural member sizes and positions",
+      "Final L118–L129 elevations and source label crosswalk",
+      "Inner collector roof surface, cooling-tower pads and maintenance-track detail"
+    ],
+    "base_z_m": 542.0,
+    "band_pitch_display_m": 4.5,
+    "frame_radius_display_m": 0.05,
+    "horizontal_sample_count_display": 160,
+    "display_sampling_evidence": "待确认；纯展示采样/框截面，不是已证实冠幕墙分格",
+    "photo_evidence": {
+      "gensler_construction": "https://www.gensler.com/a-mayoral-visit-to-shanghai-tower",
+      "engineering_aerial": "https://www.cosentini.com/",
+      "image_url": "https://www.cosentini.com/media/mod_zentools/cache/images/059Shanghai-Tower-547d0b02f7f07d20382582749fbac990.jpg",
+      "measured_photograph_height": false,
+      "scope": "Qualitative topology/raised rear crest only; no camera calibration or geographic alignment"
+    }
+  },
+  "accuracy": "Derived solid reconstruction; not verified as-built; all geometric mapping assumptions retained"
+}

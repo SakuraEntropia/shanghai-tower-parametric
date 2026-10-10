@@ -1,0 +1,39 @@
+{
+  "baseline_geometry_signature": {
+    "sha256_rounded_geometry": "5aba43072b7ad93d5de41e9ef32c26730c87320096d320b2c07174964fe1f393",
+    "mesh_count": 62,
+    "vertices": 669529,
+    "polygons": 408736
+  },
+  "baseline_software_checks_passed": true,
+  "configuration_sha256": {
+    "parameters/model_config.json": "e732051668e1f6fc3e4b90d7c993b36a4f34e751b5a285f9ce6a8e1d4b772628",
+    "parameters/completion.json": "e884b4eb090814b40e26641cef4bbd9f71cfcb71efaf3f82b9a0b0a7f482d0de"
+  },
+  "scripts_sha256": {
+    "build_shanghai_tower.py": "a5f3d9d0096b8a55b60f92a1ee9c59ab00656f730017143924a18ea403a7b628",
+    "common.py": "ce611efdf69ea34f184488ae16a13a0e0694d0ee477a97d2127e012e3387eefa",
+    "core_completion.py": "b8a81380985bfccc5784f3494bea0103f481372922fe68c05e6ccb7e8bcd7014",
+    "crown_completion.py": "72978dcaac78cef1841da7b7dcfa60853df2564221afaf4bd3c0c88146bd7d5e",
+    "curtain_wall.py": "f618fd25b7dff0f6b64470cee47b86594baef406112006eec5967245cadca9bc",
+    "geometry.py": "b99dfb35ae42dd3e0854a2ea5164ab46cd8ca7ed95a009435744d3ea5ed4765b",
+    "inner_completion.py": "87e558652c74127b43b42229ebf7e6d6070b4b2dc1aac28a851859e3c4881222",
+    "inspect_saved.py": "398b280f248969715e85b744e827921e019454cfa694c67130ea891ff1f63614",
+    "make_comparisons.py": "0ea4f92d955f31aa8744c5142e3d729575b49e34da86e4e75addb7d597d51729",
+    "make_completion_comparisons.py": "432292891332e2598489123b4f8fadee41a079b2e8c36053eb43d77ebd05d08d",
+    "structure.py": "4f08cabeafe7057c0c5ef4f8986a8d3e9d4517a560b3256be54dded26047addc",
+    "validation.py": "d7034ae75cbe5104fc4319f72660c9252e751407cdb13444d21ec379050d3668"
+  },
+  "scope": "v2 base Mesh coordinates/topology and Curve control points. Excludes materials, bevel, evaluated modifiers, camera transforms and Text; no as-built truth claim.",
+  "rebuilt_geometry_signature": {
+    "sha256_rounded_geometry": "5aba43072b7ad93d5de41e9ef32c26730c87320096d320b2c07174964fe1f393",
+    "mesh_count": 62,
+    "vertices": 669529,
+    "polygons": 408736
+  },
+  "geometry_matches": true,
+  "configuration_unchanged": true,
+  "scripts_unchanged": true,
+  "rebuilt_software_checks_passed": true,
+  "passed": true
+}

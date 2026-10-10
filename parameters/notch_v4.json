@@ -1,0 +1,48 @@
+{
+  "lip_grid_indices": [
+    20,
+    26
+  ],
+  "interior_angle_deg": 95.0,
+  "frame_radius_display_m": 0.025,
+  "evidence_level": "推导值",
+  "source_ids": [
+    "G01",
+    "B14_GEOM"
+  ],
+  "source_locator": "G01 PDFp2 Fig3 / B14 printedp15 Fig2.2",
+  "measurement": {
+    "image": "references/Gensler_Fig3_profile_detail.png",
+    "image_size_px": [
+      2100,
+      1850
+    ],
+    "projection": "orthographic source schematic, no perspective correction",
+    "WP1_px": [
+      833,
+      954
+    ],
+    "WP2_px": [
+      1680,
+      954
+    ],
+    "scale_m_per_px": 0.05627508854781582,
+    "approx_left_lip_px": [
+      293,
+      1669
+    ],
+    "approx_right_lip_px": [
+      482,
+      1780
+    ],
+    "approx_apex_px": [
+      439,
+      1640
+    ],
+    "line_read_error_px": 4,
+    "fit_protocol": "match schematic lip/apex bearing and radius to analytic mother; selected grid20/26 gives width12.37, depth5.67 for95deg; rounded source pixel picks are measurements, not exact tracing coordinates",
+    "uncertainty": "pixel~.23m; source-version/lip fitting~.6m candidate; IR(z) final table and systematic error unbounded"
+  },
+  "topology": "closed reentrant glass V, not void",
+  "pattern": "unconfirmed candidate subpanels, not final V-shop panel layout"
+}

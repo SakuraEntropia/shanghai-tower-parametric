@@ -1,0 +1,325 @@
+{
+  "schema_version": "crown-candidate-1.0",
+  "research_date": "2026-10-10",
+  "source_id_candidate": "CROWN_NTUA_2014",
+  "source": {
+    "title": "Structural Design Challenges of Shanghai Tower",
+    "authors": [
+      "Yi Zhu",
+      "Dennis Poon",
+      "Emmanuel E. Velivasakis",
+      "Steve (Qing) Zuo",
+      "Paul Fu"
+    ],
+    "institution": "Thornton Tomasetti; NTUA EEME invited-speaker proceedings host",
+    "publication_year": 2014,
+    "publication_date_precision": "Year inferred from PDF creation 2014-09-16; exact conference publication day not verified",
+    "link": "http://eeme.ntua.gr/proceedings/8th/Invited_Speakers/PAP_Velivasakis.pdf",
+    "type": "Designer-authored technical paper, institutional proceedings copy",
+    "primary": true,
+    "file": "research/Thornton_Structural_Challenges_NTUA.pdf",
+    "sha256": "816ded5b30123c3701b339e8a8278b21b2cc1d076a0ed2dbd4adb6b146dd05b9",
+    "locator": "PDFp13 Fig8 (Gensler section); PDFp14 Fig9 (Thornton current and original structural models)",
+    "version": "2014 file; Fig8 may contain an earlier architectural datum/version; no construction revision number",
+    "original_units": "Dimensions apparently mm; elevation labels m, OCR/manual digit ambiguity",
+    "limit": "Embedded section 953x931 pixels; exact 3D crown clipping coordinates not published; avoid claiming as-built accuracy"
+  },
+  "observed_topology": {
+    "evidence_level": "已证实（设计描述）",
+    "asbuilt_verified": false,
+    "crown": "Open crown with split-parabolic outline (Gensler 2014 p19); no horizontal cap",
+    "vertical_trusses": "Outer façade gravity load transfers directly to L118",
+    "radial_struts": "Lateral wind load transfers to core framing",
+    "kicker_trusses": "Support inner face and brace outer trusses above L129 roof",
+    "corner_bays": "Vertically braced bays at three corners, horizontal floor truss every other floor",
+    "tmd": "Design locates 1100-ton TMD above core at L125; final mass/version conflict remains",
+    "wind_turbines": "Design perimeter L122-L124",
+    "cooling_towers": "Design L128 around TMD",
+    "window_washing_track": "Follows crown top surface"
+  },
+  "measurement_protocol": {
+    "image": "references/new_crown/NTUA_original-000.png",
+    "width_px": 953,
+    "height_px": 931,
+    "view": "Architectural section, no camera perspective correction needed for projected drawing coordinates; cannot reconstruct out-of-section 3D coordinates",
+    "x_scale": "Three dimension bays printed 9850 or 9950 (low resolution ambiguity), not adopted for definitive plan coordinates",
+    "z_scale": "Right vertical dimension 39530 mm spans image y106 to y445",
+    "z_scale_m_per_pixel": 0.11660766961651918,
+    "anchor": "Model highest point 632m is independently confirmed; graph y106 is normalized to that value. Absolute offset between this section edition and public height is unresolved.",
+    "formula": "z_model(y)=632+(106-y)*(39.530/339)",
+    "pixel_error_px": 3,
+    "vertical_sampling_error_m": 0.35,
+    "total_model_height_error_m": "±1.5 (includes blur, calibration, source datum/version; not surveyed tolerance)",
+    "sampling": "Manual centerline points from original embedded image, enlarged only for viewing; interpolation adds no new resolution"
+  },
+  "projected_control_points": {
+    "high_branch": [
+      [
+        267,
+        142,
+        627.8021
+      ],
+      [
+        289,
+        136,
+        628.5018
+      ],
+      [
+        324,
+        130,
+        629.2014
+      ],
+      [
+        361,
+        125,
+        629.7845
+      ],
+      [
+        407,
+        119,
+        630.4841
+      ],
+      [
+        450,
+        113,
+        631.1837
+      ],
+      [
+        490,
+        108,
+        631.7668
+      ]
+    ],
+    "inner_low_branch": [
+      [
+        479,
+        371,
+        601.099
+      ],
+      [
+        510,
+        368,
+        601.4488
+      ],
+      [
+        545,
+        361,
+        602.265
+      ],
+      [
+        575,
+        351,
+        603.4311
+      ],
+      [
+        600,
+        336,
+        605.1802
+      ],
+      [
+        624,
+        318,
+        607.2792
+      ],
+      [
+        650,
+        300,
+        609.3781
+      ],
+      [
+        663,
+        293,
+        610.1944
+      ]
+    ],
+    "note": "These are section-projected rim/inner roof paths. Not equal to perimeter arc stations. Low branch valley about601.1m is inner crown surface, not outer perimeter clipping minimum."
+  },
+  "anchors": [
+    {
+      "id": "maximum_height",
+      "z_m": 632.0,
+      "evidence_level": "已证实",
+      "source_ids": [
+        "G01",
+        "G02"
+      ],
+      "uncertainty": "Nominal published height; surveyed datum unavailable"
+    },
+    {
+      "id": "section_left_outer_truss_top",
+      "z_m": 627.452,
+      "evidence_level": "推导值",
+      "pixel_xy": [
+        267,
+        145
+      ],
+      "error_m": 1.5
+    },
+    {
+      "id": "section_right_outer_truss_top",
+      "z_m": 610.194,
+      "evidence_level": "推导值",
+      "pixel_xy": [
+        669,
+        293
+      ],
+      "error_m": 1.5
+    },
+    {
+      "id": "main_inner_roof",
+      "z_m": 601.099,
+      "evidence_level": "推导值",
+      "pixel_y": 371,
+      "error_m": 1.5,
+      "source_floor_label": "L129 roof",
+      "scope": "Design roof plane; no tie to public 601.33m secondary field"
+    },
+    {
+      "id": "tmd_core_top",
+      "z_m": 579.293,
+      "evidence_level": "推导值",
+      "pixel_y": 558,
+      "error_m": 1.5,
+      "source_floor_label": "L125"
+    },
+    {
+      "id": "crown_support_base",
+      "z_m": 546.993,
+      "evidence_level": "推导值",
+      "pixel_y": 835,
+      "error_m": 1.5,
+      "source_floor_label": "L118"
+    }
+  ],
+  "floor_image_candidates": [
+    {
+      "source_floor_label": "L118",
+      "pixel_y": 835,
+      "z_m": 546.993,
+      "evidence_level": "推导值",
+      "error_m": 1.5,
+      "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+    },
+    {
+      "source_floor_label": "L119",
+      "pixel_y": 790,
+      "z_m": 552.24,
+      "evidence_level": "推导值",
+      "error_m": 1.5,
+      "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+    },
+    {
+      "source_floor_label": "L120",
+      "pixel_y": 752,
+      "z_m": 556.671,
+      "evidence_level": "推导值",
+      "error_m": 1.5,
+      "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+    },
+    {
+      "source_floor_label": "L121",
+      "pixel_y": 704,
+      "z_m": 562.269,
+      "evidence_level": "推导值",
+      "error_m": 1.5,
+      "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+    },
+    {
+      "source_floor_label": "L122",
+      "pixel_y": 670,
+      "z_m": 566.233,
+      "evidence_level": "推导值",
+      "error_m": 1.5,
+      "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+    },
+    {
+      "source_floor_label": "L123",
+      "pixel_y": 635,
+      "z_m": 570.315,
+      "evidence_level": "推导值",
+      "error_m": 1.5,
+      "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+    },
+    {
+      "source_floor_label": "L124",
+      "pixel_y": 600,
+      "z_m": 574.396,
+      "evidence_level": "推导值",
+      "error_m": 1.5,
+      "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+    },
+    {
+      "source_floor_label": "L125",
+      "pixel_y": 558,
+      "z_m": 579.293,
+      "evidence_level": "推导值",
+      "error_m": 1.5,
+      "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+    },
+    {
+      "source_floor_label": "L126",
+      "pixel_y": 524,
+      "z_m": 583.258,
+      "evidence_level": "推导值",
+      "error_m": 1.5,
+      "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+    },
+    {
+      "source_floor_label": "L127",
+      "pixel_y": 487,
+      "z_m": 587.572,
+      "evidence_level": "推导值",
+      "error_m": 1.5,
+      "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+    },
+    {
+      "source_floor_label": "L128",
+      "pixel_y": 445,
+      "z_m": 592.47,
+      "evidence_level": "推导值",
+      "error_m": 1.5,
+      "scope": "Section-image only; source label counter not reconciled with Su2013 or operational counters"
+    }
+  ],
+  "implementation_candidate": {
+    "name": "asymmetric_split_parabola_open_perimeter",
+    "evidence_level": "推导值（形态拟合）",
+    "asbuilt_verified": false,
+    "ready_for_approximate_model": true,
+    "coordinate": "Existing 2014 mother-profile local XY and WP1 axis. s=normalized arclength along the remaining five arcs after full K2 corner exclusion. s direction and building north not recovered.",
+    "station_height_m": [
+      [
+        0,
+        632
+      ],
+      [
+        0.5,
+        610.194
+      ],
+      [
+        1,
+        627.452
+      ]
+    ],
+    "formula_left": "z(s)=z_low+(632-z_low)*(1-2*s)**2, 0<=s<=0.5",
+    "formula_right": "z(s)=z_low+(z_end-z_low)*(2*s-1)**2, 0.5<s<=1",
+    "assumptions": [
+      "Mapping one section outer rim samples to s endpoints is underdetermined and chosen as fit interface.",
+      "Lowest station s=0.5 chosen as a mapping convention; source does not specify circumferential minimum station.",
+      "Two unequal ends preserve a split outline but its seam angles and geographic position are not surveyed.",
+      "The entire K2 arc exclusion is previous conservative guard, not the actual V-groove boundary.",
+      "Use all heights only as approximate form fit; no datum mixing disguised as precise geometry."
+    ],
+    "uncertainty": "Section anchors ±1.5m; full circumferential interpolation/orientation unbounded from this section, conservatively label all crown cladding DERIVED and permit CAD replacement.",
+    "upper_surface": "Clip vertical/twisting shell at z_top(s); do not add planar top cover. Inner rain-collector branch needs separate geometry and coordinates, not inferred as exterior low point.",
+    "member_positions": "Only schematic topology from Fig9 until plan/erection coordinates are acquired; section/member sizes not verified"
+  },
+  "unresolved": [
+    "Final crown BIM trim coordinates; cut curve per perimeter station",
+    "Actual V-groove walls and endpoint map",
+    "Global orientation/section plane direction",
+    "Actual structural member sizes and positions",
+    "Final L118–L129 elevations and source label crosswalk",
+    "Inner collector roof surface, cooling-tower pads and maintenance-track detail"
+  ]
+}

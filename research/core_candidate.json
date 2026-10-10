@@ -1,0 +1,104 @@
+{
+  "source_ids": [
+    "D10",
+    "S13",
+    "B14_STRUCT",
+    "CROWN_NTUA_2014"
+  ],
+  "evidence_level": "推导值",
+  "source_locator": "Ding2010 PDF p3 Table1; Su2013 PDF p9 Fig5, p8 Fig3; B14 p34",
+  "source_version": "Z1-8: explicit D10 2010 zone thickness table; Z9: separately marked 2014 top-endpoint placement assumption, not a unified as-built table",
+  "outer_width_m": 30.0,
+  "inner_axes_x_m": [
+    -4.7,
+    4.7
+  ],
+  "inner_axes_y_m": [
+    -5.0,
+    5.0
+  ],
+  "partial_corner_side_end_m": 8.0,
+  "top_rectangle_axis": "Y",
+  "height_boundaries_m": [
+    -1.0,
+    33.45,
+    99.0,
+    173.7,
+    239.4,
+    314.1,
+    393.3,
+    465.4,
+    542.0,
+    579.293
+  ],
+  "outer_thickness_m": [
+    1.2,
+    1.2,
+    1.0,
+    0.8,
+    0.7,
+    0.6,
+    0.6,
+    0.6,
+    0.5
+  ],
+  "web_thickness_m": [
+    0.9,
+    0.9,
+    0.8,
+    0.7,
+    0.65,
+    0.6,
+    0.5,
+    0.5,
+    0.5
+  ],
+  "zone9_thickness_scope": "0.5m published 2014 top endpoint; Z9 start/extent mapping remains derived",
+  "source_measurement": {
+    "file": "references/new_core/S13_p9.png",
+    "image_size_px": [
+      1697,
+      2400
+    ],
+    "projection": "orthographic plan; independent x/y calibration, no perspective warp",
+    "outer_bbox_px": [
+      729,
+      1739,
+      847,
+      1856
+    ],
+    "wall_axis_x_px": [
+      732,
+      769,
+      806,
+      844
+    ],
+    "wall_axis_y_px": [
+      1741,
+      1778,
+      1817,
+      1853
+    ],
+    "scale_x_m_px": 0.2542372881355932,
+    "scale_y_m_px": 0.2564102564102564,
+    "internal_axis_method": "use inner-line separation and enforce reflection symmetry; outer walls at +/- (15-t/2) independent of drawn black stroke width",
+    "pixel_error_px": 2,
+    "random_axis_error_m": 0.52,
+    "systematic_error": "Schematic drawing scaling and high-zone projection are unbounded; not fabrication coordinates"
+  },
+  "high_corner_measurement": {
+    "file": "references/new_core/S13_Fig3b_crop.png",
+    "method": "Affine/isometric schematic ratio: approx bridge image span172px vs cell diagonal projected256px gives cut depth~6.4m; side-end~8m after outer-wall offset. Rounded, +/-1.5m reading allowance. Yellow diagonal coupling members are not full-height concrete walls.",
+    "side_end_error_m": 1.5,
+    "systematic_error": "Image is illustrative isometric view; full affine camera/section unavailable; parameter remains待确认 as an installation dimension"
+  },
+  "conflicts": [
+    {
+      "item": "zone8 flange thickness",
+      "D10_2010_m": 0.6,
+      "B14_2014_top_endpoint_m": 0.5,
+      "resolution": "Z1-8 entity is explicitly a 2010 thickness reference, with 2014 endpoint only shown separately as provisional top zone. Do not label a coherent as-built thickness schedule."
+    }
+  ],
+  "uncertainty": "Unperforated idealized wall solids: openings, lintels, reinforcement and steel embedments omitted. Source figure traced axes apply directly only to the published Zone2 reference; transfer to other zones is a derived template. Shape height transitions assigned from source zone markers, exact conversion floors unresolved. Z9 three-cell orientation/top inherited demonstration; real core top unconfirmed. Core top fitted to NTUA Fig8 ~579.293m, +/-1.5m reading and unbounded version/datum uncertainty; not a confirmed terminal wall elevation."
+}

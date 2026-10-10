@@ -1,0 +1,27 @@
+{
+  "version": "v3",
+  "baseline_geometry_signature": {
+    "sha256_rounded_geometry": "ce64c026398868a597b238c0e04fa1d821c7688e2de47a415c24aabba60cf7f0",
+    "mesh_count": 234,
+    "vertices": 824621,
+    "polygons": 528861
+  },
+  "rebuilt_geometry_signature": {
+    "sha256_rounded_geometry": "ce64c026398868a597b238c0e04fa1d821c7688e2de47a415c24aabba60cf7f0",
+    "mesh_count": 234,
+    "vertices": 824621,
+    "polygons": 528861
+  },
+  "geometry_matches": true,
+  "software_checks_passed": true,
+  "scope": "Rounded base Mesh and Curve control geometry only. Bevel, evaluated modifiers, materials, north/datum survey and as-built match excluded.",
+  "configuration_sha256": {
+    "parameters/floor_anchors.json": "32e38084a8ca1c2a97e0bc884927267015949cb74f29d1013ea34547fcfa3373",
+    "parameters/sources.json": "f0e12a3a4d9a79b958ce4e51c956408b8c3271a377faed8b82f3fcf9d7527eb6",
+    "parameters/parameters.json": "492130d835f2572abc536eb37db20decfadae1fcb795e093487bbd1899cf677d",
+    "parameters/assembly_v3.json": "23a92b3833fc0dc61a3eea265624872d14cfdea4d66d76b68f2ededef3af596e",
+    "parameters/model_config.json": "e732051668e1f6fc3e4b90d7c993b36a4f34e751b5a285f9ce6a8e1d4b772628",
+    "parameters/completion.json": "e884b4eb090814b40e26641cef4bbd9f71cfcb71efaf3f82b9a0b0a7f482d0de"
+  },
+  "passed": true
+}

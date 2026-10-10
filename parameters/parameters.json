@@ -1,0 +1,2189 @@
+{
+  "schema_version": "1.0",
+  "research_date": "2026-10-10",
+  "stage": "阶段一二；未生成模型",
+  "interpretation": "证实来源记载与证实竣工实测必须分开。null表示未知；范围/端值禁止隐式全高插值。 建模分类针对某一参数/规则的约束能力，非完整部件实体已具备全部输入；真实竣工适用性另看source_scope。",
+  "source_registry": "sources.json",
+  "model_settings": {
+    "units": "METRIC",
+    "scale_length": 1,
+    "length_unit": "METERS",
+    "up_axis": "Z",
+    "local_origin_convention": "WP1=(0,0)，非地理定位",
+    "north_alignment": null,
+    "selected_geometry_version": null,
+    "complete_floor_schedule": null
+  },
+  "geometry_versions": [
+    {
+      "id": "gensler_2010_diagnostic",
+      "source_id": "G01",
+      "z0_m": 45,
+      "z1_m": 605,
+      "reported_rotation_deg": 120,
+      "reported_scaling_percent": 55.86,
+      "assumed_remaining_ratio": 0.5586,
+      "evidence_level": "推导值",
+      "formula": "t=(z-45)/560; theta=theta0+direction*120*t; scale=exp(ln(0.5586)*t)",
+      "valid_z_range_m": [
+        45,
+        605
+      ],
+      "outside_range": "unresolved"
+    },
+    {
+      "id": "gensler_2014_reconstruction",
+      "source_id": "B14_GEOM",
+      "assumed_z0_m": 45,
+      "assumed_z1_m": 632,
+      "reported_rotation_deg": 120,
+      "reported_scaling_percent": 55,
+      "assumed_remaining_ratio": 0.55,
+      "evidence_level": "推导值",
+      "formula": "t=(z-45)/587; theta=theta0+direction*120*t; scale=exp(ln(0.55)*t)",
+      "warning": "端点、mm单位、比例语义均为推导；塔冠裁切另需数据；不可称竣工",
+      "valid_z_range_m": [
+        45,
+        632
+      ],
+      "outside_range": "unresolved",
+      "crown_trimming": "independent unresolved control curves; no automatic flat cap"
+    }
+  ],
+  "parameters": [
+    {
+      "id": "height_arch",
+      "name": "建筑总高",
+      "value": 632,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "G02",
+        "O01",
+        "V26"
+      ],
+      "source_locator": "官方高度字段",
+      "formula_and_assumptions": "高度起算按各来源定义；场景零点偏移另设",
+      "uncertainty": "名义公布整数；设计±0与最低人行入口基准关系未获",
+      "affected_components": [
+        "外轮廓",
+        "标尺"
+      ],
+      "source_scope": "建成名义高度",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "height_tip",
+      "name": "最高顶端高度",
+      "value": 632,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "V26"
+      ],
+      "source_locator": "Metrics / To Tip",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "高度基准同数据库；最高点不表示整圈顶边平齐",
+      "affected_components": [
+        "塔冠",
+        "标尺"
+      ],
+      "source_scope": "建成数据库指标",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "highest_occupied",
+      "name": "当前最高占用高度",
+      "value": 583.4,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "V26"
+      ],
+      "source_locator": "Metrics / Occupied",
+      "formula_and_assumptions": "最低主要露天人行入口起算",
+      "uncertainty": "不等同普通标准层；对应完成面/结构面基准待核",
+      "affected_components": [
+        "顶部核验标尺"
+      ],
+      "source_scope": "当前专业数据库",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "occupied_2014",
+      "name": "2014最高占用高度",
+      "value": 561,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_DATA"
+      ],
+      "source_locator": "本地书p9",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "历史设计指标，不能覆盖583.4当前字段",
+      "affected_components": [
+        "版本对照"
+      ],
+      "source_scope": "2014在建项目数据",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "observatory_cvu",
+      "name": "数据库观景高度",
+      "value": 562.1,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "V26"
+      ],
+      "source_locator": "Height / Observatory",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "具体观景空间不同于业主118层；不可直接关联同一楼层",
+      "affected_components": [
+        "对照标尺"
+      ],
+      "source_scope": "当前专业数据库",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "observatory_owner",
+      "name": "业主118层观景高度",
+      "value": 546,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "O05"
+      ],
+      "source_locator": "观光厅正文",
+      "formula_and_assumptions": "运营标号118层",
+      "uncertainty": "与562.1空间/定义关系未确认",
+      "affected_components": [
+        "对照标尺"
+      ],
+      "source_scope": "运营描述",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "above_ground_count",
+      "name": "统一真实地上楼层数",
+      "value": null,
+      "unit": "层",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "O01",
+        "T01",
+        "V26",
+        "G01",
+        "B14_DATA",
+        "J14"
+      ],
+      "source_locator": "业主127；顾问/数据库128；2010设计124",
+      "formula_and_assumptions": "分别保存统计口径；不是楼板数量",
+      "uncertainty": "没有完整floor schedule和编号对照，不计算632/N",
+      "affected_components": [
+        "楼板",
+        "塔冠"
+      ],
+      "source_scope": "冲突待解决",
+      "raw_value": null,
+      "candidates": [
+        {
+          "source": "O01",
+          "value": 127
+        },
+        {
+          "source": "T01/V26/B14_DATA",
+          "value": 128
+        },
+        {
+          "source": "G01",
+          "value": 124
+        }
+      ]
+    },
+    {
+      "id": "basement_count",
+      "name": "地下主层数",
+      "value": 5,
+      "unit": "层",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "O01",
+        "V26"
+      ],
+      "source_locator": "项目概述/Below Ground",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "层数已知而逐层标高未获",
+      "affected_components": [
+        "地下层接口"
+      ],
+      "source_scope": "建成统计",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "zone_count",
+      "name": "垂直分区",
+      "value": 9,
+      "unit": "区",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "G01",
+        "O03",
+        "S13"
+      ],
+      "source_locator": "G01p2；S13p6 Fig1b",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "功能分区、结构区、幕墙区边界不可直接合并",
+      "affected_components": [
+        "分区接口"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "level_crosswalk",
+      "name": "设计/监测/运营层号对应表",
+      "value": null,
+      "unit": "table",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "S13",
+        "O02",
+        "O03"
+      ],
+      "source_locator": "S13 Fig6；业主空中大堂信息",
+      "formula_and_assumptions": "保存source_floor_label、source_version、normalized_floor_id=null、crosswalk_status=unresolved",
+      "uncertainty": "F51=239.40与运营52层约239m提示口径差异；不能统一+1或按楼号JOIN",
+      "affected_components": [
+        "楼板",
+        "支承层",
+        "幕墙"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "datum_offset",
+      "name": "设计零点到最低人行入口偏移",
+      "value": null,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "S13",
+        "V26"
+      ],
+      "source_locator": "S13p6 Fig1b底部−1；V26高度定义",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "没有测量标高与±0统一文件",
+      "affected_components": [
+        "全模型"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "reference_z_2010",
+      "name": "2010默认轮廓标高",
+      "value": 45,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "G01"
+      ],
+      "source_locator": "p3 Fig4",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "仅2010设计局部基准；不是地面默认",
+      "affected_components": [
+        "控制轮廓"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "rotation_end_2010",
+      "name": "2010旋转控制终点",
+      "value": 605,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "G01"
+      ],
+      "source_locator": "p3 Fig4",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "605–632另有顶轮廓但无完整曲线",
+      "affected_components": [
+        "控制轮廓"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "twist_total",
+      "name": "设计总旋转角",
+      "value": 120,
+      "unit": "deg",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "G01",
+        "B14_GEOM"
+      ],
+      "source_locator": "G01p3 Fig4；B14p15",
+      "formula_and_assumptions": "版本2010为45–605；2014文字base–top",
+      "uncertainty": "同为120不证明控制端点一致；实际每层角表未获",
+      "affected_components": [
+        "外轮廓",
+        "幕墙"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "twist_law",
+      "name": "旋转规律",
+      "value": "linear_in_z",
+      "unit": "rule",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "G01"
+      ],
+      "source_locator": "p3 §3 Rate of twist",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "按高度线性不等于按层号等角",
+      "affected_components": [
+        "控制轮廓",
+        "幕墙"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "scaling_percent_2010",
+      "name": "2010图中Scaling数字",
+      "value": 55.86,
+      "unit": "%",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "G01"
+      ],
+      "source_locator": "p3 Fig4",
+      "formula_and_assumptions": "保留reported scaling原词",
+      "uncertainty": "剩余比例/减少比例语义尚需原始模型证实",
+      "affected_components": [
+        "版本控制"
+      ],
+      "source_scope": "2010设计",
+      "raw_value": 55.86,
+      "candidates": null
+    },
+    {
+      "id": "q_2010",
+      "name": "2010剩余尺度解释",
+      "value": 0.5586,
+      "unit": "ratio",
+      "evidence_level": "推导值",
+      "modeling_class": "需推导后建模",
+      "source_ids": [
+        "G01"
+      ],
+      "source_locator": "p3 Fig4；p11约2.25→1.25面板宽",
+      "formula_and_assumptions": "假设55.86%为剩余线性尺度；1.25/2.25≈0.5556只作合理性检查",
+      "uncertainty": "无法界定版本/比例语义系统误差；不是竣工确认",
+      "affected_components": [
+        "诊断轮廓"
+      ],
+      "source_scope": "解释性2010模式",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "height_span_2010",
+      "name": "2010控制区间长度",
+      "value": 560,
+      "unit": "m",
+      "evidence_level": "推导值",
+      "modeling_class": "需推导后建模",
+      "source_ids": [
+        "G01"
+      ],
+      "source_locator": "p3 Fig4",
+      "formula_and_assumptions": "605−45",
+      "uncertainty": "端点为名义设计值；差值不含额外竣工保证",
+      "affected_components": [
+        "诊断曲线"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "scaling_span_2014_raw",
+      "name": "2014缩放控制长度原图值",
+      "value": 587000,
+      "unit": "原图未标单位",
+      "evidence_level": "已证实",
+      "modeling_class": "需推导后建模",
+      "source_ids": [
+        "B14_GEOM"
+      ],
+      "source_locator": "p15 Fig2.3",
+      "formula_and_assumptions": "632000−45000=587000",
+      "uncertainty": "不能直接给587m标为已证实单位",
+      "affected_components": [
+        "版本控制"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "height_span_2014",
+      "name": "2014控制长度单位解释",
+      "value": 587,
+      "unit": "m",
+      "evidence_level": "推导值",
+      "modeling_class": "需推导后建模",
+      "source_ids": [
+        "B14_GEOM"
+      ],
+      "source_locator": "p15 Fig2.3",
+      "formula_and_assumptions": "将632000/45000解释为mm；(632000−45000)/1000",
+      "uncertainty": "量纲解释为推导；不同于整栋总高",
+      "affected_components": [
+        "推导曲线"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "q_2014",
+      "name": "2014剩余尺度解释",
+      "value": 0.55,
+      "unit": "ratio",
+      "evidence_level": "推导值",
+      "modeling_class": "需推导后建模",
+      "source_ids": [
+        "B14_GEOM",
+        "G01"
+      ],
+      "source_locator": "p15文字/Fig2.4 p16",
+      "formula_and_assumptions": "将scaling55%解释为剩余线性尺度；0.45仅针对G01正文reduction about55%措辞作跨版本敏感性比较",
+      "uncertainty": "正文reduction语义可对应0.45；缺原函数系数",
+      "affected_components": [
+        "推导轮廓"
+      ],
+      "source_scope": "解释性2014模式",
+      "raw_value": null,
+      "candidates": [
+        0.55,
+        0.45
+      ]
+    },
+    {
+      "id": "curve_coeff_2010",
+      "name": "2010条件指数系数",
+      "value": -0.001039860045484037,
+      "unit": "1/m",
+      "evidence_level": "推导值",
+      "modeling_class": "需推导后建模",
+      "source_ids": [
+        "G01"
+      ],
+      "source_locator": "p3 Fig4",
+      "formula_and_assumptions": "ln(0.5586)/(605−45)",
+      "uncertainty": "依赖q解释；多位小数只为数值计算，不代表测量精度",
+      "affected_components": [
+        "诊断曲线"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "curve_coeff_2014",
+      "name": "2014条件指数系数",
+      "value": -0.0010184616707932205,
+      "unit": "1/m",
+      "evidence_level": "推导值",
+      "modeling_class": "需推导后建模",
+      "source_ids": [
+        "B14_GEOM"
+      ],
+      "source_locator": "p15",
+      "formula_and_assumptions": "ln(0.55)/587",
+      "uncertainty": "依赖mm解释、45–632与剩余比假设",
+      "affected_components": [
+        "推导曲线"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "profile_R1_raw",
+      "name": "大圆半径原图数字",
+      "value": 88330,
+      "unit": "原图未标单位",
+      "evidence_level": "已证实",
+      "modeling_class": "需推导后建模",
+      "source_ids": [
+        "G01",
+        "B14_GEOM"
+      ],
+      "source_locator": "G01p2 Fig3；B14p15 Fig2.2",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "设计控制数字非竣工标注",
+      "affected_components": [
+        "默认平面"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "profile_R1",
+      "name": "大圆半径单位解释",
+      "value": 88.33,
+      "unit": "m",
+      "evidence_level": "推导值",
+      "modeling_class": "需推导后建模",
+      "source_ids": [
+        "G01",
+        "B14_GEOM"
+      ],
+      "source_locator": "同上",
+      "formula_and_assumptions": "88330/1000；假设图尺寸为mm",
+      "uncertainty": "正式单位待核验；不能报±0.001m为实物误差",
+      "affected_components": [
+        "默认平面"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "profile_L4_raw",
+      "name": "大圆控制中心偏置原图数字",
+      "value": 47665,
+      "unit": "原图未标单位",
+      "evidence_level": "已证实",
+      "modeling_class": "需推导后建模",
+      "source_ids": [
+        "G01",
+        "B14_GEOM"
+      ],
+      "source_locator": "G01p2 Fig3；B14p15 Fig2.2",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "WP1–WP2距离，不是塔楼外半径",
+      "affected_components": [
+        "默认平面"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "profile_L4",
+      "name": "大圆中心偏置单位解释",
+      "value": 47.665,
+      "unit": "m",
+      "evidence_level": "推导值",
+      "modeling_class": "需推导后建模",
+      "source_ids": [
+        "G01",
+        "B14_GEOM"
+      ],
+      "source_locator": "同上",
+      "formula_and_assumptions": "47665/1000；假设mm",
+      "uncertainty": "单位/版本系统不确定性未量化",
+      "affected_components": [
+        "默认平面"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "profile_A1",
+      "name": "相切构造角",
+      "value": 23.3,
+      "unit": "deg",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "G01",
+        "B14_GEOM"
+      ],
+      "source_locator": "G01p2 Fig3；B14p14–15",
+      "formula_and_assumptions": "保持A1全高",
+      "uncertainty": "显示到0.1度；非北向方位",
+      "affected_components": [
+        "默认平面"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "profile_R2",
+      "name": "内部相切重建圆角半径",
+      "value": 19.258106,
+      "unit": "m",
+      "evidence_level": "推导值",
+      "modeling_class": "需推导后建模",
+      "source_ids": [
+        "G01",
+        "B14_GEOM"
+      ],
+      "source_locator": "平面构造图；geometry_research §3",
+      "formula_and_assumptions": "a=23.3°；d=47.665；k=2d tan(a)/(√3−tan(a))；D=(d+k/2)/cos(a)；R2=88.330−D",
+      "uncertainty": "假设内部相切和三重中心；若A1四舍五入±0.05°仅此传播约±0.081m；不含单位/版本误差",
+      "affected_components": [
+        "默认平面"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "notch_A3",
+      "name": "2014缺口角",
+      "value": 95,
+      "unit": "deg",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_GEOM"
+      ],
+      "source_locator": "p15 Fig2.2",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "角两边定位/缺口完整端点不足，单角不能生成真实缺口",
+      "affected_components": [
+        "V口接口"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "notch_geometry",
+      "name": "缺口深度/端点与高度关系",
+      "value": null,
+      "unit": "table",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "G01",
+        "B14_GEOM"
+      ],
+      "source_locator": "G01Fig3；B14Fig2.2 IR(VARIES)",
+      "formula_and_assumptions": "逐高度notch_inner_radius/endpoint_parameters",
+      "uncertainty": "不能固定等比例缺口；显著影响V口和局部分格",
+      "affected_components": [
+        "V口",
+        "幕墙"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "inner_radius_table",
+      "name": "内幕墙各区半径IR",
+      "value": null,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "B14_GEOM",
+        "B14_STRUCT"
+      ],
+      "source_locator": "B14p15 IR(VARIES)；结构p32端径",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "端径不足以恢复每区板边；不能等比连缩",
+      "affected_components": [
+        "内幕墙",
+        "楼板",
+        "净间距"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "rotation_axis",
+      "name": "WP1竖轴候选",
+      "value": [
+        0,
+        0
+      ],
+      "unit": "局部m",
+      "evidence_level": "推导值",
+      "modeling_class": "需推导后建模",
+      "source_ids": [
+        "G01",
+        "B14_GEOM"
+      ],
+      "source_locator": "默认平面WP1",
+      "formula_and_assumptions": "WP1设局部(0,0)，竖直轴过WP1",
+      "uncertainty": "与核心轴/测量坐标关系未给；0,0是软件局部约定",
+      "affected_components": [
+        "外轮廓"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "theta0_direction",
+      "name": "初始朝向和旋转正负",
+      "value": null,
+      "unit": "deg / sign",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "G01",
+        "B14_GEOM"
+      ],
+      "source_locator": "缺带北向定位图",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "不可用远景印象选择后标真实朝向",
+      "affected_components": [
+        "整个塔楼"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "bottom_crown_curves",
+      "name": "底部与塔冠最终控制表",
+      "value": null,
+      "unit": "table",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "G01",
+        "B14_GEOM",
+        "B14_STRUCT"
+      ],
+      "source_locator": "G01Fig4 0/45/605/632；B14p19开放塔冠",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "0–45/2010的605–632及塔冠裁切未知；不自动封顶为平盖",
+      "affected_components": [
+        "底部",
+        "塔冠"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "core_low_width",
+      "name": "低区核心外包名义边长",
+      "value": 30,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_STRUCT",
+        "S13",
+        "B14_CONSTRUCT"
+      ],
+      "source_locator": "B14p34；S13p7–8 Fig3",
+      "formula_and_assumptions": "优先专业结构章与监测/施工团队多源一致；T01的90ft保留冲突",
+      "uncertainty": "30m尺寸边界及竣工公差未得施工图；90ft=27.432m相差2.568m",
+      "affected_components": [
+        "核心筒"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "core_topologies",
+      "name": "核心分区拓扑",
+      "value": {
+        "Z1_Z4": "九格方核",
+        "Z5_Z6": "四角回切",
+        "Z7_Z8": "十字五格",
+        "top": "三格矩形"
+      },
+      "unit": "rule",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_STRUCT",
+        "S13"
+      ],
+      "source_locator": "B14p34；S13Fig3 p8",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "只有形态，切角/臂宽/内部格尺寸与精确切换层未知",
+      "affected_components": [
+        "核心筒分区"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "core_wall_ext",
+      "name": "核心外墙厚端值范围",
+      "value": [
+        1.2,
+        0.5
+      ],
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_STRUCT"
+      ],
+      "source_locator": "p34",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "不能线性插值生成真实逐层厚度",
+      "affected_components": [
+        "核心外墙"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "core_wall_int",
+      "name": "核心内墙厚端值范围",
+      "value": [
+        0.9,
+        0.5
+      ],
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_STRUCT"
+      ],
+      "source_locator": "p34",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "逐层腹板厚及边界定义未获",
+      "affected_components": [
+        "核心内墙"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "core_partitions_openings",
+      "name": "核心内隔墙/洞口/截面切换表",
+      "value": null,
+      "unit": "table",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "B14_STRUCT",
+        "S13"
+      ],
+      "source_locator": "结构平面不足",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "九格不代表九个相同10m房间；空白出版图不能描摹",
+      "affected_components": [
+        "核心筒分区"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "inner_floor_diameters",
+      "name": "标准圆楼板直径端值",
+      "value": [
+        82.2,
+        46.5
+      ],
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_STRUCT"
+      ],
+      "source_locator": "p32；Fig3.1/3.2 p33",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "图像损坏；端值不是外幕墙宽，也不是全高线性规律",
+      "affected_components": [
+        "楼板",
+        "内表皮"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "inner_floor_profile_table",
+      "name": "各区楼板边界/退台及内皮坐标",
+      "value": null,
+      "unit": "table",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "B14_STRUCT",
+        "B14_GEOM"
+      ],
+      "source_locator": "缺逐区平面",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "不得用端值插值冒充各层实况",
+      "affected_components": [
+        "楼板",
+        "内幕墙",
+        "净間距"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "mega_column_count",
+      "name": "巨柱数量",
+      "value": 8,
+      "unit": "根",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_STRUCT",
+        "S13"
+      ],
+      "source_locator": "B14p34；S13Fig4/5",
+      "formula_and_assumptions": "至Z8顶",
+      "uncertainty": "四侧两根成组，不能8根45°均布",
+      "affected_components": [
+        "巨型框架"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "corner_column_count",
+      "name": "下部角部斜柱数量",
+      "value": 4,
+      "unit": "根",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_STRUCT",
+        "S13"
+      ],
+      "source_locator": "B14p34；S13Fig4",
+      "formula_and_assumptions": "至Z5顶",
+      "uncertainty": "准确内倾轨迹和位置待图纸",
+      "affected_components": [
+        "巨型框架"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "mega_bottom_section",
+      "name": "巨柱基底截面",
+      "value": null,
+      "unit": "m × m",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "S13",
+        "J14"
+      ],
+      "source_locator": "S13p8；2014 Jiang作者论文p516见结构报告",
+      "formula_and_assumptions": "Su5.3×4.3；Jiang5.3×3.7",
+      "uncertainty": "层位/版本差异未证实；不静默取值",
+      "affected_components": [
+        "巨柱"
+      ],
+      "source_scope": "设计来源冲突",
+      "raw_value": null,
+      "candidates": [
+        [
+          5.3,
+          4.3
+        ],
+        [
+          5.3,
+          3.7
+        ]
+      ]
+    },
+    {
+      "id": "mega_top_section",
+      "name": "巨柱顶部截面端值",
+      "value": [
+        2.4,
+        1.9
+      ],
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "S13",
+        "J14"
+      ],
+      "source_locator": "p8",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "截面方向、切角与中间表未知",
+      "affected_components": [
+        "巨柱"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "column_axes_sections",
+      "name": "逐层柱定位/内倾/截面",
+      "value": null,
+      "unit": "table",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "B14_STRUCT",
+        "S13"
+      ],
+      "source_locator": "Fig5/9仅示意",
+      "formula_and_assumptions": "可描摹拓扑，但示意比例系统误差无法界定",
+      "uncertainty": "柱不能随外幕墙螺旋扭转；没有真正定位表",
+      "affected_components": [
+        "巨型框架"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "belt_truss_groups",
+      "name": "双环带桁架组数",
+      "value": 8,
+      "unit": "组",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_STRUCT",
+        "S13"
+      ],
+      "source_locator": "B14p34；S13Fig1b",
+      "formula_and_assumptions": "每组两条平行环带、两层高",
+      "uncertainty": "弦杆/腹杆截面与路径未获",
+      "affected_components": [
+        "巨型框架"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "outrigger_groups",
+      "name": "伸臂桁架组数/区位",
+      "value": {
+        "count": 6,
+        "zones": [
+          2,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "unit": "rule",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_STRUCT",
+        "S13"
+      ],
+      "source_locator": "B14p34/36；S13p6",
+      "formula_and_assumptions": "两层高；原第1/3组已取消",
+      "uncertainty": "具体上下弦标高与节点表未获；不是8组",
+      "affected_components": [
+        "核心连接",
+        "巨型框架"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "truss_nodes",
+      "name": "主体环带/伸臂/径向承托节点坐标",
+      "value": null,
+      "unit": "table",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "B14_STRUCT"
+      ],
+      "source_locator": "p34–38",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "数量/机制不提供可精确生成的全部杆件",
+      "affected_components": [
+        "结构连接"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "office_storey_typical",
+      "name": "多数办公层层高",
+      "value": 4.5,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_MEP"
+      ],
+      "source_locator": "p74–75",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "多数而非全部；不能覆盖设备/避难/大堂层",
+      "affected_components": [
+        "楼板"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "office_clear_heights",
+      "name": "运营标准层室内净高",
+      "value": {
+        "Z2_Z4": 3,
+        "Z5_Z6": 2.93
+      },
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "O02"
+      ],
+      "source_locator": "技术参数/标准层净高",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "不是floor-to-floor层高",
+      "affected_components": [
+        "室内接口"
+      ],
+      "source_scope": "运营租赁",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "office_slab",
+      "name": "典型办公组合楼板总厚",
+      "value": 0.155,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_STRUCT"
+      ],
+      "source_locator": "p38",
+      "formula_and_assumptions": "80mm混凝土+75mm压型金属板深",
+      "uncertainty": "deck波纹型号未获；不适用全楼",
+      "affected_components": [
+        "办公楼板"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "mep_slab_range",
+      "name": "机电/公共设施组合楼板范围",
+      "value": [
+        0.2,
+        0.25
+      ],
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_STRUCT"
+      ],
+      "source_locator": "p38",
+      "formula_and_assumptions": "125–175mm混凝土+75mm deck",
+      "uncertainty": "具体楼层厚度需结构表",
+      "affected_components": [
+        "设备层楼板"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "floor_schedule",
+      "name": "完整逐层结构/完成面标高表",
+      "value": null,
+      "unit": "table",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "S13",
+        "B14_MEP"
+      ],
+      "source_locator": "S13 Fig6只稀疏监测层",
+      "formula_and_assumptions": "锚点另见floor_anchors.json；默认不填全楼",
+      "uncertainty": "没有平均层高冒充真实数值；未知部分暂缓",
+      "affected_components": [
+        "楼板",
+        "幕墙"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "podium_use_floors",
+      "name": "运营裙房商场层范围",
+      "value": [
+        "B2",
+        "B1",
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "unit": "楼层",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "O04"
+      ],
+      "source_locator": "正文",
+      "formula_and_assumptions": "列表另有L5会议婚礼中心",
+      "uncertainty": "用途不证明裙房全部屋面边界和层数",
+      "affected_components": [
+        "裙房接口"
+      ],
+      "source_scope": "运营期",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "podium_design_storeys",
+      "name": "2010裙房方案层数",
+      "value": 5,
+      "unit": "层",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "G01"
+      ],
+      "source_locator": "p2 Fig2",
+      "formula_and_assumptions": "L1–4零售/大堂；L5会议",
+      "uncertainty": "设计分区，未解决运营屋面/层号差异",
+      "affected_components": [
+        "裙房接口"
+      ],
+      "source_scope": "2010设计",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "podium_height",
+      "name": "裙房总高",
+      "value": null,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "G03"
+      ],
+      "source_locator": "图纸未获；官方书预览缓存38m仅线索",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "38m未获得原PDF人工核验，禁止当确认值",
+      "affected_components": [
+        "裙房"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "podium_boundary",
+      "name": "裙房各层边界/塔楼接口",
+      "value": null,
+      "unit": "table",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "G03",
+        "O04",
+        "B14_MON"
+      ],
+      "source_locator": "缺建筑平面和剖面",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "基坑23460m²不等于建筑轮廓；不能等效圆/矩形",
+      "affected_components": [
+        "裙房",
+        "底部公共空间"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "podium_pit_reference",
+      "name": "裙房基坑挖深",
+      "value": 26.7,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_MON"
+      ],
+      "source_locator": "p42",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "仅施工基坑，不是屋顶高度或建筑层高",
+      "affected_components": [
+        "施工参考"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwss_scope",
+      "name": "标准CWSS适用区",
+      "value": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unit": "zones",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_CWSS"
+      ],
+      "source_locator": "pp50–53",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "Z1/Z9需不同系统，不把通用模板延伸",
+      "affected_components": [
+        "外幕墙支承"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwss_ring_diameter",
+      "name": "环梁钢管外径",
+      "value": 0.356,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_CWSS"
+      ],
+      "source_locator": "p51 Fig3.18附近文字",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "公开设计规格，具体段号和竣工构件未获",
+      "affected_components": [
+        "CWSS"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwss_ring_thickness",
+      "name": "环梁壁厚范围",
+      "value": [
+        0.022,
+        0.025
+      ],
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_CWSS"
+      ],
+      "source_locator": "pp51–52",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "逐区分配表未获，不取均值",
+      "affected_components": [
+        "CWSS"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwss_ring_pitch",
+      "name": "环梁竖向间距范围",
+      "value": [
+        4.3,
+        4.5
+      ],
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "需推导后建模",
+      "source_ids": [
+        "B14_CWSS",
+        "G01"
+      ],
+      "source_locator": "B14p51；G01p6",
+      "formula_and_assumptions": "早期Zones7/8=4.3；其他4.5，后期按具体表核对",
+      "uncertainty": "不是全部层高或所有转换层间距",
+      "affected_components": [
+        "CWSS",
+        "外幕墙横分格"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwss_radial_sections",
+      "name": "径向撑钢管规格",
+      "value": [
+        [
+          0.219,
+          0.013
+        ],
+        [
+          0.273,
+          0.013
+        ]
+      ],
+      "unit": "m (外径,壁厚)",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_CWSS"
+      ],
+      "source_locator": "p51",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "G01早期Φ219主要壁厚22mm；后期设计另记219×13/273×13，优先后期规格系列，竣工逐区映射仍待核",
+      "affected_components": [
+        "CWSS"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwss_radial_spacing",
+      "name": "径向撑水平间距范围",
+      "value": [
+        8,
+        10
+      ],
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "需推导后建模",
+      "source_ids": [
+        "B14_CWSS"
+      ],
+      "source_locator": "p51",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "不代表每条实际弧长均等；早期G01 Z8约7m另记",
+      "affected_components": [
+        "CWSS"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwss_hanger_diam",
+      "name": "高强吊杆直径范围",
+      "value": [
+        0.06,
+        0.08
+      ],
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_CWSS"
+      ],
+      "source_locator": "p51",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "按区选型未获",
+      "affected_components": [
+        "CWSS"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwss_hanger_pair",
+      "name": "每吊点成对吊杆",
+      "value": 2,
+      "unit": "根",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_CWSS"
+      ],
+      "source_locator": "p51",
+      "formula_and_assumptions": "环梁/径撑交点",
+      "uncertainty": "25组区2与图24编号不能混为全楼统一点数",
+      "affected_components": [
+        "CWSS"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwss_hanger_positions",
+      "name": "逐区吊点数量/坐标",
+      "value": null,
+      "unit": "table",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "B14_CWSS",
+        "C12"
+      ],
+      "source_locator": "B14p51 Fig3.18；C12印刷pp178–179/PDF6–7",
+      "formula_and_assumptions": "分别登记图24编号与Z2的25组",
+      "uncertainty": "不能假定全楼24/25等角排布",
+      "affected_components": [
+        "CWSS"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwss_tabs",
+      "name": "相切处限位tab数量",
+      "value": 3,
+      "unit": "处/标准层",
+      "evidence_level": "已证实",
+      "modeling_class": "需推导后建模",
+      "source_ids": [
+        "B14_CWSS"
+      ],
+      "source_locator": "p51",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "具体区位/节点自由度需深化；不是刚性连接全部方向",
+      "affected_components": [
+        "CWSS"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwss_corner_rods",
+      "name": "角部交叉拉杆直径",
+      "value": 0.06,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "需推导后建模",
+      "source_ids": [
+        "B14_CWSS"
+      ],
+      "source_locator": "p51",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "逐节点长度/连接未获",
+      "affected_components": [
+        "CWSS"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwss_ring_closure",
+      "name": "后期环梁连续闭合",
+      "value": true,
+      "unit": "bool",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_CWSS"
+      ],
+      "source_locator": "pp52–53",
+      "formula_and_assumptions": "最终取消早期水平伸缩节点",
+      "uncertainty": "设计总结，不等同竣工验收记录；早期8道缝仅历史",
+      "affected_components": [
+        "CWSS"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwss_nodes_table",
+      "name": "铰/滑移/承托节点与自由度表",
+      "value": null,
+      "unit": "table",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "B14_CWSS",
+        "G01"
+      ],
+      "source_locator": "B14pp51–55；G01Fig14",
+      "formula_and_assumptions": "吊杆从区顶部承托；底部有竖向滑移；环向/V口释放",
+      "uncertainty": "示意机制有据，但实际节点坐标/零件加工细图不齐",
+      "affected_components": [
+        "内外层连接钢构架"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwA_plane_type",
+      "name": "建成外玻璃面板形态",
+      "value": "直立平面矩形，层间阶梯式",
+      "unit": "rule",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "Y19"
+      ],
+      "source_locator": "官方形态说明",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "V口/冠部/入口局部板型未分配，不排除例外",
+      "affected_components": [
+        "外幕墙pattern"
+      ],
+      "source_scope": "承包方竣工后",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwA_perimeter_count",
+      "name": "外层每层统一实际板数",
+      "value": null,
+      "unit": "块/层",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "G01",
+        "C12",
+        "B14_GEOM"
+      ],
+      "source_locator": "G01p11/15=144；C12=141；B14p18=138标准分格+V口",
+      "formula_and_assumptions": "6×(2+6+6+6+3)=138；138+3=141仅推测",
+      "uncertainty": "标准格/控制点/切口/整板统计口径不统一；不能默认全楼144",
+      "affected_components": [
+        "外幕墙pattern"
+      ],
+      "source_scope": "跨版本冲突",
+      "raw_value": null,
+      "candidates": [
+        144,
+        141,
+        "138 + V-notch unresolved"
+      ]
+    },
+    {
+      "id": "cwA_segment_formula",
+      "name": "2014标准半边分格构造",
+      "value": {
+        "repeat": 6,
+        "subdivisions": [
+          2,
+          6,
+          6,
+          6,
+          3
+        ],
+        "standard_total": 138
+      },
+      "unit": "rule",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "B14_GEOM"
+      ],
+      "source_locator": "p18",
+      "formula_and_assumptions": "镜像/复制六个半边后加V口",
+      "uncertainty": "还缺准确弧段端点与缺口分格；不能视为总板数",
+      "affected_components": [
+        "外幕墙pattern"
+      ],
+      "source_scope": "2014设计规则",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwA_width_reference",
+      "name": "早期标准面板最大控制宽度",
+      "value": [
+        2.25,
+        1.25
+      ],
+      "unit": "m (Z1,Z9)",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "G01"
+      ],
+      "source_locator": "p11",
+      "formula_and_assumptions": "约值，控制点距离",
+      "uncertainty": "不是常数模块；早期不同于供应商常用尺寸",
+      "affected_components": [
+        "外幕墙pattern"
+      ],
+      "source_scope": "2010设计",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwA_glass_width_limit",
+      "name": "早期玻璃生产宽度上限",
+      "value": 2.3,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "G01"
+      ],
+      "source_locator": "p11",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "生产能力设计限制，不等于每片最终宽",
+      "affected_components": [
+        "外幕墙pattern"
+      ],
+      "source_scope": "2010设计",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwA_partial_panels",
+      "name": "早期首末局部分格比例",
+      "value": [
+        0.33,
+        0.66
+      ],
+      "unit": "ratio",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "G01"
+      ],
+      "source_locator": "p11",
+      "formula_and_assumptions": "第二控制点相移33%；避开strut/吊杆/玻璃翅冲突",
+      "uncertainty": "原文约比例，不证明后期全楼同样适用",
+      "affected_components": [
+        "V口pattern"
+      ],
+      "source_scope": "2010设计",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwA_girt_offset",
+      "name": "早期环梁中心到面板控制线",
+      "value": 0.4,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "需推导后建模",
+      "source_ids": [
+        "G01",
+        "C12"
+      ],
+      "source_locator": "G01p15 Fig32；C12印刷p175",
+      "formula_and_assumptions": "外移400mm",
+      "uncertainty": "用于2014后期需明确跨版本适配假设；不是A/B净间距",
+      "affected_components": [
+        "外幕墙框架"
+      ],
+      "source_scope": "2010设计",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwA_mullion_depth",
+      "name": "早期标准铝竖梃深",
+      "value": 0.114,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "G01"
+      ],
+      "source_locator": "p15",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "不含玻璃翅；完整挤压断面未知",
+      "affected_components": [
+        "外幕墙框架"
+      ],
+      "source_scope": "2010设计",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwA_glass_fin",
+      "name": "早期玻璃翅总厚/深度",
+      "value": {
+        "thickness": 0.026,
+        "max_depth": 0.3
+      },
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "G01"
+      ],
+      "source_locator": "p15",
+      "formula_and_assumptions": "与铝竖梃连续连接",
+      "uncertainty": "节点与逐区分配不足；Z9不设翅",
+      "affected_components": [
+        "外幕墙框架"
+      ],
+      "source_scope": "2010设计",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwA_zone9_mullion",
+      "name": "早期Z9竖梃变化",
+      "value": {
+        "glass_fin": false,
+        "depth": 0.25
+      },
+      "unit": "rule",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "G01"
+      ],
+      "source_locator": "p15",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "顶冠最终深化仍待确认",
+      "affected_components": [
+        "塔冠幕墙"
+      ],
+      "source_scope": "2010设计",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwA_panel_types",
+      "name": "早期设计面板类型数",
+      "value": 8,
+      "unit": "类",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "G01"
+      ],
+      "source_locator": "p15 Fig31",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "设计类型标签不等于所有加工尺寸；V口例外未分配",
+      "affected_components": [
+        "外幕墙pattern"
+      ],
+      "source_scope": "2010设计",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cw_total_reported",
+      "name": "供应商报道面板总量/独特形状",
+      "value": {
+        "panels": 20589,
+        "unique_shapes": 7000
+      },
+      "unit": "count",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "K16"
+      ],
+      "source_locator": "PDFp2",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "A/B/裙房/统计范围未充分细分；不得用总量平均分层",
+      "affected_components": [
+        "数量核验接口"
+      ],
+      "source_scope": "2016供应商案例",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cw_glass_outer",
+      "name": "供应商外层玻璃层次",
+      "value": [
+        12,
+        1.52,
+        12
+      ],
+      "unit": "mm",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "K16",
+        "Y19",
+        "B14_GREEN"
+      ],
+      "source_locator": "K16PDFp2；Y19玻璃条目",
+      "formula_and_assumptions": "低铁玻璃+SG；总25.52mm",
+      "uncertainty": "退火/半钢化/钢化冲突及局部中空配置尚需分区材料表",
+      "affected_components": [
+        "外玻璃"
+      ],
+      "source_scope": "竣工后材料资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cw_glass_inner",
+      "name": "供应商内幕墙玻璃层次",
+      "value": [
+        6,
+        0.89,
+        6,
+        12,
+        6
+      ],
+      "unit": "mm",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "K16",
+        "B14_GREEN"
+      ],
+      "source_locator": "PDFp2",
+      "formula_and_assumptions": "6玻璃+0.89SG+6玻璃+12空气+6玻璃；名义总30.89mm",
+      "uncertainty": "2010:10+12air+8；2014专业章:8FT+12air+6FT（26mm）；2016供应商:6+0.89SG+6+12air+6（30.89mm）；完整分区及变更表未获，不全楼统一",
+      "affected_components": [
+        "内玻璃"
+      ],
+      "source_scope": "2016供应商案例",
+      "raw_value": null,
+      "candidates": [
+        {
+          "source_id": "G01",
+          "layers_mm": [
+            10,
+            12,
+            8
+          ]
+        },
+        {
+          "source_id": "B14_GREEN",
+          "layers_mm": [
+            8,
+            12,
+            6
+          ]
+        },
+        {
+          "source_id": "K16",
+          "layers_mm": [
+            6,
+            0.89,
+            6,
+            12,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cw_common_panel_sizes",
+      "name": "供应商常用尺寸",
+      "value": [
+        [
+          2100,
+          2400
+        ],
+        [
+          2100,
+          4200
+        ]
+      ],
+      "unit": "mm",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "K16"
+      ],
+      "source_locator": "PDFp2",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "未说明A/B/高度范围，不作为全楼分格规则",
+      "affected_components": [
+        "材料/数量核验"
+      ],
+      "source_scope": "2016供应商案例",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwB_module_early",
+      "name": "早期内幕墙建议模块",
+      "value": 1,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "modeling_class": "需推导后建模",
+      "source_ids": [
+        "G01"
+      ],
+      "source_locator": "G01 PDF/印刷p16",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "早期B候选，slight variations；模数不等于玻璃净宽；1.5m只作办公规划比较；后期模块未获",
+      "affected_components": [
+        "内幕墙pattern"
+      ],
+      "source_scope": "2010设计",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "cwB_grid_final",
+      "name": "后期内幕墙分格/防火/相切处规则",
+      "value": null,
+      "unit": "table",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "G01",
+        "Y19",
+        "O02",
+        "J11"
+      ],
+      "source_locator": "G01pp17–18；Y19；O02技术参数",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "逐区圆筒折线、模块和防火区分配未公开",
+      "affected_components": [
+        "内幕墙pattern"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "frit_bands",
+      "name": "承包方公开彩釉带高度",
+      "value": [
+        1125,
+        600
+      ],
+      "unit": "mm",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "Y19"
+      ],
+      "source_locator": "玻璃印花材料条目",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "不同配置，没有楼层/板号/位置分配；不能统一贴顶25%",
+      "affected_components": [
+        "外幕墙印花pattern"
+      ],
+      "source_scope": "竣工后承包方案例",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "frit_early_gradient",
+      "name": "早期外层渐变釉印设计",
+      "value": {
+        "panel_upper_fraction": 0.25,
+        "coverage_from": 0.75,
+        "coverage_to": 0.15
+      },
+      "unit": "rule",
+      "evidence_level": "已证实",
+      "modeling_class": "可直接建模",
+      "source_ids": [
+        "G01"
+      ],
+      "source_locator": "p9玻璃提案",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "待样板方案；印花点径/间距未给；被后期带状记载限定，不能当竣工全楼规律",
+      "affected_components": [
+        "外玻璃印花"
+      ],
+      "source_scope": "2010提案",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "frit_mapping",
+      "name": "彩釉点径/点距/区域与渐变分配",
+      "value": null,
+      "unit": "table",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "Y19",
+        "G01"
+      ],
+      "source_locator": "无印花网版/材料分区图",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "覆盖率不等于点径/点距；不得虚构均匀点阵",
+      "affected_components": [
+        "幕墙pattern"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    },
+    {
+      "id": "curtain_exceptions",
+      "name": "幕墙局部例外索引",
+      "value": null,
+      "unit": "table",
+      "evidence_level": "待确认",
+      "modeling_class": "资料不足暂缓",
+      "source_ids": [
+        "G01",
+        "B14_GEOM",
+        "Y19"
+      ],
+      "source_locator": "Z1/Z9、V口、tab、区界、入口、开口、特殊玻璃",
+      "formula_and_assumptions": "原文明确记载；无额外推导",
+      "uncertainty": "例外机制有据但缺板号/高度/尺寸表；不简单复制纹理",
+      "affected_components": [
+        "幕墙pattern"
+      ],
+      "source_scope": "公开设计资料",
+      "raw_value": null,
+      "candidates": null
+    }
+  ]
+}

@@ -1,0 +1,954 @@
+{
+  "cwss": {
+    "ring_pitch_m": 4.5,
+    "ring_OD_m": 0.356,
+    "ring_wall_candidate_m": 0.025,
+    "radial_OD_candidate_m": 0.273,
+    "radial_wall_m": 0.013,
+    "hanger_diameter_candidate_m": 0.08,
+    "hanger_pair_separation_display_m": 0.35,
+    "target_radial_spacing_m": 9.0,
+    "ring_glass_inset_candidate_m": 0.4,
+    "inner_support_inset_candidate_m": 0.5,
+    "ring_samples": 144
+  },
+  "frame": {
+    "pair_tangent_offset_m": 4.7,
+    "column_circle_inset_candidate_m": 2.0,
+    "mega_sections_m": [
+      [
+        3.7,
+        5.3
+      ],
+      [
+        3.4,
+        5.0
+      ],
+      [
+        3.0,
+        4.8
+      ],
+      [
+        2.8,
+        4.6
+      ],
+      [
+        2.6,
+        4.4
+      ],
+      [
+        2.5,
+        4.0
+      ],
+      [
+        2.3,
+        3.3
+      ],
+      [
+        1.9,
+        2.4
+      ]
+    ],
+    "corner_sections_m": [
+      [
+        2.4,
+        5.5
+      ],
+      [
+        2.2,
+        5.0
+      ],
+      [
+        1.8,
+        4.8
+      ],
+      [
+        1.5,
+        4.8
+      ],
+      [
+        1.2,
+        4.5
+      ]
+    ],
+    "belt_height_candidate_m": 9.0,
+    "belt_chord_radius_display_m": 0.3,
+    "belt_web_radius_display_m": 0.2,
+    "outrigger_radius_display_m": 0.3,
+    "outrigger_zones": [
+      2,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "ordinary_column_count_display": 24,
+    "ordinary_column_radius_display_m": 0.25
+  },
+  "podium": {
+    "early_design_height_m": 38.0,
+    "early_design_floors": 7,
+    "footprint_half_x_candidate_m": 98.0,
+    "footprint_half_y_candidate_m": 78.0,
+    "footprint_exponent_candidate": 3.0,
+    "samples": 144,
+    "slab_thickness_display_m": 0.225,
+    "facade_module_width_display_m": 3.0,
+    "facade_mullion_radius_display_m": 0.06
+  },
+  "closure": {
+    "bottom_start_m": 0.0,
+    "bottom_end_m": 45.0,
+    "bottom_pitch_display_m": 4.5,
+    "frame_radius_display_m": 0.025,
+    "upper_B_end_candidate_m": 579.293,
+    "upper_B_radius_candidate_m": 23.25
+  },
+  "floors": {
+    "display_lower_levels_m": [
+      0.0,
+      5.5,
+      11.0,
+      16.5
+    ],
+    "samples": 192,
+    "office_thickness_m": 0.155,
+    "public_thickness_m": 0.225,
+    "lower_thickness_m": 0.225,
+    "radial_beam_radius_display_m": 0.1,
+    "radial_beam_count_display": 16,
+    "beam_floor_stride": 12,
+    "top_default_radius_m": 23.25,
+    "roof_slab_radius_candidate_m": 17.0
+  },
+  "crown": {
+    "roof_z_m": 601.099,
+    "support_z_m": 546.993,
+    "roof_radius_fit_m": 17.0,
+    "roof_core_aperture_half_x_fit_m": 5.5,
+    "roof_core_aperture_half_y_fit_m": 15.5,
+    "collector_radial_divisions_display": 8,
+    "roof_arc_samples_display": 120,
+    "truss_count_display": 24,
+    "truss_bay_height_display_m": 4.5,
+    "truss_radial_depth_fit_m": 1.2,
+    "main_chord_radius_display_m": 0.15,
+    "web_radius_display_m": 0.08,
+    "radial_radius_display_m": 0.1,
+    "ring_radius_display_m": 0.12,
+    "central_steel_frame_radius_fit_m": 6.0,
+    "kicker_height_fit_m": 9.0,
+    "lower_frame_top_candidate_m": 542.0,
+    "lower_frame_radius_candidate_m": 23.25,
+    "lower_frame_column_inset_candidate_m": 2.0,
+    "lower_frame_pair_offset_candidate_m": 4.7,
+    "rim_coping_radius_display_m": 0.12
+  },
+  "interpretation": "Published dimensions tagged by source; all installation axes/counts and podium footprint candidates. No as-built certification. Parameters marked display/candidate are unconfirmed; geometry generation uses these inputs explicitly.",
+  "_parameter_evidence": [
+    {
+      "parameter": "cwss.ring_pitch_m",
+      "value": 4.5,
+      "unit": "m",
+      "evidence_level": "推导值",
+      "source_id": "B14_CWSS",
+      "source_locator": "p50–59 间距4.3–4.5m",
+      "formula_assumptions": "选4.5m标准示范带",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "cwss"
+    },
+    {
+      "parameter": "cwss.ring_OD_m",
+      "value": 0.356,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "source_id": "B14_CWSS",
+      "source_locator": "p50–59 CWSS截面",
+      "formula_assumptions": null,
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "cwss"
+    },
+    {
+      "parameter": "cwss.ring_wall_candidate_m",
+      "value": 0.025,
+      "unit": "m",
+      "evidence_level": "推导值",
+      "source_id": "B14_CWSS",
+      "source_locator": "p50–59 壁厚22–25mm",
+      "formula_assumptions": "选25mm，塔身杆件为OD包络，未详细空心",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "cwss"
+    },
+    {
+      "parameter": "cwss.radial_OD_candidate_m",
+      "value": 0.273,
+      "unit": "m",
+      "evidence_level": "推导值",
+      "source_id": "B14_CWSS",
+      "source_locator": "p50–59 OD219/273mm",
+      "formula_assumptions": "选273mm，未证实逐位置分配",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "cwss"
+    },
+    {
+      "parameter": "cwss.radial_wall_m",
+      "value": 0.013,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "source_id": "B14_CWSS",
+      "source_locator": "p50–59 13mm",
+      "formula_assumptions": null,
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "cwss"
+    },
+    {
+      "parameter": "cwss.hanger_diameter_candidate_m",
+      "value": 0.08,
+      "unit": "m",
+      "evidence_level": "推导值",
+      "source_id": "B14_CWSS",
+      "source_locator": "p50–59 吊杆60–80mm",
+      "formula_assumptions": "选80mm",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "cwss"
+    },
+    {
+      "parameter": "cwss.hanger_pair_separation_display_m",
+      "value": 0.35,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "cwss"
+    },
+    {
+      "parameter": "cwss.target_radial_spacing_m",
+      "value": 9.0,
+      "unit": "m",
+      "evidence_level": "推导值",
+      "source_id": "B14_CWSS",
+      "source_locator": "p50–59 径撑8–10m",
+      "formula_assumptions": "选9m，按周长/9取整，安装坐标待确认",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "cwss"
+    },
+    {
+      "parameter": "cwss.ring_glass_inset_candidate_m",
+      "value": 0.4,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "cwss"
+    },
+    {
+      "parameter": "cwss.inner_support_inset_candidate_m",
+      "value": 0.5,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "cwss"
+    },
+    {
+      "parameter": "cwss.ring_samples",
+      "value": 144,
+      "unit": "count/dimensionless",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "cwss"
+    },
+    {
+      "parameter": "frame.pair_tangent_offset_m",
+      "value": 4.7,
+      "unit": "m",
+      "evidence_level": "推导值",
+      "source_id": "S13",
+      "source_locator": "PDFp9 Fig5",
+      "formula_assumptions": "沿核心轴±4.7m读取并迁移；±.52m像素误差，系统误差无界",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "frame"
+    },
+    {
+      "parameter": "frame.column_circle_inset_candidate_m",
+      "value": 2.0,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "frame"
+    },
+    {
+      "parameter": "frame.mega_sections_m",
+      "value": [
+        [
+          3.7,
+          5.3
+        ],
+        [
+          3.4,
+          5.0
+        ],
+        [
+          3.0,
+          4.8
+        ],
+        [
+          2.8,
+          4.6
+        ],
+        [
+          2.6,
+          4.4
+        ],
+        [
+          2.5,
+          4.0
+        ],
+        [
+          2.3,
+          3.3
+        ],
+        [
+          1.9,
+          2.4
+        ]
+      ],
+      "unit": "m",
+      "evidence_level": "已证实",
+      "source_id": "D10",
+      "source_locator": "PDFp3 Table1",
+      "formula_assumptions": "2010设计表值，方向/沿高映射另候选",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "frame"
+    },
+    {
+      "parameter": "frame.corner_sections_m",
+      "value": [
+        [
+          2.4,
+          5.5
+        ],
+        [
+          2.2,
+          5.0
+        ],
+        [
+          1.8,
+          4.8
+        ],
+        [
+          1.5,
+          4.8
+        ],
+        [
+          1.2,
+          4.5
+        ]
+      ],
+      "unit": "m",
+      "evidence_level": "已证实",
+      "source_id": "D10",
+      "source_locator": "PDFp3 Table1",
+      "formula_assumptions": "2010设计表值，方向/沿高映射另候选",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "frame"
+    },
+    {
+      "parameter": "frame.belt_height_candidate_m",
+      "value": 9.0,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "frame"
+    },
+    {
+      "parameter": "frame.belt_chord_radius_display_m",
+      "value": 0.3,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "frame"
+    },
+    {
+      "parameter": "frame.belt_web_radius_display_m",
+      "value": 0.2,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "frame"
+    },
+    {
+      "parameter": "frame.outrigger_radius_display_m",
+      "value": 0.3,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "frame"
+    },
+    {
+      "parameter": "frame.outrigger_zones",
+      "value": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unit": "count/dimensionless",
+      "evidence_level": "已证实",
+      "source_id": "D10",
+      "source_locator": "PDFp2–3",
+      "formula_assumptions": "2010设计拓扑，安装杆件截面未证实",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "frame"
+    },
+    {
+      "parameter": "frame.ordinary_column_count_display",
+      "value": 24,
+      "unit": "count/dimensionless",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "frame"
+    },
+    {
+      "parameter": "frame.ordinary_column_radius_display_m",
+      "value": 0.25,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "frame"
+    },
+    {
+      "parameter": "podium.early_design_height_m",
+      "value": 38.0,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "source_id": "D10",
+      "source_locator": "PDFp2 text",
+      "formula_assumptions": "2010版本，不能当最终实物高度",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "podium"
+    },
+    {
+      "parameter": "podium.early_design_floors",
+      "value": 7,
+      "unit": "count/dimensionless",
+      "evidence_level": "已证实",
+      "source_id": "D10",
+      "source_locator": "PDFp2 text",
+      "formula_assumptions": "2010七层，与Gensler早期五层并列",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "podium"
+    },
+    {
+      "parameter": "podium.footprint_half_x_candidate_m",
+      "value": 98.0,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "podium"
+    },
+    {
+      "parameter": "podium.footprint_half_y_candidate_m",
+      "value": 78.0,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "podium"
+    },
+    {
+      "parameter": "podium.footprint_exponent_candidate",
+      "value": 3.0,
+      "unit": "count/dimensionless",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "podium"
+    },
+    {
+      "parameter": "podium.samples",
+      "value": 144,
+      "unit": "count/dimensionless",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "podium"
+    },
+    {
+      "parameter": "podium.slab_thickness_display_m",
+      "value": 0.225,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "podium"
+    },
+    {
+      "parameter": "podium.facade_module_width_display_m",
+      "value": 3.0,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "podium"
+    },
+    {
+      "parameter": "podium.facade_mullion_radius_display_m",
+      "value": 0.06,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "podium"
+    },
+    {
+      "parameter": "closure.bottom_start_m",
+      "value": 0.0,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "closure"
+    },
+    {
+      "parameter": "closure.bottom_end_m",
+      "value": 45.0,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "closure"
+    },
+    {
+      "parameter": "closure.bottom_pitch_display_m",
+      "value": 4.5,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "closure"
+    },
+    {
+      "parameter": "closure.frame_radius_display_m",
+      "value": 0.025,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "closure"
+    },
+    {
+      "parameter": "closure.upper_B_end_candidate_m",
+      "value": 579.293,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "closure"
+    },
+    {
+      "parameter": "closure.upper_B_radius_candidate_m",
+      "value": 23.25,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "closure"
+    },
+    {
+      "parameter": "floors.display_lower_levels_m",
+      "value": [
+        0.0,
+        5.5,
+        11.0,
+        16.5
+      ],
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "floors"
+    },
+    {
+      "parameter": "floors.samples",
+      "value": 192,
+      "unit": "count/dimensionless",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "floors"
+    },
+    {
+      "parameter": "floors.office_thickness_m",
+      "value": 0.155,
+      "unit": "m",
+      "evidence_level": "已证实",
+      "source_id": "B14_STRUCT",
+      "source_locator": "p38",
+      "formula_assumptions": "155mm含80混凝土+75楼承板总厚度，简化实体",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "floors"
+    },
+    {
+      "parameter": "floors.public_thickness_m",
+      "value": 0.225,
+      "unit": "m",
+      "evidence_level": "推导值",
+      "source_id": "B14_STRUCT",
+      "source_locator": "p38 200–250mm",
+      "formula_assumptions": "选225mm；用途/层位待确认",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "floors"
+    },
+    {
+      "parameter": "floors.lower_thickness_m",
+      "value": 0.225,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "floors"
+    },
+    {
+      "parameter": "floors.radial_beam_radius_display_m",
+      "value": 0.1,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "floors"
+    },
+    {
+      "parameter": "floors.radial_beam_count_display",
+      "value": 16,
+      "unit": "count/dimensionless",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "floors"
+    },
+    {
+      "parameter": "floors.beam_floor_stride",
+      "value": 12,
+      "unit": "count/dimensionless",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "floors"
+    },
+    {
+      "parameter": "floors.top_default_radius_m",
+      "value": 23.25,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "floors"
+    },
+    {
+      "parameter": "floors.roof_slab_radius_candidate_m",
+      "value": 17.0,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "floors"
+    },
+    {
+      "parameter": "crown.roof_z_m",
+      "value": 601.099,
+      "unit": "m",
+      "evidence_level": "推导值",
+      "source_id": "CROWN_NTUA_2014",
+      "source_locator": "PDFp13 Fig8",
+      "formula_assumptions": "图测±1.5m，版本系统误差无界",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "crown"
+    },
+    {
+      "parameter": "crown.support_z_m",
+      "value": 546.993,
+      "unit": "m",
+      "evidence_level": "推导值",
+      "source_id": "CROWN_NTUA_2014",
+      "source_locator": "PDFp13 Fig8",
+      "formula_assumptions": "图测±1.5m，版本系统误差无界",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "crown"
+    },
+    {
+      "parameter": "crown.roof_radius_fit_m",
+      "value": 17.0,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "crown"
+    },
+    {
+      "parameter": "crown.roof_core_aperture_half_x_fit_m",
+      "value": 5.5,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "crown"
+    },
+    {
+      "parameter": "crown.roof_core_aperture_half_y_fit_m",
+      "value": 15.5,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "crown"
+    },
+    {
+      "parameter": "crown.collector_radial_divisions_display",
+      "value": 8,
+      "unit": "count/dimensionless",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "crown"
+    },
+    {
+      "parameter": "crown.roof_arc_samples_display",
+      "value": 120,
+      "unit": "count/dimensionless",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "crown"
+    },
+    {
+      "parameter": "crown.truss_count_display",
+      "value": 24,
+      "unit": "count/dimensionless",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "crown"
+    },
+    {
+      "parameter": "crown.truss_bay_height_display_m",
+      "value": 4.5,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "crown"
+    },
+    {
+      "parameter": "crown.truss_radial_depth_fit_m",
+      "value": 1.2,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "crown"
+    },
+    {
+      "parameter": "crown.main_chord_radius_display_m",
+      "value": 0.15,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "crown"
+    },
+    {
+      "parameter": "crown.web_radius_display_m",
+      "value": 0.08,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "crown"
+    },
+    {
+      "parameter": "crown.radial_radius_display_m",
+      "value": 0.1,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "crown"
+    },
+    {
+      "parameter": "crown.ring_radius_display_m",
+      "value": 0.12,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "crown"
+    },
+    {
+      "parameter": "crown.central_steel_frame_radius_fit_m",
+      "value": 6.0,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "crown"
+    },
+    {
+      "parameter": "crown.kicker_height_fit_m",
+      "value": 9.0,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": null,
+      "source_locator": null,
+      "formula_assumptions": "明确显示候选；无实测/图纸尺寸依据，需替换，误差未能量化",
+      "uncertainty": "公开设计资料范围，未确认竣工；候选安装位置误差无界",
+      "model_component": "crown"
+    },
+    {
+      "parameter": "crown.lower_frame_top_candidate_m",
+      "value": 542.0,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": "D10 / CROWN_NTUA_2014",
+      "source_locator": "D10 Fig5 / NTUA Fig8–9",
+      "formula_assumptions": "Bridging source-version gap with explicitly candidate member paths, not final transition drawings.",
+      "uncertainty": "Installation axes/sections unbounded",
+      "model_component": "crown_base_transition"
+    },
+    {
+      "parameter": "crown.lower_frame_radius_candidate_m",
+      "value": 23.25,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": "D10 / CROWN_NTUA_2014",
+      "source_locator": "D10 Fig5 / NTUA Fig8–9",
+      "formula_assumptions": "Bridging source-version gap with explicitly candidate member paths, not final transition drawings.",
+      "uncertainty": "Installation axes/sections unbounded",
+      "model_component": "crown_base_transition"
+    },
+    {
+      "parameter": "crown.lower_frame_column_inset_candidate_m",
+      "value": 2.0,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": "D10 / CROWN_NTUA_2014",
+      "source_locator": "D10 Fig5 / NTUA Fig8–9",
+      "formula_assumptions": "Bridging source-version gap with explicitly candidate member paths, not final transition drawings.",
+      "uncertainty": "Installation axes/sections unbounded",
+      "model_component": "crown_base_transition"
+    },
+    {
+      "parameter": "crown.lower_frame_pair_offset_candidate_m",
+      "value": 4.7,
+      "unit": "m",
+      "evidence_level": "待确认",
+      "source_id": "D10 / CROWN_NTUA_2014",
+      "source_locator": "D10 Fig5 / NTUA Fig8–9",
+      "formula_assumptions": "Bridging source-version gap with explicitly candidate member paths, not final transition drawings.",
+      "uncertainty": "Installation axes/sections unbounded",
+      "model_component": "crown_base_transition"
+    }
+  ]
+}

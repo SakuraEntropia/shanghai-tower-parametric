@@ -1,0 +1,14 @@
+{
+  "software_checks": 42,
+  "software_checks_passed": true,
+  "objects": 283,
+  "base_mesh": {
+    "sha256_rounded_geometry": "5aba43072b7ad93d5de41e9ef32c26730c87320096d320b2c07174964fe1f393",
+    "mesh_count": 62,
+    "vertices": 669529,
+    "polygons": 408736
+  },
+  "inner_candidate_panels": 20253,
+  "crown_candidate_panels": 2811,
+  "tests": 27
+}

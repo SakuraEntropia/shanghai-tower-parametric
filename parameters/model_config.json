@@ -1,0 +1,235 @@
+{
+  "schema_version": "1.0",
+  "project_id": "SHANGHAI_TOWER_EVIDENCE_20261010",
+  "selected_geometry_version": "gensler_2014_reconstruction",
+  "profile": {
+    "R1_m": 88.33,
+    "L4_m": 47.665,
+    "A1_deg": 23.3,
+    "reference_line_kind": "glass_control_assumed",
+    "unresolved_notch_segment": "K2"
+  },
+  "versions": {
+    "gensler_2010_diagnostic": {
+      "z0_m": 45.0,
+      "z1_m": 605.0,
+      "remaining_ratio": 0.5586,
+      "twist_deg": 120.0,
+      "source_ids": [
+        "G01"
+      ]
+    },
+    "gensler_2014_reconstruction": {
+      "z0_m": 45.0,
+      "z1_m": 632.0,
+      "remaining_ratio": 0.55,
+      "twist_deg": 120.0,
+      "source_ids": [
+        "B14_GEOM"
+      ]
+    }
+  },
+  "orientation": {
+    "theta0_deg": 0.0,
+    "direction": 1,
+    "evidence": "待确认",
+    "meaning": "局部软件约定，非北向或实际扭转正负的确认"
+  },
+  "sampling": {
+    "profile_points": 288,
+    "envelope_z_step_m": 4.5,
+    "section_z_m": [
+      45.0,
+      99.0,
+      239.4,
+      393.3,
+      542.0,
+      605.0,
+      632.0
+    ]
+  },
+  "curtain": {
+    "main_mode": "2014_standard_derivation_not_asbuilt",
+    "half_panel_count": 23,
+    "half_groups": [
+      2,
+      6,
+      6,
+      6,
+      3
+    ],
+    "nominal_band_pitch_m": 4.5,
+    "standard_zone_reference_boundaries_m": [
+      45.0,
+      99.0,
+      173.7,
+      239.4,
+      314.1,
+      393.3,
+      465.4,
+      542.0
+    ],
+    "excluded_segment": "K2",
+    "anchor_line": "upper_gross_control_chord",
+    "mullion_depth_m": 0.114,
+    "fin_thickness_m": 0.026,
+    "fin_depth_m": 0.3,
+    "frame_face_width_display_m": 0.05,
+    "horizontal_frame_depth_display_m": 0.1,
+    "create_glass_fins_main": false,
+    "detail_sample": {
+      "source_version": "gensler_2010_diagnostic",
+      "z_bottom_m": 45.0,
+      "band_pitch_m": 4.5,
+      "bands": 3,
+      "sample_panel_count": 6,
+      "location_m": [
+        160.0,
+        0.0,
+        35.0
+      ]
+    }
+  },
+  "structure": {
+    "zone_reference_boundaries_m": [
+      -1.0,
+      33.45,
+      99.0,
+      173.7,
+      239.4,
+      314.1,
+      393.3,
+      465.4,
+      542.0
+    ],
+    "core_width_m": 30.0,
+    "core_display_top_m": 573.9,
+    "floor_mode": "published_sparse_elevation_guides_only",
+    "cwss_detail_origin_m": [
+      160.0,
+      -30.0,
+      70.0
+    ],
+    "floor_diameter_samples_origin_m": [
+      160.0,
+      50.0,
+      2.0
+    ],
+    "core_topology_display_arm_fraction": 0.3333333333333333,
+    "cwss_sample_span_display_m": 8.0,
+    "hanger_pair_separation_display_m": 0.35
+  },
+  "components": {
+    "envelope": true,
+    "core": true,
+    "floors": true,
+    "mega_frame_interfaces": true,
+    "cwss": true,
+    "podium_interface": true,
+    "curtain_A": true,
+    "curtain_B_interfaces": true,
+    "detail_samples": true
+  },
+  "display": {
+    "guide_radius_m": 0.18,
+    "control_radius_m": 0.35,
+    "label_size_m": 3.0,
+    "floor_label_x_m": 60.0,
+    "surface_preview_alpha": 0.12,
+    "show_diagnostic_mother_surface": false,
+    "image_width": 1500,
+    "image_height": 1600,
+    "render_samples": 32,
+    "render_engine": "BLENDER_EEVEE"
+  },
+  "modeling_conventions": [
+    {
+      "id": "MC01",
+      "evidence_level": "推导值",
+      "source_ids": [
+        "G01",
+        "B14_GEOM"
+      ],
+      "description": "原图R1/L4按mm解释；解析内部相切三重母形；V口未复原",
+      "uncertainty": "单位/曲线版本/施工误差未量化"
+    },
+    {
+      "id": "MC02",
+      "evidence_level": "推导值",
+      "source_ids": [
+        "B14_GEOM"
+      ],
+      "description": "2014母形45–632m，55%按剩余0.55，局部theta0=0正向CCW",
+      "uncertainty": "方向仅展示约定；q可能按减少55%解读；塔冠裁切未知"
+    },
+    {
+      "id": "MC03",
+      "evidence_level": "推导值",
+      "source_ids": [
+        "B14_GEOM"
+      ],
+      "description": "每半角等弧长23格，分组2/6/6/6/3；五组真实弧长未获",
+      "uncertainty": "138为未含V口的标准规则；完整K2段留空只是保守显示排除范围，非真实缺口边界"
+    },
+    {
+      "id": "MC04",
+      "evidence_level": "推导值",
+      "source_ids": [
+        "B14_GEOM",
+        "B14_CWSS",
+        "Y19"
+      ],
+      "description": "标准区示范带以4.5m从各参考区界采样，上端控制弦竖直向下挤出，余数区间保留接口",
+      "uncertainty": "非真实逐层/逐带标高表；玻璃毛尺寸不等于加工净尺寸；环梁/面板工作点定位未获"
+    },
+    {
+      "id": "MC05",
+      "evidence_level": "待确认",
+      "source_ids": [
+        "G01"
+      ],
+      "description": "114mm梃与26×300mm玻璃翅仅历史节点样件；50mm梃面宽/100mm横框深为显示占位",
+      "uncertainty": "无型材截面图，展示截面不可用于加工；不跨版本称实物"
+    },
+    {
+      "id": "MC06",
+      "evidence_level": "待确认",
+      "source_ids": [
+        "S13",
+        "B14_STRUCT"
+      ],
+      "description": "30m核心外包控制体；S13加强层参考边界作为显示分区；高区拓扑用线框占位",
+      "uncertainty": "内墙/开洞/转换标高/臂宽切角未知；等分尺寸仅展示"
+    },
+    {
+      "id": "MC07",
+      "evidence_level": "待确认",
+      "source_ids": [
+        "B14_CWSS"
+      ],
+      "description": "独立CWSS尺寸样件；杆长8m、双杆分离0.35m仅展示；截面与设计间距范围有据",
+      "uncertainty": "塔身吊点/径撑与节点定位未知，样件不代表实际节点"
+    },
+    {
+      "id": "MC08",
+      "evidence_level": "待确认",
+      "source_ids": [
+        "B14_STRUCT"
+      ],
+      "description": "82.2与46.5m圆楼板端径独立样件；不把两端插值成真实逐层楼板",
+      "uncertainty": "样件位置、厚度适配与端径对应楼号未确认"
+    },
+    {
+      "id": "MC09",
+      "evidence_level": "待确认",
+      "source_ids": [
+        "G01",
+        "B14_GEOM"
+      ],
+      "description": "默认轮廓暂按玻璃毛控制线解释，400mm偏心只在历史样件示意，不给所有幕墙二次外扩",
+      "uncertainty": "真实控制线类别及工作点对应未统一"
+    }
+  ],
+  "completion_data_file": "parameters/completion.json",
+  "completion_enabled": true
+}

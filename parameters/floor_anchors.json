@@ -1,0 +1,235 @@
+{
+  "schema_version": "1.0",
+  "source_id": "S13",
+  "anchors": [
+    {
+      "source_floor_label": "F5",
+      "normalized_floor_id": null,
+      "crosswalk_status": "unresolved",
+      "z_m": 22.22,
+      "datum": "S13设计图基准；与建筑±0/入口偏移未证实",
+      "evidence_level": "已证实",
+      "source_id": "S13",
+      "source_locator": "Accepted manuscript PDFp12 Fig6",
+      "source_scope": "监测层名义标高；非完整结构/完成面表",
+      "uncertainty": "原图可读；与楼面完成/结构标高关系需图纸，未发表公差"
+    },
+    {
+      "source_floor_label": "F7",
+      "normalized_floor_id": null,
+      "crosswalk_status": "unresolved",
+      "z_m": 33.45,
+      "datum": "S13设计图基准；与建筑±0/入口偏移未证实",
+      "evidence_level": "已证实",
+      "source_id": "S13",
+      "source_locator": "Accepted manuscript PDFp12 Fig6",
+      "source_scope": "监测层名义标高；非完整结构/完成面表",
+      "uncertainty": "原图可读；与楼面完成/结构标高关系需图纸，未发表公差"
+    },
+    {
+      "source_floor_label": "F14",
+      "normalized_floor_id": null,
+      "crosswalk_status": "unresolved",
+      "z_m": 65.8,
+      "datum": "S13设计图基准；与建筑±0/入口偏移未证实",
+      "evidence_level": "已证实",
+      "source_id": "S13",
+      "source_locator": "Accepted manuscript PDFp12 Fig6",
+      "source_scope": "监测层名义标高；非完整结构/完成面表",
+      "uncertainty": "原图可读；与楼面完成/结构标高关系需图纸，未发表公差"
+    },
+    {
+      "source_floor_label": "F21",
+      "normalized_floor_id": null,
+      "crosswalk_status": "unresolved",
+      "z_m": 99,
+      "datum": "S13设计图基准；与建筑±0/入口偏移未证实",
+      "evidence_level": "已证实",
+      "source_id": "S13",
+      "source_locator": "Accepted manuscript PDFp12 Fig6",
+      "source_scope": "监测层名义标高；非完整结构/完成面表",
+      "uncertainty": "原图可读；与楼面完成/结构标高关系需图纸，未发表公差"
+    },
+    {
+      "source_floor_label": "F29",
+      "normalized_floor_id": null,
+      "crosswalk_status": "unresolved",
+      "z_m": 136,
+      "datum": "S13设计图基准；与建筑±0/入口偏移未证实",
+      "evidence_level": "已证实",
+      "source_id": "S13",
+      "source_locator": "Accepted manuscript PDFp12 Fig6",
+      "source_scope": "监测层名义标高；非完整结构/完成面表",
+      "uncertainty": "原图可读；与楼面完成/结构标高关系需图纸，未发表公差"
+    },
+    {
+      "source_floor_label": "F37",
+      "normalized_floor_id": null,
+      "crosswalk_status": "unresolved",
+      "z_m": 173.7,
+      "datum": "S13设计图基准；与建筑±0/入口偏移未证实",
+      "evidence_level": "已证实",
+      "source_id": "S13",
+      "source_locator": "Accepted manuscript PDFp12 Fig6",
+      "source_scope": "监测层名义标高；非完整结构/完成面表",
+      "uncertainty": "原图可读；与楼面完成/结构标高关系需图纸，未发表公差"
+    },
+    {
+      "source_floor_label": "F44",
+      "normalized_floor_id": null,
+      "crosswalk_status": "unresolved",
+      "z_m": 206.2,
+      "datum": "S13设计图基准；与建筑±0/入口偏移未证实",
+      "evidence_level": "已证实",
+      "source_id": "S13",
+      "source_locator": "Accepted manuscript PDFp12 Fig6",
+      "source_scope": "监测层名义标高；非完整结构/完成面表",
+      "uncertainty": "原图可读；与楼面完成/结构标高关系需图纸，未发表公差"
+    },
+    {
+      "source_floor_label": "F51",
+      "normalized_floor_id": null,
+      "crosswalk_status": "unresolved",
+      "z_m": 239.4,
+      "datum": "S13设计图基准；与建筑±0/入口偏移未证实",
+      "evidence_level": "已证实",
+      "source_id": "S13",
+      "source_locator": "Accepted manuscript PDFp12 Fig6",
+      "source_scope": "监测层名义标高；非完整结构/完成面表",
+      "uncertainty": "原图可读；与楼面完成/结构标高关系需图纸，未发表公差"
+    },
+    {
+      "source_floor_label": "F60",
+      "normalized_floor_id": null,
+      "crosswalk_status": "unresolved",
+      "z_m": 280.9,
+      "datum": "S13设计图基准；与建筑±0/入口偏移未证实",
+      "evidence_level": "已证实",
+      "source_id": "S13",
+      "source_locator": "Accepted manuscript PDFp12 Fig6",
+      "source_scope": "监测层名义标高；非完整结构/完成面表",
+      "uncertainty": "原图可读；与楼面完成/结构标高关系需图纸，未发表公差"
+    },
+    {
+      "source_floor_label": "F67",
+      "normalized_floor_id": null,
+      "crosswalk_status": "unresolved",
+      "z_m": 314.1,
+      "datum": "S13设计图基准；与建筑±0/入口偏移未证实",
+      "evidence_level": "已证实",
+      "source_id": "S13",
+      "source_locator": "Accepted manuscript PDFp12 Fig6",
+      "source_scope": "监测层名义标高；非完整结构/完成面表",
+      "uncertainty": "原图可读；与楼面完成/结构标高关系需图纸，未发表公差"
+    },
+    {
+      "source_floor_label": "F76",
+      "normalized_floor_id": null,
+      "crosswalk_status": "unresolved",
+      "z_m": 355.6,
+      "datum": "S13设计图基准；与建筑±0/入口偏移未证实",
+      "evidence_level": "已证实",
+      "source_id": "S13",
+      "source_locator": "Accepted manuscript PDFp12 Fig6",
+      "source_scope": "监测层名义标高；非完整结构/完成面表",
+      "uncertainty": "原图可读；与楼面完成/结构标高关系需图纸，未发表公差"
+    },
+    {
+      "source_floor_label": "F84",
+      "normalized_floor_id": null,
+      "crosswalk_status": "unresolved",
+      "z_m": 393.3,
+      "datum": "S13设计图基准；与建筑±0/入口偏移未证实",
+      "evidence_level": "已证实",
+      "source_id": "S13",
+      "source_locator": "Accepted manuscript PDFp12 Fig6",
+      "source_scope": "监测层名义标高；非完整结构/完成面表",
+      "uncertainty": "原图可读；与楼面完成/结构标高关系需图纸，未发表公差"
+    },
+    {
+      "source_floor_label": "F92",
+      "normalized_floor_id": null,
+      "crosswalk_status": "unresolved",
+      "z_m": 428.9,
+      "datum": "S13设计图基准；与建筑±0/入口偏移未证实",
+      "evidence_level": "已证实",
+      "source_id": "S13",
+      "source_locator": "Accepted manuscript PDFp12 Fig6",
+      "source_scope": "监测层名义标高；非完整结构/完成面表",
+      "uncertainty": "原图可读；与楼面完成/结构标高关系需图纸，未发表公差"
+    },
+    {
+      "source_floor_label": "F100",
+      "normalized_floor_id": null,
+      "crosswalk_status": "unresolved",
+      "z_m": 465.4,
+      "datum": "S13设计图基准；与建筑±0/入口偏移未证实",
+      "evidence_level": "已证实",
+      "source_id": "S13",
+      "source_locator": "Accepted manuscript PDFp12 Fig6",
+      "source_scope": "监测层名义标高；非完整结构/完成面表",
+      "uncertainty": "原图可读；与楼面完成/结构标高关系需图纸，未发表公差"
+    },
+    {
+      "source_floor_label": "F109",
+      "normalized_floor_id": null,
+      "crosswalk_status": "unresolved",
+      "z_m": 505.5,
+      "datum": "S13设计图基准；与建筑±0/入口偏移未证实",
+      "evidence_level": "已证实",
+      "source_id": "S13",
+      "source_locator": "Accepted manuscript PDFp12 Fig6",
+      "source_scope": "监测层名义标高；非完整结构/完成面表",
+      "uncertainty": "原图可读；与楼面完成/结构标高关系需图纸，未发表公差"
+    },
+    {
+      "source_floor_label": "F117",
+      "normalized_floor_id": null,
+      "crosswalk_status": "unresolved",
+      "z_m": 542,
+      "datum": "S13设计图基准；与建筑±0/入口偏移未证实",
+      "evidence_level": "已证实",
+      "source_id": "S13",
+      "source_locator": "Accepted manuscript PDFp12 Fig6",
+      "source_scope": "监测层名义标高；非完整结构/完成面表",
+      "uncertainty": "原图可读；与楼面完成/结构标高关系需图纸，未发表公差"
+    },
+    {
+      "source_floor_label": "F121",
+      "normalized_floor_id": null,
+      "crosswalk_status": "unresolved",
+      "z_m": 561,
+      "datum": "S13设计图基准；与建筑±0/入口偏移未证实",
+      "evidence_level": "已证实",
+      "source_id": "S13",
+      "source_locator": "Accepted manuscript PDFp12 Fig6",
+      "source_scope": "监测层名义标高；非完整结构/完成面表",
+      "uncertainty": "原图可读；与楼面完成/结构标高关系需图纸，未发表公差"
+    },
+    {
+      "source_floor_label": "F124",
+      "normalized_floor_id": null,
+      "crosswalk_status": "unresolved",
+      "z_m": 573.9,
+      "datum": "S13设计图基准；与建筑±0/入口偏移未证实",
+      "evidence_level": "已证实",
+      "source_id": "S13",
+      "source_locator": "Accepted manuscript PDFp12 Fig6",
+      "source_scope": "监测层名义标高；非完整结构/完成面表",
+      "uncertainty": "原图可读；与楼面完成/结构标高关系需图纸，未发表公差"
+    }
+  ],
+  "additional_references": [
+    {
+      "label": "source_base",
+      "z_m": -1,
+      "locator": "PDFp6 Fig1b"
+    },
+    {
+      "label": "crown_monitor_point",
+      "z_m": 599.7,
+      "locator": "PDFp12 Fig6",
+      "note": "非建筑最高点"
+    }
+  ]
+}

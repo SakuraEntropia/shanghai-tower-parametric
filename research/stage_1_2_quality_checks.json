@@ -1,0 +1,126 @@
+{
+  "research_date": "2026-10-10",
+  "scope": "阶段一、二的数据完整性与文档检查；不是Blender模型几何测试",
+  "checks": [
+    {
+      "check": "unique_source_ids",
+      "passed": true,
+      "detail": "24 sources"
+    },
+    {
+      "check": "unique_parameter_ids",
+      "passed": true,
+      "detail": "94 parameters"
+    },
+    {
+      "check": "source_references_resolve",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "parameter_schema_fields",
+      "passed": true,
+      "detail": {}
+    },
+    {
+      "check": "stage_1_2_only",
+      "passed": true,
+      "detail": {
+        "parameters": 94,
+        "sources": 24,
+        "anchors": 18
+      }
+    },
+    {
+      "check": "unknown_model_settings_retained",
+      "passed": true,
+      "detail": {
+        "units": "METRIC",
+        "scale_length": 1,
+        "length_unit": "METERS",
+        "up_axis": "Z",
+        "local_origin_convention": "WP1=(0,0)，非地理定位",
+        "north_alignment": null,
+        "selected_geometry_version": null,
+        "complete_floor_schedule": null
+      }
+    },
+    {
+      "check": "anchor_z_monotonic",
+      "passed": true,
+      "detail": [
+        22.22,
+        33.45,
+        65.8,
+        99,
+        136,
+        173.7,
+        206.2,
+        239.4,
+        280.9,
+        314.1,
+        355.6,
+        393.3,
+        428.9,
+        465.4,
+        505.5,
+        542,
+        561,
+        573.9
+      ]
+    },
+    {
+      "check": "anchor_crosswalk_not_guessed",
+      "passed": true,
+      "detail": "18 normalized IDs remain null"
+    },
+    {
+      "check": "classification_totals",
+      "passed": true,
+      "detail": {
+        "可直接建模": 54,
+        "资料不足暂缓": 21,
+        "需推导后建模": 19
+      }
+    },
+    {
+      "check": "evidence_levels_valid",
+      "passed": true,
+      "detail": {
+        "已证实": 63,
+        "待确认": 21,
+        "推导值": 10
+      }
+    },
+    {
+      "check": "archived_file_hashes",
+      "passed": true,
+      "detail": {
+        "files": 15,
+        "invalid": []
+      }
+    },
+    {
+      "check": "human_source_registry_complete",
+      "passed": true,
+      "detail": "24 human-readable entries"
+    },
+    {
+      "check": "reference_index_complete",
+      "passed": true,
+      "detail": "10 reference images indexed"
+    },
+    {
+      "check": "local_document_links_resolve",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "no_model_claimed_as_output",
+      "passed": true,
+      "detail": "No .blend or generator in stage 1/2 package"
+    }
+  ],
+  "all_passed": true,
+  "model_validation_status": "未执行；尚未生成本轮模型"
+}

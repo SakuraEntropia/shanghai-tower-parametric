@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-10",
+  "note": "研究存档与有限参考页；未复制全书；非模型视图",
+  "files": [
+    {
+      "file": "references/CTBUH2014_p15_geometry.png",
+      "origin": "/private/tmp/shanghai_geometry_research/ctbuh_page15_actual.png",
+      "bytes": 1179719,
+      "sha256": "cf5ce502f3d1cf1bccd2c0ed080c680eca1e1aca324033493458fdbf109532ef"
+    },
+    {
+      "file": "references/CTBUH2014_p51_CWSS.png",
+      "origin": "/private/tmp/shanghai_facade_research/book_cwss_p51.png",
+      "bytes": 632750,
+      "sha256": "68f5cac2c098a81bf113cdfc1cbec72b8c29a73d6b2e488ae778fd28801f5751"
+    },
+    {
+      "file": "references/Gensler_Fig3_profile_detail.png",
+      "origin": "/private/tmp/shanghai_geometry_research/gensler_fig3_crop.png",
+      "bytes": 614154,
+      "sha256": "191b30ce103e3bc8fb8d9f38881d192df82e7e4969fe77048f42add85b91e0f4"
+    },
+    {
+      "file": "references/Gensler_geometry-02.png",
+      "origin": "G01官方PDF对应页使用pdftoppm渲染，见docs/04_参考图索引.md",
+      "bytes": 1403599,
+      "sha256": "a10d18160183fdd781a1796320cae5cb310c0d465dee71c407793fb866fb9ad3"
+    },
+    {
+      "file": "references/Gensler_geometry-03.png",
+      "origin": "G01官方PDF对应页使用pdftoppm渲染，见docs/04_参考图索引.md",
+      "bytes": 1322765,
+      "sha256": "acef0495cfd0c41a933da3bc4e2e4744c7061a709d683a305389d9653d366b81"
+    },
+    {
+      "file": "references/Gensler_p06_CWSS.png",
+      "origin": "/private/tmp/shanghai_facade_research/gensler_cwss_p06.png",
+      "bytes": 1543550,
+      "sha256": "d69c27600eb86ab6ccecdccd81c72a6c0c6e96310ca402091f860153d628aacb"
+    },
+    {
+      "file": "references/Gensler_p11_grid_versions.png",
+      "origin": "/private/tmp/shanghai_facade_research/gensler_grid_p11.png",
+      "bytes": 1109196,
+      "sha256": "c4725607015ca425e647a68e4c776b715db2689e7370a4515f631d585404539e"
+    },
+    {
+      "file": "references/Gensler_p15_panel_details.png",
+      "origin": "/private/tmp/shanghai_facade_research/gensler_final_a_p15.png",
+      "bytes": 1148179,
+      "sha256": "97727ec571407d93f1753908b9d51b6229b345d3b61f5c75975f8575adf241cd"
+    },
+    {
+      "file": "references/Su2013_Fig4_5_structure.png",
+      "origin": "/private/tmp/shanghai_structure_research/SHM_R1_p9.png",
+      "bytes": 444773,
+      "sha256": "67a53abd2365185e582364e8fdd2bfe21e231bb4fbbc03a99260dbc215c69ecc"
+    },
+    {
+      "file": "references/Su2013_Fig6_floor_anchors.png",
+      "origin": "/private/tmp/shanghai_structure_research/SHM_R1_p12.png",
+      "bytes": 335054,
+      "sha256": "342d4009a01c5b92d7476210b05a5dee479eee3b190e9a36087b6477844d2429"
+    },
+    {
+      "file": "research/Gensler_Facade_2010_file2011.pdf",
+      "bytes": 3487714,
+      "sha256": "2258c50bcbe145001c5b990deeb27bdbaac6caca225d0c651c3b4cbf0e46be31"
+    },
+    {
+      "file": "research/Gensler_Facade_2010_file2011.txt",
+      "bytes": 58070,
+      "sha256": "7f9cc77a56ca57cdc829e605ad32c6abcc29b42cf955fdc4a27b1fd1083f9c86"
+    },
+    {
+      "file": "research/Kuraray_2016_glass.pdf",
+      "origin": "/private/tmp/shanghai_facade_research/sentryglas_shanghai_tower.pdf",
+      "bytes": 619657,
+      "sha256": "78ba798df2a87475d408cec7df12984fcceae52a9e4ea68dc4165762a94d2877"
+    },
+    {
+      "file": "research/Su_2013_SHM_R1.pdf",
+      "origin": "/private/tmp/shanghai_structure_research/SHM_R1.pdf",
+      "bytes": 816921,
+      "sha256": "dfb7e9264adb30f5100399cc3f8a531c9c1b699bdecf0cae74f6184567820359"
+    },
+    {
+      "file": "research/Yuanda_project_zh.html",
+      "origin": "/private/tmp/shanghai_facade_research/yuanda_project_zh.html",
+      "bytes": 130877,
+      "sha256": "f4b6966a6ba13e660b9e1e2a495adb0e17f300a7afb676f33ded137cb82aab0b"
+    }
+  ]
+}
