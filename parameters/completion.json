@@ -866,7 +866,261 @@
         "coordinate_evidence": "Three unglazed groups confirmed; s mapping and lower/upper boundaries uncalibrated candidates; owner L124574m anchor"
       }
     ],
-    "wind_opening_policy": "Real removed faces across source-informed candidate sectors, not dark material;270count confirmed, no exact aperture layout assertion."
+    "wind_opening_policy": "Real removed faces across source-informed candidate sectors, not dark material;270count confirmed, no exact aperture layout assertion.",
+    "vent_openings_candidate": [
+      {
+        "id": "UPPER_RECT_R1_01",
+        "s_min": 0.11499999999999999,
+        "s_max": 0.125,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "source_ids": [
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": true,
+        "spans_candidate_glass_bands": 2,
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+      },
+      {
+        "id": "UPPER_RECT_R1_02",
+        "s_min": 0.165,
+        "s_max": 0.17500000000000002,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "source_ids": [
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": true,
+        "spans_candidate_glass_bands": 2,
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+      },
+      {
+        "id": "UPPER_RECT_R1_03",
+        "s_min": 0.215,
+        "s_max": 0.225,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "source_ids": [
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": true,
+        "spans_candidate_glass_bands": 2,
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+      },
+      {
+        "id": "UPPER_RECT_R1_04",
+        "s_min": 0.445,
+        "s_max": 0.455,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "source_ids": [
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": true,
+        "spans_candidate_glass_bands": 2,
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+      },
+      {
+        "id": "UPPER_RECT_R1_05",
+        "s_min": 0.495,
+        "s_max": 0.505,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "source_ids": [
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": true,
+        "spans_candidate_glass_bands": 2,
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+      },
+      {
+        "id": "UPPER_RECT_R1_06",
+        "s_min": 0.545,
+        "s_max": 0.555,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "source_ids": [
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": true,
+        "spans_candidate_glass_bands": 2,
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+      },
+      {
+        "id": "UPPER_RECT_R1_07",
+        "s_min": 0.775,
+        "s_max": 0.785,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "source_ids": [
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": true,
+        "spans_candidate_glass_bands": 2,
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+      },
+      {
+        "id": "UPPER_RECT_R1_08",
+        "s_min": 0.825,
+        "s_max": 0.835,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "source_ids": [
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": true,
+        "spans_candidate_glass_bands": 2,
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+      },
+      {
+        "id": "UPPER_RECT_R1_09",
+        "s_min": 0.875,
+        "s_max": 0.885,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "source_ids": [
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": true,
+        "spans_candidate_glass_bands": 2,
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+      },
+      {
+        "id": "UPPER_RECT_R2_01",
+        "s_min": 0.11499999999999999,
+        "s_max": 0.125,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "source_ids": [
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": true,
+        "spans_candidate_glass_bands": 2,
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+      },
+      {
+        "id": "UPPER_RECT_R2_02",
+        "s_min": 0.165,
+        "s_max": 0.17500000000000002,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "source_ids": [
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": true,
+        "spans_candidate_glass_bands": 2,
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+      },
+      {
+        "id": "UPPER_RECT_R2_03",
+        "s_min": 0.215,
+        "s_max": 0.225,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "source_ids": [
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": true,
+        "spans_candidate_glass_bands": 2,
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+      },
+      {
+        "id": "UPPER_RECT_R2_04",
+        "s_min": 0.445,
+        "s_max": 0.455,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "source_ids": [
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": true,
+        "spans_candidate_glass_bands": 2,
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+      },
+      {
+        "id": "UPPER_RECT_R2_05",
+        "s_min": 0.495,
+        "s_max": 0.505,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "source_ids": [
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": true,
+        "spans_candidate_glass_bands": 2,
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+      },
+      {
+        "id": "UPPER_RECT_R2_06",
+        "s_min": 0.545,
+        "s_max": 0.555,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "source_ids": [
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": true,
+        "spans_candidate_glass_bands": 2,
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+      },
+      {
+        "id": "UPPER_RECT_R2_07",
+        "s_min": 0.775,
+        "s_max": 0.785,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "source_ids": [
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": true,
+        "spans_candidate_glass_bands": 2,
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+      },
+      {
+        "id": "UPPER_RECT_R2_08",
+        "s_min": 0.825,
+        "s_max": 0.835,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "source_ids": [
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": true,
+        "spans_candidate_glass_bands": 2,
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+      },
+      {
+        "id": "UPPER_RECT_R2_09",
+        "s_min": 0.875,
+        "s_max": 0.885,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "source_ids": [
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": true,
+        "spans_candidate_glass_bands": 2,
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+      }
+    ]
   },
   "accuracy": "Derived solid reconstruction; not verified as-built; all geometric mapping assumptions retained"
 }

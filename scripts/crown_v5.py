@@ -138,6 +138,7 @@ def build_detail(ctx,geometry,candidate,assembly,p):
           'evidence_level':'待确认','approximation':True,'asbuilt_verified':False,
           'geometry_role':'crown_roof_and_trusses_candidate','station_mapping_evidence':'待确认',
           'fabrication_verified':False,'source_topology_confirmed':True,
+          'steel_axis_clearance_candidate_m':p['crown_glass_steel_clearance_display_m'],
           'formula':'Shared actual-z rim controls; source-informed steep inner lattice and wide horizontal return; independent central deck apertures',
           'uncertainty':'Actual image is oblique, uncalibrated. Dimensions, azimuth, counts, exact equipment functions and fabrication sections unbounded; NTUA elevation samples approximately±1.5m plus unresolved datum/version.',
           'used_parameters':p}
@@ -227,7 +228,7 @@ def build_detail(ctx,geometry,candidate,assembly,p):
     for station in grid:
         top=trim_height(station['s'],candidate)
         levels=sorted(set(floorlevels+[z for z in upperlevels if z<top]+[top]))
-        point=lambda z,inset=0:rim_point(geometry,ctx.config,station,candidate,inset,z)
+        point=lambda z,inset=0:rim_point(geometry,ctx.config,station,candidate,inset+p['crown_glass_steel_clearance_display_m'],z)
         chords.extend(([point(z) for z in levels],[point(z,depth) for z in levels]))
         for j,(z0,z1) in enumerate(zip(levels,levels[1:])):
             webs.extend(([point(z0,depth if j%2 else 0),point(z1,0 if j%2 else depth)],
@@ -254,8 +255,8 @@ def build_detail(ctx,geometry,candidate,assembly,p):
     for z in ringlevels+upperlevels:
         for a,b in zip(grid,grid[1:]):
             if z<min(trim_height(a['s'],candidate),trim_height(b['s'],candidate)):
-                rings.extend(([rim_point(geometry,ctx.config,a,candidate,0,z),rim_point(geometry,ctx.config,b,candidate,0,z)],
-                   [rim_point(geometry,ctx.config,a,candidate,depth,z),rim_point(geometry,ctx.config,b,candidate,depth,z)]))
+                rings.extend(([rim_point(geometry,ctx.config,a,candidate,p['crown_glass_steel_clearance_display_m'],z),rim_point(geometry,ctx.config,b,candidate,p['crown_glass_steel_clearance_display_m'],z)],
+                   [rim_point(geometry,ctx.config,a,candidate,depth+p['crown_glass_steel_clearance_display_m'],z),rim_point(geometry,ctx.config,b,candidate,depth+p['crown_glass_steel_clearance_display_m'],z)]))
     for j in range(1,int(p['collector_primary_ring_divisions_display'])):
         bands.append([collector_point(geometry,ctx.config,s,candidate,p,roof_z,j/int(p['collector_primary_ring_divisions_display'])) for s in stations])
     ctx.lines('CROWN_V5_INNER_PRIMARY_RADIAL_RIBS',ribs,'75_CROWN_STEEL_CANDIDATE',p['collector_primary_rib_radius_display_m'],'steel',meta)
@@ -263,16 +264,16 @@ def build_detail(ctx,geometry,candidate,assembly,p):
     for proportion in p['structural_corner_proportions_display']:
         i=min(len(grid)-2,max(0,round(proportion*(len(grid)-1))));a,b=grid[i:i+2]
         for z0,z1 in zip(floorlevels,floorlevels[1:]):
-            corners.append([rim_point(geometry,ctx.config,a,candidate,0,z0),rim_point(geometry,ctx.config,b,candidate,0,z1)])
+            corners.append([rim_point(geometry,ctx.config,a,candidate,p['crown_glass_steel_clearance_display_m'],z0),rim_point(geometry,ctx.config,b,candidate,p['crown_glass_steel_clearance_display_m'],z1)])
     columnaxis=float(legacy.get('lower_frame_radius_candidate_m',23.25))-float(legacy.get('lower_frame_column_inset_candidate_m',2))
     pair=float(legacy.get('lower_frame_pair_offset_candidate_m',4.7))
     columns=[(sign*columnaxis,o,lower_z) for sign in(-1,1) for o in(-pair,pair)]
     columns += [(o,sign*columnaxis,lower_z) for sign in(-1,1) for o in(-pair,pair)]
     columns.sort(key=lambda q:math.atan2(q[1],q[0]));transition=[]
     for station in grid:
-        foot=rim_point(geometry,ctx.config,station,candidate,0,base)
+        foot=rim_point(geometry,ctx.config,station,candidate,p['crown_glass_steel_clearance_display_m'],base)
         support=min(columns,key=lambda q:math.dist(foot,q));transition.append([support,foot])
-    transition.extend((columns+[columns[0]],[rim_point(geometry,ctx.config,s,candidate,0,base) for s in grid]))
+    transition.extend((columns+[columns[0]],[rim_point(geometry,ctx.config,s,candidate,p['crown_glass_steel_clearance_display_m'],base) for s in grid]))
     objects=[rim.name,deck.name]
     for name,paths,radius in [('OUTER_DOUBLE_CHORD_TRUSSES',chords,chordrad),('OUTER_TRUSS_WEBS',webs,webrad),
        ('RADIAL_CORE_STEEL_FRAME_STRUTS',radials,p['structural_radial_radius_display_m']),('INNER_KICKER_TRUSSES_ABOVE_ROOF',kickers,chordrad),
@@ -344,39 +345,11 @@ def _tmd_hall(ctx,p,meta,roof_z):
     rail_radius=mass_radius+p['tmd_visitor_guard_offset_fit_m'];rail_z=hall_z+p['tmd_visitor_guard_height_fit_m']
     ring=[(center[0]+rail_radius*math.cos(i*2*math.pi/96),center[1]+rail_radius*math.sin(i*2*math.pi/96),rail_z) for i in range(97)]
     ctx.lines('TMD_V6_VISITOR_GUARDRAIL_RING',[ring]+[[(x,y,hall_z),(x,y,rail_z)] for x,y,z in ring[::4]],collection,p['tmd_visitor_guard_radius_display_m'],'steel',local)
-    # Almond-shaped nested sculpture blades, intentionally source-fit, not an
-    # exact reproduction of the artist's original geometrical specification.
-    eye_quads=[]
-    for layer in range(int(p['tmd_eye_nested_blade_count_display'])):
-        scale=1-layer*p['tmd_eye_nested_scale_step_fit'];w=p['tmd_eye_width_fit_m']*scale;h=p['tmd_eye_height_fit_m']*scale
-        bottom=hall_z+(p['tmd_eye_height_fit_m']-h)/2
-        outline=[(side*w*.5*math.sin(math.pi*t),bottom+h*t) for side,sequence in ((1,range(33)),(-1,range(32,-1,-1))) for t in [j/32 for j in sequence]]
-        width=p['tmd_eye_blade_width_fit_m'];depth=p['tmd_eye_blade_depth_fit_m']
-        for a,b in zip(outline,outline[1:]+outline[:1]):
-            if math.dist(a,b)<1e-8:continue
-            dx,dz=b[0]-a[0],b[1]-a[1];length=math.hypot(dx,dz);nx,nz=-dz/length*width/2,dx/length*width/2
-            cross=[(center[0]+a[0]+nx,center[1]-depth/2,a[1]+nz),(center[0]+b[0]+nx,center[1]-depth/2,b[1]+nz),
-                   (center[0]+b[0]-nx,center[1]-depth/2,b[1]-nz),(center[0]+a[0]-nx,center[1]-depth/2,a[1]-nz)]
-            back=[(x,y+depth,z) for x,y,z in cross]
-            eye_quads.extend((cross,list(reversed(back))))
-            eye_quads.extend([cross[i],back[i],back[(i+1)%4],cross[(i+1)%4]] for i in range(4))
-    _quad_mesh(ctx,'TMD_V6_EYE_NESTED_ALMOND_SCULPTURE_PHOTO_FIT',eye_quads,collection,'tmd_eye',local)
-    # Interior ornamental canopy is allowed to curve; exterior crown generators
-    # above remain exactly straight. Three wide lower scallops are photo-fit.
-    decorative=[];n=int(p['tmd_canopy_rib_count_display'])
-    for i in range(n):
-        phi=i*2*math.pi/n;path=[]
-        lower=hall_z+p['tmd_canopy_low_offset_fit_m']+p['tmd_canopy_scallop_rise_fit_m']*max(0,math.cos(3*phi))**2
-        for j in range(25):
-            u=j/24;r=radius+(p['deck_oculus_radius_fit_m']-radius)*u*u
-            cx,cy=center[0]*u*u,center[1]*u*u
-            path.append((cx+r*math.cos(phi),cy+r*math.sin(phi),lower+(roof_z-p['deck_recess_depth_fit_m']-lower)*u))
-        decorative.append(path)
-    ctx.lines('TMD_V6_INTERIOR_ORNAMENTAL_CANOPY_CURVED_RIBS',decorative,collection,p['tmd_canopy_rib_radius_display_m'],'tmd_hall',
-              {**local,'geometry_role':'tmd_art_hall_decorative_canopy_candidate','formula':'Curved decorative ribs with three broad scalloped lower limits, observed owner interior image; distinct from exterior straight ruled net'})
+    from crown_art_v7 import build_art
+    art=build_art(ctx,p,local,roof_z,center)
     return {'owner_floor_m':hall_z,'design_floor_candidate_m':583.258,'difference_m':hall_z-583.258,
             'physical_mass_tonnes':1000,'floor_span_confirmed':5,'sculpture_30m_statement_extent':'unresolved; not used as height',
-            'asbuilt_coordinates_verified':False,'camera_candidate':{'position':(0,-13,hall_z+3.2),'target':(0,center[1],hall_z+5)}}
+            'art_topology_fit':art,'asbuilt_coordinates_verified':False,'camera_candidate':{'position':(0,-13,hall_z+3.2),'target':(0,center[1],hall_z+5)}}
 
 
 def _turbines(ctx,geometry,candidate,p,meta):

@@ -9,7 +9,7 @@ DETAIL='66_PODIUM_DETAIL_CANDIDATE'
 
 
 def _meta(role,p,**extra):
-    source_ids=[SOURCE]
+    source_ids=[SOURCE,'PODIUM_LINGYUN_BIM_V7']
     if role.startswith('podium_arch_') or role=='podium_ground_photo_arched_glazing':source_ids=['PODIUM_GENS_GROUND_V6']
     if role=='podium_photo_derived_roof':source_ids=[SOURCE,'PODIUM_GENS_GROUND_V6']
     result={'source_ids':source_ids, 'source_locator':'Gensler aerial image95597 and actual podium ground image95598; historical Retail Podium hero4907/4908 kept separate',
@@ -18,7 +18,7 @@ def _meta(role,p,**extra):
             'geometry_role':role, 'formula':'Photo-informed local candidate controls, not calibrated image-to-world measurements',
             'uncertainty':p['uncertainty'], 'orientation_georeferenced':False, 'floor_schedule_verified':False,
             'material_specification_verified':False,
-            'source_conflict':'D10 early2010 seven floors /38m retained as historical scheme; not used as final podium dimensions'}
+            'source_conflict':'D10 7/38m; contractor article7/37m vs tender5/38.245m. Public original and final revision missing; candidate37m chosen without as-built assertion'}
     result.update(extra)
     return result
 
@@ -266,8 +266,20 @@ def _arched_mouth(ctx,p):
         t=i/count;x,y=roof_xy(p,.5,t-.5);z=mouth_top(p,t);k=len(rim)
         rim.extend(((x,y,z),(x,y,z+p['mouth_dark_return_width_candidate_m'])))
         if i:rf.append((k-2,k,k+1,k-1))
-    ctx.mesh('PODIUM_V6_LOCAL_DARK_CURVED_GLASS_RETURN',rim,rf,DETAIL,'steel',
+    ctx.mesh('PODIUM_V7_PG1_CURVED_ALUMINUM_RETURN',rim,rf,DETAIL,'dark_backing',
              _meta('podium_arch_dark_return_candidate',p,dimension_verified=False))
+    # PG1 perimeter: individually modelled grilles, distinct from glass/cable net.
+    grilles=[]
+    for j in range(count*3+1):
+        t=j/(count*3);x,y=roof_xy(p,.5,t-.5);z=mouth_top(p,t)
+        grilles.append([(x,y,z+.08),(x,y,z+p['mouth_dark_return_width_candidate_m']-.08)])
+    ctx.lines('PODIUM_V7_PG1_PERIMETER_LOUVER_GRILLE',grilles,DETAIL,.018,'steel',_meta('podium_PG1_grille_candidate',p,source_ids=['PODIUM_LINGYUN_BIM_V7'],section_spacing_verified=False))
+    # Glass joints/cable net are thin; five larger vertical lines remain an
+    # image-fit support convention, rather than full-height heavy glazing bars.
+    cables=[]
+    for j in range(1,round(p['depth_m']/1.8)):
+        t=j/round(p['depth_m']/1.8);a=_mouth_point(p,t,0);cables.append([a,(*a[:2],mouth_top(p,t))])
+    ctx.lines('PODIUM_V7_PG1_SINGLE_CABLE_NET_VERTICAL_CANDIDATE',cables,DETAIL,.006,'steel',_meta('podium_PG1_point_support_cable_candidate',p,source_ids=['PODIUM_LINGYUN_BIM_V7'],candidate_spacing_m=1.8,spacing_verified=False))
     # Pale cylindrical element visible at one side of the real mouth. Axis,
     # radius, finish and relation to structural system are still candidates.
     x,y=roof_xy(p,.5,.5);radius=q['column_radius_candidate_m'];n=q['column_samples'];h=mouth_top(p,1)
@@ -283,7 +295,14 @@ def build_podium(ctx,geometry,completion,assembly):
     p=assembly['podium_v4'];body=outline(p);n=len(body);levels=p['display_slab_levels_m'];slabs=[]
     for i,z in enumerate(levels):
         cropped=cropped_floor_outline(p,body,z)
-        slabs.append(_slab(ctx,p,f'PODIUM_V6_LEVEL_{i:02d}_CANDIDATE',cropped,z,p['slab_thickness_display_m'],'core','podium_candidate_slab').name)
+        if z>p['terrace_top_m']:
+            from crown_v5 import _cut_polygons,_extruded_polygons
+            hole=[(-p['roof_side_inner_u_left']*p['width_m'],-p['depth_m']/2),(p['roof_side_inner_u_right']*p['width_m'],-p['depth_m']/2),(p['roof_side_inner_u_right']*p['width_m'],p['roof_back_v_min']*p['depth_m']),(-p['roof_side_inner_u_left']*p['width_m'],p['roof_back_v_min']*p['depth_m'])]
+            pieces=_cut_polygons([cropped],[hole]);verts,faces=_extruded_polygons(pieces,z,p['slab_thickness_display_m'])
+            verts=[(*xy(p,x/p['width_m'],y/p['depth_m']),zz) for x,y,zz in verts]
+            obj=ctx.mesh(f'PODIUM_V7_UPPER_LEVEL_{i:02d}_WITH_TERRACE_VOID',verts,faces,COL,'core',_meta('podium_candidate_slab',p,level_m=z))
+            slabs.append(obj.name)
+        else:slabs.append(_slab(ctx,p,f'PODIUM_V7_LEVEL_{i:02d}_CANDIDATE',cropped,z,p['slab_thickness_display_m'],'core','podium_candidate_slab').name)
     # A front low shop window strip and one tall side mouth replace the v5
     # full-height perimeter glass cage. Occluded walls remain unconfirmed.
     glass=[];gf=[];opaque=[];of=[];band=p['front_opaque_band_candidate_z_m'];front_limit=-p['depth_m']/2+p['corner_radius_m']
@@ -298,15 +317,18 @@ def build_podium(ctx,geometry,completion,assembly):
             pts=_outline_global(p,lower,lo)+list(reversed(_outline_global(p,upper,hi)))
             target,faces=(glass,gf) if transparent else (opaque,of);k=len(target);target.extend(pts);faces.append((k,k+1,k+2,k+3))
     ctx.mesh('PODIUM_V6_LIMITED_LOW_FRONT_GLAZING',glass,gf,COL,'glass_detail',_meta('podium_candidate_glazing',p,placement_verified=False))
-    ctx.mesh('PODIUM_V6_FRONT_OPAQUE_AND_OCCLUDED_WALL_CANDIDATES',opaque,of,COL,'guide',
+    ctx.mesh('PODIUM_V6_FRONT_OPAQUE_AND_OCCLUDED_WALL_CANDIDATES',opaque,of,COL,'podium_stone',
              _meta('podium_unconfirmed_opaque_envelope',p,evidence_level='待确认',source_support='Aerial front band visible; occluded sides not reconstructed as verified glass'))
     frames=[];front_y=-p['depth_m']/2;half=p['width_m']/2-p['corner_radius_m']
     for i in range(p['front_vertical_divisions_candidate']+1):
         x=-half+2*half*i/p['front_vertical_divisions_candidate'];a=(*xy(p,x/p['width_m'],-.5),0);frames.append([a,(*a[:2],band[0])])
     ctx.lines('PODIUM_V6_SPARSE_FRONT_SHOP_DIVISIONS',frames,DETAIL,p['frame_radius_display_m'],'steel',_meta('podium_front_grid_candidate',p,pattern_verified=False))
     roofverts,rooffaces,boundary=roof_mesh(p)
-    ctx.mesh('PODIUM_V6_ASYMMETRIC_ROLLED_GOLD_ROOF',roofverts,rooffaces,ROOF,'podium_cladding',
-             _meta('podium_photo_derived_roof',p,joined_roof_returns=True,local_sweep_only=True,rectangular_hanging_gold_wall=False,shell_thickness_verified=False))
+    archived=ctx.mesh('PODIUM_V7_PR_CONTINUOUS_WATERPROOF_BACKING',[(x,y,z-.065) for x,y,z in roofverts],rooffaces,ROOF,'dark_backing',
+             _meta('podium_archived_coarse_mother_shell',p,joined_roof_returns=True,local_sweep_only=True,rectangular_hanging_gold_wall=False,shell_thickness_verified=False,superseded_by='PODIUM_V7_PANEL_ALIGNED_WATERPROOF_BACKING'))
+    archived.hide_render=True;archived.hide_viewport=True
+    import podium_panels_v7
+    pr_report=podium_panels_v7.build(ctx,p,_meta('podium_PR_gold_textured_glass_candidate',p))
     # Short left folded tip returns directly to the terrace. It no longer ends
     # five metres above an unsupported gap, and gets only a local thin end face.
     v=p['left_fold_front_v_candidate'];end=[]
@@ -327,7 +349,7 @@ def build_podium(ctx,geometry,completion,assembly):
             u=width[0]+(width[1]-width[0])*i/rows;du=(width[1]-width[0])*.45/rows;k=len(field)
             for uu,v in [(u,depth[0]),(u+du,depth[0]),(u+du,depth[1]),(u,depth[1])]:field.append((*roof_xy(p,uu,v),roof_height(p,uu,v)+.025))
             ff.append((k,k+1,k+2,k+3))
-        ctx.mesh('PODIUM_V6_LOCAL_THIN_ROOF_TEXTURE_FIELD',field,ff,DETAIL,'guide',
+        ctx.mesh('PODIUM_V6_LOCAL_THIN_ROOF_TEXTURE_FIELD',field,ff,DETAIL,'dark_backing',
                  _meta('podium_photo_visible_roof_striped_field',p,equipment_type_verified=False,count_verified=False,display_surface_only=True))
     q=dict(p);q.update(p['satellite_pavilion']);sat=satellite_outline(p)
     _slab(ctx,q,'PODIUM_V6_LANDSCAPE_PAVILION_BASE',sat,0,.20,'core','podium_separate_pavilion_candidate')
@@ -340,7 +362,7 @@ def build_podium(ctx,geometry,completion,assembly):
     # Geometric curve tessellation is never reused as an alleged frame pitch.
     ctx.empty('PODIUM_V6_TOWER_JUNCTION_UNCONFIRMED',(*p['junction_candidate_xy_m'],p['junction_candidate_z_m']),DETAIL,_meta('podium_tower_connection_interface',p,evidence_level='待确认'))
     edgecounts=Counter(tuple(sorted((a,b))) for f in rooffaces for a,b in zip(f,f[1:]+f[:1]))
-    return {'source_id':SOURCE,'source_ids':[SOURCE,'PODIUM_GENS_GROUND_V6'],'version':'v6-arched-mouth-reduced-candidate','slabs':slabs,'candidate_levels_m':levels,
+    return {'source_id':SOURCE,'source_ids':[SOURCE,'PODIUM_GENS_GROUND_V6'],'version':'v7-reported-PR-physical-panels-candidate','PR_panel_report':pr_report,'slabs':slabs,'candidate_levels_m':levels,
             'candidate_roof_extents_m':[0,max(v[2] for v in roofverts)],'footprint_verified':False,'asbuilt_verified':False,'orientation_verified':False,
             'used_parameters':p,'historical_conflict':p['historical_conflict'],'uncertainty':p['uncertainty'],
             'checks':[{'name':'podium_asymmetric_off_axis','passed':math.hypot(*p['center_xy_m'])>30,'actual':p['center_xy_m']},

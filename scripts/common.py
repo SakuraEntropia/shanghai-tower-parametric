@@ -15,7 +15,8 @@ def configure_glass_material(mat, display, detail=False):
     bsdf.inputs['Metallic'].default_value=opt['metallic']
     bsdf.inputs['Roughness'].default_value=opt['roughness']
     bsdf.inputs['IOR'].default_value=opt['ior']
-    bsdf.inputs['Transmission Weight'].default_value=opt['transmission']
+    bsdf.inputs['Transmission Weight'].default_value=opt.get('inner_transmission',opt['transmission']) if detail else opt['transmission']
+    bsdf.inputs['Coat Weight'].default_value=opt.get('coat_weight',0)
     bsdf.inputs['Alpha'].default_value=1.0
     mat.thickness_mode='SLAB'
     mat['evidence_level']='待确认'
@@ -36,7 +37,7 @@ def glass_material_report(objects):
         connected=bool(node and output and any(link.from_node==node for link in output.inputs['Surface'].links))
         values={key:float(node.inputs[key].default_value) if node else None
                 for key in ('Metallic','Transmission Weight','IOR','Alpha')}
-        passed=connected and values['Metallic']==0 and values['Transmission Weight']>=.99 and values['IOR']>1 and values['Alpha']==1
+        passed=connected and values['Metallic']==0 and 0<values['Transmission Weight']<=1 and values['IOR']>1 and values['Alpha']==1
         rows.append({'material':name,'node_values':values,'connected_to_surface':connected,'passed':passed,
                      'optical_specification_verified':False})
     return rows
@@ -54,6 +55,10 @@ class SceneBuilder:
         for key, rgba, metal, rough in [
             ('glass',(0.17,0.43,0.57,1),0.38,0.24),
             ('glass_detail',(0.27,0.58,0.70,1),0.18,0.28),
+            ('dark_backing',(0.025,0.033,0.04,1),0.0,0.58),
+            ('canopy_gold',(0.70,0.55,0.30,1),0.50,0.30),
+            ('podium_stone',(0.32,0.30,0.27,1),0.0,0.64),
+            ('pr_gold_glass',(0.47,0.29,0.09,1),0.0,0.16),
             ('steel',(0.42,0.48,0.53,1),0.7,0.25),
             ('tmd_eye',(0.82,0.80,0.64,1),0.25,0.34),
             ('tmd_hall',(0.42,0.27,0.10,1),0.52,0.38),
@@ -81,7 +86,17 @@ class SceneBuilder:
             bsdf.inputs['Roughness'].default_value=rough
             if key in ('glass','glass_detail') and 'glass_shader' in self.config.get('display',{}):
                 configure_glass_material(mat,self.config['display'],key=='glass_detail')
-            if key in ('tmd_eye','tmd_hall','copper','podium_cladding'):
+            if key=='pr_gold_glass':
+                bsdf.inputs['Transmission Weight'].default_value=.18
+                bsdf.inputs['IOR'].default_value=1.52
+                bsdf.inputs['Coat Weight'].default_value=.35
+            if key=='tmd_eye':
+                bsdf.inputs['Metallic'].default_value=0
+                bsdf.inputs['Base Color'].default_value=(.76,.77,.61,1)
+                noise=mat.node_tree.nodes.new('ShaderNodeTexNoise');noise.inputs['Scale'].default_value=95
+                bump=mat.node_tree.nodes.new('ShaderNodeBump');bump.inputs['Strength'].default_value=.16;bump.inputs['Distance'].default_value=.012
+                mat.node_tree.links.new(noise.outputs['Fac'],bump.inputs['Height']);mat.node_tree.links.new(bump.outputs['Normal'],bsdf.inputs['Normal'])
+            if key in ('tmd_eye','tmd_hall','copper','podium_cladding','dark_backing','canopy_gold','podium_stone','pr_gold_glass'):
                 mat['evidence_level']='待确认'
                 mat['uncertainty']='Photograph-informed color/shading candidate; not a surveyed coating or product specification. Copper function has separate TMD source evidence.'
                 mat['asbuilt_verified']=False

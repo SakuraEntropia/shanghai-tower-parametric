@@ -26,6 +26,8 @@
     "V5_11_transition_facade_v5.md": true,
     "V5_11_podium_v5.md": true,
     "V5_11_v5修正与证据.md": true,
+    "V7_13_v7参数方案与证据.md": true,
+    "V7_inner_support_v7.json": true,
     "V6_12_crown_v6.md": true,
     "V6_12_podium_v6.md": true,
     "V6_12_roof_evidence_v6.md": true,
@@ -43,6 +45,8 @@
     "30_INSTALLED_PRIMARY_FRAME_CANDIDATE",
     "31_INSTALLED_BELTS_OUTRIGGERS_CANDIDATE",
     "31_OUTRIGGER_INTERFACES",
+    "34_INNER_FLOOR_SUPPORT_CANDIDATE",
+    "35_INNER_SILL_FIRE_BACKPAN_CANDIDATE",
     "40_CWSS_ATTACHMENT_INTERFACES",
     "41_CWSS_INDEPENDENT_SPECIMENS",
     "42_INSTALLED_CWSS_CANDIDATE",
@@ -79,13 +83,13 @@
     "88_V_REENTRANT_FACADE",
     "90_VALIDATION"
   ],
-  "objects": 633,
+  "objects": 664,
   "all_objects_have_source_metadata": true,
   "geometry_signature": {
-    "sha256_rounded_geometry": "bd32e57677f0d99e524eaabea4a830fcc60ee890b905a8a2b0951c862d49c8e8",
-    "mesh_count": 346,
-    "vertices": 883070,
-    "polygons": 539840
+    "sha256_rounded_geometry": "9e20c647553d469ffa638fc177b42ddeccbeca94f3e68aacce0e38223531ef18",
+    "mesh_count": 369,
+    "vertices": 1519268,
+    "polygons": 821251
   },
   "signature_matches_generation": true,
   "passed": true,
@@ -93,7 +97,7 @@
     "slabs": 129,
     "mega_columns": 8,
     "installed_CWSS_objects": 5,
-    "podium_objects": 34,
+    "podium_objects": 46,
     "full_outer_transition_slabs": 16,
     "crown_cooling_towers": 8,
     "wind_turbine_shafts": 270,
@@ -104,8 +108,8 @@
       "material": "ST_glass",
       "node_values": {
         "Metallic": 0.0,
-        "Transmission Weight": 1.0,
-        "IOR": 1.5,
+        "Transmission Weight": 0.6200000047683716,
+        "IOR": 1.5199999809265137,
         "Alpha": 1.0
       },
       "connected_to_surface": true,
@@ -116,8 +120,8 @@
       "material": "ST_glass_detail",
       "node_values": {
         "Metallic": 0.0,
-        "Transmission Weight": 1.0,
-        "IOR": 1.5,
+        "Transmission Weight": 0.7200000286102295,
+        "IOR": 1.5199999809265137,
         "Alpha": 1.0
       },
       "connected_to_surface": true,

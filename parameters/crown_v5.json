@@ -1,5 +1,5 @@
 {
-  "version": "crown-v6-primary-source-and-openings-2026-10-11",
+  "version": "crown-v7-photo-topology-2026-10-11",
   "evidence_level": "待确认",
   "source_ids": [
     "CROWN_NTUA_2014",
@@ -9,7 +9,9 @@
     "OWNER_MEP_BUILD_V6",
     "TURBINE_ATTEY_V6",
     "TMD_MOTIONEERING_V6",
-    "WINDPODS_PRODUCT_V6"
+    "WINDPODS_PRODUCT_V6",
+    "TMD_CANOPY_PHOTO_V7",
+    "CROWN_GENS_PHOTO_V7"
   ],
   "source_scope": "Owner confirms L126583.4m, TMD and270horizontal-axis turbines in3groups; owner construction report cooling L120561m, windL124574m. Motioneering confirms1000ton steel mass,5-floor device, magnets under mass over floor-fixed copper. Actual aerial shows grated circular roof, rectangular lowered well with FULL round oculus and scattered apertures. Exact coordinates/layouts unknown.",
   "dimension_policy": "Source-confirmed attributes are separated by *_owner_m or confirmed metadata. Every other numeric value is replaceable visualization candidate; camera/datum/version uncertainty unbounded.",
@@ -176,22 +178,22 @@
   ],
   "tmd_copper_plate_radius_fit_m": 5.5,
   "tmd_copper_plate_depth_fit_m": 0.05,
-  "tmd_suspension_cable_count_display": 8,
+  "tmd_suspension_cable_count_display": 6,
   "tmd_suspension_bottom_radius_fit_m": 4.4,
-  "tmd_suspension_top_radius_fit_m": 7.0,
+  "tmd_suspension_top_radius_fit_m": 13.0,
   "tmd_suspension_cable_radius_display_m": 0.065,
   "tmd_eye_nested_blade_count_display": 5,
   "tmd_eye_nested_scale_step_fit": 0.14,
   "tmd_eye_height_fit_m": 7.0,
-  "tmd_eye_width_fit_m": 3.6,
-  "tmd_eye_blade_width_fit_m": 0.16,
-  "tmd_eye_blade_depth_fit_m": 0.3,
+  "tmd_eye_width_fit_m": 4.4,
+  "tmd_eye_blade_width_fit_m": 0.32,
+  "tmd_eye_blade_depth_fit_m": 0.42,
   "tmd_visitor_guard_offset_fit_m": 1.0,
   "tmd_visitor_guard_height_fit_m": 1.1,
   "tmd_visitor_guard_radius_display_m": 0.022,
   "tmd_cladding_seam_radius_display_m": 0.013,
-  "tmd_canopy_rib_count_display": 120,
-  "tmd_canopy_low_offset_fit_m": 7.0,
+  "tmd_canopy_rib_count_display": 360,
+  "tmd_canopy_low_offset_fit_m": 7.5,
   "tmd_canopy_scallop_rise_fit_m": 4.0,
   "tmd_canopy_rib_radius_display_m": 0.027,
   "tmd_eye_30m_extent": "Owner30m Eye refers to unresolved overall installation extent; not used as sculpture height.",
@@ -216,5 +218,63 @@
   "helipad_H_half_height_candidate_m": 3.0,
   "helipad_mark_radius_candidate_m": 0.15,
   "tmd_hall_steel_clearance_display_m": 0.25,
-  "deck_grating_density_evidence": "待确认：actual aerial reads as dense metal grating; display pitch/width only, no calibrated fabrication dimension. Candidate projected coverage 1-(1-.075/.18)^2≈0.660."
+  "deck_grating_density_evidence": "待确认：actual aerial reads as dense metal grating; display pitch/width only, no calibrated fabrication dimension. Candidate projected coverage 1-(1-.075/.18)^2≈0.660.",
+  "crown_glass_steel_clearance_display_m": 0.55,
+  "tmd_eye_open_ribbon_controls_fit": [
+    [
+      0.55,
+      0
+    ],
+    [
+      0.24,
+      0.035
+    ],
+    [
+      0,
+      0.14
+    ],
+    [
+      -0.27,
+      0.29
+    ],
+    [
+      -0.47,
+      0.5
+    ],
+    [
+      -0.43,
+      0.69
+    ],
+    [
+      -0.22,
+      0.87
+    ],
+    [
+      0.07,
+      1.015
+    ]
+  ],
+  "tmd_eye_ribbon_y_weave_fit_m": 0.16,
+  "tmd_canopy_twist_candidate_deg": 18,
+  "tmd_canopy_lamella_fill_ratio_display": 0.2,
+  "tmd_canopy_lamella_depth_display_m": 0.1,
+  "tmd_canopy_backing_depth_display_m": 0.03,
+  "tmd_canopy_slot_half_angle_candidate_deg": 5.2,
+  "tmd_canopy_slot_radial_limits_candidate": [
+    0.43,
+    0.965
+  ],
+  "tmd_canopy_slot_end_radius_uv_candidate": 0.085,
+  "tmd_canopy_slot_azimuths_candidate_deg": [
+    -120,
+    -60,
+    0,
+    60,
+    120,
+    180
+  ],
+  "tmd_canopy_slot_count_evidence": "至少两孔在业主仰拍中清晰可见；完整6孔及方位为待确认接口，不声称实物全周数量。",
+  "v6_retired_canopy": "三瓣cos(3φ)边缘与圆管顶棚撤回；闭合菱形环雕塑撤回。",
+  "tmd_fine_cables_per_slot_candidate": 4,
+  "tmd_fine_cable_radius_candidate_m": 0.012
 }

@@ -1,0 +1,95 @@
+{
+  "version": "v7",
+  "date": "2026-10-11",
+  "source_records": 43,
+  "software_checks": 208,
+  "software_checks_passed": true,
+  "unit_tests": 53,
+  "unit_tests_passed": true,
+  "independent_saved_file_reopen_passed": true,
+  "geometry_signature": {
+    "sha256_rounded_geometry": "9e20c647553d469ffa638fc177b42ddeccbeca94f3e68aacce0e38223531ef18",
+    "mesh_count": 369,
+    "vertices": 1519268,
+    "polygons": 821251
+  },
+  "asbuilt_validation": {
+    "status": "NOT_VERIFIED",
+    "reason": "No complete podium PR/shop/asbuilt geometry, crown aperture coordinate schedule, TMD2025 surface, floor crosswalk or node tables"
+  },
+  "scope": "Software rule, actual aperture topology, glass-node, crown ray/sample clearance and saved-file provenance checks; not as-built geometry verification.",
+  "objects": 664,
+  "actual_entities": {
+    "slabs": 129,
+    "mega_columns": 8,
+    "installed_CWSS_objects": 5,
+    "podium_objects": 46,
+    "full_outer_transition_slabs": 16,
+    "crown_cooling_towers": 8,
+    "wind_turbine_shafts": 270,
+    "TMD_hall_floor_top_m": 583.4000244140625
+  },
+  "current_views": [
+    "01",
+    "02",
+    "06",
+    "07",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25"
+  ],
+  "actual_glass_materials": [
+    {
+      "material": "ST_glass",
+      "node_values": {
+        "Metallic": 0.0,
+        "Transmission Weight": 0.6200000047683716,
+        "IOR": 1.5199999809265137,
+        "Alpha": 1.0
+      },
+      "connected_to_surface": true,
+      "passed": true,
+      "optical_specification_verified": false
+    },
+    {
+      "material": "ST_glass_detail",
+      "node_values": {
+        "Metallic": 0.0,
+        "Transmission Weight": 0.7200000286102295,
+        "IOR": 1.5199999809265137,
+        "Alpha": 1.0
+      },
+      "connected_to_surface": true,
+      "passed": true,
+      "optical_specification_verified": false
+    }
+  ],
+  "crown_steel_check_scope": {
+    "check": "v7_crown_steel_does_not_cross_generated_glass",
+    "passed": true,
+    "measured": {
+      "invalid": [],
+      "inspected_curve_objects": 9
+    },
+    "meaning": "Ray intersections plus .6m axis sampling minus actual bevel radius; software surface clearance only, not installed-member verification",
+    "asbuilt_verified": false
+  },
+  "podium_PR_candidate_panel_report": {
+    "panels": 6247,
+    "max_mother_surface_to_flat_panel_error_m": 0.1266242447816815,
+    "reported_nominal_length_m": 1.8,
+    "reported_east_width_m": 0.3,
+    "axis9_and_west_closed_sections_verified": false
+  }
+}

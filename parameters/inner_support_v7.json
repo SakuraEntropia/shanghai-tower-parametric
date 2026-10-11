@@ -1,0 +1,21 @@
+{
+  "version": "inner-support-v7",
+  "source_ids": [
+    "G01",
+    "B14_STRUCT",
+    "S13"
+  ],
+  "source_locator": "G01 PDFp17 Fig38(B楼板边梁/钢夹/防火烟封/背衬)；既有楼板/内筒候选表",
+  "evidence_level": "待确认",
+  "beam_depth_display_m": 0.45,
+  "beam_width_display_m": 0.23,
+  "flange_thickness_display_m": 0.025,
+  "web_thickness_display_m": 0.016,
+  "radial_joist_count_display": 24,
+  "ring_samples": 96,
+  "sill_bracket_count_display": 72,
+  "sill_bracket_inset_display_m": 0.28,
+  "shadowbox_height_display_m": 0.65,
+  "shadowbox_depth_display_m": 0.05,
+  "uncertainty": "构造层次见2010设计节点；截面/支座数量/真实终止点和竣工防火系统未知。楼板标高与圆半径继承推导候选；不将外CWSS误当内梁。"
+}

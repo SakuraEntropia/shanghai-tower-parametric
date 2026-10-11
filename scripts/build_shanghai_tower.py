@@ -25,6 +25,9 @@ import crown_detail_v3
 import assembly_v3
 import notch_v4
 import transition_v5
+import inner_support_v7
+import environment_v7
+import collision_v7
 
 
 def embed_text(name,text):
@@ -60,8 +63,7 @@ def setup(ctx):
     scene.render.film_transparent=False
     scene.world=scene.world or bpy.data.worlds.new('ST_WORLD')
     scene.world.use_nodes=True
-    scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.76,.82,.86,1)
-    scene.world.node_tree.nodes['Background'].inputs[1].default_value=.8
+    environment_v7.setup_world(scene,ctx.config['display']['sky_environment'])
     try: scene.view_settings.view_transform='AgX'
     except TypeError: pass
     for name,loc,energy,size in [('ST_KEY',(300,-350,700),5000,450),('ST_FILL',(-300,200,500),3000,400)]:
@@ -78,7 +80,8 @@ def setup(ctx):
     obj=bpy.data.objects.new('ST_TMD_HALL_SOFTLIGHT',data);obj.location=(0,0,598)
     ctx.collection('90_VALIDATION').objects.link(obj)
     ctx._meta(obj,{'geometry_role':'presentation_light','uncertainty':'Interior reading light for diagnostic camera; not an installed architectural light fixture'})
-    ctx.box('ST_DISPLAY_GROUND',(0,0,-.5),(1000,1000,1),'90_VALIDATION','ground',{'geometry_role':'presentation','uncertainty':'Display top0m; not surveyed site datum'})
+    ground_size=ctx.config['display'].get('ground_size_m',10000)
+    ctx.box('ST_DISPLAY_GROUND',(0,0,-.5),(ground_size,ground_size,1),'90_VALIDATION','ground',{'geometry_role':'presentation','uncertainty':'Display top0m; not surveyed site datum'})
     main=camera(ctx,'VIEW_01_TOWER', (780,-1050,430),(0,0,315),720)
     side=camera(ctx,'VIEW_02_SECTION',(0,-1100,315),(0,0,315),690)
     plan=camera(ctx,'VIEW_03_PLAN_45',(0,0,1100),(0,0,45),125)
@@ -92,7 +95,7 @@ def setup(ctx):
     core_plan=camera(ctx,'VIEW_09_CORE_PLAN',(0,0,1000),(0,0,60),37)
     core=camera(ctx,'VIEW_10_CORE_WALLS',(100,-150,375),(0,0,285),620)
     assembly=camera(ctx,'VIEW_11_ASSEMBLY',(320,-450,350),(0,0,305),690)
-    base=camera(ctx,'VIEW_12_GROUNDED_RETAIL',(220,-280,160),(0,0,38),270)
+    base=camera(ctx,'VIEW_12_GROUNDED_RETAIL',(-220,-235,200),(-25,-65,25),225)
     steel=camera(ctx,'VIEW_13_CWSS_INSTALLED',(115,-150,255),(0,-25,255),85)
     crown_steel=camera(ctx,'VIEW_14_CROWN_ROOF_STEEL',(150,-210,700),(0,0,596),150)
     notch=camera(ctx,'VIEW_15_V_RECESS',(100,-150,260),(0,-24,260),60)
@@ -117,7 +120,11 @@ def setup(ctx):
     wind=camera(ctx,'VIEW_21_WIND_BAYS_V6',wind_location,wind_target,33)
     cooling=camera(ctx,'VIEW_22_COOLING_CUTAWAY_V6',(65,-85,580),(0,0,565),45)
     scene.camera=main
-    return [main,side,plan,detail,node,main_near,crown,inner,core_plan,core,assembly,base,steel,crown_steel,notch,v_plan,aerial,roof_detail,transition,hall,wind,cooling]
+    podium_near=camera(ctx,'VIEW_23_PODIUM_SYSTEMS_V7',(145,-235,105),(-25,-65,20),160)
+    inner_base=camera(ctx,'VIEW_24_INNER_LOWER_SUPPORT_V7',(45,-90,34),(0,-28,48),38)
+    sky_view=camera(ctx,'VIEW_25_SKY_AND_GLASS_V7',(900,-1200,320),(0,0,315),720)
+    sky_view.data.type='PERSP';sky_view.data.lens=60
+    return [podium_near,inner_base,sky_view,main,side,plan,detail,node,main_near,crown,inner,core_plan,core,assembly,base,steel,crown_steel,notch,v_plan,aerial,roof_detail,transition,hall,wind,cooling]
 
 
 def main():
@@ -177,7 +184,7 @@ def main():
                 legacy_roof.hide_render=True;legacy_roof.hide_viewport=True
                 legacy_roof['superseded_by']='CROWN_V5_MAIN_DECK_RECT_RECESS_AND_ROUND_APERTURE'
                 legacy_roof['uncertainty']='Archived source-local F/L129 schedule proxy. Visible roof is separately rebuilt from aerial topology with rectangular recess and round aperture; no architectural floor crosswalk resolved.'
-            if assembly['crown_v5'].get('version','').startswith('crown-v6'):
+            if assembly['crown_v5'].get('version','').startswith(('crown-v6','crown-v7')):
                 for number in (126,127,128):
                     legacy_floor=bpy.data.objects.get(f'F{number:03d}_DERIVED_SLAB')
                     if legacy_floor:
@@ -185,6 +192,8 @@ def main():
                         legacy_floor['superseded_by']='TMD_V6_HALL_126_VISITOR_FLOOR_AND_OPEN_CHAMBER'
                         legacy_floor['uncertainty']='Archived design-number plate proxy intersects owner-supported L125/126 open TMD cultural volume. Candidate chamber and visitor floor now replace its visible geometry; exact source floor crosswalk remains unconfirmed.'
         physical=assembly_v3.build_assembly(ctx,geometry,completion,assembly)
+        support_params=json.loads((ROOT/'parameters/inner_support_v7.json').read_text())
+        physical['inner_support_v7']=inner_support_v7.build(ctx,floors['levels'],support_params)
         results['completion']['V_recess']=notch_v4.build_notch(ctx,geometry,completion,notch_params)
         results['assembly']={'floors':floors,'crown_detail':crown_detail,'physical':physical}
         (valdir/'assembly_report.json').write_text(json.dumps(results['assembly'],ensure_ascii=False,indent=2)+'\n')
@@ -199,10 +208,12 @@ def main():
     (valdir/'panel_registry.json').write_text(json.dumps(panel_records,ensure_ascii=False,indent=2)+'\n')
     cameras=setup(ctx)
     scene=bpy.context.scene
-    scene['project_id']=cfg['project_id'];scene['correction_version']='v6'
-    scene['accuracy_statement']='Evidence-supported correction v6: real dielectric glass shaders; straight ruled crown net, complete roof oculus, scattered opening candidates, TMD hall and glass-free Windpods bays; source-informed restricted podium glazing/cladding. Exact installed opening/equipment coordinates, optical specifications, hall shape and podium dimensions remain unconfirmed.129 candidate slabs do not resolve actual floor count; no as-built certification.'
+    scene['project_id']=cfg['project_id'];scene['correction_version']='v7'
+    scene['accuracy_statement']='v7 source-informed research reconstruction: open crossed sculpture blades, radial capsule holes cut in both canopy layers, upper two-band vents, inboard crown steel, B lower structural layers, reported PR physical glass layers and full-direction sky. Sculpture/canopy, vents, podium mother surface, structural nodes and optical values remain uncalibrated candidates. Original podium/tmd shop drawings unavailable; no as-built precision claim.'
     scene['selected_geometry_version']=cfg['selected_geometry_version']
     scene['source_datum_offset_unknown']=True
+    collision=collision_v7.inspect(ctx)
+    results['v7_collision']=collision
     report=validation.validate_scene(ctx,geometry,anchors,results)
     summary=dict(report);summary.pop('panel_mesh_diagnostics',None)
     (valdir/'validation_report.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n')
@@ -226,6 +237,8 @@ def main():
             embed_text('V5_'+path.name,path.read_text())
         for path in (ROOT/'docs').glob('*v5*'):
             if path.is_file():embed_text('V5_'+path.name,path.read_text())
+        for path in list((ROOT/'docs').glob('*v7*'))+[ROOT/'parameters/inner_support_v7.json']:
+            if path.is_file():embed_text('V7_'+path.name,path.read_text())
         for path in (ROOT/'docs').glob('*v6*'):
             if path.is_file():embed_text('V6_'+path.name,path.read_text())
     embed_text('DESIGN_STAGE2_ARCHIVE', (ROOT/'docs/02_Blender建模方案.md').read_text())
@@ -256,12 +269,15 @@ def main():
                 o.hide_render=original_visibility[o.name]
                 if o.type=='FONT': o.hide_render=True
                 sample=any(c.name in sample_collections for c in o.users_collection)
-                if cam.name in ['VIEW_01_TOWER','VIEW_02_SECTION','VIEW_06_MAIN_PATTERN'] and sample: o.hide_render=True
+                if cam.name in ['VIEW_01_TOWER','VIEW_02_SECTION','VIEW_06_MAIN_PATTERN','VIEW_25_SKY_AND_GLASS_V7'] and sample: o.hide_render=True
                 if cam.name=='VIEW_02_SECTION' and any(c.name.startswith('80_CURTAIN_A_') for c in o.users_collection): o.hide_render=True
                 names={c.name for c in o.users_collection}
                 if cam.name in {'VIEW_02_SECTION','VIEW_11_ASSEMBLY','VIEW_13_CWSS_INSTALLED','VIEW_14_CROWN_ROOF_STEEL'}:
                     if any(n.startswith(('80_','83_','84_','86_','87_','88_','72_','73_','70_')) for n in names):o.hide_render=True
                     if sample or o.get('geometry_role') in {'research_control','published_elevation_guide_not_floor_plate','inner_zone1_control_not_installed_facade'}:o.hide_render=True
+                if cam.name=='VIEW_24_INNER_LOWER_SUPPORT_V7':
+                    if any(n.startswith(('80_','83_','84_','86_','87_','88_','72_','73_','70_','42_','64_','65_','66_')) for n in names) or sample:o.hide_render=True
+                if cam.name=='VIEW_23_PODIUM_SYSTEMS_V7' and sample:o.hide_render=True
                 if cam.name=='VIEW_22_COOLING_CUTAWAY_V6':
                     if any(n.startswith(('80_','83_','84_','86_','87_','88_','72_','73_','70_')) for n in names) or sample:o.hide_render=True
                 if cam.name=='VIEW_08_INNER' and any(n.startswith(('86_','87_')) for n in names):o.hide_render=True
@@ -288,7 +304,7 @@ def main():
             bpy.ops.render.render(write_still=True)
             print('RENDERED',scene.render.filepath,flush=True)
         for o in ctx.objects: o.hide_render=original_visibility[o.name]
-        scene.camera=cameras[0]
+        scene.camera=bpy.data.objects.get('VIEW_01_TOWER')
         bpy.ops.wm.save_as_mainfile(filepath=str(filepath),compress=True)
     if not report['software_checks_passed']: raise RuntimeError('Research geometry checks failed; inspect validation_report.json')
 

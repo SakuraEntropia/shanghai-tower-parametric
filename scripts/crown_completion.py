@@ -80,7 +80,7 @@ def open_profile_stations(geometry, config, count=160, extra_stations=()):
             raise ValueError('Extra crown station must be in [0, 1]')
         stations.add(value)
     result = []
-    for s in sorted(stations):
+    for s in sorted({round(value,12) for value in stations}):
         distance, before = s*length, 0.0
         arc = selected[-1]
         for possible in selected:
@@ -144,7 +144,7 @@ def _normal(points):
 
 def wind_aperture_at(s,z,candidate):
     """Source-confirmed unglazed groups, replaceable image-fit coordinates."""
-    return next((opening for opening in candidate.get('wind_openings_candidate',[])
+    return next((opening for opening in candidate.get('wind_openings_candidate',[])+candidate.get('vent_openings_candidate',[])
                 if opening['s_min'] < s < opening['s_max'] and opening['z_min_m'] < z < opening['z_max_m']),None)
 
 
@@ -162,7 +162,7 @@ def build_crown(ctx, geometry, candidate):
     radius = _finite(candidate.get('frame_radius_display_m', .05), 'frame_radius_display_m')
     if bottom >= min(high,low,end) or pitch <= 0 or radius <= 0:
         raise ValueError('Crown base must be below its trim, and display pitch/radius positive')
-    openings=candidate.get('wind_openings_candidate',[])
+    openings=candidate.get('wind_openings_candidate',[])+candidate.get('vent_openings_candidate',[])
     extra=[mid]+[opening[key] for opening in openings for key in ('s_min','s_max')]
     stations = crown_profile_stations(geometry, config,
                 candidate.get('horizontal_sample_count_display', 160), extra)
@@ -176,7 +176,7 @@ def build_crown(ctx, geometry, candidate):
                    'sample stations are not camera-calibrated. Closed V facade is generated '
                    'separately from the same notch parameters. Crown fabrication panels and '
                    'grid remain unconfirmed; triangle tessellation is a display surface.')
-    meta = {'source_ids': [source_id, 'B14_GEOM', 'CROWN_GENS_AERIAL_V5', 'OWNER_CONSTRUCTION_V5'], 'source_locator': source_locator,
+    meta = {'source_ids': [source_id, 'B14_GEOM', 'CROWN_GENS_AERIAL_V5', 'OWNER_CONSTRUCTION_V5', 'CROWN_GENS_PHOTO_V7'], 'source_locator': source_locator,
             'evidence_level': '推导值', 'geometry_role': 'crown_candidate_panel',
             'formula': 'Open C1/K0/C2/K1/C0 arc length s; two explicit quadratic '
                        'trim branches; surface follows the mother at each actual vertex z',
@@ -210,6 +210,7 @@ def build_crown(ctx, geometry, candidate):
             source0, source1 = stations[i]['xy'], stations[i+1]['xy']
             chord = (xy[i+1][0]-xy[i][0], xy[i+1][1]-xy[i][1])
             denominator = sum(v*v for v in chord)
+            if denominator <= 1e-14:continue
             warped = []
             for point in polygon:
                 t = ((point[0]-xy[i][0])*chord[0] + (point[1]-xy[i][1])*chord[1])/denominator
@@ -304,7 +305,7 @@ def build_crown(ctx, geometry, candidate):
     for check in checks:
         check['asbuilt_verified'] = False
         check['measurement_source'] = measurement_source
-    report = {'component': 'open_crown_derived', 'source_ids': [source_id, 'B14_GEOM', 'CROWN_GENS_AERIAL_V5', 'OWNER_CONSTRUCTION_V5'],
+    report = {'component': 'open_crown_derived', 'source_ids': [source_id, 'B14_GEOM', 'CROWN_GENS_AERIAL_V5', 'OWNER_CONSTRUCTION_V5', 'CROWN_GENS_PHOTO_V7'],
               'evidence_level': '推导值', 'asbuilt_verified': False,
               'surface_role': 'crown_candidate_panel', 'station_mapping_evidence': '待确认',
               'checks': checks, 'software_checks_passed': all(a['passed'] for a in checks),

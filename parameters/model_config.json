@@ -139,7 +139,7 @@
     "show_diagnostic_mother_surface": false,
     "image_width": 1500,
     "image_height": 1600,
-    "render_samples": 32,
+    "render_samples": 48,
     "render_engine": "BLENDER_EEVEE",
     "steel_display_rgba": [
       0.09,
@@ -153,27 +153,44 @@
     "glass_shader": {
       "model": "Principled dielectric transmission",
       "metallic": 0.0,
-      "transmission": 1.0,
-      "ior": 1.5,
-      "roughness": 0.075,
+      "transmission": 0.62,
+      "ior": 1.52,
+      "roughness": 0.12,
       "outer_rgba": [
-        0.88,
-        0.96,
-        0.99,
-        1.0
+        0.22,
+        0.35,
+        0.43,
+        1
       ],
       "inner_rgba": [
-        0.94,
-        0.98,
-        1.0,
-        1.0
+        0.26,
+        0.38,
+        0.4,
+        1
       ],
       "source_url": "https://docs.blender.org/manual/en/5.0/render/shader_nodes/shader/principled.html",
-      "uncertainty": "Display optical candidates, not measured facade coating/IOR/transmittance. Principled transmission replaces opaque metallic proxy. Geometry layer dimensions remain separately evidenced."
+      "uncertainty": "蓝灰反射/较低透视度按摄影与用户视觉反馈调整；Transmission Weight .62/.72不是光学可见光透射率，IOR/粗糙度/镀膜非实测。alpha仍1，电介质玻璃。",
+      "inner_transmission": 0.72,
+      "coat_weight": 0.25
     },
     "eevee_use_raytracing": true,
     "eevee_screen_trace_quality": 1.0,
-    "eevee_ray_resolution_scale": "1"
+    "eevee_ray_resolution_scale": "1",
+    "sky_environment": {
+      "model": "Nishita Sky Texture",
+      "sun_elevation_deg": 32,
+      "sun_rotation_deg": 145,
+      "air_density": 1.1,
+      "dust_density": 2.0,
+      "ozone_density": 1.0,
+      "strength": 0.16,
+      "cloud_noise_scale": 2.8,
+      "cloud_coverage": 0.28,
+      "evidence_level": "待确认（仅展示）",
+      "uncertainty": "可编辑全向程序天空与云；非上海特定时刻实测HDRI。"
+    },
+    "ground_size_m": 10000,
+    "ground_uncertainty": "Display plane only; no surveyed site extent"
   },
   "modeling_conventions": [
     {

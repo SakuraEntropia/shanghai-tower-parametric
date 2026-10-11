@@ -26841,7 +26841,7 @@
       }
     ],
     "used_parameters": {
-      "version": "crown-v6-primary-source-and-openings-2026-10-11",
+      "version": "crown-v7-photo-topology-2026-10-11",
       "evidence_level": "待确认",
       "source_ids": [
         "CROWN_NTUA_2014",
@@ -26851,7 +26851,9 @@
         "OWNER_MEP_BUILD_V6",
         "TURBINE_ATTEY_V6",
         "TMD_MOTIONEERING_V6",
-        "WINDPODS_PRODUCT_V6"
+        "WINDPODS_PRODUCT_V6",
+        "TMD_CANOPY_PHOTO_V7",
+        "CROWN_GENS_PHOTO_V7"
       ],
       "source_scope": "Owner confirms L126583.4m, TMD and270horizontal-axis turbines in3groups; owner construction report cooling L120561m, windL124574m. Motioneering confirms1000ton steel mass,5-floor device, magnets under mass over floor-fixed copper. Actual aerial shows grated circular roof, rectangular lowered well with FULL round oculus and scattered apertures. Exact coordinates/layouts unknown.",
       "dimension_policy": "Source-confirmed attributes are separated by *_owner_m or confirmed metadata. Every other numeric value is replaceable visualization candidate; camera/datum/version uncertainty unbounded.",
@@ -27018,22 +27020,22 @@
       ],
       "tmd_copper_plate_radius_fit_m": 5.5,
       "tmd_copper_plate_depth_fit_m": 0.05,
-      "tmd_suspension_cable_count_display": 8,
+      "tmd_suspension_cable_count_display": 6,
       "tmd_suspension_bottom_radius_fit_m": 4.4,
-      "tmd_suspension_top_radius_fit_m": 7.0,
+      "tmd_suspension_top_radius_fit_m": 13.0,
       "tmd_suspension_cable_radius_display_m": 0.065,
       "tmd_eye_nested_blade_count_display": 5,
       "tmd_eye_nested_scale_step_fit": 0.14,
       "tmd_eye_height_fit_m": 7.0,
-      "tmd_eye_width_fit_m": 3.6,
-      "tmd_eye_blade_width_fit_m": 0.16,
-      "tmd_eye_blade_depth_fit_m": 0.3,
+      "tmd_eye_width_fit_m": 4.4,
+      "tmd_eye_blade_width_fit_m": 0.32,
+      "tmd_eye_blade_depth_fit_m": 0.42,
       "tmd_visitor_guard_offset_fit_m": 1.0,
       "tmd_visitor_guard_height_fit_m": 1.1,
       "tmd_visitor_guard_radius_display_m": 0.022,
       "tmd_cladding_seam_radius_display_m": 0.013,
-      "tmd_canopy_rib_count_display": 120,
-      "tmd_canopy_low_offset_fit_m": 7.0,
+      "tmd_canopy_rib_count_display": 360,
+      "tmd_canopy_low_offset_fit_m": 7.5,
       "tmd_canopy_scallop_rise_fit_m": 4.0,
       "tmd_canopy_rib_radius_display_m": 0.027,
       "tmd_eye_30m_extent": "Owner30m Eye refers to unresolved overall installation extent; not used as sculpture height.",
@@ -27058,7 +27060,65 @@
       "helipad_H_half_height_candidate_m": 3.0,
       "helipad_mark_radius_candidate_m": 0.15,
       "tmd_hall_steel_clearance_display_m": 0.25,
-      "deck_grating_density_evidence": "待确认：actual aerial reads as dense metal grating; display pitch/width only, no calibrated fabrication dimension. Candidate projected coverage 1-(1-.075/.18)^2≈0.660."
+      "deck_grating_density_evidence": "待确认：actual aerial reads as dense metal grating; display pitch/width only, no calibrated fabrication dimension. Candidate projected coverage 1-(1-.075/.18)^2≈0.660.",
+      "crown_glass_steel_clearance_display_m": 0.55,
+      "tmd_eye_open_ribbon_controls_fit": [
+        [
+          0.55,
+          0
+        ],
+        [
+          0.24,
+          0.035
+        ],
+        [
+          0,
+          0.14
+        ],
+        [
+          -0.27,
+          0.29
+        ],
+        [
+          -0.47,
+          0.5
+        ],
+        [
+          -0.43,
+          0.69
+        ],
+        [
+          -0.22,
+          0.87
+        ],
+        [
+          0.07,
+          1.015
+        ]
+      ],
+      "tmd_eye_ribbon_y_weave_fit_m": 0.16,
+      "tmd_canopy_twist_candidate_deg": 18,
+      "tmd_canopy_lamella_fill_ratio_display": 0.2,
+      "tmd_canopy_lamella_depth_display_m": 0.1,
+      "tmd_canopy_backing_depth_display_m": 0.03,
+      "tmd_canopy_slot_half_angle_candidate_deg": 5.2,
+      "tmd_canopy_slot_radial_limits_candidate": [
+        0.43,
+        0.965
+      ],
+      "tmd_canopy_slot_end_radius_uv_candidate": 0.085,
+      "tmd_canopy_slot_azimuths_candidate_deg": [
+        -120,
+        -60,
+        0,
+        60,
+        120,
+        180
+      ],
+      "tmd_canopy_slot_count_evidence": "至少两孔在业主仰拍中清晰可见；完整6孔及方位为待确认接口，不声称实物全周数量。",
+      "v6_retired_canopy": "三瓣cos(3φ)边缘与圆管顶棚撤回；闭合菱形环雕塑撤回。",
+      "tmd_fine_cables_per_slot_candidate": 4,
+      "tmd_fine_cable_radius_candidate_m": 0.012
     },
     "approximation": true,
     "evidence_level": "待确认",
@@ -27093,6 +27153,18 @@
       "physical_mass_tonnes": 1000,
       "floor_span_confirmed": 5,
       "sculpture_30m_statement_extent": "unresolved; not used as height",
+      "art_topology_fit": {
+        "open_ribbon_pairs_candidate": 5,
+        "radial_apertures_candidate": 6,
+        "at_least_two_apertures_photo_visible": true,
+        "mesh_face_counts": {
+          "DARK_BACKING_WITH_RADIAL_CAPSULE_HOLES": 16938,
+          "RADIAL_FLAT_LAMELLAE_CLIPPED_AT_CAPSULES": 16482
+        },
+        "scalloped_three_lobed_canopy_retired": true,
+        "closed_almond_rings_retired": true,
+        "asbuilt_verified": false
+      },
       "asbuilt_coordinates_verified": false,
       "camera_candidate": {
         "position": [
@@ -28867,42 +28939,69 @@
         "PODIUM_GENS_V4",
         "PODIUM_GENS_GROUND_V6"
       ],
-      "version": "v6-arched-mouth-reduced-candidate",
+      "version": "v7-reported-PR-physical-panels-candidate",
+      "PR_panel_report": {
+        "panels": 6247,
+        "max_mother_surface_to_flat_panel_error_m": 0.1266242447816815,
+        "reported_nominal_length_m": 1.8,
+        "reported_east_width_m": 0.3,
+        "axis9_and_west_closed_sections_verified": false
+      },
       "slabs": [
-        "PODIUM_V6_LEVEL_00_CANDIDATE",
-        "PODIUM_V6_LEVEL_01_CANDIDATE",
-        "PODIUM_V6_LEVEL_02_CANDIDATE",
-        "PODIUM_V6_LEVEL_03_CANDIDATE"
+        "PODIUM_V7_LEVEL_00_CANDIDATE",
+        "PODIUM_V7_LEVEL_01_CANDIDATE",
+        "PODIUM_V7_LEVEL_02_CANDIDATE",
+        "PODIUM_V7_LEVEL_03_CANDIDATE",
+        "PODIUM_V7_LEVEL_04_CANDIDATE",
+        "PODIUM_V7_LEVEL_05_CANDIDATE",
+        "PODIUM_V7_UPPER_LEVEL_06_WITH_TERRACE_VOID"
       ],
       "candidate_levels_m": [
         0,
-        6,
-        12,
-        18
+        4.2,
+        8.4,
+        12.6,
+        16.8,
+        21.0,
+        25.2
       ],
       "candidate_roof_extents_m": [
         0,
-        30.0
+        37.0
       ],
       "footprint_verified": false,
       "asbuilt_verified": false,
       "orientation_verified": false,
       "used_parameters": {
         "source_id": "PODIUM_GENS_V4",
-        "parameter_version": "v6-actual-ground-arched-mouth-reduced-candidate-2026-10-11",
+        "parameter_version": "v7-reported-PR-physical-panels-photo-fit-2026-10-11",
         "evidence_level": "推导值",
         "numeric_evidence_level": "待确认",
         "asbuilt_verified": false,
         "unit": "m",
         "source_tower_diameter_reference_m": 82.2,
         "scale_method": "82.2m published inner-floor endpoint used solely as dimensional prior. Outer facade cannot be equated with this diameter. No calibrated camera or orthographic plan; width/depth ratios are adjustable photo-informed modelling candidates.",
-        "uncertainty": "Metric error unbounded: oblique aerial, unknown lens/camera pose, roof height and hidden boundary. No perspective rectification performed. Local azimuth not geographic north. Roof curves, numeric dimensions, levels, facade joints and pavilions remain replacement-ready candidates.",
+        "uncertainty": "Metric error unbounded: oblique aerial, unknown lens/camera pose, roof height and hidden boundary. No perspective rectification performed. Local azimuth not geographic north. Roof curves, numeric dimensions, levels, facade joints and pavilions remain replacement-ready candidates.; V7施工总结载7层37m/PR分格，原书及竣工修订待核验；当前7层候选标高均匀4.2m仅接口，与建筑真实层高不可等同。",
         "historical_conflict": {
           "source_id": "D10",
           "year": 2010,
           "floor_count": 7,
           "height_m": 38,
-          "adoption": "Historical structural design scheme. Not transferred to final podium photo geometry."
+          "adoption": "Historical structural design scheme. Not transferred to final podium photo geometry.",
+          "parallel_records": [
+            {
+              "source_id": "PODIUM_LINGYUN_BIM_V7",
+              "floors": 7,
+              "height_m": 37.0,
+              "phase": "施工总结转载，原卷待核验"
+            },
+            {
+              "source_id": "PODIUM_BID_V7",
+              "floors": 5,
+              "eave_height_m": 38.245,
+              "phase": "投标转录，不用于最终标高"
+            }
+          ]
         },
         "center_xy_m": [
           -25,
@@ -28917,15 +29016,18 @@
         "corner_samples": 16,
         "display_slab_levels_m": [
           0,
-          6,
-          12,
-          18
+          4.2,
+          8.4,
+          12.6,
+          16.8,
+          21.0,
+          25.2
         ],
         "slab_thickness_display_m": 0.25,
-        "terrace_top_m": 18,
-        "roof_high_m": 30,
-        "roof_arch_drop_m": 4,
-        "roof_back_drop_m": 3,
+        "terrace_top_m": 22.0,
+        "roof_high_m": 37.0,
+        "roof_arch_drop_m": 3.0,
+        "roof_back_drop_m": 1.6,
         "roof_back_v_min": 0.02,
         "roof_samples_width": 32,
         "roof_samples_depth": 24,
@@ -29077,11 +29179,12 @@
           "all_new_numeric_parameters": "待确认; no finite metric error bound from single oblique aerial. Added detail is relation reconstruction, not shop-drawing accuracy.",
           "glass": "Ground image95598 shows many fine horizontal stripes and few vertical divisions within one arched mouth. v5 full-perimeter glass/mullion cage removed; hidden sides use explicitly unconfirmed opaque candidate faces.",
           "orientation": "Candidate local azimuth rotated -90deg so tall mouth faces outside street rather than penetrating tower. Geographic north not established.",
-          "floor_boundary": "Each candidate slab edge is clipped inside descending fold, with candidate clearance; assembly repair not published surveyed slab contour."
+          "floor_boundary": "Each candidate slab edge is clipped inside descending fold, with candidate clearance; assembly repair not published surveyed slab contour.",
+          "v7": "PR分格由实际小玻璃实体生成，东西排布分开；PS石材/PG索网/VIP平台/PR背板层次分别表达。母面及总图仍为图像拟合，未取得竣工CAD。"
         },
         "front_opaque_band_candidate_z_m": [
           5.5,
-          17.8
+          21.8
         ],
         "v4_retired_candidate_controls": {
           "roof_edge_drop_m": 1.5,
@@ -29110,7 +29213,7 @@
         "roof_striped_surface_enabled": true,
         "main_body_opaque_sides": true,
         "arched_mouth": {
-          "height_candidate_m": 28.8,
+          "height_candidate_m": 35.5,
           "angular_fraction_candidate": 0.82,
           "power_candidate": 0.65,
           "horizontal_row_count_candidate": 29,
@@ -29122,7 +29225,7 @@
           "column_samples": 24
         },
         "front_vertical_divisions_candidate": 12,
-        "roof_field_display_rows": 36,
+        "roof_field_display_rows": 130,
         "rectangular_gold_wrap_enabled": false,
         "pavilion_frames_enabled": false,
         "v5_retired_candidate_controls": {
@@ -29132,16 +29235,52 @@
         },
         "left_end_clearance_candidate_m": 0.35,
         "floor_fold_clearance_candidate_m": 0.08,
-        "floor_inner_setback_candidate_u": 0.02
+        "floor_inner_setback_candidate_u": 0.02,
+        "version": "podium-v7-system-and-panel-reconstruction",
+        "pr_panel_rules": {
+          "source_id": "PODIUM_LINGYUN_BIM_V7",
+          "evidence_level": "待确认（技术文献原卷及修订待核验）",
+          "reported_length_m": 1.8,
+          "reported_width_east_m": 0.3,
+          "reported_width_west_range_m": [
+            0.275,
+            0.3
+          ],
+          "reported_standard_joint_m": 0.016,
+          "reported_joint_variation_m": 0.005,
+          "reported_laminate_layers_m": [
+            0.008,
+            0.00152,
+            0.008
+          ],
+          "reported_west_start_z_m": 4.2,
+          "axis9_mapping": "待确认；局部u=0用于显示的替换接口，不冒充9轴坐标",
+          "section_seam_rule": "东沿开放截面等弦步，西闭合截面均分宽275–300mm；本模型尚无真实全套闭合断面，西细分规则仅在拟合曲面实现",
+          "panelization_limit": "曲面控制点待核验；分格生成规则有文献线索，面板尺寸误差另输出，不能称加工单。"
+        }
       },
       "historical_conflict": {
         "source_id": "D10",
         "year": 2010,
         "floor_count": 7,
         "height_m": 38,
-        "adoption": "Historical structural design scheme. Not transferred to final podium photo geometry."
+        "adoption": "Historical structural design scheme. Not transferred to final podium photo geometry.",
+        "parallel_records": [
+          {
+            "source_id": "PODIUM_LINGYUN_BIM_V7",
+            "floors": 7,
+            "height_m": 37.0,
+            "phase": "施工总结转载，原卷待核验"
+          },
+          {
+            "source_id": "PODIUM_BID_V7",
+            "floors": 5,
+            "eave_height_m": 38.245,
+            "phase": "投标转录，不用于最终标高"
+          }
+        ]
       },
-      "uncertainty": "Metric error unbounded: oblique aerial, unknown lens/camera pose, roof height and hidden boundary. No perspective rectification performed. Local azimuth not geographic north. Roof curves, numeric dimensions, levels, facade joints and pavilions remain replacement-ready candidates.",
+      "uncertainty": "Metric error unbounded: oblique aerial, unknown lens/camera pose, roof height and hidden boundary. No perspective rectification performed. Local azimuth not geographic north. Roof curves, numeric dimensions, levels, facade joints and pavilions remain replacement-ready candidates.; V7施工总结载7层37m/PR分格，原书及竣工修订待核验；当前7层候选标高均匀4.2m仅接口，与建筑真实层高不可等同。",
       "checks": [
         {
           "name": "podium_asymmetric_off_axis",
@@ -29338,6 +29477,20 @@
         "passed": true,
         "actual": 0
       }
-    ]
+    ],
+    "inner_support_v7": {
+      "supported_candidate_plates": 124,
+      "radial_beams": 2976,
+      "ring_beam_segments": 11904,
+      "sill_clip_candidates": 8928,
+      "asbuilt_verified": false,
+      "checks": [
+        {
+          "name": "inner_floor_lower_support_geometry_present",
+          "passed": true,
+          "actual": 124
+        }
+      ]
+    }
   }
 }

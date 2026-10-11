@@ -15,7 +15,9 @@ required+=['ASSEMBLY_V3_PARAMETERS','ASSEMBLY_V3_EVIDENCE','ASSEMBLY_V3_PARAMETE
 v5=bpy.data.objects.get('CROWN_V5_MAIN_DECK_RECT_RECESS_AND_ROUND_APERTURE') is not None
 if v5:
     required+=['V5_crown_v5.json','V5_transition_v5.json','V5_11_crown_v5_actual_aerial.md','V5_11_transition_facade_v5.md','V5_11_podium_v5.md','V5_11_v5修正与证据.md']
-v6=bpy.context.scene.get('correction_version')=='v6'
+v6=bpy.context.scene.get('correction_version') in ('v6','v7')
+v7=bpy.context.scene.get('correction_version')=='v7'
+if v7:required+=['V7_13_v7参数方案与证据.md','V7_inner_support_v7.json']
 if v6:
     required+=['V6_12_crown_v6.md','V6_12_podium_v6.md','V6_12_roof_evidence_v6.md','V6_12_v6修正与证据.md']
 texts={name: bool(bpy.data.texts.get(name)) for name in required}

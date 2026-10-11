@@ -40,6 +40,13 @@ def validate_scene(ctx,geometry_module,anchors,results):
               material_rows,'Assigned node shaders use dielectric reflection/refraction; optical values are display candidates, not facade product measurements')
         check('eevee_glass_raytracing_enabled',scene.render.engine!='BLENDER_EEVEE' or scene.eevee.use_raytracing,
               {'engine':scene.render.engine,'raytracing':scene.eevee.use_raytracing},'Software render configuration for transmission preview')
+    if results.get('v7_collision'):
+        for row in results['v7_collision']['checks']:check(row['name'],row['passed'],row.get('actual'),row.get('meaning','Actual crown steel envelope vs generated glass; not as-built verification'))
+    if results.get('assembly',{}).get('physical',{}).get('inner_support_v7'):
+        for row in results['assembly']['physical']['inner_support_v7']['checks']:check(row['name'],row['passed'],row.get('actual'),'Generated floor-level support geometry')
+    world=scene.world
+    output=next((n for n in world.node_tree.nodes if n.type=='OUTPUT_WORLD'),None)
+    check('world_sky_environment_connected',bool(output and output.inputs['Surface'].is_linked and any(n.type=='TEX_SKY' for n in world.node_tree.nodes)),world.get('environment_model'),'All-direction procedural sky; display weather candidate')
     source_ids={s['id'] for s in ctx.sources['sources']}
     bad=[]; missing=[]
     for obj in ctx.objects:
@@ -148,7 +155,7 @@ def validate_scene(ctx,geometry_module,anchors,results):
               {'highest_member_envelope_m':beam_top,'deck_underside_m':deck_bottom},
               'Actual curve axis plus display radius clears actual deck underside; installed member datum remains candidate')
         cp=results['assembly']['crown_detail']['used_parameters']
-        if cp.get('version','').startswith('crown-v6'):
+        if cp.get('version','').startswith(('crown-v6','crown-v7')):
             old=[bpy.data.objects.get(f'F{n:03d}_DERIVED_SLAB') for n in (126,127,128)]
             check('v6_archived_plates_do_not_slice_TMD_hall',all(o and o.hide_render and o.hide_viewport for o in old),
                   [o.name for o in old if o],'Only duplicate upper design-floor proxies hidden; owner-supported chamber replaces visible geometry')

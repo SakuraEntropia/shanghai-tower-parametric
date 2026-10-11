@@ -1,19 +1,33 @@
 {
   "source_id": "PODIUM_GENS_V4",
-  "parameter_version": "v6-actual-ground-arched-mouth-reduced-candidate-2026-10-11",
+  "parameter_version": "v7-reported-PR-physical-panels-photo-fit-2026-10-11",
   "evidence_level": "推导值",
   "numeric_evidence_level": "待确认",
   "asbuilt_verified": false,
   "unit": "m",
   "source_tower_diameter_reference_m": 82.2,
   "scale_method": "82.2m published inner-floor endpoint used solely as dimensional prior. Outer facade cannot be equated with this diameter. No calibrated camera or orthographic plan; width/depth ratios are adjustable photo-informed modelling candidates.",
-  "uncertainty": "Metric error unbounded: oblique aerial, unknown lens/camera pose, roof height and hidden boundary. No perspective rectification performed. Local azimuth not geographic north. Roof curves, numeric dimensions, levels, facade joints and pavilions remain replacement-ready candidates.",
+  "uncertainty": "Metric error unbounded: oblique aerial, unknown lens/camera pose, roof height and hidden boundary. No perspective rectification performed. Local azimuth not geographic north. Roof curves, numeric dimensions, levels, facade joints and pavilions remain replacement-ready candidates.; V7施工总结载7层37m/PR分格，原书及竣工修订待核验；当前7层候选标高均匀4.2m仅接口，与建筑真实层高不可等同。",
   "historical_conflict": {
     "source_id": "D10",
     "year": 2010,
     "floor_count": 7,
     "height_m": 38,
-    "adoption": "Historical structural design scheme. Not transferred to final podium photo geometry."
+    "adoption": "Historical structural design scheme. Not transferred to final podium photo geometry.",
+    "parallel_records": [
+      {
+        "source_id": "PODIUM_LINGYUN_BIM_V7",
+        "floors": 7,
+        "height_m": 37.0,
+        "phase": "施工总结转载，原卷待核验"
+      },
+      {
+        "source_id": "PODIUM_BID_V7",
+        "floors": 5,
+        "eave_height_m": 38.245,
+        "phase": "投标转录，不用于最终标高"
+      }
+    ]
   },
   "center_xy_m": [
     -25,
@@ -28,15 +42,18 @@
   "corner_samples": 16,
   "display_slab_levels_m": [
     0,
-    6,
-    12,
-    18
+    4.2,
+    8.4,
+    12.6,
+    16.8,
+    21.0,
+    25.2
   ],
   "slab_thickness_display_m": 0.25,
-  "terrace_top_m": 18,
-  "roof_high_m": 30,
-  "roof_arch_drop_m": 4,
-  "roof_back_drop_m": 3,
+  "terrace_top_m": 22.0,
+  "roof_high_m": 37.0,
+  "roof_arch_drop_m": 3.0,
+  "roof_back_drop_m": 1.6,
   "roof_back_v_min": 0.02,
   "roof_samples_width": 32,
   "roof_samples_depth": 24,
@@ -188,11 +205,12 @@
     "all_new_numeric_parameters": "待确认; no finite metric error bound from single oblique aerial. Added detail is relation reconstruction, not shop-drawing accuracy.",
     "glass": "Ground image95598 shows many fine horizontal stripes and few vertical divisions within one arched mouth. v5 full-perimeter glass/mullion cage removed; hidden sides use explicitly unconfirmed opaque candidate faces.",
     "orientation": "Candidate local azimuth rotated -90deg so tall mouth faces outside street rather than penetrating tower. Geographic north not established.",
-    "floor_boundary": "Each candidate slab edge is clipped inside descending fold, with candidate clearance; assembly repair not published surveyed slab contour."
+    "floor_boundary": "Each candidate slab edge is clipped inside descending fold, with candidate clearance; assembly repair not published surveyed slab contour.",
+    "v7": "PR分格由实际小玻璃实体生成，东西排布分开；PS石材/PG索网/VIP平台/PR背板层次分别表达。母面及总图仍为图像拟合，未取得竣工CAD。"
   },
   "front_opaque_band_candidate_z_m": [
     5.5,
-    17.8
+    21.8
   ],
   "v4_retired_candidate_controls": {
     "roof_edge_drop_m": 1.5,
@@ -221,7 +239,7 @@
   "roof_striped_surface_enabled": true,
   "main_body_opaque_sides": true,
   "arched_mouth": {
-    "height_candidate_m": 28.8,
+    "height_candidate_m": 35.5,
     "angular_fraction_candidate": 0.82,
     "power_candidate": 0.65,
     "horizontal_row_count_candidate": 29,
@@ -233,7 +251,7 @@
     "column_samples": 24
   },
   "front_vertical_divisions_candidate": 12,
-  "roof_field_display_rows": 36,
+  "roof_field_display_rows": 130,
   "rectangular_gold_wrap_enabled": false,
   "pavilion_frames_enabled": false,
   "v5_retired_candidate_controls": {
@@ -243,5 +261,27 @@
   },
   "left_end_clearance_candidate_m": 0.35,
   "floor_fold_clearance_candidate_m": 0.08,
-  "floor_inner_setback_candidate_u": 0.02
+  "floor_inner_setback_candidate_u": 0.02,
+  "version": "podium-v7-system-and-panel-reconstruction",
+  "pr_panel_rules": {
+    "source_id": "PODIUM_LINGYUN_BIM_V7",
+    "evidence_level": "待确认（技术文献原卷及修订待核验）",
+    "reported_length_m": 1.8,
+    "reported_width_east_m": 0.3,
+    "reported_width_west_range_m": [
+      0.275,
+      0.3
+    ],
+    "reported_standard_joint_m": 0.016,
+    "reported_joint_variation_m": 0.005,
+    "reported_laminate_layers_m": [
+      0.008,
+      0.00152,
+      0.008
+    ],
+    "reported_west_start_z_m": 4.2,
+    "axis9_mapping": "待确认；局部u=0用于显示的替换接口，不冒充9轴坐标",
+    "section_seam_rule": "东沿开放截面等弦步，西闭合截面均分宽275–300mm；本模型尚无真实全套闭合断面，西细分规则仅在拟合曲面实现",
+    "panelization_limit": "曲面控制点待核验；分格生成规则有文献线索，面板尺寸误差另输出，不能称加工单。"
+  }
 }
