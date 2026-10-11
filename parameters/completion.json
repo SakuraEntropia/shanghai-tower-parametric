@@ -810,7 +810,7 @@
     ],
     "base_z_m": 542.0,
     "band_pitch_display_m": 4.5,
-    "frame_radius_display_m": 0.05,
+    "frame_radius_display_m": 0.035,
     "horizontal_sample_count_display": 160,
     "display_sampling_evidence": "待确认；纯展示采样/框截面，不是已证实冠幕墙分格",
     "photo_evidence": {
@@ -819,7 +819,54 @@
       "image_url": "https://i.natgeofe.com/n/af7581f4-909c-4bed-9420-e2ea5f7536be/Shanghai_Tower_ttallest_building_in_China_4x3.jpg",
       "measured_photograph_height": false,
       "scope": "Visible high-lip/low-lip topology and components, no perspective-to-metres inversion; v4 rendering-based interpretation withdrawn."
-    }
+    },
+    "frame_vertical_stride_display": 3,
+    "frame_horizontal_stride_display": 2,
+    "wind_openings_candidate": [
+      {
+        "id": "WIND_BAY_1",
+        "s_min": 0.1,
+        "s_max": 0.28,
+        "z_min_m": 566.0,
+        "z_max_m": 575.0,
+        "evidence_level": "待确认",
+        "source_ids": [
+          "OWNER_TMD_WIND_V6",
+          "OWNER_MEP_BUILD_V6",
+          "TURBINE_ATTEY_V6"
+        ],
+        "coordinate_evidence": "Three unglazed groups confirmed; s mapping and lower/upper boundaries uncalibrated candidates; owner L124574m anchor"
+      },
+      {
+        "id": "WIND_BAY_2",
+        "s_min": 0.43,
+        "s_max": 0.61,
+        "z_min_m": 566.0,
+        "z_max_m": 575.0,
+        "evidence_level": "待确认",
+        "source_ids": [
+          "OWNER_TMD_WIND_V6",
+          "OWNER_MEP_BUILD_V6",
+          "TURBINE_ATTEY_V6"
+        ],
+        "coordinate_evidence": "Three unglazed groups confirmed; s mapping and lower/upper boundaries uncalibrated candidates; owner L124574m anchor"
+      },
+      {
+        "id": "WIND_BAY_3",
+        "s_min": 0.76,
+        "s_max": 0.94,
+        "z_min_m": 566.0,
+        "z_max_m": 575.0,
+        "evidence_level": "待确认",
+        "source_ids": [
+          "OWNER_TMD_WIND_V6",
+          "OWNER_MEP_BUILD_V6",
+          "TURBINE_ATTEY_V6"
+        ],
+        "coordinate_evidence": "Three unglazed groups confirmed; s mapping and lower/upper boundaries uncalibrated candidates; owner L124574m anchor"
+      }
+    ],
+    "wind_opening_policy": "Real removed faces across source-informed candidate sectors, not dark material;270count confirmed, no exact aperture layout assertion."
   },
   "accuracy": "Derived solid reconstruction; not verified as-built; all geometric mapping assumptions retained"
 }

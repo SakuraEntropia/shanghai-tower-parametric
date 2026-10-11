@@ -49,6 +49,12 @@ def setup(ctx):
     scene.unit_settings.system='METRIC'; scene.unit_settings.scale_length=1
     scene.unit_settings.length_unit='METERS'
     scene.render.engine=ctx.config['display']['render_engine']
+    if scene.render.engine=='BLENDER_EEVEE':
+        display=ctx.config['display']
+        scene.eevee.taa_render_samples=display['render_samples']
+        scene.eevee.use_raytracing=display.get('eevee_use_raytracing',False)
+        scene.eevee.ray_tracing_options.screen_trace_quality=display.get('eevee_screen_trace_quality',.5)
+        scene.eevee.ray_tracing_options.resolution_scale=display.get('eevee_ray_resolution_scale','2')
     scene.render.resolution_percentage=100
     scene.render.image_settings.file_format='PNG'
     scene.render.film_transparent=False
@@ -68,6 +74,10 @@ def setup(ctx):
     data=bpy.data.lights.new('ST_SUN','SUN'); data.energy=2.5; data.angle=.3
     obj=bpy.data.objects.new('ST_SUN',data); obj.rotation_euler=(.35,-.45,-.5)
     ctx.collection('90_VALIDATION').objects.link(obj);ctx._meta(obj,{'geometry_role':'presentation_light','uncertainty':'Display only'})
+    data=bpy.data.lights.new('ST_TMD_HALL_SOFTLIGHT','AREA');data.energy=3000;data.shape='DISK';data.size=8
+    obj=bpy.data.objects.new('ST_TMD_HALL_SOFTLIGHT',data);obj.location=(0,0,598)
+    ctx.collection('90_VALIDATION').objects.link(obj)
+    ctx._meta(obj,{'geometry_role':'presentation_light','uncertainty':'Interior reading light for diagnostic camera; not an installed architectural light fixture'})
     ctx.box('ST_DISPLAY_GROUND',(0,0,-.5),(1000,1000,1),'90_VALIDATION','ground',{'geometry_role':'presentation','uncertainty':'Display top0m; not surveyed site datum'})
     main=camera(ctx,'VIEW_01_TOWER', (780,-1050,430),(0,0,315),720)
     side=camera(ctx,'VIEW_02_SECTION',(0,-1100,315),(0,0,315),690)
@@ -90,8 +100,24 @@ def setup(ctx):
     aerial=camera(ctx,'VIEW_17_CROWN_AERIAL_V5',(-110,-145,747),(0,0,610),96)
     roof_detail=camera(ctx,'VIEW_18_CROWN_EQUIPMENT_V5',(35,28,725),(0,0,601),56)
     transition=camera(ctx,'VIEW_19_TRANSITION_V5',(105,-145,250),(0,-25,239.4),68)
+    hall=camera(ctx,'VIEW_20_TMD_HALL_V6',(3,-13,586.6),(0,-3.8,588.4),23)
+    hall.data.type='PERSP';hall.data.lens=22
+    hall.location=(2,-14,586.4)
+    hall.rotation_euler=(Vector((0,-3.5,590.5))-hall.location).to_track_quat('-Z','Y').to_euler()
+    # A local diagnostic projection; exact equipment azimuth is unconfirmed.
+    wind_target=(0,-25,574);wind_location=(-65,-95,587)
+    if ctx.config.get('completion_enabled'):
+        crown_params=json.loads((ROOT/ctx.config['completion_data_file']).read_text())['crown']
+        openings=crown_params.get('wind_openings_candidate',[])
+        if openings:
+            opening=openings[0];s=(opening['s_min']+opening['s_max'])/2;z=(opening['z_min_m']+opening['z_max_m'])/2
+            station=min(crown_completion.crown_profile_stations(geometry,ctx.config,160,(s,)),key=lambda p:abs(p['s']-s))
+            wind_target=geometry.transform_profile([station['xy']],z,ctx.config)[0]
+            wind_location=(wind_target[0]*3,wind_target[1]*3,z+8)
+    wind=camera(ctx,'VIEW_21_WIND_BAYS_V6',wind_location,wind_target,33)
+    cooling=camera(ctx,'VIEW_22_COOLING_CUTAWAY_V6',(65,-85,580),(0,0,565),45)
     scene.camera=main
-    return [main,side,plan,detail,node,main_near,crown,inner,core_plan,core,assembly,base,steel,crown_steel,notch,v_plan,aerial,roof_detail,transition]
+    return [main,side,plan,detail,node,main_near,crown,inner,core_plan,core,assembly,base,steel,crown_steel,notch,v_plan,aerial,roof_detail,transition,hall,wind,cooling]
 
 
 def main():
@@ -151,6 +177,13 @@ def main():
                 legacy_roof.hide_render=True;legacy_roof.hide_viewport=True
                 legacy_roof['superseded_by']='CROWN_V5_MAIN_DECK_RECT_RECESS_AND_ROUND_APERTURE'
                 legacy_roof['uncertainty']='Archived source-local F/L129 schedule proxy. Visible roof is separately rebuilt from aerial topology with rectangular recess and round aperture; no architectural floor crosswalk resolved.'
+            if assembly['crown_v5'].get('version','').startswith('crown-v6'):
+                for number in (126,127,128):
+                    legacy_floor=bpy.data.objects.get(f'F{number:03d}_DERIVED_SLAB')
+                    if legacy_floor:
+                        legacy_floor.hide_render=True;legacy_floor.hide_viewport=True
+                        legacy_floor['superseded_by']='TMD_V6_HALL_126_VISITOR_FLOOR_AND_OPEN_CHAMBER'
+                        legacy_floor['uncertainty']='Archived design-number plate proxy intersects owner-supported L125/126 open TMD cultural volume. Candidate chamber and visitor floor now replace its visible geometry; exact source floor crosswalk remains unconfirmed.'
         physical=assembly_v3.build_assembly(ctx,geometry,completion,assembly)
         results['completion']['V_recess']=notch_v4.build_notch(ctx,geometry,completion,notch_params)
         results['assembly']={'floors':floors,'crown_detail':crown_detail,'physical':physical}
@@ -166,7 +199,8 @@ def main():
     (valdir/'panel_registry.json').write_text(json.dumps(panel_records,ensure_ascii=False,indent=2)+'\n')
     cameras=setup(ctx)
     scene=bpy.context.scene
-    scene['project_id']=cfg['project_id'];scene['accuracy_statement']='Evidence-supported correction v5: Gensler-supplied aerial high/low crown lips, wide return edge, inclined lattice and roof equipment/recess candidates; full-profile transition slabs and deterministic facade seams; refined retail podium. Photo fit, equipment coordinates and transition pattern remain unconfirmed.129 candidate slabs do not resolve actual floor count; no as-built certification.'
+    scene['project_id']=cfg['project_id'];scene['correction_version']='v6'
+    scene['accuracy_statement']='Evidence-supported correction v6: real dielectric glass shaders; straight ruled crown net, complete roof oculus, scattered opening candidates, TMD hall and glass-free Windpods bays; source-informed restricted podium glazing/cladding. Exact installed opening/equipment coordinates, optical specifications, hall shape and podium dimensions remain unconfirmed.129 candidate slabs do not resolve actual floor count; no as-built certification.'
     scene['selected_geometry_version']=cfg['selected_geometry_version']
     scene['source_datum_offset_unknown']=True
     report=validation.validate_scene(ctx,geometry,anchors,results)
@@ -192,6 +226,8 @@ def main():
             embed_text('V5_'+path.name,path.read_text())
         for path in (ROOT/'docs').glob('*v5*'):
             if path.is_file():embed_text('V5_'+path.name,path.read_text())
+        for path in (ROOT/'docs').glob('*v6*'):
+            if path.is_file():embed_text('V6_'+path.name,path.read_text())
     embed_text('DESIGN_STAGE2_ARCHIVE', (ROOT/'docs/02_Blender建模方案.md').read_text())
     for name,path in [('PARAMETERS_JSON',ROOT/'parameters/parameters.json'),('SOURCES_JSON',ROOT/'parameters/sources.json'),('FLOOR_ANCHORS_JSON',ROOT/'parameters/floor_anchors.json'),('MODEL_CONFIG_JSON',Path(args.config))]: embed_text(name,path.read_text())
     embed_text('VALIDATION_JSON',json.dumps(summary,ensure_ascii=False,indent=2))
@@ -226,6 +262,8 @@ def main():
                 if cam.name in {'VIEW_02_SECTION','VIEW_11_ASSEMBLY','VIEW_13_CWSS_INSTALLED','VIEW_14_CROWN_ROOF_STEEL'}:
                     if any(n.startswith(('80_','83_','84_','86_','87_','88_','72_','73_','70_')) for n in names):o.hide_render=True
                     if sample or o.get('geometry_role') in {'research_control','published_elevation_guide_not_floor_plate','inner_zone1_control_not_installed_facade'}:o.hide_render=True
+                if cam.name=='VIEW_22_COOLING_CUTAWAY_V6':
+                    if any(n.startswith(('80_','83_','84_','86_','87_','88_','72_','73_','70_')) for n in names) or sample:o.hide_render=True
                 if cam.name=='VIEW_08_INNER' and any(n.startswith(('86_','87_')) for n in names):o.hide_render=True
                 if cam.name=='VIEW_14_CROWN_ROOF_STEEL' and o.get('geometry_role')=='crown_open_collector_roof_candidate' and o.type=='MESH':o.hide_render=True
                 if cam.name=='VIEW_16_V_PLAN':

@@ -35,15 +35,16 @@ class PodiumTests(unittest.TestCase):
         self.assertAlmostEqual(max(p[2] for p in verts),self.p['roof_high_m'])
     def test_fold_join_height_and_tangent_are_continuous(self):
         v=self.p['roof_back_v_min'];eps=1e-6
-        for u in [-.5,-self.p['roof_side_inner_u'],self.p['roof_side_inner_u'],.5]:
+        for u in [-.5,-self.p['roof_side_inner_u_left'],self.p['roof_side_inner_u_right'],.5]:
             h=podium.roof_height(self.p,u,v)
             left=(h-podium.roof_height(self.p,u,v-eps))/eps
             right=(podium.roof_height(self.p,u,v+eps)-h)/eps
             self.assertAlmostEqual(left,right,places=3)
     def test_roof_follows_rounded_base_and_facade_has_regular_subdivisions(self):
         p=self.p;x,y=podium.roof_xy(p,.5,-.5)
-        self.assertAlmostEqual(x,p['center_xy_m'][0]+p['width_m']/2-p['corner_radius_m'])
-        self.assertAlmostEqual(y,p['center_xy_m'][1]-p['depth_m']/2)
+        ex,ey=podium.xy(p,(p['width_m']/2-p['corner_radius_m'])/p['width_m'],-.5)
+        self.assertAlmostEqual(x,ex)
+        self.assertAlmostEqual(y,ey)
         points=podium.outline(p)
         self.assertLessEqual(max(math.dist(a,b) for a,b in zip(points,points[1:]+points[:1])),p['facade_module_candidate_m']+1e-9)
     def test_secondary_pavilion_has_real_concavity(self):
@@ -59,8 +60,9 @@ class PodiumTests(unittest.TestCase):
         for record in ctx.records:
             self.assertFalse(record['meta']['asbuilt_verified'])
             self.assertEqual(record['meta']['numeric_evidence_level'],'待确认')
-            self.assertEqual(record['meta']['source_ids'],['PODIUM_GENS_V4'])
-        body=next(r for r in ctx.records if r['name']=='PODIUM_V4_CURVED_GLAZED_LOW_BODY')
+            self.assertTrue(record['meta']['source_ids'])
+            self.assertTrue(set(record['meta']['source_ids']) <= {'PODIUM_GENS_V4','PODIUM_GENS_GROUND_V6'})
+        body=next(r for r in ctx.records if r['name']=='PODIUM_V6_LIMITED_LOW_FRONT_GLAZING')
         front=self.p['center_xy_m'][1]-self.p['depth_m']/2+self.p['corner_radius_m']
         lo,hi=self.p['front_opaque_band_candidate_z_m']
         for face in body['faces']:
@@ -68,6 +70,40 @@ class PodiumTests(unittest.TestCase):
             if sum(p[1] for p in points)/len(points)<=front:
                 zlo=min(p[2] for p in points);zhi=max(p[2] for p in points)
                 self.assertTrue(zhi<=lo or zlo>=hi)
+
+    def test_actual_mouth_is_horizontal_dominant_not_a_perimeter_glass_cage(self):
+        ctx=Recorder();podium.build_podium(ctx,None,None,{'podium_v4':self.p})
+        names={r['name'] for r in ctx.records}
+        self.assertNotIn('PODIUM_V4_GOLD_CURVED_FASCIA',names)
+        self.assertNotIn('PODIUM_V4_FACADE_GRID_DISPLAY',names)
+        self.assertNotIn('PODIUM_V5_ROOF_EDGE_COPING',names)
+        self.assertNotIn('PODIUM_V5_RETAIL_ENTRANCE_CANOPY',names)
+        self.assertNotIn('PODIUM_V5_CONCAVE_PAVILION_MULLIONS',names)
+        horizontal=next(r for r in ctx.records if r['name']=='PODIUM_V6_MOUTH_FINE_HORIZONTAL_JOINTS')
+        vertical=next(r for r in ctx.records if r['name']=='PODIUM_V6_MOUTH_LIMITED_VERTICAL_DIVISIONS')
+        self.assertGreater(len(horizontal['points']),len(vertical['points'])*4)
+        mouth=next(r for r in ctx.records if r['name']=='PODIUM_V6_TALL_ARCHED_GLASS_MOUTH')
+        self.assertEqual(mouth['meta']['source_ids'],['PODIUM_GENS_GROUND_V6'])
+        self.assertTrue(any(len(f)==3 for f in mouth['faces']))
+        self.assertTrue(all(len(f)>=3 for f in mouth['faces']))
+        for face in mouth['faces']:
+            points=[mouth['verts'][i] for i in face]
+            self.assertGreater(max(p[2] for p in points)-min(p[2] for p in points),0)
+        self.assertGreater(max(p[2] for p in mouth['verts']),self.p['terrace_top_m']+8)
+
+    def test_candidate_slab_ends_no_longer_punch_through_descending_fold(self):
+        p=self.p;body=podium.outline(p)
+        previous=0
+        for z in p['display_slab_levels_m']:
+            points=podium.cropped_floor_outline(p,body,z)
+            # At front the roll descends toward ground; positive slab edge must
+            # retreat as floors rise. Test actual polygon, not configured flags.
+            front=[x for x,y in points if abs(y+p['depth_m']/2)<1e-8]
+            retreat=max(x for x,y in body if abs(y+p['depth_m']/2)<1e-8)-max(front)
+            self.assertGreaterEqual(retreat,previous-1e-8);previous=retreat
+        self.assertGreater(previous,3)
+        start=p['left_fold_front_v_candidate']
+        self.assertAlmostEqual(podium.roof_height(p,-.5,start),p['terrace_top_m']+p['left_end_clearance_candidate_m'])
 
 
 if __name__=='__main__':unittest.main()

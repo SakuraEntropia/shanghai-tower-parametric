@@ -5,17 +5,15 @@ relationships absent from earlier renders. It does not supply 3D coordinates.
 """
 import math
 from crown_completion import crown_profile_stations, trim_height
-from floors_v3 import annular_slab
 
 
 def roof_slot_polygon(p, count=48):
-    """One connected rectangular recess ending in a semicircular open aperture."""
-    r=p['deck_aperture_half_width_fit_m'];y=p['deck_aperture_round_center_y_fit_m']
+    """Rectangular well boundary; the full circular oculus is separate below."""
+    r=p['deck_aperture_half_width_fit_m'];y=p['deck_well_lower_y_fit_m']
     top=p['deck_aperture_rect_upper_y_fit_m']
     if not y < 0 < top or r <= 0:
         raise ValueError('Roof slot must enclose origin and have positive width')
-    return [(-r,top),(r,top),(r,y)]+[(r*math.cos(-math.pi*i/count),y+r*math.sin(-math.pi*i/count))
-           for i in range(1,count+1)]+[(-r,top)]
+    return [(-r,y),(r,y),(r,top),(-r,top)]
 
 
 def rim_point(geometry,config,station,candidate,inset=0,z=None):
@@ -32,7 +30,91 @@ def collector_point(geometry,config,station,candidate,p,roof_z,u):
     phi=math.atan2(outer[1],outer[0]);inner=(p['deck_radius_fit_m']*math.cos(phi),
         p['deck_radius_fit_m']*math.sin(phi),roof_z)
     return (inner[0]+u*(outer[0]-inner[0]),inner[1]+u*(outer[1]-inner[1]),
-            roof_z+u*u*(outer[2]-roof_z))
+            roof_z+u*(outer[2]-roof_z))
+
+
+def _circle(center,radius,count=64):
+    return [(center[0]+radius*math.cos(i*2*math.pi/count),
+             center[1]+radius*math.sin(i*2*math.pi/count)) for i in range(count)]
+
+
+def _clip(poly,a,b,inside=True):
+    """Convex half-plane clipping; no external dependency or Blender boolean."""
+    if not poly:return []
+    sign=1 if inside else -1
+    distance=lambda v:sign*((b[0]-a[0])*(v[1]-a[1])-(b[1]-a[1])*(v[0]-a[0]))
+    result=[];previous=poly[-1];dp=distance(previous)
+    for current in poly:
+        dc=distance(current)
+        if (dp>=-1e-10)!=(dc>=-1e-10):
+            t=dp/(dp-dc)
+            result.append(tuple(previous[j]+t*(current[j]-previous[j]) for j in range(2)))
+        if dc>=-1e-10:result.append(current)
+        previous,dp=current,dc
+    clean=[]
+    for v in result:
+        if not clean or math.dist(v,clean[-1])>1e-8:clean.append(v)
+    if len(clean)>1 and math.dist(clean[0],clean[-1])<1e-8:clean.pop()
+    area=abs(sum(a[0]*b[1]-a[1]*b[0] for a,b in zip(clean,clean[1:]+clean[:1])))
+    return clean if len(clean)>=3 and area>1e-9 else []
+
+
+def _subtract(poly,hole):
+    """Partition a convex polygon outside a convex CCW hole."""
+    result=[];remaining=poly
+    for a,b in zip(hole,hole[1:]+hole[:1]):
+        outside=_clip(remaining,a,b,False)
+        if outside:result.append(outside)
+        remaining=_clip(remaining,a,b)
+        if not remaining:break
+    return result
+
+
+def _cut_polygons(polygons,holes):
+    for hole in holes:
+        bounds=(min(v[0] for v in hole),max(v[0] for v in hole),
+                min(v[1] for v in hole),max(v[1] for v in hole))
+        pieces=[]
+        for poly in polygons:
+            if max(v[0] for v in poly)<bounds[0] or min(v[0] for v in poly)>bounds[1] or max(v[1] for v in poly)<bounds[2] or min(v[1] for v in poly)>bounds[3]:
+                pieces.append(poly)
+            else:pieces.extend(_subtract(poly,hole))
+        polygons=pieces
+    return polygons
+
+
+def _extruded_polygons(polys,z,thickness):
+    verts=[];faces=[]
+    for poly in polys:
+        n=len(poly);start=len(verts)
+        verts.extend([(x,y,z) for x,y in poly]+[(x,y,z-thickness) for x,y in poly])
+        faces.extend((tuple(start+i for i in range(n)),tuple(start+n+i for i in reversed(range(n)))))
+        faces.extend((start+i,start+(i+1)%n,start+n+(i+1)%n,start+n+i) for i in range(n))
+    return verts,faces
+
+
+def roof_holes(p):
+    holes=[roof_slot_polygon(p)]
+    for hatch in p['deck_scattered_apertures_fit']:
+        x,y=hatch['center_xy_m']
+        if hatch['kind']=='round':holes.append(_circle((x,y),hatch['radius_m']))
+        else:
+            w,h=hatch['size_m'];holes.append([(x-w/2,y-h/2),(x+w/2,y-h/2),(x+w/2,y+h/2),(x-w/2,y+h/2)])
+    return holes
+
+
+def roof_grating_mesh(p,z):
+    """Physical open metal grating; all main/scattered openings cut every bar."""
+    radius=p['deck_radius_fit_m'];boundary=_circle((0,0),radius,96)
+    pitch=p['deck_grate_pitch_display_m'];width=p['deck_grating_bar_width_fit_m']
+    bars=[]
+    for axis in range(2):
+        for i in range(-math.floor(radius/pitch),math.floor(radius/pitch)+1):
+            low,high=i*pitch-width/2,i*pitch+width/2
+            poly=[(low,-radius),(high,-radius),(high,radius),(low,radius)] if axis==0 else [(-radius,low),(radius,low),(radius,high),(-radius,high)]
+            for a,b in zip(boundary,boundary[1:]+boundary[:1]):poly=_clip(poly,a,b)
+            if poly:bars.extend(_cut_polygons([poly],roof_holes(p)))
+    return _extruded_polygons(bars,z,p['deck_grating_bar_depth_fit_m'])
 
 
 def _quad_mesh(ctx,name,quads,collection,material,meta):
@@ -51,7 +133,7 @@ def _actual(obj, fallback):
 def build_detail(ctx,geometry,candidate,assembly,p):
     legacy=assembly.get('crown',{})
     source_id=candidate.get('source_id',candidate.get('source_id_candidate'))
-    meta={'source_ids':[source_id,'B14_GEOM','CROWN_GENS_AERIAL_V5','OWNER_CONSTRUCTION_V5'],
+    meta={'source_ids':[source_id,'B14_GEOM','CROWN_GENS_AERIAL_V5','OWNER_CONSTRUCTION_V5','OWNER_TMD_WIND_V6','TURBINE_ATTEY_V6','TMD_MOTIONEERING_V6','OWNER_MEP_BUILD_V6'],
           'source_locator':'NTUA PDFp13/14 Fig8/9; National Geographic2023-06-09 Gensler aerial; owner August2014 crown image',
           'evidence_level':'待确认','approximation':True,'asbuilt_verified':False,
           'geometry_role':'crown_roof_and_trusses_candidate','station_mapping_evidence':'待确认',
@@ -83,19 +165,24 @@ def build_detail(ctx,geometry,candidate,assembly,p):
     track=[rim_point(geometry,ctx.config,s,candidate,p['return_track_inset_fit_m']) for s in stations]
     ctx.lines('CROWN_V5_RIM_TRACK_CANDIDATE',[track],'74_CROWN_ROOF_CANDIDATE',p['rim_track_radius_display_m'],'steel',
               {**meta,'geometry_role':'crown_washing_track_candidate','function_evidence':'NTUA identifies window-washing track; actual coordinates unavailable'})
-    # A connected slot ends in an exposed round aperture. It is a genuine mesh
-    # hole; neither a dark rectangle nor a full opening pretending to be a roof.
+    # A full circle lies below a rectangular well; v5's semicircular slot was
+    # an incorrect interpretation. Grated walkway and scattered apertures are
+    # actual removed geometry, with image-fit positions explicitly unresolved.
     hole=roof_slot_polygon(p)
-    dv,df=annular_slab(p['deck_radius_fit_m'],hole,roof_z,p['deck_thickness_fit_m'],192)
+    dv,df=roof_grating_mesh(p,roof_z)
     deck=ctx.mesh('CROWN_V5_MAIN_DECK_RECT_RECESS_AND_ROUND_APERTURE',dv,df,
          '74_CROWN_ROOF_CANDIDATE','steel',{**meta,'geometry_role':'crown_lower_main_roof_candidate',
          'aperture_function':'Rectangular recess and round aperture visible; ventilation/maintenance function unresolved',
-         'formula':'Circular annular slab with one polygonal connected rectangular+semicircular hole'})
-    # Recess frame and two separated grating panels stop above the round void.
-    r=p['deck_aperture_half_width_fit_m'];y0=p['deck_grate_start_y_fit_m'];y1=p['deck_grate_end_y_fit_m']
+         'formula':'Crossed physical grating bars clipped to circular perimeter, rectangular well and separately positioned hatch/circular holes; no continuous opaque slab'})
+    r=p['deck_aperture_half_width_fit_m']
     grate_z=roof_z-p['deck_recess_depth_fit_m'];grates=[];frames=[]
-    gap=p['recess_grate_panel_separator_fit_m']/2
-    for ymin,ymax in ((y0,(y0+y1)/2-gap),((y0+y1)/2+gap,y1)):
+    oculus=_circle((0,p['deck_aperture_round_center_y_fit_m']),p['deck_oculus_radius_fit_m'],96)
+    well_pieces=_cut_polygons([hole],[oculus])
+    wv,wf=_extruded_polygons(well_pieces,grate_z,p['deck_well_service_plate_depth_fit_m'])
+    ctx.mesh('CROWN_V6_RECTANGULAR_WELL_FLOOR_FULL_ROUND_OCULUS',wv,wf,'74_CROWN_ROOF_CANDIDATE','steel',
+             {**meta,'geometry_role':'crown_recess_service_floor_candidate','formula':'Rectangular lowered service platform minus full circular opening; hole continues to TMD hall below'})
+    # Independent bridge/grate panels lie outside the full round opening.
+    for ymin,ymax in p['deck_bridge_grate_y_ranges_fit_m']:
         frames.append([(-r,ymin,grate_z),(r,ymin,grate_z),(r,ymax,grate_z),(-r,ymax,grate_z),(-r,ymin,grate_z)])
         for i in range(1,math.ceil((ymax-ymin)/p['deck_grate_pitch_display_m'])):
             y=ymin+i*p['deck_grate_pitch_display_m']
@@ -103,7 +190,14 @@ def build_detail(ctx,geometry,candidate,assembly,p):
         grates.extend([[(-r/3,ymin,grate_z),(-r/3,ymax,grate_z)],[(r/3,ymin,grate_z),(r/3,ymax,grate_z)]])
     ctx.lines('CROWN_V5_RECT_RECESS_FRAME',frames,'76_CROWN_ROOF_EQUIPMENT',p['recess_frame_radius_display_m'],'steel',meta)
     ctx.lines('CROWN_V5_TWO_RECESSED_GRATE_PANELS',grates,'76_CROWN_ROOF_EQUIPMENT',p['recess_grate_radius_display_m'],'steel',
-              {**meta,'geometry_role':'crown_rectangular_recess_grating_candidate','formula':'Two candidate grate panels inside visible rectangular recess; circular aperture remains open'})
+              {**meta,'geometry_role':'crown_rectangular_recess_grating_candidate','formula':'Two candidate bridge panels at opposite ends of rectangular recess, outside full circular oculus'})
+    oculus_ring=[(x,y,grate_z) for x,y in oculus+[oculus[0]]]
+    ctx.lines('CROWN_V6_FULL_ROUND_OCULUS_CONTINUOUS_RING',[oculus_ring],'74_CROWN_ROOF_CANDIDATE',p['deck_oculus_ring_radius_display_m'],'steel',meta)
+    for index,aperture in enumerate(p['deck_scattered_apertures_fit']):
+        poly=roof_holes(p)[index+1]
+        ctx.lines(f'CROWN_V6_SCATTERED_APERTURE_CURB_{index+1:02d}',[[(x,y,roof_z+p['deck_scattered_curb_height_fit_m']) for x,y in poly+[poly[0]]]],
+                  '76_CROWN_ROOF_EQUIPMENT',p['deck_scattered_curb_radius_display_m'],'steel',
+                  {**meta,'geometry_role':'crown_roof_aperture_candidate','image_fit_aperture':aperture,'function_evidence':'Openings visible in actual aerial; dimensions, position, function unconfirmed'})
     rail=[(p['deck_radius_fit_m']*math.cos(i*2*math.pi/160),p['deck_radius_fit_m']*math.sin(i*2*math.pi/160),roof_z+p['deck_guardrail_height_fit_m'])
           for i in range(161)]
     railposts=[[v,(v[0],v[1],roof_z)] for v in rail[::5]]
@@ -117,7 +211,7 @@ def build_detail(ctx,geometry,candidate,assembly,p):
     for j in range(radial_samples+1):
         net.append([collector_point(geometry,ctx.config,s,candidate,p,roof_z,j/radial_samples) for s in stations])
     ctx.lines('CROWN_V5_STEEP_INNER_NET_CONTINUOUS',net,'74_CROWN_ROOF_CANDIDATE',p['collector_net_radius_display_m'],'steel',
-              {**meta,'geometry_role':'crown_open_collector_roof_candidate','formula':'Steep radial z(u)=roof_z+u²*(rim_z−roof_z), shared actual rim azimuth; dense curve lattice, count unconfirmed'})
+              {**meta,'geometry_role':'crown_open_collector_roof_candidate','formula':'Straight radial z(u)=roof_z+u*(rim_z−roof_z), shared actual rim azimuth; dense horizontal lattice, count unconfirmed'})
     # Lower support and upper kickers use orderly matched bays. Circumferential
     # rings stay on source-local level candidates, not arbitrary diagonal spokes.
     grid=crown_profile_stations(geometry,ctx.config,int(legacy.get('truss_count_display',24)),(.5,))
@@ -146,7 +240,15 @@ def build_detail(ctx,geometry,candidate,assembly,p):
             if abs(z-roof_z)<1e-7:
                 member_z-=p['deck_thickness_fit_m']+p['structural_radial_radius_display_m']+p['roof_strut_clearance_display_m']
             x,y,_=point(member_z,depth);rad=math.hypot(x,y)
-            radials.append([(x*float(legacy.get('central_steel_frame_radius_fit_m',6))/rad,y*float(legacy.get('central_steel_frame_radius_fit_m',6))/rad,member_z),point(member_z,depth)])
+            inner_radius=float(legacy.get('central_steel_frame_radius_fit_m',6))
+            # Generic NTUA radial core paths cannot run across the newly
+            # source-observed open public hall or its roof oculus. Their actual
+            # endpoints are unknown: terminate the candidate at the hall's
+            # outer support interface, retaining all below-hall load paths.
+            if p['tmd_hall_floor_owner_m']-p['tmd_hall_floor_depth_fit_m']<=member_z<roof_z:
+                inner_radius=max(inner_radius,p['tmd_hall_radius_fit_m']+p['tmd_hall_steel_clearance_display_m'])
+            if inner_radius>=rad:raise ValueError('Crown radial bay has no space outside TMD hall')
+            radials.append([(x*inner_radius/rad,y*inner_radius/rad,member_z),point(member_z,depth)])
         rib=[collector_point(geometry,ctx.config,station,candidate,p,roof_z,j/int(p['collector_primary_rib_radial_samples_display'])) for j in range(int(p['collector_primary_rib_radial_samples_display'])+1)]
         ribs.append(rib);kickers.append([rib[0],point(min(top,roof_z+float(legacy.get('kicker_height_fit_m',9))),depth)])
     for z in ringlevels+upperlevels:
@@ -180,18 +282,140 @@ def build_detail(ctx,geometry,candidate,assembly,p):
              {**meta,'geometry_role':'crown_steel_candidate','installed_coordinate_verified':False,'member_radius_display_m':radius})
         objects.append(obj.name)
     equipment=_equipment(ctx,geometry,candidate,p,meta,roof_z,stations)
+    hall=_tmd_hall(ctx,p,meta,roof_z)
+    turbines=_turbines(ctx,geometry,candidate,p,meta)
     actual=_actual(deck,dv)
+    hall_radials=[path for path in radials if p['tmd_hall_floor_owner_m']-p['tmd_hall_floor_depth_fit_m']<=path[0][2]<roof_z]
+    hall_clearance=min(math.hypot(v[0],v[1])-p['structural_radial_radius_display_m']-p['tmd_hall_radius_fit_m']
+                       for path in hall_radials for v in path)
     checks=[{'name':'crown_lower_roof_entity','passed':len(actual)>0 and abs(max(v[2] for v in actual)-roof_z)<.001,'actual':len(actual)},
       {'name':'crown_wide_return_entity','passed':len(return_faces)>200,'actual':len(return_faces)},
       {'name':'crown_dense_steep_net_entity','passed':len(net)>180 and min(v[2] for v in net[0])==roof_z,'actual':len(net)},
-      {'name':'crown_rect_recess_and_round_opening','passed':len(hole)>40 and r>0 and len(grates)>10,'actual':{'hole_vertices':len(hole),'grate_paths':len(grates)}},
+      {'name':'crown_rect_recess_and_round_opening','passed':len(hole)==4 and len(oculus)==96 and len(grates)>10,'actual':{'well_boundary_vertices':len(hole),'full_oculus_vertices':len(oculus),'scattered_openings':len(p['deck_scattered_apertures_fit']),'grate_paths':len(grates)}},
       {'name':'crown_steel_load_paths_entities','passed':all(bool(paths) for paths in(chords,webs,radials,kickers,rings,corners)),'actual':{'chords':len(chords),'webs':len(webs),'radials':len(radials),'kickers':len(kickers),'ring_members':len(rings),'corner_members':len(corners)}},
       {'name':'crown_lower_transition_entities','passed':len(transition)>3,'actual':len(transition)},
+      {'name':'crown_radials_clear_public_hall_and_oculus','passed':hall_clearance>0,
+       'actual':{'minimum_member_envelope_hall_clearance_m':hall_clearance,'members':len(hall_radials)},
+       'meaning':'Candidate radial members stop at outer hall interface rather than occupying public hall or sky opening; fabrication endpoints remain unconfirmed'},
       {'name':'helipad_not_fabricated_without_evidence','passed':not p['helipad_enabled'],'actual':p['helipad_evidence']}]
     return {'objects':objects,'checks':checks,'used_parameters':p,'approximation':True,'evidence_level':'待确认',
             'asbuilt_verified':False,'source_ids':meta['source_ids'],'roof_is_at_601_not_flat_632_cap':True,
-            'K2_gap_preserved':False,'actual_reentrant_V_is_separate_component':True,'equipment':equipment,
+            'K2_gap_preserved':False,'actual_reentrant_V_is_separate_component':True,'equipment':equipment,'tmd_hall':hall,'wind_turbines':turbines,
             'uncertainty':meta['uncertainty']}
+
+
+def _tmd_hall(ctx,p,meta,roof_z):
+    """Source-observed art hall and TMD relationships, replaceable dimensions."""
+    collection='78_TMD_ART_HALL_CANDIDATE';hall_z=p['tmd_hall_floor_owner_m']
+    radius=p['tmd_hall_radius_fit_m'];center=(0,p['deck_aperture_round_center_y_fit_m'])
+    local={**meta,'geometry_role':'tmd_art_hall_candidate','source_topology_confirmed':True,
+           'confirmed_attributes':{'public_levels':[125,126],'L126_owner_m':583.4,'steel_mass_tonnes':1000,'device_spans_floors':5},
+           'source_locator':'Owner2016-04-22 article and first two hall photographs; Motioneering2023-04-26',
+           'formula':'Cylindrical art hall below grating deck; full sky oculus; sculpture above suspended steel mass; magnet below mass over fixed copper plate',
+           'uncertainty':'Hall/device dimensions, suspension count, sculpture form and coordinates photo-fit only. Owner30m Eye extent unresolved, not assigned as sculpture height.'}
+    floor_poly=_circle((0,0),radius,128);masshole=_circle(center,p['tmd_mass_radius_fit_m']+p['tmd_movement_clearance_fit_m'])
+    fv,ff=_extruded_polygons(_cut_polygons([floor_poly],[masshole]),hall_z,p['tmd_hall_floor_depth_fit_m'])
+    ctx.mesh('TMD_V6_HALL_126_VISITOR_FLOOR',fv,ff,collection,'core',local)
+    wall_quads=[];seams=[]
+    for i in range(128):
+        a,b=2*math.pi*i/128,2*math.pi*(i+1)/128
+        x,y=radius*math.cos(a),radius*math.sin(a);u,v=radius*math.cos(b),radius*math.sin(b)
+        wall_quads.append([(x,y,hall_z),(u,v,hall_z),(u,v,roof_z-p['deck_thickness_fit_m']),(x,y,roof_z-p['deck_thickness_fit_m'])])
+        if i%2==0:seams.append([(x,y,hall_z),(x,y,roof_z-p['deck_thickness_fit_m'])])
+    _quad_mesh(ctx,'TMD_V6_HALL_CYLINDRICAL_ENCLOSURE',wall_quads,collection,'tmd_hall',local)
+    ctx.lines('TMD_V6_HALL_VERTICAL_CLADDING_SEAMS',seams,collection,p['tmd_cladding_seam_radius_display_m'],'steel',local)
+    # Mechanical mass geometry is a cylinder proxy, not a fabricated shop body.
+    mass_radius=p['tmd_mass_radius_fit_m'];mass_thickness=p['tmd_mass_thickness_fit_m']
+    mv,mf=_extruded_polygons([_circle(center,mass_radius,96)],hall_z,mass_thickness)
+    ctx.mesh('TMD_V6_SUSPENDED_STEEL_MASS_1000_TONNE_CANDIDATE',mv,mf,collection,'steel',
+             {**local,'geometry_role':'tmd_suspended_mass_candidate','physical_mass_tonnes':1000,'mass_evidence_level':'已证实','dimensions_evidence_level':'待确认'})
+    copper_z=hall_z-mass_thickness-p['tmd_magnet_clearance_fit_m']-p['tmd_magnet_depth_fit_m']
+    cv,cf=_extruded_polygons([_circle(center,p['tmd_copper_plate_radius_fit_m'])],copper_z,p['tmd_copper_plate_depth_fit_m'])
+    ctx.mesh('TMD_V6_COPPER_PLATE_FIXED_TO_LOWER_FLOOR',cv,cf,collection,'copper',local)
+    magnet=p['tmd_magnet_array_size_fit_m']
+    ctx.box('TMD_V6_MAGNET_ARRAY_BELOW_SUSPENDED_MASS',(center[0],center[1],hall_z-mass_thickness-magnet[2]/2),magnet,collection,'steel',local)
+    cables=[]
+    for i in range(int(p['tmd_suspension_cable_count_display'])):
+        angle=2*math.pi*i/p['tmd_suspension_cable_count_display']
+        r0=p['tmd_suspension_bottom_radius_fit_m'];r1=p['tmd_suspension_top_radius_fit_m']
+        cables.append([(center[0]+r0*math.cos(angle),center[1]+r0*math.sin(angle),hall_z),
+                       (center[0]+r1*math.cos(angle),center[1]+r1*math.sin(angle),roof_z-p['deck_thickness_fit_m'])])
+    ctx.lines('TMD_V6_HEAVY_SUSPENSION_CABLES',cables,collection,p['tmd_suspension_cable_radius_display_m'],'steel',local)
+    rail_radius=mass_radius+p['tmd_visitor_guard_offset_fit_m'];rail_z=hall_z+p['tmd_visitor_guard_height_fit_m']
+    ring=[(center[0]+rail_radius*math.cos(i*2*math.pi/96),center[1]+rail_radius*math.sin(i*2*math.pi/96),rail_z) for i in range(97)]
+    ctx.lines('TMD_V6_VISITOR_GUARDRAIL_RING',[ring]+[[(x,y,hall_z),(x,y,rail_z)] for x,y,z in ring[::4]],collection,p['tmd_visitor_guard_radius_display_m'],'steel',local)
+    # Almond-shaped nested sculpture blades, intentionally source-fit, not an
+    # exact reproduction of the artist's original geometrical specification.
+    eye_quads=[]
+    for layer in range(int(p['tmd_eye_nested_blade_count_display'])):
+        scale=1-layer*p['tmd_eye_nested_scale_step_fit'];w=p['tmd_eye_width_fit_m']*scale;h=p['tmd_eye_height_fit_m']*scale
+        bottom=hall_z+(p['tmd_eye_height_fit_m']-h)/2
+        outline=[(side*w*.5*math.sin(math.pi*t),bottom+h*t) for side,sequence in ((1,range(33)),(-1,range(32,-1,-1))) for t in [j/32 for j in sequence]]
+        width=p['tmd_eye_blade_width_fit_m'];depth=p['tmd_eye_blade_depth_fit_m']
+        for a,b in zip(outline,outline[1:]+outline[:1]):
+            if math.dist(a,b)<1e-8:continue
+            dx,dz=b[0]-a[0],b[1]-a[1];length=math.hypot(dx,dz);nx,nz=-dz/length*width/2,dx/length*width/2
+            cross=[(center[0]+a[0]+nx,center[1]-depth/2,a[1]+nz),(center[0]+b[0]+nx,center[1]-depth/2,b[1]+nz),
+                   (center[0]+b[0]-nx,center[1]-depth/2,b[1]-nz),(center[0]+a[0]-nx,center[1]-depth/2,a[1]-nz)]
+            back=[(x,y+depth,z) for x,y,z in cross]
+            eye_quads.extend((cross,list(reversed(back))))
+            eye_quads.extend([cross[i],back[i],back[(i+1)%4],cross[(i+1)%4]] for i in range(4))
+    _quad_mesh(ctx,'TMD_V6_EYE_NESTED_ALMOND_SCULPTURE_PHOTO_FIT',eye_quads,collection,'tmd_eye',local)
+    # Interior ornamental canopy is allowed to curve; exterior crown generators
+    # above remain exactly straight. Three wide lower scallops are photo-fit.
+    decorative=[];n=int(p['tmd_canopy_rib_count_display'])
+    for i in range(n):
+        phi=i*2*math.pi/n;path=[]
+        lower=hall_z+p['tmd_canopy_low_offset_fit_m']+p['tmd_canopy_scallop_rise_fit_m']*max(0,math.cos(3*phi))**2
+        for j in range(25):
+            u=j/24;r=radius+(p['deck_oculus_radius_fit_m']-radius)*u*u
+            cx,cy=center[0]*u*u,center[1]*u*u
+            path.append((cx+r*math.cos(phi),cy+r*math.sin(phi),lower+(roof_z-p['deck_recess_depth_fit_m']-lower)*u))
+        decorative.append(path)
+    ctx.lines('TMD_V6_INTERIOR_ORNAMENTAL_CANOPY_CURVED_RIBS',decorative,collection,p['tmd_canopy_rib_radius_display_m'],'tmd_hall',
+              {**local,'geometry_role':'tmd_art_hall_decorative_canopy_candidate','formula':'Curved decorative ribs with three broad scalloped lower limits, observed owner interior image; distinct from exterior straight ruled net'})
+    return {'owner_floor_m':hall_z,'design_floor_candidate_m':583.258,'difference_m':hall_z-583.258,
+            'physical_mass_tonnes':1000,'floor_span_confirmed':5,'sculpture_30m_statement_extent':'unresolved; not used as height',
+            'asbuilt_coordinates_verified':False,'camera_candidate':{'position':(0,-13,hall_z+3.2),'target':(0,center[1],hall_z+5)}}
+
+
+def _turbines(ctx,geometry,candidate,p,meta):
+    """270 source-confirmed units; modified product, row/column layout unknown."""
+    groups=candidate.get('wind_openings_candidate',[]);units=[];shafts=[];frames=[]
+    ncol=int(p['wind_turbine_columns_display']);nrow=int(p['wind_turbine_rows_display'])
+    length=p['wind_turbine_length_generic_candidate_m'];radius=p['wind_turbine_radius_generic_candidate_m']
+    source={**meta,'source_ids':['OWNER_TMD_WIND_V6','OWNER_MEP_BUILD_V6','TURBINE_ATTEY_V6','WINDPODS_PRODUCT_V6'],
+            'geometry_role':'crown_horizontal_axis_wind_turbines_candidate','installed_count_evidence_level':'已证实',
+            'installed_count_confirmed':270,'groups_confirmed':3,'units_per_group_confirmed':90,
+            'generic_product_size_not_tower_shop_dimension':True,'row_column_layout_evidence':'待确认',
+            'source_locator':'Owner2016-04-22; owner2016-04-27 L124574m; Attey actual installed photo',
+            'formula':'Three groups, nine candidate rows by ten candidate columns; horizontal tangent axes with three phase-offset open rotor shells, independently fitted to true-z crown curve'}
+    for g,opening in enumerate(groups):
+        for row in range(nrow):
+            z=opening['z_min_m']+radius+(opening['z_max_m']-opening['z_min_m']-2*radius)*row/max(1,nrow-1)
+            for col in range(ncol):
+                s=opening['s_min']+(col+.5)/ncol*(opening['s_max']-opening['s_min'])
+                station=crown_profile_stations(geometry,ctx.config,160,(s,s-.001,s+.001))
+                selected={round(t['s'],8):t for t in station}
+                center=rim_point(geometry,ctx.config,selected[round(s,8)],candidate,p['wind_turbine_inset_fit_m'],z)
+                a=rim_point(geometry,ctx.config,selected[round(s-.001,8)],candidate,p['wind_turbine_inset_fit_m'],z)
+                b=rim_point(geometry,ctx.config,selected[round(s+.001,8)],candidate,p['wind_turbine_inset_fit_m'],z)
+                d=math.hypot(b[0]-a[0],b[1]-a[1]);axis=((b[0]-a[0])/d,(b[1]-a[1])/d,0);normal=(-axis[1],axis[0],0)
+                at=lambda x,angle:(center[0]+axis[0]*x+normal[0]*radius*math.cos(angle),center[1]+axis[1]*x+normal[1]*radius*math.cos(angle),z+radius*math.sin(angle))
+                for segment in range(3):
+                    x0=-length/2+length*segment/3;x1=x0+length/3-p['wind_rotor_segment_gap_fit_m']
+                    for j in range(8):
+                        angle0=math.radians(segment*60+j*210/8);angle1=math.radians(segment*60+(j+1)*210/8)
+                        units.append([at(x0,angle0),at(x1,angle0),at(x1,angle1),at(x0,angle1)])
+                shafts.append([(center[0]-axis[0]*length/2,center[1]-axis[1]*length/2,z),(center[0]+axis[0]*length/2,center[1]+axis[1]*length/2,z)])
+                for end in (-length/2,length/2):
+                    pt=(center[0]+axis[0]*end,center[1]+axis[1]*end,z)
+                    frames.append([(pt[0],pt[1],z-radius-p['wind_turbine_support_drop_fit_m']),(pt[0],pt[1],z+radius+p['wind_turbine_support_drop_fit_m'])])
+    _quad_mesh(ctx,'CROWN_V6_270_WINDPODS_OPEN_ROTOR_SHELLS_CANDIDATE',units,'79_CROWN_WIND_TURBINES_CANDIDATE','steel',source)
+    ctx.lines('CROWN_V6_270_HORIZONTAL_TURBINE_SHAFTS',shafts,'79_CROWN_WIND_TURBINES_CANDIDATE',p['wind_turbine_shaft_radius_display_m'],'steel',source)
+    ctx.lines('CROWN_V6_TURBINE_FRAME_SUPPORTS',frames,'79_CROWN_WIND_TURBINES_CANDIDATE',p['wind_turbine_support_radius_display_m'],'steel',source)
+    return {'generated_units':len(shafts),'confirmed_historical_count':270,'groups':len(groups),
+            'row_column_layout_candidate':[nrow,ncol],'owner_L124_height_m':574,'coordinates_confirmed':False}
 
 
 def _equipment(ctx,geometry,candidate,p,meta,roof_z,stations):
@@ -228,21 +452,25 @@ def _equipment(ctx,geometry,candidate,p,meta,roof_z,stations):
         fans.append(circle)
         fans.extend([[(x,y,fan_z),(x+rad*math.cos(j*2*math.pi/4),y+rad*math.sin(j*2*math.pi/4),fan_z)] for j in range(4)])
     ctx.lines('CROWN_V5_RIM_FANLIKE_DETAILS_FUNCTION_UNCONFIRMED',fans,'76_CROWN_ROOF_EQUIPMENT',p['rim_mechanical_fan_pipe_radius_display_m'],'steel',meta)
-    # L128 cooling towers are described by structural designers. Arrangement,
-    # dimensions and current products below are candidates, not shop equipment.
-    cooling_z=next((r['z_m'] for r in candidate.get('floor_image_candidates',[]) if r['source_floor_label']=='L128'),592.47)
+    # Owner construction report explicitly L120561m. NTUA's earlier L128 design
+    # remains a named unresolved interface, not silently treated as installed.
+    cooling_z=p['cooling_tower_base_owner_m']
     tower_size=p['cooling_tower_size_fit_m'];cooling=[]
     for i in range(int(p['cooling_tower_count_display'])):
         a=2*math.pi*i/int(p['cooling_tower_count_display']);r=p['cooling_tower_ring_radius_fit_m']
         x,y=r*math.cos(a),r*math.sin(a)
-        obj=ctx.box(f'CROWN_V5_L128_COOLING_TOWER_CANDIDATE_{i+1:02d}',(x,y,cooling_z+tower_size[2]/2),tower_size,
+        obj=ctx.box(f'CROWN_V6_L120_COOLING_TOWER_CANDIDATE_{i+1:02d}',(x,y,cooling_z+tower_size[2]/2),tower_size,
              '76_CROWN_ROOF_EQUIPMENT','steel',{**meta,'geometry_role':'crown_cooling_tower_candidate',
-             'function_evidence':'NTUA text explicitly cooling towers at L128 around TMD; coordinates/count/sections unconfirmed'})
+             'source_ids':['OWNER_MEP_BUILD_V6'],'function_evidence':'Owner2016-04-27 BIM construction report explicitly cooling towers L120561m; coordinates/count/sections unconfirmed',
+             'source_conflict':'Earlier NTUA design depicts cooling at L128592.47m; current adoption owner construction report, no claim all other cooling groups absent'})
         cooling.append(obj.name)
         for j in range(1,int(p['cooling_louver_rows_display'])+1):
             z=cooling_z+j*tower_size[2]/(p['cooling_louver_rows_display']+1)
             guards.append([(x-tower_size[0]/2,y-tower_size[1]/2-.015,z),(x+tower_size[0]/2,y-tower_size[1]/2-.015,z)])
-    ctx.lines('CROWN_V5_L128_COOLING_TOWER_LOUVER_PROXY',guards,'76_CROWN_ROOF_EQUIPMENT',p['cooling_louver_radius_display_m'],'steel',meta)
+    ctx.lines('CROWN_V6_L120_COOLING_TOWER_LOUVER_PROXY',guards,'76_CROWN_ROOF_EQUIPMENT',p['cooling_louver_radius_display_m'],'steel',meta)
+    ctx.empty('CROWN_V6_L128_COOLING_OLD_DESIGN_UNRESOLVED_INTERFACE',(0,0,p['cooling_tower_old_design_base_m']),
+              '77_CROWN_UNCONFIRMED_INTERFACES',{**meta,'geometry_role':'archived_design_interface','source_ids':['CROWN_NTUA_2014'],
+              'uncertainty':'NTUA L128592.47 design conflicts owner construction L120561m. Old layout not displayed; existence of additional installed group unresolved'})
     enclosure_size=p['deck_service_enclosure_size_fit_m'];enclosure_xy=p['deck_service_enclosure_center_xy_fit_m']
     ctx.box('CROWN_V5_DECK_SMALL_SERVICE_ENCLOSURE_CANDIDATE',(*enclosure_xy,roof_z+enclosure_size[2]/2),enclosure_size,
              '76_CROWN_ROOF_EQUIPMENT','steel',{**meta,'geometry_role':'crown_small_service_enclosure_candidate',
@@ -250,6 +478,21 @@ def _equipment(ctx,geometry,candidate,p,meta,roof_z,stations):
     ctx.empty('CROWN_HELIPAD_UNCONFIRMED_PARAMETRIC_INTERFACE',(0,0,roof_z),'77_CROWN_UNCONFIRMED_INTERFACES',
             {**meta,'geometry_role':'unresolved_interface','formula':'Editable helipad interface, enabled=false','source_topology_confirmed':False,
              'uncertainty':p['helipad_evidence']})
+    # Requested editable geometry is retained as a hidden asset library object.
+    # It is deliberately outside the tower and cannot cover the actual oculus.
+    helipad_center=p['helipad_asset_center_candidate_m'];hr=p['helipad_radius_candidate_m']
+    hv,hf=_extruded_polygons([_circle(helipad_center,hr,64)],helipad_center[2],p['helipad_plate_depth_candidate_m'])
+    hm={**meta,'geometry_role':'helipad_unverified_hidden_asset','source_topology_confirmed':False,
+        'installed_location_verified':False,'default_hidden':True,'uncertainty':p['helipad_evidence'],
+        'formula':'Standalone editable helipad asset, parked outside tower by library convention; no asserted installed location'}
+    platform=ctx.mesh('CROWN_V6_HELIPAD_UNVERIFIED_HIDDEN_ASSET',hv,hf,'77_CROWN_UNCONFIRMED_INTERFACES','unknown',hm)
+    hx,hy,hz=helipad_center;hw=p['helipad_H_half_width_candidate_m'];hh=p['helipad_H_half_height_candidate_m']
+    mark=ctx.lines('CROWN_V6_HELIPAD_H_UNVERIFIED_HIDDEN_ASSET',[[ (hx-hw,hy-hh,hz+.02),(hx-hw,hy+hh,hz+.02)],
+          [(hx+hw,hy-hh,hz+.02),(hx+hw,hy+hh,hz+.02)],[(hx-hw,hy,hz+.02),(hx+hw,hy,hz+.02)]],
+          '77_CROWN_UNCONFIRMED_INTERFACES',p['helipad_mark_radius_candidate_m'],'unknown',hm)
+    for obj in (platform,mark):
+        obj.hide_render=not p['helipad_enabled'];obj.hide_viewport=not p['helipad_enabled']
     return {'rim_apparatus_candidates':len(units),'cooling_tower_candidates':len(cooling),
-            'cooling_tower_source_level':'L128','cooling_tower_candidate_base_m':cooling_z,
-            'helipad_generated':False,'helipad_evidence':p['helipad_evidence']}
+            'cooling_tower_source_level':'L120','cooling_tower_candidate_base_m':cooling_z,
+            'cooling_tower_source_conflict_old_L128_m':p['cooling_tower_old_design_base_m'],
+            'helipad_generated':p['helipad_enabled'],'helipad_hidden_editable_asset':True,'helipad_evidence':p['helipad_evidence']}

@@ -142,6 +142,12 @@ def _normal(points):
     return tuple(x/length for x in n) if length > 1e-12 else (0, 0, 0)
 
 
+def wind_aperture_at(s,z,candidate):
+    """Source-confirmed unglazed groups, replaceable image-fit coordinates."""
+    return next((opening for opening in candidate.get('wind_openings_candidate',[])
+                if opening['s_min'] < s < opening['s_max'] and opening['z_min_m'] < z < opening['z_max_m']),None)
+
+
 def build_crown(ctx, geometry, candidate):
     """Build continuous actual-z mother-following crown and unknown frame proxies.
 
@@ -156,8 +162,10 @@ def build_crown(ctx, geometry, candidate):
     radius = _finite(candidate.get('frame_radius_display_m', .05), 'frame_radius_display_m')
     if bottom >= min(high,low,end) or pitch <= 0 or radius <= 0:
         raise ValueError('Crown base must be below its trim, and display pitch/radius positive')
+    openings=candidate.get('wind_openings_candidate',[])
+    extra=[mid]+[opening[key] for opening in openings for key in ('s_min','s_max')]
     stations = crown_profile_stations(geometry, config,
-                candidate.get('horizontal_sample_count_display', 160), (mid,))
+                candidate.get('horizontal_sample_count_display', 160), extra)
     tops = [trim_height(a['s'], candidate) for a in stations]
     source_id = candidate.get('source_id', candidate.get('source_id_candidate'))
     if not source_id:
@@ -180,11 +188,19 @@ def build_crown(ctx, geometry, candidate):
     verts, faces, frame_lines, edge_keys = [], [], [], set()
     panel_records = []
     maximum_control = max(high,low,end)
-    number_bands = math.ceil((maximum_control-bottom)/pitch)
-    for band in range(number_bands):
-        lower, upper = bottom+band*pitch, min(bottom+(band+1)*pitch, maximum_control)
+    levels=sorted({bottom,maximum_control}|{min(bottom+i*pitch,maximum_control) for i in range(1,math.ceil((maximum_control-bottom)/pitch))}|
+                  {opening[key] for opening in openings for key in ('z_min_m','z_max_m') if bottom<opening[key]<maximum_control})
+    number_bands=len(levels)-1;omitted_cells=0
+    vertical_stride=max(1,int(candidate.get('frame_vertical_stride_display',1)))
+    horizontal_stride=max(1,int(candidate.get('frame_horizontal_stride_display',1)))
+    opening_s={round(o[k],8) for o in openings for k in ('s_min','s_max')}
+    opening_z={round(o[k],8) for o in openings for k in ('z_min_m','z_max_m')}
+    for band,(lower,upper) in enumerate(zip(levels,levels[1:])):
         xy = geometry.transform_profile([a['xy'] for a in stations], upper, config)
         for i in range(len(stations)-1):
+            if wind_aperture_at((stations[i]['s']+stations[i+1]['s'])/2,(lower+upper)/2,candidate):
+                omitted_cells+=1
+                continue
             polygon = _clipped_vertical_chord(xy[i], xy[i+1], lower, upper, tops[i], tops[i+1])
             if not polygon:
                 continue
@@ -206,10 +222,19 @@ def build_crown(ctx, geometry, candidate):
             if len(polygon)==4:
                 faces.append((start,start+2,start+3))
             panel_records.append({'face': len(faces)-1, 'band': band+1,
+                                  'candidate_band_z_range_m':[lower,upper],
                                   'stations': [stations[i]['s'], stations[i+1]['s']],
                                   'kind': 'CROWN_FIT_TRIANGLE' if len(polygon)==3 else 'CROWN_FIT_PLANAR_POLYGON',
                                   'fabrication_pattern_verified': False})
-            for a, b in zip(polygon, polygon[1:]+polygon[:1]):
+            for e,(a, b) in enumerate(zip(polygon, polygon[1:]+polygon[:1])):
+                # These are original polygon boundaries, never tessellation
+                # diagonals. Sampling density is explicitly a display option.
+                if len(polygon)==4 and e in (1,3):
+                    column=i+1 if e==1 else i
+                    if column%vertical_stride and round(stations[column]['s'],8) not in opening_s and column not in (0,len(stations)-1):continue
+                elif abs(a[2]-b[2])<1e-7:
+                    row=band if e==0 else band+1
+                    if row%horizontal_stride and round(a[2],8) not in opening_z and abs(a[2]-maximum_control)>1e-7:continue
                 key = tuple(sorted(tuple(round(x, 8) for x in p) for p in (a, b)))
                 if key not in edge_keys and math.dist(a, b)>1e-8:
                     edge_keys.add(key)
@@ -218,7 +243,9 @@ def build_crown(ctx, geometry, candidate):
                        '72_CROWN_DERIVED', 'glass', meta)
     frame_meta = {**meta, 'evidence_level': '待确认',
                   'geometry_role': 'crown_frame_display',
-                  'formula': 'Candidate panel edge paths; tube radius is display only'}
+                  'source_ids':meta['source_ids']+(['OWNER_TMD_WIND_V6','OWNER_MEP_BUILD_V6','TURBINE_ATTEY_V6'] if openings else []),
+                  'formula': 'Original quad boundaries only, sparse candidate vertical/horizontal sampling; never triangulation diagonals; source-informed wind apertures contain no glass/frame cells',
+                  'vertical_stride_display':vertical_stride,'horizontal_stride_display':horizontal_stride}
     ctx.lines('CROWN_FRAME_UNCONFIRMED_GRID', frame_lines,
               '73_CROWN_FRAME_DISPLAY', radius, 'steel', frame_meta)
     interfaces = []
@@ -270,6 +297,10 @@ def build_crown(ctx, geometry, candidate):
          'measured': max_plane_error, 'meaning': 'Planarity of candidate cells, not fabrication approval'},
         {'check': 'crown_base_elevation', 'passed': abs(min(p[2] for p in measured_verts)-bottom)<1e-3,
          'measured': min(p[2] for p in measured_verts), 'meaning': 'Crown coverage starts at configured reference datum'}]
+    if openings:
+        checks.append({'check':'crown_wind_bays_are_actual_removed_mesh_cells','passed':omitted_cells>0,
+                       'measured':{'omitted_cells':omitted_cells,'candidate_regions':openings},
+                       'meaning':'Real glass-free bays; exact locations/sizes unconfirmed, owner turbine-group topology confirmed'})
     for check in checks:
         check['asbuilt_verified'] = False
         check['measurement_source'] = measurement_source
@@ -281,6 +312,7 @@ def build_crown(ctx, geometry, candidate):
               'software_coordinate_tolerance_m': 1e-3, 'software_normal_z_tolerance': .5,
               'base_z_m': bottom, 'trim_controls_station_height': [[0,high],[mid,low],[1,end]],
               'candidate_cell_count': len(faces), 'band_count_display': number_bands,
+              'wind_aperture_removed_cell_count':omitted_cells,'wind_apertures_coordinate_evidence':'待确认',
               'station_count_display': len(stations), 'open_path_arc_order': ['K2_SHOULDER_LOW','C1','K0','C2','K1','C0','K2_SHOULDER_HIGH'],
               'band_pitch_display_m': pitch, 'frame_radius_display_m': radius,
               'grid_evidence': '待确认：sampling and band pitch are display conventions, not the crown pattern',

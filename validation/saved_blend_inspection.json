@@ -25,7 +25,11 @@
     "V5_11_crown_v5_actual_aerial.md": true,
     "V5_11_transition_facade_v5.md": true,
     "V5_11_podium_v5.md": true,
-    "V5_11_v5修正与证据.md": true
+    "V5_11_v5修正与证据.md": true,
+    "V6_12_crown_v6.md": true,
+    "V6_12_podium_v6.md": true,
+    "V6_12_roof_evidence_v6.md": true,
+    "V6_12_v6修正与证据.md": true
   },
   "collections": [
     "00_EVIDENCE",
@@ -58,6 +62,8 @@
     "75_CROWN_STEEL_CANDIDATE",
     "76_CROWN_ROOF_EQUIPMENT",
     "77_CROWN_UNCONFIRMED_INTERFACES",
+    "78_TMD_ART_HALL_CANDIDATE",
+    "79_CROWN_WIND_TURBINES_CANDIDATE",
     "80_CURTAIN_A_FRAMES_UNKNOWN",
     "80_CURTAIN_A_GLASS",
     "80_CURTAIN_A_INTERFACES",
@@ -73,13 +79,13 @@
     "88_V_REENTRANT_FACADE",
     "90_VALIDATION"
   ],
-  "objects": 608,
+  "objects": 633,
   "all_objects_have_source_metadata": true,
   "geometry_signature": {
-    "sha256_rounded_geometry": "43276b3f9ea4808e65d1ec1b542c1877dfcabbbd60b1abb4e13deddb8677d115",
-    "mesh_count": 335,
-    "vertices": 834714,
-    "polygons": 522596
+    "sha256_rounded_geometry": "bd32e57677f0d99e524eaabea4a830fcc60ee890b905a8a2b0951c862d49c8e8",
+    "mesh_count": 346,
+    "vertices": 883070,
+    "polygons": 539840
   },
   "signature_matches_generation": true,
   "passed": true,
@@ -87,8 +93,37 @@
     "slabs": 129,
     "mega_columns": 8,
     "installed_CWSS_objects": 5,
-    "podium_objects": 37,
+    "podium_objects": 34,
     "full_outer_transition_slabs": 16,
-    "crown_cooling_towers": 8
-  }
+    "crown_cooling_towers": 8,
+    "wind_turbine_shafts": 270,
+    "TMD_hall_floor_top_m": 583.4000244140625
+  },
+  "actual_glass_materials": [
+    {
+      "material": "ST_glass",
+      "node_values": {
+        "Metallic": 0.0,
+        "Transmission Weight": 1.0,
+        "IOR": 1.5,
+        "Alpha": 1.0
+      },
+      "connected_to_surface": true,
+      "passed": true,
+      "optical_specification_verified": false
+    },
+    {
+      "material": "ST_glass_detail",
+      "node_values": {
+        "Metallic": 0.0,
+        "Transmission Weight": 1.0,
+        "IOR": 1.5,
+        "Alpha": 1.0
+      },
+      "connected_to_surface": true,
+      "passed": true,
+      "optical_specification_verified": false
+    }
+  ],
+  "generation_software_checks_passed": true
 }

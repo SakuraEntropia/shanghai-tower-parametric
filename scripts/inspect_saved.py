@@ -6,6 +6,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parent.parent
 sys.path.insert(0,str(ROOT/'scripts'))
 import validation
+from common import glass_material_report
 class C: pass
 ctx=C();ctx.objects=[o for o in bpy.data.objects if o.get('project_id')=='SHANGHAI_TOWER_EVIDENCE_20261010']
 required=['00_README_EVIDENCE','MODEL_USE_AND_VALIDATION','MODEL_IMPLEMENTATION_ASSUMPTIONS','PARAMETERS_JSON','SOURCES_JSON','FLOOR_ANCHORS_JSON','MODEL_CONFIG_JSON','UNCERTAINTY_SUMMARY','PANEL_REGISTRY_JSON','VALIDATION_JSON']
@@ -14,6 +15,9 @@ required+=['ASSEMBLY_V3_PARAMETERS','ASSEMBLY_V3_EVIDENCE','ASSEMBLY_V3_PARAMETE
 v5=bpy.data.objects.get('CROWN_V5_MAIN_DECK_RECT_RECESS_AND_ROUND_APERTURE') is not None
 if v5:
     required+=['V5_crown_v5.json','V5_transition_v5.json','V5_11_crown_v5_actual_aerial.md','V5_11_transition_facade_v5.md','V5_11_podium_v5.md','V5_11_v5修正与证据.md']
+v6=bpy.context.scene.get('correction_version')=='v6'
+if v6:
+    required+=['V6_12_crown_v6.md','V6_12_podium_v6.md','V6_12_roof_evidence_v6.md','V6_12_v6修正与证据.md']
 texts={name: bool(bpy.data.texts.get(name)) for name in required}
 collections=[c.name for c in bpy.data.collections if c.get('project_id')=='SHANGHAI_TOWER_EVIDENCE_20261010']
 report={'file':bpy.data.filepath,'blender_version':bpy.app.version_string,
@@ -33,6 +37,15 @@ report['actual_entities']={'slabs':len([o for o in ctx.objects if o.get('geometr
 report['passed']=report['passed'] and report['actual_entities']['slabs']==129 and report['actual_entities']['mega_columns']==8
 if v5:
     report['passed']=report['passed'] and report['actual_entities']['full_outer_transition_slabs']==16 and report['actual_entities']['crown_cooling_towers']>0
+if v6:
+    report['actual_glass_materials']=glass_material_report(ctx.objects)
+    report['passed']=report['passed'] and bool(report['actual_glass_materials']) and all(row['passed'] for row in report['actual_glass_materials'])
+    wind=bpy.data.objects.get('CROWN_V6_270_HORIZONTAL_TURBINE_SHAFTS')
+    report['actual_entities']['wind_turbine_shafts']=len(wind.data.splines) if wind else 0
+    hall=bpy.data.objects.get('TMD_V6_HALL_126_VISITOR_FLOOR')
+    report['actual_entities']['TMD_hall_floor_top_m']=max(v.co.z for v in hall.data.vertices) if hall else None
+    report['generation_software_checks_passed']=bool(original.get('software_checks_passed'))
+    report['passed']=report['passed'] and report['actual_entities']['wind_turbine_shafts']==270 and report['generation_software_checks_passed']
 (ROOT/'validation/saved_blend_inspection.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps(report,ensure_ascii=False))
 if not report['passed']: raise RuntimeError('Saved blend inspection failed')

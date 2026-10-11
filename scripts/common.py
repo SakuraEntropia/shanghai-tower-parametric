@@ -3,6 +3,44 @@ import bpy
 import json
 from mathutils import Vector
 
+
+def configure_glass_material(mat, display, detail=False):
+    """Physical transmission shader; optical values remain display candidates."""
+    opt=display['glass_shader']
+    rgba=tuple(opt['inner_rgba'] if detail else opt['outer_rgba'])
+    mat.use_nodes=True
+    mat.diffuse_color=rgba
+    bsdf=mat.node_tree.nodes.get('Principled BSDF')
+    bsdf.inputs['Base Color'].default_value=rgba
+    bsdf.inputs['Metallic'].default_value=opt['metallic']
+    bsdf.inputs['Roughness'].default_value=opt['roughness']
+    bsdf.inputs['IOR'].default_value=opt['ior']
+    bsdf.inputs['Transmission Weight'].default_value=opt['transmission']
+    bsdf.inputs['Alpha'].default_value=1.0
+    mat.thickness_mode='SLAB'
+    mat['evidence_level']='待确认'
+    mat['shader_model']='Principled dielectric reflection/refraction; alpha=1'
+    mat['optical_values_evidence']=opt['uncertainty']
+    mat['shader_documentation']=opt['source_url']
+    mat['asbuilt_verified']=False
+
+
+def glass_material_report(objects):
+    """Inspect shaders actually assigned to generated objects, not source buffers."""
+    used={m.name:m for obj in objects if hasattr(obj.data,'materials')
+          for m in obj.data.materials if m and m.name.startswith('ST_glass')}
+    rows=[]
+    for name,mat in sorted(used.items()):
+        node=mat.node_tree.nodes.get('Principled BSDF') if mat.use_nodes else None
+        output=mat.node_tree.nodes.get('Material Output') if mat.use_nodes else None
+        connected=bool(node and output and any(link.from_node==node for link in output.inputs['Surface'].links))
+        values={key:float(node.inputs[key].default_value) if node else None
+                for key in ('Metallic','Transmission Weight','IOR','Alpha')}
+        passed=connected and values['Metallic']==0 and values['Transmission Weight']>=.99 and values['IOR']>1 and values['Alpha']==1
+        rows.append({'material':name,'node_values':values,'connected_to_surface':connected,'passed':passed,
+                     'optical_specification_verified':False})
+    return rows
+
 class SceneBuilder:
     def __init__(self, config, parameters, sources):
         self.config, self.parameters, self.sources = config, parameters, sources
@@ -17,6 +55,10 @@ class SceneBuilder:
             ('glass',(0.17,0.43,0.57,1),0.38,0.24),
             ('glass_detail',(0.27,0.58,0.70,1),0.18,0.28),
             ('steel',(0.42,0.48,0.53,1),0.7,0.25),
+            ('tmd_eye',(0.82,0.80,0.64,1),0.25,0.34),
+            ('tmd_hall',(0.42,0.27,0.10,1),0.52,0.38),
+            ('copper',(0.55,0.22,0.10,1),0.85,0.3),
+            ('podium_cladding',(0.63,0.44,0.17,1),0.65,0.35),
             ('confirmed',(0.21,0.63,0.51,1),0.15,0.42),
             ('derived',(0.83,0.55,0.22,1),0.15,0.5),
             ('unknown',(0.92,0.25,0.12,1),0.0,0.5),
@@ -37,6 +79,12 @@ class SceneBuilder:
             bsdf.inputs['Base Color'].default_value=rgba
             bsdf.inputs['Metallic'].default_value=metal
             bsdf.inputs['Roughness'].default_value=rough
+            if key in ('glass','glass_detail') and 'glass_shader' in self.config.get('display',{}):
+                configure_glass_material(mat,self.config['display'],key=='glass_detail')
+            if key in ('tmd_eye','tmd_hall','copper','podium_cladding'):
+                mat['evidence_level']='待确认'
+                mat['uncertainty']='Photograph-informed color/shading candidate; not a surveyed coating or product specification. Copper function has separate TMD source evidence.'
+                mat['asbuilt_verified']=False
             if key in ('derived','unknown','guide'):
                 bsdf.inputs['Emission Color'].default_value=rgba
                 bsdf.inputs['Emission Strength'].default_value=.35

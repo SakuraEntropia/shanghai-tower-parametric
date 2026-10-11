@@ -33,6 +33,13 @@ def validate_scene(ctx,geometry_module,anchors,results):
     scene=bpy.context.scene
     check('metric_scale',scene.unit_settings.system=='METRIC' and scene.unit_settings.scale_length==1.0,
           {'system':scene.unit_settings.system,'scale_length':scene.unit_settings.scale_length},'Software scene units, not datum survey')
+    if 'glass_shader' in ctx.config.get('display',{}):
+        from common import glass_material_report
+        material_rows=glass_material_report(ctx.objects)
+        check('actual_glass_dielectric_transmission',bool(material_rows) and all(row['passed'] for row in material_rows),
+              material_rows,'Assigned node shaders use dielectric reflection/refraction; optical values are display candidates, not facade product measurements')
+        check('eevee_glass_raytracing_enabled',scene.render.engine!='BLENDER_EEVEE' or scene.eevee.use_raytracing,
+              {'engine':scene.render.engine,'raytracing':scene.eevee.use_raytracing},'Software render configuration for transmission preview')
     source_ids={s['id'] for s in ctx.sources['sources']}
     bad=[]; missing=[]
     for obj in ctx.objects:
@@ -140,6 +147,46 @@ def validate_scene(ctx,geometry_module,anchors,results):
         check('v5_roof_radial_member_envelope_below_deck',beam_top is not None and beam_top<deck_bottom,
               {'highest_member_envelope_m':beam_top,'deck_underside_m':deck_bottom},
               'Actual curve axis plus display radius clears actual deck underside; installed member datum remains candidate')
+        cp=results['assembly']['crown_detail']['used_parameters']
+        if cp.get('version','').startswith('crown-v6'):
+            old=[bpy.data.objects.get(f'F{n:03d}_DERIVED_SLAB') for n in (126,127,128)]
+            check('v6_archived_plates_do_not_slice_TMD_hall',all(o and o.hide_render and o.hide_viewport for o in old),
+                  [o.name for o in old if o],'Only duplicate upper design-floor proxies hidden; owner-supported chamber replaces visible geometry')
+            net=bpy.data.objects.get('CROWN_V5_STEEP_INNER_NET_CONTINUOUS');errors=[]
+            if net:
+                for sp in net.data.splines:
+                    if len(sp.points)!=cp['collector_net_radial_samples']+1:continue
+                    pts=[Vector(pt.co[:3]) for pt in sp.points];axis=pts[-1]-pts[0]
+                    errors.extend((v-pts[0]).cross(axis).length/axis.length for v in pts)
+            check('v6_actual_exterior_radial_net_generators_straight',bool(errors) and max(errors)<.001,
+                  max(errors) if errors else None,'Actual float32 curve points; no lower curved transition; grid dimensions remain photo-fit candidates')
+            shafts=bpy.data.objects.get('CROWN_V6_270_HORIZONTAL_TURBINE_SHAFTS')
+            check('v6_actual_turbine_unit_count_270',shafts is not None and len(shafts.data.splines)==270,
+                  len(shafts.data.splines) if shafts else None,'One actual shaft per candidate turbine; only source count confirmed, row/column positions unconfirmed')
+            well=bpy.data.objects.get('CROWN_V6_RECTANGULAR_WELL_FLOOR_FULL_ROUND_OCULUS');blocked=[]
+            if well:
+                z=max(v.co.z for v in well.data.vertices)
+                faces=[[well.data.vertices[i].co for i in f.vertices] for f in well.data.polygons if all(abs(well.data.vertices[i].co.z-z)<.001 for i in f.vertices)]
+                cy=cp['deck_aperture_round_center_y_fit_m'];radius=cp['deck_oculus_radius_fit_m']*.65
+                probes=[(0,cy)]+[(radius*math.cos(i*math.pi/4),cy+radius*math.sin(i*math.pi/4)) for i in range(8)]
+                blocked=[pt for pt in probes if any(contains_xy(face,*pt) for face in faces)]
+            check('v6_actual_full_oculus_not_half_circle',well is not None and not blocked,
+                  {'blocked_circle_probes':blocked},'Checks full circular void in actual lowered well mesh, including both halves')
+            blocked_hatches=[h['center_xy_m'] for h in cp['deck_scattered_apertures_fit'] if any(contains_xy(face,*h['center_xy_m']) for face in top_faces)] if deck else []
+            check('v6_scattered_candidates_cut_actual_grating',deck is not None and not blocked_hatches,
+                  {'blocked_aperture_centers':blocked_hatches},'Candidate dark-patch interpretations retained as actual editable holes, not textures')
+            floor=bpy.data.objects.get('TMD_V6_HALL_126_VISITOR_FLOOR')
+            check('v6_hall_visitor_floor_matches_owner_583_4m',floor is not None and abs(max(v.co.z for v in floor.data.vertices)-583.4)<.001,
+                  max(v.co.z for v in floor.data.vertices) if floor else None,'Owner nominal level; hall geometry and physical datum alignment remain candidate')
+            hall_struts=[]
+            if struts:
+                for sp in struts.data.splines:
+                    pts=[Vector(pt.co[:3]) for pt in sp.points]
+                    if pts and cp['tmd_hall_floor_owner_m']-cp['tmd_hall_floor_depth_fit_m']<=pts[0].z<=top:
+                        hall_struts.append(min(math.hypot(pt.x,pt.y) for pt in pts)-struts.data.bevel_depth)
+            check('v6_actual_radial_steel_clears_TMD_hall',bool(hall_struts) and min(hall_struts)>cp['tmd_hall_radius_fit_m'],
+                  {'minimum_member_inner_envelope_radius_m':min(hall_struts) if hall_struts else None,'hall_radius_m':cp['tmd_hall_radius_fit_m']},
+                  'Actual curve endpoints plus display radius; removes unsupported candidate steel crossing the public chamber')
     parameters=Counter(a['evidence_level'] for a in ctx.parameters['parameters'])
     roles=Counter(obj.get('geometry_role','') for obj in ctx.objects)
     levels=Counter(obj.get('evidence_level','') for obj in ctx.objects)

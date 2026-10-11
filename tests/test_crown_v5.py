@@ -45,8 +45,9 @@ class CrownV5Tests(unittest.TestCase):
         grid=geometry.standard_grid(self.config,self.config['curtain']['half_panel_count'])
         self.assertEqual(stations[0]['xy'],grid[26]['xy'])
         self.assertEqual(stations[-1]['xy'],grid[20]['xy'])
-    def test_roof_recess_is_mesh_hole_manifold_and_round_end_stays_open(self):
+    def test_roof_recess_is_rectangular_with_separate_full_round_oculus(self):
         hole=crown_v5.roof_slot_polygon(self.p)
+        self.assertEqual(len(hole),4)
         self.assertGreater(ray_hole_radius(hole,math.pi/2),8)
         self.assertGreater(ray_hole_radius(hole,3*math.pi/2),6)
         verts,faces=annular_slab(17,hole,601.099,.25,96)
@@ -56,17 +57,36 @@ class CrownV5Tests(unittest.TestCase):
                 edge=tuple(sorted((a,b)));edge_count[edge]=edge_count.get(edge,0)+1
         self.assertTrue(all(n==2 for n in edge_count.values()))
         self.assertGreater(len(faces),300)
+        ctx=Recorder(self.config)
+        crown_v5.build_detail(ctx,geometry,self.candidate,self.assembly,self.p)
+        well=next(r for r in ctx.records if r['name']=='CROWN_V6_RECTANGULAR_WELL_FLOOR_FULL_ROUND_OCULUS')
+        center=(0,self.p['deck_aperture_round_center_y_fit_m'])
+        def covered(point):
+            for face in well['faces']:
+                poly=[well['verts'][i] for i in face]
+                if len({round(v[2],6) for v in poly})!=1:continue
+                signs=[(b[0]-a[0])*(point[1]-a[1])-(b[1]-a[1])*(point[0]-a[0]) for a,b in zip(poly,poly[1:]+poly[:1])]
+                if all(s>1e-7 for s in signs) or all(s< -1e-7 for s in signs):return True
+            return False
+        for i in range(12):
+            a=i*2*math.pi/12;r=self.p['deck_oculus_radius_fit_m']*.8
+            self.assertFalse(covered((center[0]+r*math.cos(a),center[1]+r*math.sin(a))))
     def test_dense_collector_endpoint_matches_inside_wide_return(self):
         for station in crown.crown_profile_stations(geometry,self.config,20):
             actual=crown_v5.collector_point(geometry,self.config,station,self.candidate,self.p,601.099,1)
             expected=crown_v5.rim_point(geometry,self.config,station,self.candidate,self.p['return_width_fit_m'])
             self.assertLess(math.dist(actual,expected),1e-9)
+            inner=crown_v5.collector_point(geometry,self.config,station,self.candidate,self.p,601.099,0)
+            middle=crown_v5.collector_point(geometry,self.config,station,self.candidate,self.p,601.099,.5)
+            self.assertLess(math.dist(middle,tuple((a+b)/2 for a,b in zip(inner,expected))),1e-9)
     def test_entities_evidence_and_no_fabricated_helipad(self):
         ctx=Recorder(self.config)
         report=crown_v5.build_detail(ctx,geometry,self.candidate,self.assembly,self.p)
         self.assertTrue(all(row['passed'] for row in report['checks']))
         self.assertFalse(report['equipment']['helipad_generated'])
-        self.assertEqual(report['equipment']['cooling_tower_source_level'],'L128')
+        self.assertEqual(report['equipment']['cooling_tower_source_level'],'L120')
+        self.assertEqual(report['equipment']['cooling_tower_candidate_base_m'],561)
+        self.assertEqual(report['equipment']['cooling_tower_source_conflict_old_L128_m'],592.47)
         net=next(r for r in ctx.records if r['name']=='CROWN_V5_STEEP_INNER_NET_CONTINUOUS')
         self.assertGreater(len(net['paths']),180)
         for record in ctx.records:
@@ -75,11 +95,30 @@ class CrownV5Tests(unittest.TestCase):
         for face in rim['faces'][::3]:
             self.assertAlmostEqual(rim['verts'][face[0]][2],rim['verts'][face[3]][2])
             self.assertAlmostEqual(rim['verts'][face[1]][2],rim['verts'][face[2]][2])
-        self.assertFalse(any('_HELIPAD_' in r['name'] and r['kind']!='empty' for r in ctx.records))
+        helipad=[r for r in ctx.records if '_HELIPAD_' in r['name'] and r['kind']!='empty']
+        self.assertEqual(len(helipad),2)
+        self.assertTrue(all(r['meta']['default_hidden'] and not r['meta']['installed_location_verified'] for r in helipad))
         equipment=[r for r in ctx.records if r['name'].startswith('CROWN_V5_RIM_APPARATUS_')]
         self.assertTrue(all(r['center'][2]+r['size'][2]/2<632 for r in equipment))
         shelf=next(r for r in ctx.records if r['name']=='CROWN_V5_STEPPED_RIM_APPARATUS_SUPPORT_SHELF')
         self.assertGreater(len(shelf['faces']),300)
+        self.assertEqual(report['wind_turbines']['generated_units'],270)
+        self.assertEqual(report['tmd_hall']['owner_floor_m'],583.4)
+        magnet=next(r for r in ctx.records if r['name']=='TMD_V6_MAGNET_ARRAY_BELOW_SUSPENDED_MASS')
+        copper=next(r for r in ctx.records if r['name']=='TMD_V6_COPPER_PLATE_FIXED_TO_LOWER_FLOOR')
+        mass=next(r for r in ctx.records if r['name']=='TMD_V6_SUSPENDED_STEEL_MASS_1000_TONNE_CANDIDATE')
+        self.assertGreater(magnet['center'][2]-magnet['size'][2]/2,max(v[2] for v in copper['verts']))
+        self.assertLess(magnet['center'][2]+magnet['size'][2]/2,min(v[2] for v in mass['verts'])+.001)
+
+    def test_wind_apertures_remove_real_glass_faces_and_frames_are_sparse(self):
+        ctx=Recorder(self.config)
+        report=crown.build_crown(ctx,geometry,self.candidate)
+        self.assertTrue(report['software_checks_passed'])
+        self.assertGreater(report['wind_aperture_removed_cell_count'],200)
+        self.assertFalse(any(crown.wind_aperture_at(sum(r['stations'])/2,
+            sum(r['candidate_band_z_range_m'])/2,self.candidate) for r in report['panel_records']))
+        frame=next(r for r in ctx.records if r['name']=='CROWN_FRAME_UNCONFIRMED_GRID')
+        self.assertLess(len(frame['paths']),len(report['panel_records'])*1.2)
 
     def test_roof_radial_members_do_not_pierce_deck_top(self):
         ctx=Recorder(self.config)
@@ -88,6 +127,19 @@ class CrownV5Tests(unittest.TestCase):
         roof_z=self.assembly['crown']['roof_z_m']
         highest_member_envelope=max(v[2] for path in struts['paths'] for v in path)+self.p['structural_radial_radius_display_m']
         self.assertLess(highest_member_envelope,roof_z-self.p['deck_thickness_fit_m'])
+
+    def test_upper_radial_beams_clear_public_hall_but_lower_load_paths_remain(self):
+        ctx=Recorder(self.config)
+        crown_v5.build_detail(ctx,geometry,self.candidate,self.assembly,self.p)
+        struts=next(r for r in ctx.records if r['name']=='CROWN_RADIAL_CORE_STEEL_FRAME_STRUTS_CANDIDATE')
+        hall_base=self.p['tmd_hall_floor_owner_m']-self.p['tmd_hall_floor_depth_fit_m']
+        upper=[path for path in struts['paths'] if path[0][2]>=hall_base]
+        lower=[path for path in struts['paths'] if path[0][2]<hall_base]
+        self.assertTrue(upper and lower)
+        for path in upper:
+            for point in path:
+                self.assertGreater(math.hypot(point[0],point[1])-self.p['structural_radial_radius_display_m'],self.p['tmd_hall_radius_fit_m'])
+        self.assertTrue(any(math.hypot(path[0][0],path[0][1])<self.p['tmd_hall_radius_fit_m'] for path in lower))
 
 
 if __name__=='__main__':unittest.main()

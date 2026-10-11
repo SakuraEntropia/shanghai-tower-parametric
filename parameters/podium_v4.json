@@ -1,6 +1,6 @@
 {
   "source_id": "PODIUM_GENS_V4",
-  "parameter_version": "v5-continuous-photo-informed-detail-candidate-2026-10-11",
+  "parameter_version": "v6-actual-ground-arched-mouth-reduced-candidate-2026-10-11",
   "evidence_level": "推导值",
   "numeric_evidence_level": "待确认",
   "asbuilt_verified": false,
@@ -19,7 +19,7 @@
     -25,
     -65
   ],
-  "local_azimuth_deg": 0,
+  "local_azimuth_deg": -90,
   "width_m": 72,
   "depth_m": 80,
   "width_to_reference_diameter_ratio_candidate": 0.8759124088,
@@ -38,11 +38,10 @@
   "roof_arch_drop_m": 4,
   "roof_back_drop_m": 3,
   "roof_back_v_min": 0.02,
-  "roof_side_inner_u": 0.35,
   "roof_samples_width": 32,
   "roof_samples_depth": 24,
-  "frame_radius_display_m": 0.06,
-  "lamella_count_display": 75,
+  "frame_radius_display_m": 0.022,
+  "lamella_count_display": 0,
   "lamella_u_range": [
     -0.33,
     0.3
@@ -51,7 +50,7 @@
     0.12,
     0.4
   ],
-  "lamella_radius_display_m": 0.11,
+  "lamella_radius_display_m": 0.012,
   "satellite_pavilion": {
     "center_xy_m": [
       55,
@@ -109,12 +108,19 @@
       "local_file": "references/new_podium/Gensler_retail_podium_02.jpg",
       "type": "Design rendering, not as-built photograph",
       "dimensions_supported": false
+    },
+    {
+      "title": "Shanghai Tower / actual podium ground photograph95598",
+      "publisher": "Gensler",
+      "url": "https://static1.gensler.com/uploads/image/95598/podium-50_7053_000_N76_2000x2000lo_1734564869.jpg",
+      "type": "Actual project photograph, not historical rendering",
+      "date": "Not stated; asset filename timestamp not proof",
+      "supports": "Tall arched glass opening, dark curved return, locally tapered golden roll near ground, few vertical divisions and fine horizontal stripes",
+      "dimensions_supported": false
     }
   ],
   "facade_module_candidate_m": 2.4,
   "roof_shell_thickness_candidate_m": 0.3,
-  "roof_coping_radius_candidate_m": 0.09,
-  "side_wrap_bottom_candidate_m": 6,
   "terrace_rail_inset_candidate_m": 0.65,
   "railing_height_candidate_m": 1.1,
   "railing_radius_display_m": 0.04,
@@ -133,7 +139,7 @@
     ],
     "samples": 48,
     "tip_taper_candidate": 0.25,
-    "height_candidate_m": 2.4
+    "height_candidate_m": 0.35
   },
   "garden": {
     "centre_uv": [
@@ -175,14 +181,17 @@
     "shade_pad_width_candidate_m": 3.2
   },
   "detail_evidence": {
-    "roof_and_wings": "One golden folded U envelope around exposed garden, photo-derived; sample-grid and thickness unconfirmed.",
+    "roof_and_wings": "Actual95598 supports local tapered roll beside tall glass arch. v5 broad rectangular hanging gold side walls removed. Golden roof strips narrowed and left forward extension withdrawn.",
     "garden": "Aerial supports curved garden edge, pale path, two curved glazed lobes and six visible white square elements. Their function is unidentified, modeled without a commercial label.",
     "satellite": "Aerial supports concave segmented low pavilion and roof stripes. Arc centre, radii and segment count are candidates.",
-    "entry": "Historical design rendering supports retail portal/canopy cue. Entry position, doorway count and current construction not confirmed.",
-    "all_new_numeric_parameters": "待确认; no finite metric error bound from single oblique aerial. Added detail is relation reconstruction, not shop-drawing accuracy."
+    "entry": "Historical entrance rendering not shown by default in v6; editable interface retained.",
+    "all_new_numeric_parameters": "待确认; no finite metric error bound from single oblique aerial. Added detail is relation reconstruction, not shop-drawing accuracy.",
+    "glass": "Ground image95598 shows many fine horizontal stripes and few vertical divisions within one arched mouth. v5 full-perimeter glass/mullion cage removed; hidden sides use explicitly unconfirmed opaque candidate faces.",
+    "orientation": "Candidate local azimuth rotated -90deg so tall mouth faces outside street rather than penetrating tower. Geographic north not established.",
+    "floor_boundary": "Each candidate slab edge is clipped inside descending fold, with candidate clearance; assembly repair not published surveyed slab contour."
   },
   "front_opaque_band_candidate_z_m": [
-    12.5,
+    5.5,
     17.8
   ],
   "v4_retired_candidate_controls": {
@@ -203,5 +212,36 @@
       20
     ],
     "pavilion_height_m": 2.4
-  }
+  },
+  "roof_side_inner_u_left": 0.455,
+  "roof_side_inner_u_right": 0.44,
+  "left_fold_front_v_candidate": -0.24,
+  "mouth_dark_return_width_candidate_m": 0.85,
+  "entrance_enabled": false,
+  "roof_striped_surface_enabled": true,
+  "main_body_opaque_sides": true,
+  "arched_mouth": {
+    "height_candidate_m": 28.8,
+    "angular_fraction_candidate": 0.82,
+    "power_candidate": 0.65,
+    "horizontal_row_count_candidate": 29,
+    "vertical_divisions_candidate": 5,
+    "curve_samples": 48,
+    "glass_bow_candidate_m": 0.15,
+    "frame_radius_display_m": 0.015,
+    "column_radius_candidate_m": 1.25,
+    "column_samples": 24
+  },
+  "front_vertical_divisions_candidate": 12,
+  "roof_field_display_rows": 36,
+  "rectangular_gold_wrap_enabled": false,
+  "pavilion_frames_enabled": false,
+  "v5_retired_candidate_controls": {
+    "roof_side_inner_u": 0.35,
+    "roof_coping_radius_candidate_m": 0.025,
+    "side_wrap_bottom_candidate_m": 6
+  },
+  "left_end_clearance_candidate_m": 0.35,
+  "floor_fold_clearance_candidate_m": 0.08,
+  "floor_inner_setback_candidate_u": 0.02
 }

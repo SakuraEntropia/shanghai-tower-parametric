@@ -1,34 +1,36 @@
 {
   "date": "2026-10-11",
-  "version": "v5 actual-aerial crown, transition slabs, unified facade and podium",
+  "version": "v6 primary-source crown openings, straight steel net, Windpods, TMD hall, real glass shaders and restricted podium",
   "accuracy": "Evidence-tagged research reconstruction; derived/candidate geometry, as-built NOT_VERIFIED",
   "summary": {
-    "version": "v5",
+    "version": "v6",
     "date": "2026-10-11",
-    "software_checks": 193,
+    "software_checks": 205,
     "software_checks_passed": true,
-    "unit_tests": 46,
+    "unit_tests": 50,
     "unit_tests_passed": true,
     "independent_saved_file_reopen_passed": true,
     "geometry_signature": {
-      "sha256_rounded_geometry": "43276b3f9ea4808e65d1ec1b542c1877dfcabbbd60b1abb4e13deddb8677d115",
-      "mesh_count": 335,
-      "vertices": 834714,
-      "polygons": 522596
+      "sha256_rounded_geometry": "bd32e57677f0d99e524eaabea4a830fcc60ee890b905a8a2b0951c862d49c8e8",
+      "mesh_count": 346,
+      "vertices": 883070,
+      "polygons": 539840
     },
     "asbuilt_validation": {
       "status": "NOT_VERIFIED",
       "reason": "No unified as-built curves, complete floor crosswalk, curtain panel/shop drawings, podium boundary or node coordinate schedule"
     },
-    "scope": "Software geometry and reproducibility checks; does not confirm as-built accuracy.",
-    "objects": 608,
+    "scope": "Software checks of generated geometry, physical openings, shaders, metadata and saved-file integrity; does not verify as-built geometry.",
+    "objects": 633,
     "actual_entities": {
       "slabs": 129,
       "mega_columns": 8,
       "installed_CWSS_objects": 5,
-      "podium_objects": 37,
+      "podium_objects": 34,
       "full_outer_transition_slabs": 16,
-      "crown_cooling_towers": 8
+      "crown_cooling_towers": 8,
+      "wind_turbine_shafts": 270,
+      "TMD_hall_floor_top_m": 583.4000244140625
     },
     "current_views": [
       "01",
@@ -42,12 +44,41 @@
       "15",
       "17",
       "18",
-      "19"
+      "19",
+      "20",
+      "21",
+      "22"
+    ],
+    "actual_glass_materials": [
+      {
+        "material": "ST_glass",
+        "node_values": {
+          "Metallic": 0.0,
+          "Transmission Weight": 1.0,
+          "IOR": 1.5,
+          "Alpha": 1.0
+        },
+        "connected_to_surface": true,
+        "passed": true,
+        "optical_specification_verified": false
+      },
+      {
+        "material": "ST_glass_detail",
+        "node_values": {
+          "Metallic": 0.0,
+          "Transmission Weight": 1.0,
+          "IOR": 1.5,
+          "Alpha": 1.0
+        },
+        "connected_to_surface": true,
+        "passed": true,
+        "optical_specification_verified": false
+      }
     ]
   },
   "saved_blend_inspection_passed": true,
-  "current_run": "factory-startup generated and saved; separate process reopened and inspected saved file",
-  "historical_rebuild_report": "validation/rebuild_consistency.json records v3 only",
+  "current_run": "factory-startup generated geometry and current views; interior camera refined; separate Blender process reopened, inspected, refreshed embedded evidence and saved; rounded geometry signature unchanged",
+  "historical_rebuild_report": "validation/rebuild_consistency.json records v3 only; v5_verification_summary.json is historical",
   "github_repository": "https://github.com/SakuraEntropia/shanghai-tower-parametric",
   "files": [
     {
@@ -62,8 +93,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 4280,
-      "sha256": "eaf59622816c58625c9f3a6d1b12103cede26e1d1142d3206d5ac905b21c3228"
+      "bytes": 4300,
+      "sha256": "02ca56ac80599864d848e4e834c105a51fd31321c304da7f4e8a9dbfb4673303"
     },
     {
       "path": "docs/00_资料研究报告.md",
@@ -151,6 +182,26 @@
       "sha256": "38e9c00c759fba2015bb9efeda95df414cb333c6cd9e392868a21eb68d53dd76"
     },
     {
+      "path": "docs/12_crown_v6.md",
+      "bytes": 7867,
+      "sha256": "6766448b5df2f6eb48dc97c9557bf06543a87c150d04b1657f2c6ba7000f6283"
+    },
+    {
+      "path": "docs/12_podium_v6.md",
+      "bytes": 6657,
+      "sha256": "0caadaaad9a6c4dd6bcd39535d78b18086a2da87d67c9de5d09a4a98d66d2b00"
+    },
+    {
+      "path": "docs/12_roof_evidence_v6.md",
+      "bytes": 7292,
+      "sha256": "f182de399b22f67ea8408ce2b4a2462b3f444d69e911a671e32c474e55335231"
+    },
+    {
+      "path": "docs/12_v6修正与证据.md",
+      "bytes": 4019,
+      "sha256": "e5a570f737d4068f33be6dc9f0e8bfdf9ee908ef8d29c759a3132b0e07a694c8"
+    },
+    {
       "path": "docs/superpowers/plans/2026-10-10-completion-inner-core-crown.md",
       "bytes": 2458,
       "sha256": "8a7dfe735a510939f485c465ee9139db8acb1fac220e0b4be69dc25980db2c9d"
@@ -167,8 +218,8 @@
     },
     {
       "path": "model/shanghai_tower_evidence.blend",
-      "bytes": 27893430,
-      "sha256": "fed4461aedecdcd04bfbdb432d9c88a748c7ad5461054ad2952cfd1a47c3de0e"
+      "bytes": 28837830,
+      "sha256": "69c2223bbf10a258d317fd0ce1c198d5dccce439a81256efff26dd1f776a2b19"
     },
     {
       "path": "parameters/assembly_v3.json",
@@ -177,13 +228,13 @@
     },
     {
       "path": "parameters/completion.json",
-      "bytes": 35059,
-      "sha256": "65f7b6d25eb32c468e69179ea9e68af45bf495ac13358b736beac9e7d56fd9ab"
+      "bytes": 36722,
+      "sha256": "48769fda2706f39840845115ccb0c3fdfe3e7b248ef0813e6ebdc0d63b6cce70"
     },
     {
       "path": "parameters/crown_v5.json",
-      "bytes": 3047,
-      "sha256": "973b6306c9f2faac1c824d6463a7c16863207babd093439504b5979c6ab910fd"
+      "bytes": 7520,
+      "sha256": "e040e64319ef91ffcfc68be46daff80ce2c380f0d569e1734f9aa53acc560997"
     },
     {
       "path": "parameters/floor_anchors.json",
@@ -192,8 +243,8 @@
     },
     {
       "path": "parameters/model_config.json",
-      "bytes": 6576,
-      "sha256": "0e087c5d67e116b6a8d1738fe24f3b7acc5dcd72a9873a5825908b21c533be21"
+      "bytes": 7347,
+      "sha256": "74c23820635e005096d3c98ad1f846288fc31852da7dfe25d8b5bc2416b23353"
     },
     {
       "path": "parameters/notch_v4.json",
@@ -207,13 +258,13 @@
     },
     {
       "path": "parameters/podium_v4.json",
-      "bytes": 6614,
-      "sha256": "03bc5a7a26fdb2c555534ae43ac704436f6dd4cdbbe9ac214b3958c0ab4b22fd"
+      "bytes": 8725,
+      "sha256": "50b3f2130404e480c0e442fdfcb0c64687cc410c198d580b3c6e3be043fadfe2"
     },
     {
       "path": "parameters/sources.json",
-      "bytes": 31732,
-      "sha256": "b8c2b1669807014dca9bc459bc0642ebe54eb4fb45d4924ac468fe999842e6a0"
+      "bytes": 39625,
+      "sha256": "927064aec67d2ea471bb53695841a9e3cefc6f8e59341f0be42ef75348aa3408"
     },
     {
       "path": "parameters/transition_v5.json",
@@ -282,13 +333,13 @@
     },
     {
       "path": "scripts/build_shanghai_tower.py",
-      "bytes": 17860,
-      "sha256": "987bdd6c1ab8c834a2733206cf6ad79dc3cc29cddb61a7ed0769dc7132ef0cff"
+      "bytes": 20981,
+      "sha256": "2da72b40a22b848731b3f40ebf360645deffecef5fc6b2d66f3b1f436d1cf6e6"
     },
     {
       "path": "scripts/common.py",
-      "bytes": 5647,
-      "sha256": "72898c18dad4534f08f391709276e837f5875ea5b27a65b985d2c78fb9616229"
+      "bytes": 8448,
+      "sha256": "79e70f7478df03c0e0739ee669a91c7154cdbc7da97bd297a3446486a85d90c8"
     },
     {
       "path": "scripts/core_completion.py",
@@ -297,8 +348,8 @@
     },
     {
       "path": "scripts/crown_completion.py",
-      "bytes": 16832,
-      "sha256": "d0e8c94cd926d986f2bd798c928ccdb3a37bb2e0cc1523f676ddd5820692907e"
+      "bytes": 19487,
+      "sha256": "927e4251ff48d83e94dc9c4c8f9be03ba49c168b0e7de9bde4e01e9daa277b33"
     },
     {
       "path": "scripts/crown_detail_v3.py",
@@ -307,8 +358,8 @@
     },
     {
       "path": "scripts/crown_v5.py",
-      "bytes": 20414,
-      "sha256": "b7fd81a2904fad561c06b7c54dfce3db7e4326ff29c8a787b8cf758e940e3e0a"
+      "bytes": 39151,
+      "sha256": "17462a12f05a68da48a9b635f8abacf8f501e6aed32fbff4793ff2242a5980c0"
     },
     {
       "path": "scripts/curtain_wall.py",
@@ -324,6 +375,11 @@
       "path": "scripts/finalize_delivery_v5.py",
       "bytes": 997,
       "sha256": "7ff1805eaff5ba892f5adf64fe5ffad93f80590aa2d3457f1f5589c456d02136"
+    },
+    {
+      "path": "scripts/finalize_delivery_v6.py",
+      "bytes": 801,
+      "sha256": "5a86e624ff282c188d839639a83681c23df521741b07785f8d3b81e7deb14298"
     },
     {
       "path": "scripts/floors_v3.py",
@@ -342,8 +398,8 @@
     },
     {
       "path": "scripts/inspect_saved.py",
-      "bytes": 3297,
-      "sha256": "644ff7e50decf2a4fabe09c6eeee4a27c73301309a359dc1c5c04d470c7d2dbd"
+      "bytes": 4314,
+      "sha256": "02f27a94d2e6123158f995da20f9c8b95f8ab5dc1a661519a0d4813029623567"
     },
     {
       "path": "scripts/make_assembly_comparisons.py",
@@ -367,8 +423,8 @@
     },
     {
       "path": "scripts/podium_v4.py",
-      "bytes": 16913,
-      "sha256": "0947c2e07b7d583e8e4ca6771c3c14a78e2f125159ee1f51da656c298d8a7851"
+      "bytes": 22054,
+      "sha256": "73bc3b57a17e5c2e7a4ee204fe29052c4c7df604fc5b4fd12008fd29a8ba0a24"
     },
     {
       "path": "scripts/structure.py",
@@ -382,8 +438,8 @@
     },
     {
       "path": "scripts/validation.py",
-      "bytes": 12386,
-      "sha256": "a251c23f1503bde68674fc63e921005e60686fc4f8f1fbcdcbc0936ba7702481"
+      "bytes": 17063,
+      "sha256": "45965886af2edc2b48442583e5620ce1d3475f535c1fdfa6e0fa78fc2c62d2ae"
     },
     {
       "path": "tests/test_core_completion.py",
@@ -397,8 +453,8 @@
     },
     {
       "path": "tests/test_crown_v5.py",
-      "bytes": 5364,
-      "sha256": "b06bb8df267fdf3c60d9fe881c053e79fb182293a8dc26418c3886e1d0e1e939"
+      "bytes": 9148,
+      "sha256": "92a9bf780f3e5b445292bf2ce2cd6d1a1c3097235dfac5c3f0f4c439a596499e"
     },
     {
       "path": "tests/test_floors_v3.py",
@@ -417,8 +473,8 @@
     },
     {
       "path": "tests/test_podium_v5.py",
-      "bytes": 3962,
-      "sha256": "67ea274d220b6751b722eb6c6e3a8eb24e684777ee10318beac3ce998232afc4"
+      "bytes": 6288,
+      "sha256": "f7ef7af9e21e327b34b4c34821d569654504b79f06794bb8830ef9b4d10731af"
     },
     {
       "path": "tests/test_transition_v5.py",
@@ -427,8 +483,8 @@
     },
     {
       "path": "validation/assembly_report.json",
-      "bytes": 680947,
-      "sha256": "6ae9c21beb99ee267f01a73b8b30240713729f73a38fa782fcad217ee82cb8bd"
+      "bytes": 690195,
+      "sha256": "881a032f189e4ab99585c63772aae1a12abb9d603cad230ee769f348e5f98601"
     },
     {
       "path": "validation/completion_summary.json",
@@ -447,8 +503,8 @@
     },
     {
       "path": "validation/saved_blend_inspection.json",
-      "bytes": 2992,
-      "sha256": "829ec6b7488256f24a66e4a9af4562e53340ee3743109067ea47a26779871e50"
+      "bytes": 3934,
+      "sha256": "c4b2d0c005ecfa7e0f993dc68512970b5f51db2ab0df0655b8d105218fafaaab"
     },
     {
       "path": "validation/v5_verification_summary.json",
@@ -456,19 +512,24 @@
       "sha256": "8abbd289a324db4332c82d7562b28b2423e443b096d3872ff143a6ff145201b9"
     },
     {
+      "path": "validation/v6_verification_summary.json",
+      "bytes": 1830,
+      "sha256": "4d320ca6a67a4ef4fa5b4038e4e5272ebcf2b49ce07c0f934c71b4fbb9e56244"
+    },
+    {
       "path": "validation/validation_report.json",
-      "bytes": 1786571,
-      "sha256": "2cac7fbc41fe1d8d6da80a9a26a26454e1743a9e851cc611b05eaa7e7e70b68b"
+      "bytes": 2181267,
+      "sha256": "9fe0bee0d15ea2922a5d751f5490d3f7178f8dd35c1e7881c09039567a7465e0"
     },
     {
       "path": "views/VIEW_01_TOWER.png",
-      "bytes": 2196470,
-      "sha256": "cf2b50775d37de2be31cde36dcc989ff1c446b38afb7c7c11de8c7c520b32366"
+      "bytes": 2170442,
+      "sha256": "6783b6659c751be4332347fb406c72bfe22f439ac6214bb2c208dbddc44b64e8"
     },
     {
       "path": "views/VIEW_02_SECTION.png",
-      "bytes": 2215374,
-      "sha256": "7aca6019d116ae806edcd2f18b146e9d9670a8edc6dd58358ec499edaf88e753"
+      "bytes": 2244771,
+      "sha256": "797c0498eb31cfc286135bf27ff6b9cb298e7eb2a04001381554683f4132940e"
     },
     {
       "path": "views/VIEW_04_CURTAIN_DETAIL.png",
@@ -482,13 +543,13 @@
     },
     {
       "path": "views/VIEW_06_MAIN_PATTERN.png",
-      "bytes": 1555206,
-      "sha256": "e28e3df1b13758cd1a6796f33c0a851fa3adbbed5884c2dc1446f0c0d2787ae9"
+      "bytes": 1478838,
+      "sha256": "b19c58ab5da392b2e81dab43bbe4061eefbe8218903f8f0ff8fec5d2418eae04"
     },
     {
       "path": "views/VIEW_07_CROWN.png",
-      "bytes": 2480063,
-      "sha256": "6ab20d8be2f7e346bf41ed78e55b0bf9e45743d0a562ed7bd21488d43f68b740"
+      "bytes": 2383590,
+      "sha256": "c477238c5eee240388523bd24fc4bf9ccf79417aee32190fd629daff96c55c95"
     },
     {
       "path": "views/VIEW_08_INNER.png",
@@ -507,43 +568,58 @@
     },
     {
       "path": "views/VIEW_11_ASSEMBLY.png",
-      "bytes": 2382898,
-      "sha256": "a8f70cbadd7b7a1bc88cf95f2d95ffc7f53c339d4be053730f52ed1872aeb488"
+      "bytes": 2418448,
+      "sha256": "a079f0bb0710546a9c6b29ca7c7424dd6319828d717f9172afe7edc77aeedaf5"
     },
     {
       "path": "views/VIEW_12_GROUNDED_RETAIL.png",
-      "bytes": 2554498,
-      "sha256": "242c31cdaca95d7486aa996ff8acb53393aafc200d5d4d78cf3fbe0fc53f6c87"
+      "bytes": 2415127,
+      "sha256": "d02b2886879064e4805f07e47570626a0635733c06024192ecd7e5aeb3d76950"
     },
     {
       "path": "views/VIEW_13_CWSS_INSTALLED.png",
-      "bytes": 1655227,
-      "sha256": "f24fc4f09a28e7dd402043ba2ffa5d2bb5912612e1bf4ef9ac1712dc8f03b577"
+      "bytes": 1731675,
+      "sha256": "cf831f7e00b61f0f6d85741511b772d32c74d06aa2893b0a7c77a2fd4f1f7c20"
     },
     {
       "path": "views/VIEW_14_CROWN_ROOF_STEEL.png",
-      "bytes": 2667303,
-      "sha256": "4df11fde23bd758fc7f4474a153f4f4b047b220e16c59c059147ca2f20327721"
+      "bytes": 2765435,
+      "sha256": "3ea82cc59ade3e4618c887554b02d7732a146668010c99024af43af8aa14cd4b"
     },
     {
       "path": "views/VIEW_15_V_RECESS.png",
-      "bytes": 2290949,
-      "sha256": "997e06acc15c51673a37c6f06c015f39116c43727001f867a046e7017cfffe1b"
+      "bytes": 2172083,
+      "sha256": "4509834831648383772527f866d14c2d0bf01a9ce4bc01d1b23b1200800b1ec1"
     },
     {
       "path": "views/VIEW_17_CROWN_AERIAL_V5.png",
-      "bytes": 2737248,
-      "sha256": "de8890a521aea02bb7d79811e6ecbcc94c68f1e9b3a00f99fbd19af708b0b6fc"
+      "bytes": 2655815,
+      "sha256": "c0b5ad970b609890b17658d23a4955340346a2489198654e1c06d09dc23b1ab2"
     },
     {
       "path": "views/VIEW_18_CROWN_EQUIPMENT_V5.png",
-      "bytes": 3494172,
-      "sha256": "58bc5ba6729def430857f17241604306b92d418fbe6e01501c549a2f9c07a71b"
+      "bytes": 4106336,
+      "sha256": "6d30d8bd3d71cbd4eeffcb762998c2d0ec05373690faa595ffa01db892ef9a55"
     },
     {
       "path": "views/VIEW_19_TRANSITION_V5.png",
-      "bytes": 2384848,
-      "sha256": "aedba4696be79e67b8bf97e166e5123a5a844088d7cbfe2221d19788cd991550"
+      "bytes": 2270325,
+      "sha256": "f38976ecbc88447a3a78a837690dac0aee5b09736a5cc6d701f5d2d700e9ccd0"
+    },
+    {
+      "path": "views/VIEW_20_TMD_HALL_V6.png",
+      "bytes": 3524532,
+      "sha256": "00851c2171e43717d5f32110b2bb1bfe4e0abee988a461e953661b81757fd07a"
+    },
+    {
+      "path": "views/VIEW_21_WIND_BAYS_V6.png",
+      "bytes": 2476633,
+      "sha256": "3d3a22c389f0f297f69bbc54659b55e6c2a9d21ae4bea912f687a6070744a0f8"
+    },
+    {
+      "path": "views/VIEW_22_COOLING_CUTAWAY_V6.png",
+      "bytes": 3246669,
+      "sha256": "ec22aa9a01669e23e1543654da4c58e7087d6a444551fcd012a8a16e82b0efbe"
     }
   ]
 }

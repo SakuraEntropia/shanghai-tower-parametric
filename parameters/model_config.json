@@ -149,7 +149,31 @@
     ],
     "steel_display_metallic": 0.25,
     "steel_display_roughness": 0.55,
-    "steel_material_evidence": "Presentation contrast only, not confirmed coating/color specification"
+    "steel_material_evidence": "Presentation contrast only, not confirmed coating/color specification",
+    "glass_shader": {
+      "model": "Principled dielectric transmission",
+      "metallic": 0.0,
+      "transmission": 1.0,
+      "ior": 1.5,
+      "roughness": 0.075,
+      "outer_rgba": [
+        0.88,
+        0.96,
+        0.99,
+        1.0
+      ],
+      "inner_rgba": [
+        0.94,
+        0.98,
+        1.0,
+        1.0
+      ],
+      "source_url": "https://docs.blender.org/manual/en/5.0/render/shader_nodes/shader/principled.html",
+      "uncertainty": "Display optical candidates, not measured facade coating/IOR/transmittance. Principled transmission replaces opaque metallic proxy. Geometry layer dimensions remain separately evidenced."
+    },
+    "eevee_use_raytracing": true,
+    "eevee_screen_trace_quality": 1.0,
+    "eevee_ray_resolution_scale": "1"
   },
   "modeling_conventions": [
     {
