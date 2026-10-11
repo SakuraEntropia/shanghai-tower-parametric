@@ -1,0 +1,78 @@
+{
+  "version": "crown-v5-actual-aerial-2026-10-11",
+  "evidence_level": "待确认",
+  "source_ids": [
+    "CROWN_NTUA_2014",
+    "CROWN_GENS_AERIAL_V5",
+    "OWNER_CONSTRUCTION_V5"
+  ],
+  "source_scope": "Actual aerial establishes high pointed lip, steep internal grid, wide rim return, rectangular recessed opening and round aperture. NTUA establishes design cooling towers at L128; coordinates and equipment product identities are absent.",
+  "dimension_policy": "Every numeric value below is a replaceable visualization candidate, not a surveyed measurement; source-version and camera uncertainty unbounded.",
+  "return_width_fit_m": 1.5,
+  "return_depth_fit_m": 0.32,
+  "return_track_inset_fit_m": 0.6,
+  "collector_net_circumferential_samples": 160,
+  "collector_net_radial_samples": 36,
+  "collector_net_radius_display_m": 0.021,
+  "collector_primary_rib_radius_display_m": 0.12,
+  "collector_ring_rib_radius_display_m": 0.08,
+  "deck_radius_fit_m": 17.0,
+  "deck_thickness_fit_m": 0.25,
+  "deck_aperture_half_width_fit_m": 2.8,
+  "deck_aperture_rect_upper_y_fit_m": 9.0,
+  "deck_aperture_round_center_y_fit_m": -4.0,
+  "deck_grate_pitch_display_m": 0.28,
+  "deck_grate_start_y_fit_m": -1.0,
+  "deck_grate_end_y_fit_m": 7.8,
+  "deck_recess_depth_fit_m": 0.45,
+  "rim_mechanical_device_count_display": 64,
+  "rim_mechanical_device_size_fit_m": [
+    0.9,
+    0.75,
+    0.72
+  ],
+  "rim_mechanical_device_inset_fit_m": 2.0,
+  "rim_mechanical_device_function": "Unconfirmed; actual aerial shows repeated fan-like rim apparatus. Do not label all as air-conditioning units or claim installed count.",
+  "cooling_tower_count_display": 8,
+  "cooling_tower_base_source_floor": "L128",
+  "cooling_tower_ring_radius_fit_m": 13.0,
+  "cooling_tower_size_fit_m": [
+    3.0,
+    2.8,
+    4.0
+  ],
+  "helipad_enabled": false,
+  "helipad_evidence": "待确认：user requested; examined actual Gensler aerial does not show H marking or identifiable landing platform. Retain parametric interface only; no invented installed helipad.",
+  "rim_equipment_drop_below_trim_fit_m": 0.9,
+  "rim_equipment_shelf_outer_inset_fit_m": 1.4,
+  "rim_equipment_shelf_inner_inset_fit_m": 2.7,
+  "rim_mechanical_fan_radius_fit_m": 0.26,
+  "rim_mechanical_fan_pipe_radius_display_m": 0.025,
+  "rim_track_radius_display_m": 0.055,
+  "deck_guardrail_height_fit_m": 0.8,
+  "deck_guardrail_radius_display_m": 0.035,
+  "deck_service_enclosure_center_xy_fit_m": [
+    -8.0,
+    4.0
+  ],
+  "deck_service_enclosure_size_fit_m": [
+    2.3,
+    2.8,
+    2.2
+  ],
+  "recess_frame_radius_display_m": 0.1,
+  "recess_grate_radius_display_m": 0.045,
+  "recess_grate_panel_separator_fit_m": 0.5,
+  "cooling_louver_rows_display": 13,
+  "cooling_louver_radius_display_m": 0.035,
+  "structural_ring_radius_display_m": 0.12,
+  "structural_radial_radius_display_m": 0.1,
+  "structural_corner_proportions_display": [
+    0.03,
+    0.36,
+    0.69
+  ],
+  "collector_primary_ring_divisions_display": 7,
+  "collector_primary_rib_radial_samples_display": 12,
+  "roof_strut_clearance_display_m": 0.03
+}

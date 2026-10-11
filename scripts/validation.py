@@ -104,6 +104,42 @@ def validate_scene(ctx,geometry_module,anchors,results):
           'Numerical geometric rule validation; tolerances are software targets, not glass manufacturing tolerances')
     finite=all(math.isfinite(x) for obj in ctx.objects if obj.type=='MESH' for v in obj.data.vertices for x in v.co)
     check('finite_mesh_coordinates',finite,None,'No NaN/inf geometry')
+    if results.get('assembly',{}).get('crown_detail',{}).get('equipment'):
+        crown_z=[]
+        for obj in ctx.objects:
+            if not obj.name.startswith('CROWN') or obj.hide_render:continue
+            if obj.type=='MESH':crown_z.extend((obj.matrix_world@v.co).z for v in obj.data.vertices)
+            elif obj.type=='CURVE':
+                crown_z.extend((obj.matrix_world@Vector(pt.co[:3])).z for sp in obj.data.splines for pt in sp.points)
+        check('v5_visible_crown_controls_within_632m',bool(crown_z) and max(crown_z)<=632.001,
+              max(crown_z) if crown_z else None,'Actual base mesh/curve coordinates; small display bevel radii excluded, not surveyed building height')
+        deck=bpy.data.objects.get('CROWN_V5_MAIN_DECK_RECT_RECESS_AND_ROUND_APERTURE')
+        archived=bpy.data.objects.get('F129_DERIVED_SLAB')
+        check('v5_photo_roof_supersedes_legacy_schedule_proxy',deck is not None and archived is not None and archived.hide_render and archived.hide_viewport,
+              {'visible_roof':deck.name if deck else None,'archived_schedule_roof_hidden':bool(archived and archived.hide_render)},
+              'Avoids duplicate coplanar roof and filling the photograph-derived recess')
+        def contains_xy(points,x,y):
+            inside=False
+            for a,b in zip(points,points[1:]+points[:1]):
+                if (a.y>y)!=(b.y>y) and x<(b.x-a.x)*(y-a.y)/(b.y-a.y)+a.x:inside=not inside
+            return inside
+        covered=[]
+        if deck:
+            top=max(v.co.z for v in deck.data.vertices)
+            top_faces=[[deck.data.vertices[i].co for i in face.vertices] for face in deck.data.polygons
+                       if all(abs(deck.data.vertices[i].co.z-top)<.001 for i in face.vertices)]
+            for x,y in ((0.,0.),(0.,5.),(0.,-4.)):
+                if any(contains_xy(points,x,y) for points in top_faces):covered.append([x,y])
+        check('v5_actual_roof_recess_and_round_void_are_unfilled',deck is not None and not covered,
+              {'covered_probe_coordinates_m':covered},'Probes real roof mesh opening, not a painted dark rectangle; aperture function remains unconfirmed')
+        struts=bpy.data.objects.get('CROWN_RADIAL_CORE_STEEL_FRAME_STRUTS_CANDIDATE')
+        beam_top=None;deck_bottom=None
+        if struts and deck:
+            beam_top=max(pt.co.z for sp in struts.data.splines for pt in sp.points)+struts.data.bevel_depth
+            deck_bottom=min(v.co.z for v in deck.data.vertices)
+        check('v5_roof_radial_member_envelope_below_deck',beam_top is not None and beam_top<deck_bottom,
+              {'highest_member_envelope_m':beam_top,'deck_underside_m':deck_bottom},
+              'Actual curve axis plus display radius clears actual deck underside; installed member datum remains candidate')
     parameters=Counter(a['evidence_level'] for a in ctx.parameters['parameters'])
     roles=Counter(obj.get('geometry_role','') for obj in ctx.objects)
     levels=Counter(obj.get('evidence_level','') for obj in ctx.objects)

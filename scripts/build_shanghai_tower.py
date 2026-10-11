@@ -24,6 +24,7 @@ import floors_v3
 import crown_detail_v3
 import assembly_v3
 import notch_v4
+import transition_v5
 
 
 def embed_text(name,text):
@@ -86,8 +87,11 @@ def setup(ctx):
     crown_steel=camera(ctx,'VIEW_14_CROWN_ROOF_STEEL',(150,-210,700),(0,0,596),150)
     notch=camera(ctx,'VIEW_15_V_RECESS',(100,-150,260),(0,-24,260),60)
     v_plan=camera(ctx,'VIEW_16_V_PLAN',(0,0,1100),(0,0,45),115)
+    aerial=camera(ctx,'VIEW_17_CROWN_AERIAL_V5',(-110,-145,747),(0,0,610),96)
+    roof_detail=camera(ctx,'VIEW_18_CROWN_EQUIPMENT_V5',(35,28,725),(0,0,601),56)
+    transition=camera(ctx,'VIEW_19_TRANSITION_V5',(105,-145,250),(0,-25,239.4),68)
     scene.camera=main
-    return [main,side,plan,detail,node,main_near,crown,inner,core_plan,core,assembly,base,steel,crown_steel,notch,v_plan]
+    return [main,side,plan,detail,node,main_near,crown,inner,core_plan,core,assembly,base,steel,crown_steel,notch,v_plan,aerial,roof_detail,transition]
 
 
 def main():
@@ -102,6 +106,19 @@ def main():
     params=json.loads((ROOT/'parameters/parameters.json').read_text())
     sources=json.loads((ROOT/'parameters/sources.json').read_text())
     anchors=json.loads((ROOT/'parameters/floor_anchors.json').read_text())
+    if cfg.get('completion_enabled'):
+        completion_path=ROOT/cfg['completion_data_file']
+        completion=json.loads(completion_path.read_text())
+        assembly_path=ROOT/'parameters/assembly_v3.json'
+        assembly=json.loads(assembly_path.read_text())
+        notch_params=json.loads((ROOT/'parameters/notch_v4.json').read_text())
+        cfg['notch_v4']=notch_params
+        for component in ('crown_v5','transition_v5'):
+            path=ROOT/'parameters'/(component+'.json')
+            if path.exists():assembly[component]=json.loads(path.read_text())
+        podium_params_path=ROOT/'parameters/podium_v4.json'
+        if podium_params_path.exists():assembly['podium_v4']=json.loads(podium_params_path.read_text())
+        transition_v5.configure(cfg,completion,anchors,assembly,assembly.get('transition_v5',{}))
     out=Path(args.output).resolve(); out.mkdir(parents=True,exist_ok=True)
     views=out.parent/'views'; views.mkdir(parents=True,exist_ok=True)
     valdir=out.parent/'validation';valdir.mkdir(parents=True,exist_ok=True)
@@ -121,21 +138,19 @@ def main():
     panel_records=cw.pop('panel_records',[])
     results['curtain']=cw
     if cfg.get('completion_enabled'):
-        completion_path=ROOT/cfg['completion_data_file']
-        completion=json.loads(completion_path.read_text())
         results['completion']={
             'core':core_completion.build_core(ctx,completion['core']),
             'inner':inner_completion.build_inner(ctx,geometry,completion['inner']),
             'crown':crown_completion.build_crown(ctx,geometry,completion['crown']),
         }
-        assembly_path=ROOT/'parameters/assembly_v3.json'
-        assembly=json.loads(assembly_path.read_text())
-        notch_params=json.loads((ROOT/'parameters/notch_v4.json').read_text())
-        cfg['notch_v4']=notch_params
-        podium_params_path=ROOT/'parameters/podium_v4.json'
-        if podium_params_path.exists():assembly['podium_v4']=json.loads(podium_params_path.read_text())
         floors=floors_v3.build_floors(ctx,geometry,completion,anchors,assembly)
         crown_detail=crown_detail_v3.build_crown_detail(ctx,geometry,completion['crown'],assembly)
+        if assembly.get('crown_v5'):
+            legacy_roof=bpy.data.objects.get('F129_DERIVED_SLAB')
+            if legacy_roof:
+                legacy_roof.hide_render=True;legacy_roof.hide_viewport=True
+                legacy_roof['superseded_by']='CROWN_V5_MAIN_DECK_RECT_RECESS_AND_ROUND_APERTURE'
+                legacy_roof['uncertainty']='Archived source-local F/L129 schedule proxy. Visible roof is separately rebuilt from aerial topology with rectangular recess and round aperture; no architectural floor crosswalk resolved.'
         physical=assembly_v3.build_assembly(ctx,geometry,completion,assembly)
         results['completion']['V_recess']=notch_v4.build_notch(ctx,geometry,completion,notch_params)
         results['assembly']={'floors':floors,'crown_detail':crown_detail,'physical':physical}
@@ -151,7 +166,7 @@ def main():
     (valdir/'panel_registry.json').write_text(json.dumps(panel_records,ensure_ascii=False,indent=2)+'\n')
     cameras=setup(ctx)
     scene=bpy.context.scene
-    scene['project_id']=cfg['project_id'];scene['accuracy_statement']='Evidence-supported assembly v4: closed reentrant V facade, photo-informed crown crest and asymmetric retail podium; source dimensions retained, placement/contours derived or unconfirmed.129 candidate slabs do not resolve real floor count; no as-built certification.'
+    scene['project_id']=cfg['project_id'];scene['accuracy_statement']='Evidence-supported correction v5: Gensler-supplied aerial high/low crown lips, wide return edge, inclined lattice and roof equipment/recess candidates; full-profile transition slabs and deterministic facade seams; refined retail podium. Photo fit, equipment coordinates and transition pattern remain unconfirmed.129 candidate slabs do not resolve actual floor count; no as-built certification.'
     scene['selected_geometry_version']=cfg['selected_geometry_version']
     scene['source_datum_offset_unknown']=True
     report=validation.validate_scene(ctx,geometry,anchors,results)
@@ -173,6 +188,10 @@ def main():
         for doc in ['10_crown_v4.md','10_podium_v4.md','10_v4修正与图像依据.md']:
             path=ROOT/'docs'/doc
             if path.exists():embed_text('V4_'+doc,path.read_text())
+        for path in (ROOT/'parameters').glob('*v5.json'):
+            embed_text('V5_'+path.name,path.read_text())
+        for path in (ROOT/'docs').glob('*v5*'):
+            if path.is_file():embed_text('V5_'+path.name,path.read_text())
     embed_text('DESIGN_STAGE2_ARCHIVE', (ROOT/'docs/02_Blender建模方案.md').read_text())
     for name,path in [('PARAMETERS_JSON',ROOT/'parameters/parameters.json'),('SOURCES_JSON',ROOT/'parameters/sources.json'),('FLOOR_ANCHORS_JSON',ROOT/'parameters/floor_anchors.json'),('MODEL_CONFIG_JSON',Path(args.config))]: embed_text(name,path.read_text())
     embed_text('VALIDATION_JSON',json.dumps(summary,ensure_ascii=False,indent=2))
@@ -208,7 +227,7 @@ def main():
                     if any(n.startswith(('80_','83_','84_','86_','87_','88_','72_','73_','70_')) for n in names):o.hide_render=True
                     if sample or o.get('geometry_role') in {'research_control','published_elevation_guide_not_floor_plate','inner_zone1_control_not_installed_facade'}:o.hide_render=True
                 if cam.name=='VIEW_08_INNER' and any(n.startswith(('86_','87_')) for n in names):o.hide_render=True
-                if cam.name=='VIEW_14_CROWN_ROOF_STEEL' and o.get('geometry_role')=='crown_open_collector_roof_candidate':o.hide_render=True
+                if cam.name=='VIEW_14_CROWN_ROOF_STEEL' and o.get('geometry_role')=='crown_open_collector_roof_candidate' and o.type=='MESH':o.hide_render=True
                 if cam.name=='VIEW_16_V_PLAN':
                     o.hide_render=True
                     if (o.name.startswith('CWA_Z02_') or o.name.startswith('CWA_V_REENTRANT_') or o.name.startswith('ST_B_Z02_')):o.hide_render=False

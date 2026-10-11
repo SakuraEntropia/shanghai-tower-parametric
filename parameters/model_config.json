@@ -140,7 +140,16 @@
     "image_width": 1500,
     "image_height": 1600,
     "render_samples": 32,
-    "render_engine": "BLENDER_EEVEE"
+    "render_engine": "BLENDER_EEVEE",
+    "steel_display_rgba": [
+      0.09,
+      0.12,
+      0.15,
+      1.0
+    ],
+    "steel_display_metallic": 0.25,
+    "steel_display_roughness": 0.55,
+    "steel_material_evidence": "Presentation contrast only, not confirmed coating/color specification"
   },
   "modeling_conventions": [
     {

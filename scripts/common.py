@@ -25,6 +25,11 @@ class SceneBuilder:
             ('text',(0.06,0.11,0.16,1),0.0,0.7),
             ('ground',(0.91,0.93,0.94,1),0.0,0.9),
         ]:
+            if key=='steel':
+                display=self.config.get('display',{})
+                rgba=tuple(display.get('steel_display_rgba',rgba))
+                metal=display.get('steel_display_metallic',metal)
+                rough=display.get('steel_display_roughness',rough)
             mat=bpy.data.materials.new('ST_'+key)
             mat.diffuse_color=rgba
             mat.use_nodes=True

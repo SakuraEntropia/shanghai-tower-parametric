@@ -1,0 +1,20 @@
+{
+  "version": "v5",
+  "date": "2026-10-11",
+  "software_checks": 193,
+  "software_checks_passed": true,
+  "unit_tests": 46,
+  "unit_tests_passed": true,
+  "independent_saved_file_reopen_passed": true,
+  "geometry_signature": {
+    "sha256_rounded_geometry": "43276b3f9ea4808e65d1ec1b542c1877dfcabbbd60b1abb4e13deddb8677d115",
+    "mesh_count": 335,
+    "vertices": 834714,
+    "polygons": 522596
+  },
+  "asbuilt_validation": {
+    "status": "NOT_VERIFIED",
+    "reason": "No unified as-built curves, complete floor crosswalk, curtain panel/shop drawings, podium boundary or node coordinate schedule"
+  },
+  "scope": "Software geometry and reproducibility checks; does not confirm as-built accuracy."
+}

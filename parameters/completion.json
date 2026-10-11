@@ -768,7 +768,7 @@
       }
     ],
     "implementation_candidate": {
-      "name": "photo_supported_open_back_crest_candidate",
+      "name": "actual_aerial_high_lip_candidate",
       "evidence_level": "推导值（形态拟合）",
       "asbuilt_verified": false,
       "ready_for_approximate_model": true,
@@ -780,27 +780,25 @@
         ],
         [
           0.5,
-          632.0
+          626.5485
         ],
         [
           1,
-          627.452
+          632.0
         ]
       ],
-      "formula_left": "z(s)=632-(632-610.194)*(1-2*s)**2",
-      "formula_right": "z(s)=632-(632-627.452)*(2*s-1)**2",
+      "formula_left": "z(s)=610.194+(632-610.194)*(2*s-s*s)",
+      "formula_right": "Same monotone formula; highest point at s=1 high lip",
       "assumptions": [
-        "Mapping one section outer rim samples to s endpoints is underdetermined and chosen as fit interface.",
-        "Lowest station s=0.5 chosen as a mapping convention; source does not specify circumferential minimum station.",
-        "Two unequal ends preserve a split outline but its seam angles and geographic position are not surveyed.",
-        "The entire K2 arc exclusion is previous conservative guard, not the actual V-groove boundary.",
-        "Use all heights only as approximate form fit; no datum mixing disguised as precise geometry.",
-        "2026-10-10: Cosentini aerial photo confirms a raised back rim and two unequal lower V lips. Endpoint heights retained from section-image candidates; station mapping remains an uncalibrated visual fit."
+        "Actual Gensler-supplied aerial establishes high and low lip topology; prior v4 raised-back crest is withdrawn.",
+        "Low-lip610.194m remains section-derived candidate, not measured from aerial. Highest nominal632m is published.",
+        "Normalized station s and parabolic law fit observed relationship; geographic orientation/camera pose unresolved.",
+        "Mother-profile and V-notch fit shared interfaces; actual crown CAD and panel schedule remain missing."
       ],
-      "uncertainty": "Section anchors ±1.5m; full circumferential interpolation/orientation unbounded from this section, conservatively label all crown cladding DERIVED and permit CAD replacement.",
+      "uncertainty": "Section sampling±1.5m; perimeter law/global alignment/low-lip datum systematic error unbounded. Candidate controls replaceable; no as-built certification.",
       "upper_surface": "Clip vertical/twisting shell at z_top(s); do not add planar top cover. Inner rain-collector branch needs separate geometry and coordinates, not inferred as exterior low point.",
       "member_positions": "Only schematic topology from Fig9 until plan/erection coordinates are acquired; section/member sizes not verified",
-      "rim_mode": "split_crest_parabola"
+      "rim_mode": "high_lip_monotone_parabola"
     },
     "unresolved": [
       "Final crown BIM trim coordinates; cut curve per perimeter station",
@@ -817,10 +815,10 @@
     "display_sampling_evidence": "待确认；纯展示采样/框截面，不是已证实冠幕墙分格",
     "photo_evidence": {
       "gensler_construction": "https://www.gensler.com/a-mayoral-visit-to-shanghai-tower",
-      "engineering_aerial": "https://www.cosentini.com/",
-      "image_url": "https://www.cosentini.com/media/mod_zentools/cache/images/059Shanghai-Tower-547d0b02f7f07d20382582749fbac990.jpg",
+      "actual_aerial_source_id": "CROWN_GENS_AERIAL_V5",
+      "image_url": "https://i.natgeofe.com/n/af7581f4-909c-4bed-9420-e2ea5f7536be/Shanghai_Tower_ttallest_building_in_China_4x3.jpg",
       "measured_photograph_height": false,
-      "scope": "Qualitative topology/raised rear crest only; no camera calibration or geographic alignment"
+      "scope": "Visible high-lip/low-lip topology and components, no perspective-to-metres inversion; v4 rendering-based interpretation withdrawn."
     }
   },
   "accuracy": "Derived solid reconstruction; not verified as-built; all geometric mapping assumptions retained"

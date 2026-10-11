@@ -11,6 +11,9 @@ ctx=C();ctx.objects=[o for o in bpy.data.objects if o.get('project_id')=='SHANGH
 required=['00_README_EVIDENCE','MODEL_USE_AND_VALIDATION','MODEL_IMPLEMENTATION_ASSUMPTIONS','PARAMETERS_JSON','SOURCES_JSON','FLOOR_ANCHORS_JSON','MODEL_CONFIG_JSON','UNCERTAINTY_SUMMARY','PANEL_REGISTRY_JSON','VALIDATION_JSON']
 required+=['COMPLETION_PARAMETERS_JSON','COMPLETION_EVIDENCE_AND_LIMITS']
 required+=['ASSEMBLY_V3_PARAMETERS','ASSEMBLY_V3_EVIDENCE','ASSEMBLY_V3_PARAMETER_EVIDENCE','ASSEMBLY_V3_REPORT']
+v5=bpy.data.objects.get('CROWN_V5_MAIN_DECK_RECT_RECESS_AND_ROUND_APERTURE') is not None
+if v5:
+    required+=['V5_crown_v5.json','V5_transition_v5.json','V5_11_crown_v5_actual_aerial.md','V5_11_transition_facade_v5.md','V5_11_podium_v5.md','V5_11_v5修正与证据.md']
 texts={name: bool(bpy.data.texts.get(name)) for name in required}
 collections=[c.name for c in bpy.data.collections if c.get('project_id')=='SHANGHAI_TOWER_EVIDENCE_20261010']
 report={'file':bpy.data.filepath,'blender_version':bpy.app.version_string,
@@ -24,8 +27,12 @@ report['passed']=all(texts.values()) and report['units']=='METRIC' and report['s
 report['actual_entities']={'slabs':len([o for o in ctx.objects if o.get('geometry_role')=='derived_solid_floor_plate_with_core_void']),
                          'mega_columns':len([o for o in ctx.objects if o.name.startswith('MEGA_COLUMN_')]),
                          'installed_CWSS_objects':len([o for o in ctx.objects if o.get('geometry_role')=='installed_CWSS_candidate']),
-                         'podium_objects':len([o for o in ctx.objects if o.get('geometry_role')=='podium_retail_mass_and_floors_candidate'])}
+                         'podium_objects':len([o for o in ctx.objects if 'podium' in o.get('geometry_role','')]),
+                         'full_outer_transition_slabs':len([o for o in ctx.objects if o.get('full_outer_transition_plate')]),
+                         'crown_cooling_towers':len([o for o in ctx.objects if o.get('geometry_role')=='crown_cooling_tower_candidate'])}
 report['passed']=report['passed'] and report['actual_entities']['slabs']==129 and report['actual_entities']['mega_columns']==8
+if v5:
+    report['passed']=report['passed'] and report['actual_entities']['full_outer_transition_slabs']==16 and report['actual_entities']['crown_cooling_towers']>0
 (ROOT/'validation/saved_blend_inspection.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps(report,ensure_ascii=False))
 if not report['passed']: raise RuntimeError('Saved blend inspection failed')

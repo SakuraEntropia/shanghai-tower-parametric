@@ -1,4 +1,4 @@
-"""Open crown form fit, with an explicit, replaceable station-height hypothesis.
+"""Open crown form fit with actual-aerial high-lip topology and unknown coordinates.
 
 This is not the standard curtain-wall pattern.  Published section samples do
 not determine the circumferential clipping coordinates or fabrication panels.
@@ -26,7 +26,11 @@ def _trim_controls(candidate):
     if s0 != 0 or s1 != 1 or not 0 < mid < 1:
         raise ValueError('Crown controls must start at 0, end at 1, and have an interior minimum')
     mode = implementation.get('rim_mode', 'split_valley_parabola')
-    if mode == 'split_crest_parabola':
+    if mode == 'high_lip_monotone_parabola':
+        expected = high + (end-high)*(.75)
+        if not end > high or abs(low-expected) > 1e-6 or abs(mid-.5)>1e-9:
+            raise ValueError('Monotone rim controls must match low+(high-low)*(2s-s²)')
+    elif mode == 'split_crest_parabola':
         if not low > max(high, end):
             raise ValueError('Interior crown crest must exceed both open lips')
     elif mode != 'split_valley_parabola' or not low < min(high, end):
@@ -40,7 +44,10 @@ def trim_height(s, candidate):
     if not 0 <= s <= 1:
         raise ValueError('Open crown station must be in [0, 1]')
     mid, high, low, end = _trim_controls(candidate)
-    if candidate.get('implementation_candidate', candidate).get('rim_mode') == 'split_crest_parabola':
+    mode = candidate.get('implementation_candidate', candidate).get('rim_mode')
+    if mode == 'high_lip_monotone_parabola':
+        return high+(end-high)*(2*s-s*s)
+    if mode == 'split_crest_parabola':
         if s <= mid:
             return low-(low-high)*(1-s/mid)**2
         return low-(low-end)*((s-mid)/(1-mid))**2
@@ -89,6 +96,27 @@ def open_profile_stations(geometry, config, count=160, extra_stations=()):
     return result
 
 
+
+def crown_profile_stations(geometry, config, count=160, extra_stations=()):
+    """Open path between the two actual V lips, including the K2 shoulders.
+
+    Shoulder samples share endpoint trim heights. V legs themselves belong to
+    notch_v4 and are not duplicated here. Pure five-arc research helper above
+    stays available for comparison with earlier source mappings.
+    """
+    stations = open_profile_stations(geometry,config,count,extra_stations)
+    notch = config.get('notch_v4')
+    if not notch:
+        return stations
+    grid=geometry.standard_grid(config,config['curtain']['half_panel_count'])
+    lo,hi=notch['lip_grid_indices']
+    leading=[{'s':0.,'segment_id':'K2_SHOULDER_LOW','xy':p['xy']}
+             for p in grid[hi:] if p['segment_id']=='K2']
+    trailing=[{'s':1.,'segment_id':'K2_SHOULDER_HIGH','xy':p['xy']}
+              for p in grid[:lo+1] if p['segment_id']=='K2']
+    return leading+stations+trailing
+
+
 def _clipped_vertical_chord(p, q, bottom, upper, trim0, trim1):
     """Clip one vertical plane to a linearly sampled sloping top boundary."""
     h0, h1 = min(upper, trim0), min(upper, trim1)
@@ -115,12 +143,11 @@ def _normal(points):
 
 
 def build_crown(ctx, geometry, candidate):
-    """Build independent crown candidate surfaces and unknown frame proxies.
+    """Build continuous actual-z mother-following crown and unknown frame proxies.
 
-    Band XY is anchored to its upper gross-control chord and extended vertically
-    downward, like the existing research shell.  Top cells are planar trapezoids
-    or triangles.  Demonstration bands create small steps; no sealing/cap faces
-    are added.  Neither the 4.5m pitch nor sampling count is a crown shop schedule.
+    Cells use triangle tessellation to avoid a fictitious fabrication assertion.
+    Top cells clip to the shared rim; no horizontal global cap is added. Neither
+    demonstration4.5m pitch nor sampling count is a crown shop schedule.
     """
     config = ctx.config
     mid, high, low, end = _trim_controls(candidate)
@@ -129,21 +156,22 @@ def build_crown(ctx, geometry, candidate):
     radius = _finite(candidate.get('frame_radius_display_m', .05), 'frame_radius_display_m')
     if bottom >= min(high,low,end) or pitch <= 0 or radius <= 0:
         raise ValueError('Crown base must be below its trim, and display pitch/radius positive')
-    stations = open_profile_stations(geometry, config,
+    stations = crown_profile_stations(geometry, config,
                 candidate.get('horizontal_sample_count_display', 160), (mid,))
     tops = [trim_height(a['s'], candidate) for a in stations]
     source_id = candidate.get('source_id', candidate.get('source_id_candidate'))
     if not source_id:
         raise ValueError('Crown candidate must retain its evidence source ID')
     source_locator = candidate.get('source', {}).get('locator', 'PDFp13 Fig8; PDFp14 Fig9')
-    uncertainty = ('Section anchors about ±1.5m; station-to-section mapping, geographic '
-                   'orientation and interpolation are underdetermined. Entire K2 exclusion '
-                   'is a conservative gap, not the actual V boundary. Crown fabrication '
-                   'panels, grid and frames are unconfirmed. No as-built coordinates.')
-    meta = {'source_ids': [source_id, 'B14_GEOM', 'CROWN_PHOTO_V4'], 'source_locator': source_locator,
+    uncertainty = ('Section anchor about ±1.5m; absolute datum/version error and perimeter '
+                   'mapping unbounded. Actual Gensler aerial establishes high and low lips; '
+                   'sample stations are not camera-calibrated. Closed V facade is generated '
+                   'separately from the same notch parameters. Crown fabrication panels and '
+                   'grid remain unconfirmed; triangle tessellation is a display surface.')
+    meta = {'source_ids': [source_id, 'B14_GEOM', 'CROWN_GENS_AERIAL_V5', 'OWNER_CONSTRUCTION_V5'], 'source_locator': source_locator,
             'evidence_level': '推导值', 'geometry_role': 'crown_candidate_panel',
             'formula': 'Open C1/K0/C2/K1/C0 arc length s; two explicit quadratic '
-                       'trim branches; vertical planes at upper-band reference chords',
+                       'trim branches; surface follows the mother at each actual vertex z',
             'uncertainty': uncertainty, 'asbuilt_verified': False,
             'station_mapping_evidence': '待确认', 'fabrication_pattern_verified': False,
             'band_pitch_display_m': pitch, 'frame_radius_display_m': radius,
@@ -160,9 +188,23 @@ def build_crown(ctx, geometry, candidate):
             polygon = _clipped_vertical_chord(xy[i], xy[i+1], lower, upper, tops[i], tops[i+1])
             if not polygon:
                 continue
+            # Warp each clipped source chord point at its own actual elevation.
+            # v4 used one nominal upper-band transform for all vertices: rim and
+            # truss endpoints differed and bands acquired horizontal step gaps.
+            source0, source1 = stations[i]['xy'], stations[i+1]['xy']
+            chord = (xy[i+1][0]-xy[i][0], xy[i+1][1]-xy[i][1])
+            denominator = sum(v*v for v in chord)
+            warped = []
+            for point in polygon:
+                t = ((point[0]-xy[i][0])*chord[0] + (point[1]-xy[i][1])*chord[1])/denominator
+                local = tuple(source0[j]+t*(source1[j]-source0[j]) for j in range(2))
+                warped.append(geometry.transform_profile([local], point[2], config)[0])
+            polygon = warped
             start = len(verts)
-            faces.append(tuple(range(start, start+len(polygon))))
             verts.extend(polygon)
+            faces.append((start,start+1,start+2))
+            if len(polygon)==4:
+                faces.append((start,start+2,start+3))
             panel_records.append({'face': len(faces)-1, 'band': band+1,
                                   'stations': [stations[i]['s'], stations[i+1]['s']],
                                   'kind': 'CROWN_FIT_TRIANGLE' if len(polygon)==3 else 'CROWN_FIT_PLANAR_POLYGON',
@@ -207,7 +249,7 @@ def build_crown(ctx, geometry, candidate):
     # The first band samples both unconnected rim boundaries. Read its actual
     # outer edge endpoints; no polygon is generated across the excluded corner.
     first_face = measured_faces[0]
-    last_face_first_band = measured_faces[len(stations)-2]
+    last_face_first_band = measured_faces[2*(len(stations)-1)-1]
     open_gap = math.dist(measured_verts[first_face[0]], measured_verts[last_face_first_band[1]])
     max_plane_error = 0.0
     for face, normal in zip(measured_faces, normals):
@@ -219,11 +261,11 @@ def build_crown(ctx, geometry, candidate):
          'measured': maximum, 'meaning': 'Matches chosen crown endpoint; not surveyed crown accuracy'},
         {'check': 'crown_open_K2_guard', 'passed': open_gap>1 and all(a['segment_id']!='K2' for a in stations),
          'measured': {'actual_first_band_gap_m': open_gap, 'closing_face_count': 0},
-         'meaning': 'Five arc path remains open; its gap is not the verified V groove'},
+         'meaning': 'Open exterior crown path terminates at V lips; separate notch closes inward V faces'},
         {'check': 'crown_no_horizontal_cap_faces',
-         'passed': all(abs(n[2])<1e-4 and sum(x*x for x in n)>.99 for n in normals),
+         'passed': all(abs(n[2])<.5 and sum(x*x for x in n)>.99 for n in normals),
          'measured': {'face_count': len(measured_faces), 'maximum_normal_z': max(abs(n[2]) for n in normals)},
-         'meaning': 'Measured mesh faces are vertical side cells only'},
+         'meaning': 'Mother-following side triangles only, no horizontal top cap'},
         {'check': 'crown_candidate_cells_coplanar', 'passed': max_plane_error<1e-3,
          'measured': max_plane_error, 'meaning': 'Planarity of candidate cells, not fabrication approval'},
         {'check': 'crown_base_elevation', 'passed': abs(min(p[2] for p in measured_verts)-bottom)<1e-3,
@@ -231,18 +273,18 @@ def build_crown(ctx, geometry, candidate):
     for check in checks:
         check['asbuilt_verified'] = False
         check['measurement_source'] = measurement_source
-    report = {'component': 'open_crown_derived', 'source_ids': [source_id, 'B14_GEOM', 'CROWN_PHOTO_V4'],
+    report = {'component': 'open_crown_derived', 'source_ids': [source_id, 'B14_GEOM', 'CROWN_GENS_AERIAL_V5', 'OWNER_CONSTRUCTION_V5'],
               'evidence_level': '推导值', 'asbuilt_verified': False,
               'surface_role': 'crown_candidate_panel', 'station_mapping_evidence': '待确认',
               'checks': checks, 'software_checks_passed': all(a['passed'] for a in checks),
               'measurement_source': measurement_source,
-              'software_coordinate_tolerance_m': 1e-3, 'software_normal_z_tolerance': 1e-4,
+              'software_coordinate_tolerance_m': 1e-3, 'software_normal_z_tolerance': .5,
               'base_z_m': bottom, 'trim_controls_station_height': [[0,high],[mid,low],[1,end]],
               'candidate_cell_count': len(faces), 'band_count_display': number_bands,
-              'station_count_display': len(stations), 'open_path_arc_order': ['C1','K0','C2','K1','C0'],
+              'station_count_display': len(stations), 'open_path_arc_order': ['K2_SHOULDER_LOW','C1','K0','C2','K1','C0','K2_SHOULDER_HIGH'],
               'band_pitch_display_m': pitch, 'frame_radius_display_m': radius,
               'grid_evidence': '待确认：sampling and band pitch are display conventions, not the crown pattern',
-              'upper_chord_anchor': 'Upper nominal band reference; stepped vertical approximation',
+              'upper_chord_anchor': 'Actual vertex z mother transform; no stepped upper-chord anchor',
               'panel_records': panel_records, 'structural_interfaces': interfaces,
               'uncertainty': uncertainty, 'top_cap_present': False}
     ctx.component_results['crown_completion'] = report

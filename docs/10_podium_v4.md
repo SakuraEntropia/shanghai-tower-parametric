@@ -1,3 +1,5 @@
+> 历史v4快照。本轮v5纠错以docs/11系列为准；Cosentini图片的航拍摄影身份及背部高峰推断已撤回。
+
 # 裙房 v4：设计师实景依据、低裙房候选几何
 
 来源 ID：`PODIUM_GENS_V4`。2026-10-10 核验。新模块 `scripts/podium_v4.py`；集中参数 `parameters/podium_v4.json`。上层生成器把 JSON 放入 `assembly['podium_v4']`，调用 `build_podium(ctx, geometry, completion, assembly)`。

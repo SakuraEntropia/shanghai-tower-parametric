@@ -19,7 +19,13 @@
     "ASSEMBLY_V3_PARAMETERS": true,
     "ASSEMBLY_V3_EVIDENCE": true,
     "ASSEMBLY_V3_PARAMETER_EVIDENCE": true,
-    "ASSEMBLY_V3_REPORT": true
+    "ASSEMBLY_V3_REPORT": true,
+    "V5_crown_v5.json": true,
+    "V5_transition_v5.json": true,
+    "V5_11_crown_v5_actual_aerial.md": true,
+    "V5_11_transition_facade_v5.md": true,
+    "V5_11_podium_v5.md": true,
+    "V5_11_v5修正与证据.md": true
   },
   "collections": [
     "00_EVIDENCE",
@@ -50,27 +56,30 @@
     "73_CROWN_FRAME_DISPLAY",
     "74_CROWN_ROOF_CANDIDATE",
     "75_CROWN_STEEL_CANDIDATE",
+    "76_CROWN_ROOF_EQUIPMENT",
+    "77_CROWN_UNCONFIRMED_INTERFACES",
     "80_CURTAIN_A_FRAMES_UNKNOWN",
     "80_CURTAIN_A_GLASS",
     "80_CURTAIN_A_INTERFACES",
     "80_CURTAIN_A_STEPS_UNKNOWN",
+    "80_CURTAIN_A_TRANSITION_INTERFACES",
+    "80_CURTAIN_A_TRANSITION_VARIANTS",
     "81_CURTAIN_B_INTERFACES",
     "82_HISTORICAL_CWA_2010_SAMPLE",
     "83_CURTAIN_B_DERIVED",
     "84_CURTAIN_B_FRAME_DISPLAY",
     "85_INNER_UNCONFIRMED_INTERFACES",
-    "86_CWA_CONTINUITY_CANDIDATE",
     "87_CWB_CONTINUITY_CANDIDATE",
     "88_V_REENTRANT_FACADE",
     "90_VALIDATION"
   ],
-  "objects": 493,
+  "objects": 608,
   "all_objects_have_source_metadata": true,
   "geometry_signature": {
-    "sha256_rounded_geometry": "9e054f81bdd8dda9e3047073ebadecb327846b9fbeb237a505827c59307e10e3",
-    "mesh_count": 242,
-    "vertices": 834669,
-    "polygons": 529850
+    "sha256_rounded_geometry": "43276b3f9ea4808e65d1ec1b542c1877dfcabbbd60b1abb4e13deddb8677d115",
+    "mesh_count": 335,
+    "vertices": 834714,
+    "polygons": 522596
   },
   "signature_matches_generation": true,
   "passed": true,
@@ -78,6 +87,8 @@
     "slabs": 129,
     "mega_columns": 8,
     "installed_CWSS_objects": 5,
-    "podium_objects": 0
+    "podium_objects": 37,
+    "full_outer_transition_slabs": 16,
+    "crown_cooling_towers": 8
   }
 }

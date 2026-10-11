@@ -57,8 +57,11 @@ def inset(point,d):
 
 
 def _quads(ctx,name,quads,collection,material,m):
-    vertices=[v for quad in quads for v in quad]
-    faces=[tuple(range(4*i,4*i+4)) for i in range(len(quads))]
+    # Also accepts the simple triangular wedges from repaired seam topology.
+    vertices=[];faces=[]
+    for face in quads:
+        start=len(vertices);vertices.extend(face)
+        faces.append(tuple(range(start,start+len(face))))
     return ctx.mesh(name,vertices,faces,collection,material,m)
 
 
@@ -78,14 +81,16 @@ def curtain_continuity(ctx,geometry,completion,p):
             quad=[(a[0],a[1],bottom),(b[0],b[1],bottom),b,a]
             a_quads.append(quad);frames.extend(([quad[0],quad[3]],[quad[3],quad[2]]))
         intervals.append([bottom,top]);return pts
+    unified=ctx.component_results.get('CWA_unified_v5') if cfg.get('transition_v5',{}).get('enabled') else None
     z=p['closure']['bottom_start_m'];end=p['closure']['bottom_end_m'];bp=p['closure']['bottom_pitch_display_m']
+    if unified:z=end
     while z<end-1e-8:
         top=min(end,z+bp);low=fill(z,top)
         if top<end:
             high=profile_at(geometry,cfg,xy,min(end,top+bp))
             for i,j in edges:closure.append([low[i],low[j],(high[j][0],high[j][1],top),(high[i][0],high[i][1],top)])
         z=top
-    bounds=cfg['curtain']['standard_zone_reference_boundaries_m']
+    bounds=[] if unified else cfg['curtain']['standard_zone_reference_boundaries_m']
     for bottom,top in zip(bounds,bounds[1:]):
         count=int(math.floor((top-bottom+1e-8)/pitch));end_band=bottom+count*pitch
         if top-end_band>1e-6:
@@ -94,9 +99,11 @@ def curtain_continuity(ctx,geometry,completion,p):
         if top<bounds[-1]:
             low=profile_at(geometry,cfg,xy,top);high=profile_at(geometry,cfg,xy,top+pitch)
             for i,j in edges:closure.append([low[i],low[j],(high[j][0],high[j][1],top),(high[i][0],high[i][1],top)])
-    a=_quads(ctx,'CWA_BOTTOM_AND_RESIDUAL_BANDS_CANDIDATE',a_quads,'86_CWA_CONTINUITY_CANDIDATE','glass',m)
-    _quads(ctx,'CWA_ZONE_AND_BOTTOM_STEP_CLOSURES_CANDIDATE',closure,'86_CWA_CONTINUITY_CANDIDATE','steel',m)
-    ctx.lines('CWA_CONTINUITY_FRAME_CANDIDATE',frames,'86_CWA_CONTINUITY_CANDIDATE',p['closure']['frame_radius_display_m'],'steel',m)
+    a=None
+    if a_quads:
+        a=_quads(ctx,'CWA_BOTTOM_AND_RESIDUAL_BANDS_CANDIDATE',a_quads,'86_CWA_CONTINUITY_CANDIDATE','glass',m)
+        _quads(ctx,'CWA_ZONE_AND_BOTTOM_STEP_CLOSURES_CANDIDATE',closure,'86_CWA_CONTINUITY_CANDIDATE','steel',m)
+        ctx.lines('CWA_CONTINUITY_FRAME_CANDIDATE',frames,'86_CWA_CONTINUITY_CANDIDATE',p['closure']['frame_radius_display_m'],'steel',m)
     b_quads=[];b_lines=[];b_intervals=[]
     zones=completion['inner']['zones']
     bp=completion['inner']['modelling']['nominal_band_height_m']
@@ -133,8 +140,13 @@ def curtain_continuity(ctx,geometry,completion,p):
             'B final joint details, Z9 profile and actual panel schedule unknown; never twists B with A.')
     _quads(ctx,'CWB_BOTTOM_RESIDUAL_AND_Z9_BANDS_CANDIDATE',b_quads,'87_CWB_CONTINUITY_CANDIDATE','glass_detail',bm)
     ctx.lines('CWB_CONTINUITY_FRAME_CANDIDATE',b_lines,'87_CWB_CONTINUITY_CANDIDATE',p['closure']['frame_radius_display_m'],'steel',bm)
-    return {'A_added_panels':len(a_quads),'B_added_panels':len(b_quads),'A_added_intervals_m':intervals,'B_added_intervals_m':b_intervals,
-            'checks':[{'name':'curtain_residual_and_bottom_entities','passed':bool(a_quads and b_quads),'actual':[len(a.data.polygons),len(b_quads)]}]}
+    return {'A_added_panels':len(a_quads),'A_unified_v5_schedule':unified,
+            'A_legacy_patch_suppressed':bool(unified),'B_added_panels':len(b_quads),
+            'A_added_intervals_m':intervals,'B_added_intervals_m':b_intervals,
+            'checks':[{'name':'curtain_residual_and_bottom_entities',
+                      'passed':bool((a_quads or unified) and b_quads),
+                      'actual':[len(a.data.polygons) if a else 0,len(b_quads)],
+                      'scope':'V5 A uses shared primary schedule; no coincident secondary patch.'}]}
 
 
 def frame_and_cwss(ctx,geometry,completion,p):

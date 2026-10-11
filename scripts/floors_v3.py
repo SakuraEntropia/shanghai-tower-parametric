@@ -169,10 +169,51 @@ def _zone(z, inner):
     return 9, None
 
 
+def polygonal_slab(outline, hole, top_z, thickness):
+    """Closed star-shaped extrusion, with exact outer/V and core corners.
+
+    Rays pair outer contour with core aperture; the concave V is retained,
+    unlike a convex hull or circular floor extension. Source contours both
+    surround the origin and must be star-shaped in this local convention.
+    """
+    if len(outline) < 3 or thickness <= 0:
+        raise ValueError('Invalid polygonal slab outline or thickness')
+    angles = sorted({round(math.atan2(y, x) % (2 * math.pi), 12) for x, y in outline + hole})
+    inner, outer = [], []
+    for angle in angles:
+        ir, radius = ray_hole_radius(hole, angle), ray_hole_radius(outline, angle)
+        if ir >= radius:
+            raise ValueError('Core opening lies outside the full transition floor')
+        c, s = math.cos(angle), math.sin(angle)
+        inner.append((ir * c, ir * s)); outer.append((radius * c, radius * s))
+    count = len(angles)
+    verts = [(x, y, z) for z in (top_z - thickness, top_z) for ring in (inner, outer) for x, y in ring]
+    faces = []
+    for i in range(count):
+        j = (i + 1) % count
+        faces.extend([(i, j, count + j, count + i),
+                      (2 * count + i, 3 * count + i, 3 * count + j, 2 * count + j),
+                      (count + i, count + j, 3 * count + j, 3 * count + i),
+                      (i, 2 * count + i, 2 * count + j, j)])
+    return verts, faces
+
+
+def _distance_to_outline(point, outline):
+    result = []
+    for a, b in zip(outline, outline[1:] + outline[:1]):
+        dx, dy = b[0] - a[0], b[1] - a[1]
+        t = max(0., min(1., ((point[0] - a[0]) * dx + (point[1] - a[1]) * dy) / (dx * dx + dy * dy)))
+        result.append(math.hypot(point[0] - a[0] - t * dx, point[1] - a[1] - t * dy))
+    return min(result)
+
+
 def build_floors(ctx, geometry, candidate, anchors, assembly):
     options = {**DEFAULTS, **assembly.get('floors', {})}
     core, inner, crown = candidate['core'], candidate['inner'], candidate['crown']
     rows, comparisons = derive_schedule(anchors, crown, options)
+    transition = ctx.config.get('transition_v5', {})
+    full_plate_regions = {number: region for region in transition.get('regions', [])
+                          for number in region['candidate_plate_numbers']}
     reports, checks, beams, warnings = [], [], [], []
     special_z = [float(a['z1_m']) for a in inner['zones']]
     for row in rows:
@@ -181,11 +222,23 @@ def build_floors(ctx, geometry, candidate, anchors, assembly):
         radius = float(options['top_default_radius_m']) if radius is None else radius
         if number == 129:
             radius = float(options['roof_slab_radius_candidate_m'])
-        is_public = any(abs(top - z) < 1e-6 for z in special_z)
+        full_region = full_plate_regions.get(number)
+        is_public = bool(full_region) or any(abs(top - z) < 1e-6 for z in special_z)
         thickness = float(options['lower_thickness_m'] if top < 45 else
                           options['public_thickness_m'] if is_public or zone == 9 else options['office_thickness_m'])
         hole = core_hole_polygon(core, zone)
-        verts, faces = annular_slab(radius, hole, top, thickness, int(options['samples']))
+        outer_outline = None
+        if full_region:
+            from transition_v5 import outer_reference, control_profile_at
+            _, reference = outer_reference(geometry, ctx.config)
+            outer = control_profile_at(geometry, ctx.config, reference, top)
+            inset = float(transition['outer_plate_inset_candidate_m'])
+            outer_outline = [(x * (1 - inset / math.hypot(x, y)),
+                              y * (1 - inset / math.hypot(x, y))) for x, y, _ in outer]
+            thickness = float(transition['slab_thickness_candidate_m'])
+            verts, faces = polygonal_slab(outer_outline, hole, top, thickness)
+        else:
+            verts, faces = annular_slab(radius, hole, top, thickness, int(options['samples']))
         meta = {'source_ids': list(dict.fromkeys(row['source_ids'] + ['D10', 'B14_STRUCT', 'S13'])),
                 'source_locator': 'S13 PDFp12 Fig6; D10 p123 Fig3; B14_STRUCT p32/38; NTUA Fig8 where indicated',
                 'evidence_level': '推导值', 'asbuilt_verified': False,
@@ -198,12 +251,27 @@ def build_floors(ctx, geometry, candidate, anchors, assembly):
                 'slab_top_z_m': top, 'slab_thickness_m': thickness,
                 'zone': zone, 'radius_m': radius, 'core_hole_polygon_m': hole,
                 'thickness_evidence': 'Office155mm source p38; public225mm chosen within published200–250mm; lower/hotel/top mapping derived.',
-                'mechanical_floor_extension': 'Circular candidate only; triangular amenity extension handled independently by assembly.'}
+                'mechanical_floor_extension': 'Full A-outline transition plate with concave V retained.' if full_region else 'Standard circular conditioned floor; atrium kept open.',
+                'full_outer_transition_plate': bool(full_region),
+                'transition_region_id': full_region['id'] if full_region else None}
+        if full_region:
+            meta.update(source_ids=list(dict.fromkeys(meta['source_ids'] + ['G01', 'B14_GEOM'])),
+                        formula=row['level_formula'] + '; same derived A control grid at this z, including closed reentrant95deg V; radial75mm candidate inset; core aperture unchanged.',
+                        uncertainty='Full triangular MEP/amenity plate topology supported by G01 Fig12/14 and B14_STRUCT p34. Upper S13 interface exact; preceding candidate plate assignment derived. Final slab edge, inset, refuge/MEP crosswalk and openings unconfirmed.',
+                        outer_outline_candidate_m=outer_outline,
+                        outer_outline_source_ids=['G01', 'B14_GEOM'],
+                        outer_plate_inset_candidate_m=transition['outer_plate_inset_candidate_m'],
+                        topology_evidence_level='已证实', placement_evidence_level='推导值')
         obj = ctx.mesh(f'F{number:03d}_DERIVED_SLAB', verts, faces,
                        '50_DERIVED_SOLID_FLOOR_PLATES', 'core', meta)
         actual_top = max(v.co.z for v in obj.data.vertices)
-        radius_error = max(abs(math.hypot(v.co.x, v.co.y) - radius)
-                           for v in obj.data.vertices if math.hypot(v.co.x, v.co.y) > radius - .1)
+        if full_region:
+            ring_count = len(verts) // 4
+            radius_error = max(_distance_to_outline((v.co.x, v.co.y), outer_outline)
+                               for v in list(obj.data.vertices)[ring_count:2 * ring_count])
+        else:
+            radius_error = max(abs(math.hypot(v.co.x, v.co.y) - radius)
+                               for v in obj.data.vertices if math.hypot(v.co.x, v.co.y) > radius - .1)
         edges = Counter(tuple(sorted((a, b))) for p in obj.data.polygons
                         for a, b in zip(p.vertices, list(p.vertices[1:]) + [p.vertices[0]]))
         passed = all(n == 2 for n in edges.values()) and abs(actual_top - top) < .0001 and radius_error < .0001
@@ -212,8 +280,11 @@ def build_floors(ctx, geometry, candidate, anchors, assembly):
                                   'radius_error_m': radius_error, 'nonmanifold_edges': sum(n != 2 for n in edges.values())},
                        'scope': 'Software solid / candidate position checks, not as-built floor verification'})
         reports.append({**row, 'zone': zone, 'radius_m': radius, 'thickness_m': thickness,
-                        'object': obj.name, 'core_hole_vertices': hole})
-        if top >= 45:
+                        'object': obj.name, 'core_hole_vertices': hole,
+                        'full_outer_transition_plate': bool(full_region),
+                        'transition_region_id': full_region['id'] if full_region else None,
+                        'outer_outline_candidate_m': outer_outline})
+        if top >= 45 and not full_region:
             a_min = (ctx.config['profile']['R1_m'] - ctx.config['profile']['L4_m']) * geometry.curve_state(top, ctx.config)['scale']
             if a_min < radius:
                 warnings.append({'floor': number, 'z_m': top, 'A_mother_min_radius_m': a_min,
@@ -247,9 +318,11 @@ def build_floors(ctx, geometry, candidate, anchors, assembly):
             'checks': checks, 'software_checks_passed': all(a['passed'] for a in checks),
             'parameter_inputs': options, 'upper_version_comparisons': comparisons,
             'clearance_warnings': warnings, 'beam_display_segments': len(beams),
+            'full_outer_transition_plate_count': len(full_plate_regions),
+            'transition_regions': transition.get('regions', []),
             'interpolated_rows': [r for r in reports if r['level_method'] == 'linear_between_S13_source_numbers'],
             'assumptions': ['S13 F and NTUA L counters are source-local; appended numbers are candidate labels, not a resolved floor crosswalk.',
-                            'Standard slabs remain fixed concentric circles; public extensions are independent assemblies.',
+                            'Standard slabs remain fixed concentric circles; two candidate transition plates per published interface use full A/V outline.',
                             'Core void envelopes are derived plan templates; no internal shaft area filled with slab.',
                             'Hotel/top slab thickness .225m is an editable mapping of the public-floor candidate, not a verified hotel schedule.'],
             'asbuilt_verified': False}

@@ -177,8 +177,138 @@ def _step_metrics(quad, next_quad, normal):
             'step_endpoint_displacement_m': max(_length(shift) for shift in shifts)}
 
 
+def _append_step_faces(buf, previous, following, z, panel_index):
+    from transition_v5 import step_faces
+    faces = step_faces(previous, following, z)
+    for face in faces:
+        _append_face(buf, face, panel_index)
+    return len(faces)
+
+
+def _build_standard_v5(ctx, geometry, records, interfaces, checks, glass_thickness):
+    """All main A bands use one schedule, including bottom and residuals.
+
+    Individual panels remain upright rectangles. Adjacent source-derived
+    stepped chords get simple closure wedges, never self-crossing quads.
+    Special transition zones are independent material/interface candidates.
+    """
+    from transition_v5 import band_schedule, outer_reference, control_profile_at
+    config, curtain = ctx.config, ctx.config['curtain']
+    schedule = band_schedule(config)
+    grid, xy = outer_reference(geometry, config)
+    valid_edges = [i for i, row in enumerate(grid) if not row['excluded_by_notch_uncertainty']]
+    payloads = {}
+    previous = None
+    repaired = 0
+    for band in schedule:
+        zone = band['zone']
+        if zone not in payloads:
+            payloads[zone] = {'standard': _buffers(), 'transition': _buffers(),
+                              'frames': _buffers(), 'steps': _buffers(),
+                              'frame_edges': set(), 'bands': []}
+        buf = payloads[zone]
+        anchor = control_profile_at(geometry, config, xy, band['z_top_m'])
+        band_id = len(buf['bands']) + 1
+        buf['bands'].append(band)
+        for i in valid_edges:
+            j = (i + 1) % len(grid)
+            quad = _rectangle(anchor[i], anchor[j], band['z_bottom_m'], band['z_top_m'])
+            normal, metrics = _outward_normal(quad), rectangle_metrics(quad)
+            panel_index = len(records)
+            record = {'panel_index': panel_index,
+                      'panel_id': f'CWA_V5_Z{zone:02d}_B{band_id:03d}_P{i+1:03d}',
+                      'zone': zone, 'band_id': band_id, 'floor_id': None,
+                      'band_is_true_floor': False, 'geometry_version': config['selected_geometry_version'],
+                      'rule_id': 'V5_SHARED_FINITE_BAND_SCHEDULE',
+                      'type_id': band['kind'], 'evidence_level': '推导值',
+                      'source_ids': ['B14_GEOM', 'G01', 'S13', 'Y19'],
+                      'source_locator': 'G01 pp15–16 Fig30/34; B14_GEOM pp16–18; S13 Fig1b',
+                      'grid_index': i, 'half': grid[i]['half_index'],
+                      'half_direction': grid[i]['half_direction'], 'group': grid[i]['group_index'],
+                      'segment_ids': grid[i]['span_segment_ids'],
+                      'source_arc_positions_m': [grid[i]['s_m'], grid[j]['s_m']],
+                      'z_bottom_m': band['z_bottom_m'], 'z_top_m': band['z_top_m'],
+                      'vertices_control_plane_m': [list(p) for p in quad],
+                      'anchor_line': 'upper_gross_control_chord',
+                      'nominal_glass_thickness_m': glass_thickness,
+                      'thickness_reference': 'control plane at mid-thickness; derived placement',
+                      'width_kind': 'gross control chord; clear fabrication width unresolved',
+                      'frame_dimension_evidence': 'DISPLAY_UNKNOWN',
+                      'frame_face_width_display_m': curtain['frame_face_width_display_m'],
+                      'frame_depth_display_m': curtain['horizontal_frame_depth_display_m'],
+                      'transition_region_id': band['transition_id'],
+                      'transition_panel_map_verified': False,
+                      'below_45m_extrapolation': band['extrapolated_below_45m'],
+                      'asbuilt_verified': False,
+                      'uncertainty': 'Shared schedule avoids duplicate residual/zone patches. Transition lower levels and material mapping are candidates; actual vents, frit, extrusion, shop grid and B/A floor crosswalk unresolved.',
+                      **metrics}
+            glassbuf = buf['transition'] if band['transition_id'] else buf['standard']
+            _append_face(glassbuf, quad, panel_index)
+            # Adjacent modules share the same vertical edge; create it once.
+            for k in range(4):
+                p0, p1 = quad[k], quad[(k + 1) % 4]
+                key = tuple(sorted(tuple(round(v, 10) for v in p) for p in (p0, p1)))
+                if key not in buf['frame_edges']:
+                    _append_member(buf['frames'], p0, p1, curtain['frame_face_width_display_m'],
+                                   curtain['horizontal_frame_depth_display_m'], normal, panel_index)
+                    buf['frame_edges'].add(key)
+            if previous is not None:
+                before = previous['anchor']
+                next_quad = _rectangle(anchor[i], anchor[j], band['z_bottom_m'], band['z_top_m'])
+                old_quad = _rectangle(before[i], before[j], previous['band']['z_bottom_m'], band['z_bottom_m'])
+                record.update(_step_metrics(old_quad, next_quad, _outward_normal(old_quad)))
+                repaired += _append_step_faces(buf['steps'], (before[i], before[j]),
+                                                (anchor[i], anchor[j]), band['z_bottom_m'], panel_index) == 2
+            else:
+                record['step_width_normal_m'] = None
+            records.append(record); checks.append(metrics)
+        previous = {'anchor': anchor, 'band': band}
+    zones = []
+    for zone, buf in payloads.items():
+        common = _meta(['B14_GEOM', 'G01', 'S13', 'Y19'], 'glass_panel_derived',
+                       'Shared finite band partition; 138 source-derived stations, upper control chord extruded vertically. Transition source nominal interface heights retained.',
+                       'Full floor and final net panel schedules unavailable; all nominal/subdivided bands are geometry candidates. Below45m is extrapolation.',
+                       zone=zone, true_floor_schedule=False, unified_schedule_version='v5',
+                       geometry_version=config['selected_geometry_version'], nominal_glass_thickness_m=glass_thickness)
+        _emit(ctx, f'CWA_Z{zone:02d}_GLASS_DERIVED', buf['standard'], '80_CURTAIN_A_GLASS',
+              'glass', common, glass_thickness)
+        transition_meta = dict(common, evidence_level='待确认', geometry_role='transition_glass_variant_candidate',
+                               source_locator='G01 PDFp16 Fig34 intake/exhaust/maintenance variation; S13 Fig1b interfaces',
+                               formula='Separate candidate MEP/refuge region at source-strengthening interfaces; same upright panel method. Display material only, final special panel map unknown.',
+                               uncertainty='Existence of equipment facade variation is published. Exact spandrel/vent/frit/opening dimensions and material allocation not published; candidate reflectance only.',
+                               transition_material_map_verified=False)
+        _emit(ctx, f'CWA_Z{zone:02d}_MEP_REFUGE_GLASS_VARIANT_CANDIDATE', buf['transition'],
+              '80_CURTAIN_A_TRANSITION_VARIANTS', config['transition_v5']['transition_glass_material'],
+              transition_meta, glass_thickness)
+        frame_meta = dict(common, geometry_role='frame_display_unknown', evidence_level='待确认',
+                          section_dimension_evidence='DISPLAY_UNKNOWN', face_width_display_m=curtain['frame_face_width_display_m'],
+                          horizontal_and_vertical_depth_display_m=curtain['horizontal_frame_depth_display_m'],
+                          uncertainty='Shared panel edges deduplicated; 50mm face/100mm section are display proxies. Final extrusion and thermal joints unknown.')
+        _emit(ctx, f'CWA_Z{zone:02d}_FRAME_DISPLAY_UNKNOWN', buf['frames'], '80_CURTAIN_A_FRAMES_UNKNOWN', 'steel', frame_meta)
+        step_meta = dict(common, geometry_role='horizontal_step_closure_proxy', evidence_level='待确认',
+                         formula='Same paired station chords at adjacent band anchors; intersecting chords partitioned into two simple horizontal wedges; every face oriented upward.',
+                         uncertainty='Topological repair eliminates self-intersecting patches; real closure/extrusion section, ledge cover and gasket dimensions remain unknown.')
+        _emit(ctx, f'CWA_Z{zone:02d}_STEP_CLOSURE_UNKNOWN', buf['steps'], '80_CURTAIN_A_STEPS_UNKNOWN', 'guide', step_meta)
+        zones.append({'zone': zone, 'reference_z_range_m': [buf['bands'][0]['z_bottom_m'], buf['bands'][-1]['z_top_m']],
+                      'nominal_band_count': len(buf['bands']), 'panels_per_complete_band': len(valid_edges),
+                      'unresolved_remainder_m': 0.0, 'residuals_are_explicit_candidate_bands': True,
+                      'skipped_grid_edges_per_band': len(grid) - len(valid_edges)})
+    for region in config['transition_v5']['regions']:
+        _interface(ctx, region['id'] + '_INTAKE_EXHAUST_BMU_MAP_UNRESOLVED',
+                   (0, 0, (region['z_bottom_m'] + region['z_top_m']) / 2), ['G01', 'S13'],
+                   'Special transition facade exists; exact vent, spandrel, frit and BMU opening maps still unavailable.',
+                   interfaces, z_range_m=[region['z_bottom_m'], region['z_top_m']], collection='80_CURTAIN_A_TRANSITION_INTERFACES')
+    ctx.component_results['CWA_unified_v5'] = {'schedule': schedule,
+                                             'main_standard_panel_count': len(schedule) * len(valid_edges),
+                                             'self_crossing_step_quads_repaired': repaired,
+                                             'topology_scope': 'software sealing; not as-built extrusion'}
+    return zones, len(grid) - len(valid_edges)
+
+
 def _build_standard(ctx, geometry, records, interfaces, checks, glass_thickness):
     config, curtain = ctx.config, ctx.config['curtain']
+    if config.get('transition_v5', {}).get('enabled'):
+        return _build_standard_v5(ctx, geometry, records, interfaces, checks, glass_thickness)
     count = int(curtain['half_panel_count'])
     groups = list(curtain['half_groups'])
     if sum(groups) != count:
@@ -248,7 +378,8 @@ def _build_standard(ctx, geometry, records, interfaces, checks, glass_thickness)
                     next_quad = _rectangle(anchor_points[band+1][i], anchor_points[band+1][j],
                                            upper_z, upper_z+pitch)
                     record.update(_step_metrics(quad, next_quad, normal))
-                    _append_face(zone_steps, [quad[3], quad[2], next_quad[1], next_quad[0]], panel_index)
+                    _append_step_faces(zone_steps, (quad[3], quad[2]),
+                                       (next_quad[0], next_quad[1]), upper_z, panel_index)
                 else:
                     record['step_width_normal_m'] = None
                 records.append(record)

@@ -1,6 +1,6 @@
 {
   "source_id": "PODIUM_GENS_V4",
-  "parameter_version": "v4-photo-informed-candidate-2026-10-10",
+  "parameter_version": "v5-continuous-photo-informed-detail-candidate-2026-10-11",
   "evidence_level": "推导值",
   "numeric_evidence_level": "待确认",
   "asbuilt_verified": false,
@@ -8,8 +8,17 @@
   "source_tower_diameter_reference_m": 82.2,
   "scale_method": "82.2m published inner-floor endpoint used solely as dimensional prior. Outer facade cannot be equated with this diameter. No calibrated camera or orthographic plan; width/depth ratios are adjustable photo-informed modelling candidates.",
   "uncertainty": "Metric error unbounded: oblique aerial, unknown lens/camera pose, roof height and hidden boundary. No perspective rectification performed. Local azimuth not geographic north. Roof curves, numeric dimensions, levels, facade joints and pavilions remain replacement-ready candidates.",
-  "historical_conflict": {"source_id": "D10", "year": 2010, "floor_count": 7, "height_m": 38, "adoption": "Historical structural design scheme. Not transferred to final podium photo geometry."},
-  "center_xy_m": [-25, -65],
+  "historical_conflict": {
+    "source_id": "D10",
+    "year": 2010,
+    "floor_count": 7,
+    "height_m": 38,
+    "adoption": "Historical structural design scheme. Not transferred to final podium photo geometry."
+  },
+  "center_xy_m": [
+    -25,
+    -65
+  ],
   "local_azimuth_deg": 0,
   "width_m": 72,
   "depth_m": 80,
@@ -17,33 +26,182 @@
   "depth_to_reference_diameter_ratio_candidate": 0.9732360097,
   "corner_radius_m": 9,
   "corner_samples": 16,
-  "display_slab_levels_m": [0, 6, 12, 18],
+  "display_slab_levels_m": [
+    0,
+    6,
+    12,
+    18
+  ],
   "slab_thickness_display_m": 0.25,
   "terrace_top_m": 18,
   "roof_high_m": 30,
   "roof_arch_drop_m": 4,
   "roof_back_drop_m": 3,
-  "roof_edge_drop_m": 1.5,
   "roof_back_v_min": 0.02,
-  "roof_side_inner_u": 0.36,
-  "roof_fascia_depth_display_m": 2.5,
+  "roof_side_inner_u": 0.35,
   "roof_samples_width": 32,
   "roof_samples_depth": 24,
   "frame_radius_display_m": 0.06,
-  "pavilion_centres_uv": [[-0.28, -0.20], [0.25, -0.24]],
-  "pavilion_size_m": [9, 20],
-  "pavilion_height_m": 2.4,
-  "lamella_count_display": 45,
-  "lamella_u_range": [-0.33, 0.30],
-  "lamella_v_range": [0.12, 0.40],
-  "lamella_radius_display_m": 0.15,
-  "satellite_pavilion": {"center_xy_m": [55, -73], "local_azimuth_deg": -20, "width_m": 39, "depth_m": 18, "corner_radius_m": 8, "height_m": 7},
-  "junction_candidate_xy_m": [-20, -28],
+  "lamella_count_display": 75,
+  "lamella_u_range": [
+    -0.33,
+    0.3
+  ],
+  "lamella_v_range": [
+    0.12,
+    0.4
+  ],
+  "lamella_radius_display_m": 0.11,
+  "satellite_pavilion": {
+    "center_xy_m": [
+      55,
+      -56
+    ],
+    "local_azimuth_deg": -5,
+    "width_m": 39,
+    "depth_m": 18,
+    "corner_radius_m": 8,
+    "height_m": 7,
+    "outer_radius_candidate_m": 30,
+    "inner_radius_candidate_m": 18,
+    "start_angle_candidate_deg": -135,
+    "span_candidate_deg": 90,
+    "arc_samples": 48,
+    "roof_fin_count_candidate": 25
+  },
+  "junction_candidate_xy_m": [
+    -20,
+    -28
+  ],
   "junction_candidate_z_m": 12,
   "sources": [
-    {"title": "Shanghai Tower / base aerial", "publisher": "Gensler", "url": "https://static2.gensler.com/uploads/image/95597/project-shanghai-tower-01-2000x_1734564801.jpg", "local_file": "references/new_podium/Gensler_base_aerial.jpg", "type": "Photograph", "date": "Not stated; asset filename timestamp is not exposure/publication proof", "supports": "Single-sided warm/gold curved podium roof, terrace courtyard, setback pavilions, separate low landscape pavilion", "dimensions_supported": false},
-    {"title": "Shanghai Tower Retail Podium", "publisher": "Gensler", "url": "https://www.gensler.com/projects/shanghai-tower-retail-podium", "date": "Not stated; page refers to prospective summer2016 completion", "type": "Primary designer project text plus design renderings", "supports": "Multi-story retail podium, curved glazed facade; warm curved exterior envelope in historical rendering", "dimensions_supported": false},
-    {"title": "Retail Podium / rendering01", "publisher": "Gensler", "url": "https://static1.gensler.com/uploads/hero_element/4907/thumb_desktop/thumbs/project_shanghai-tower-retail-podium_01_1402702218_1024x576.jpg", "local_file": "references/new_podium/Gensler_retail_podium_01.jpg", "type": "Design rendering, not as-built photograph", "dimensions_supported": false},
-    {"title": "Retail Podium / rendering02", "publisher": "Gensler", "url": "https://static2.gensler.com/uploads/hero_element/4908/thumb_desktop/thumbs/project_shanghai-tower-retail-podium_02_1402702235_1024x576.jpg", "local_file": "references/new_podium/Gensler_retail_podium_02.jpg", "type": "Design rendering, not as-built photograph", "dimensions_supported": false}
-  ]
+    {
+      "title": "Shanghai Tower / base aerial",
+      "publisher": "Gensler",
+      "url": "https://static2.gensler.com/uploads/image/95597/project-shanghai-tower-01-2000x_1734564801.jpg",
+      "local_file": "references/new_podium/Gensler_base_aerial.jpg",
+      "type": "Photograph",
+      "date": "Not stated; asset filename timestamp is not exposure/publication proof",
+      "supports": "Single-sided warm/gold curved podium roof, terrace courtyard, setback pavilions, separate low landscape pavilion",
+      "dimensions_supported": false
+    },
+    {
+      "title": "Shanghai Tower Retail Podium",
+      "publisher": "Gensler",
+      "url": "https://www.gensler.com/projects/shanghai-tower-retail-podium",
+      "date": "Not stated; page refers to prospective summer2016 completion",
+      "type": "Primary designer project text plus design renderings",
+      "supports": "Multi-story retail podium, curved glazed facade; warm curved exterior envelope in historical rendering",
+      "dimensions_supported": false
+    },
+    {
+      "title": "Retail Podium / rendering01",
+      "publisher": "Gensler",
+      "url": "https://static1.gensler.com/uploads/hero_element/4907/thumb_desktop/thumbs/project_shanghai-tower-retail-podium_01_1402702218_1024x576.jpg",
+      "local_file": "references/new_podium/Gensler_retail_podium_01.jpg",
+      "type": "Design rendering, not as-built photograph",
+      "dimensions_supported": false
+    },
+    {
+      "title": "Retail Podium / rendering02",
+      "publisher": "Gensler",
+      "url": "https://static2.gensler.com/uploads/hero_element/4908/thumb_desktop/thumbs/project_shanghai-tower-retail-podium_02_1402702235_1024x576.jpg",
+      "local_file": "references/new_podium/Gensler_retail_podium_02.jpg",
+      "type": "Design rendering, not as-built photograph",
+      "dimensions_supported": false
+    }
+  ],
+  "facade_module_candidate_m": 2.4,
+  "roof_shell_thickness_candidate_m": 0.3,
+  "roof_coping_radius_candidate_m": 0.09,
+  "side_wrap_bottom_candidate_m": 6,
+  "terrace_rail_inset_candidate_m": 0.65,
+  "railing_height_candidate_m": 1.1,
+  "railing_radius_display_m": 0.04,
+  "entrance_offset_u": 0,
+  "entrance_width_candidate_m": 10,
+  "entrance_canopy_height_candidate_m": 4.5,
+  "entrance_canopy_depth_candidate_m": 3.2,
+  "entrance_canopy_thickness_candidate_m": 0.25,
+  "entrance_door_leaf_count_candidate": 4,
+  "garden_pavilions": {
+    "centre_u_abs": 0.29,
+    "centre_v": -0.2,
+    "half_size_uv": [
+      0.085,
+      0.195
+    ],
+    "samples": 48,
+    "tip_taper_candidate": 0.25,
+    "height_candidate_m": 2.4
+  },
+  "garden": {
+    "centre_uv": [
+      0,
+      -0.21
+    ],
+    "radii_uv": [
+      0.235,
+      0.2
+    ],
+    "samples": 64,
+    "path_half_width_candidate_m": 0.8,
+    "shade_pads_uv": [
+      [
+        -0.12,
+        -0.11
+      ],
+      [
+        0.08,
+        -0.12
+      ],
+      [
+        -0.12,
+        -0.27
+      ],
+      [
+        0,
+        -0.27
+      ],
+      [
+        0.12,
+        -0.28
+      ],
+      [
+        0.02,
+        -0.38
+      ]
+    ],
+    "shade_pad_width_candidate_m": 3.2
+  },
+  "detail_evidence": {
+    "roof_and_wings": "One golden folded U envelope around exposed garden, photo-derived; sample-grid and thickness unconfirmed.",
+    "garden": "Aerial supports curved garden edge, pale path, two curved glazed lobes and six visible white square elements. Their function is unidentified, modeled without a commercial label.",
+    "satellite": "Aerial supports concave segmented low pavilion and roof stripes. Arc centre, radii and segment count are candidates.",
+    "entry": "Historical design rendering supports retail portal/canopy cue. Entry position, doorway count and current construction not confirmed.",
+    "all_new_numeric_parameters": "待确认; no finite metric error bound from single oblique aerial. Added detail is relation reconstruction, not shop-drawing accuracy."
+  },
+  "front_opaque_band_candidate_z_m": [
+    12.5,
+    17.8
+  ],
+  "v4_retired_candidate_controls": {
+    "roof_edge_drop_m": 1.5,
+    "roof_fascia_depth_display_m": 2.5,
+    "pavilion_centres_uv": [
+      [
+        -0.28,
+        -0.2
+      ],
+      [
+        0.25,
+        -0.24
+      ]
+    ],
+    "pavilion_size_m": [
+      9,
+      20
+    ],
+    "pavilion_height_m": 2.4
+  }
 }
