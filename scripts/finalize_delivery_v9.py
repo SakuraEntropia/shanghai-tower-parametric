@@ -17,7 +17,8 @@ if bpy.context.scene.get('correction_version')=='v12':
 runpy.run_path(str(R/'scripts/inspect_saved.py'),run_name='__main__')
 items=[('00_README_EVIDENCE',R/'README.md')]
 items.append(('SOURCES_JSON',R/'parameters/sources.json'))
-for version in ('v8','v9','v10','v11','v12','v13'):
+items.append(('MODEL_CONFIG_JSON',R/'parameters/model_config.json'))
+for version in ('v8','v9','v10','v11','v12','v13','v14','v15'):
  items += [(version.upper()+'_'+p.name,p) for p in (R/'docs').glob('*'+version+'*') if p.is_file()]
  items += [(version.upper()+'_'+p.name,p) for p in (R/'parameters').glob('*'+version+'.json')]
 items += [('SCRIPT_'+p.name,p) for p in (R/'scripts').glob('*.py')]

@@ -3,6 +3,9 @@ import math
 
 
 def courtyard_points(p,points):
+    if p.get('raised_end_v15'):
+        from raised_end_v15 import courtyard_points as current
+        return current(p,points)
     controls=p['courtyard_photo_fit_px'];c=[sum(q[k] for q in controls)/len(controls) for k in (0,1)]
     scale=p.get('terrace_scale_v11',[1,1])
     return [[c[k]+(q[k]-c[k])*scale[k] for k in (0,1)] for q in points]

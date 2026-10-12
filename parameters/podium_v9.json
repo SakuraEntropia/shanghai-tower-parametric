@@ -1,12 +1,15 @@
 {
-  "version": "podium-v13-image-topology-fit",
+  "version": "podium-v15-convex-tip-raised-end",
   "source_ids": [
     "GENSLER_ARCHJOURNAL_V8",
     "PODIUM_LINGYUN_BIM_V7",
     "PODIUM_GENS_V4",
     "PODIUM_GENS_GROUND_V6",
     "USER_IMAGES_V13_RENDER",
-    "USER_IMAGES_V13_STREET"
+    "USER_IMAGES_V13_STREET",
+    "SWA_RAISED_END_V14",
+    "CTBUH_GENS_PODIUM_RENDER_V14",
+    "USER_PODIUM_RELATION_V15"
   ],
   "evidence_level": "推导值/待确认上部曲面",
   "asbuilt_verified": false,
@@ -27,7 +30,7 @@
     646,
     395
   ],
-  "rotation_candidate_deg": 90,
+  "rotation_candidate_deg": -30,
   "ground_outline_px": [
     [
       263,
@@ -494,5 +497,57 @@
       311
     ]
   ],
-  "courtyard_v13_locator": "Open t0 end centered across swept gold arch, not an opening only on its tower-side half. Upper roof fit to Gensler actual aerial; no roof plan recovered."
+  "courtyard_v13_locator": "Open t0 end centered across swept gold arch, not an opening only on its tower-side half. Upper roof fit to Gensler actual aerial; no roof plan recovered.",
+  "raised_end_v14": {
+    "enabled": true,
+    "end": 0.0,
+    "clearance_candidate_m": 4.2,
+    "edge_clearance_extra_candidate_m": 2.0,
+    "return_depth_candidate_m": 12.0,
+    "roof_transition_t_candidate": 0.24,
+    "soffit_front_bulge_candidate_m": 2.5,
+    "setback_glass_top_candidate_m": 4.2,
+    "panel_module_reference_m": [
+      1.8,
+      0.3
+    ],
+    "side_samples": 32,
+    "return_samples": 80,
+    "display_pier_fraction_candidate": 0.22,
+    "display_pier_section_candidate_m": [
+      2.4,
+      1.2
+    ],
+    "source_ids": [
+      "SWA_RAISED_END_V14"
+    ],
+    "evidence_level": "待确认",
+    "uncertainty": "SWA Jonnu Singleton0013 real photo supports raised curved soffit, open space and a visible diagonal support. All depths, clearances, curve controls, support placement/section and panel allocations candidate; no calibrated camera, survey or final end-section CAD.",
+    "display_pier_foot_depth_candidate_m": 8.0,
+    "display_pier_head_v_candidate": 0.58
+  },
+  "raised_end_v15": {
+    "front_bow_candidate_m": 5.0,
+    "lower_lip_candidate_m": [
+      12.6,
+      4.2
+    ],
+    "front_samples": 32,
+    "front_glazing_fraction_candidate": [
+      0.08,
+      0.92
+    ],
+    "front_glazing_height_candidate_m": 5.8,
+    "lower_edge_trim_width_candidate_m": 0.45,
+    "source_ids": [
+      "PODIUM_GENS_V4",
+      "SWA_RAISED_END_V14",
+      "CTBUH_GENS_PODIUM_RENDER_V14",
+      "USER_PODIUM_RELATION_V15"
+    ],
+    "evidence_level": "待确认",
+    "uncertainty": "Gensler aerial/CTBUH design render support convex tower corner and raised curved end; SWA real photo supports gold soffit/open space/pier. Bow, side lip, return depth, glass allocation and trim are uncalibrated candidates. No camera calibration, surveyed north or final PR/PS/PG coordinates; no metric error bound."
+  },
+  "ground_band_reference_rotation_candidate_deg": 90,
+  "ground_band_reference_x_min_candidate_m": -24
 }

@@ -18,7 +18,7 @@ class CorrectionsV11Tests(unittest.TestCase):
             width=max(a[0] for a in q)-min(a[0] for a in q);height=max(a[2] for a in q)-min(a[2] for a in q)
             self.assertGreater(width/height,5);self.assertAlmostEqual(width,1.79);self.assertAlmostEqual(height,.29)
     def test_courtyard_area_changes_while_published_trace_is_retained(self):
-        p=json.loads((R/'parameters/podium_v9.json').read_text());q=p['courtyard_photo_fit_px'];r=v.courtyard_points(p,q);area=lambda ps:abs(sum(a[0]*b[1]-a[1]*b[0] for a,b in zip(ps,ps[1:]+ps[:1])))/2
+        p=json.loads((R/'parameters/podium_v9.json').read_text());p.pop('raised_end_v15',None);q=p['courtyard_photo_fit_px'];r=v.courtyard_points(p,q);area=lambda ps:abs(sum(a[0]*b[1]-a[1]*b[0] for a,b in zip(ps,ps[1:]+ps[:1])))/2
         self.assertAlmostEqual(area(r)/area(q),1.62)
     def test_roof_is_really_removed_on_selected_side_only(self):
         p=json.loads((R/'parameters/podium_v9.json').read_text())

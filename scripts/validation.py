@@ -148,6 +148,17 @@ def validate_scene(ctx,geometry_module,anchors,results):
         for q in current['ring_apertures']:
             check(q['id'],q['passed'],q,'Actual A/V glass polygons do not cross candidate ring aperture; all parent columns border both sides')
         check('v13_transition_floor_notches_removed',current['old_slab_notches']==0 and current['restored_full_transition_slabs']==16,current,'Facade clarification: restore full candidate plates; core void and V outline retained')
+    if ctx.config.get('podium_v9',{}).get('raised_end_v14',{}).get('enabled'):
+        from raised_end_v14 import audit
+        q=audit(ctx.objects,ctx.config['podium_v9'])
+        check('v14_raised_wrapper_and_recessed_base',q['passed'],q,'Actual wrapper min height / retired ground end glass / no floor-through-soffit; metric work controls remain candidates')
+    if ctx.config.get('podium_v9',{}).get('raised_end_v15'):
+        from raised_end_v15 import audit
+        q=audit(ctx.objects,ctx.config['podium_v9'],ctx.config)
+        check('v15_convex_corner_and_local_glass',q['passed'],q,'Actual garden vertices face convex corner; front glass replaces gold/backing. Local phase and dimensions candidates.')
+        from corrections_v13 import ring_specs
+        holes=ring_specs(ctx.config)
+        check('v15_two_midstorey_slits_per_transition',len(holes)==16 and all(len([h for h in holes if h['id'].startswith(r['id']+'_')])==2 for r in ctx.config['transition_v5']['regions']),holes,'Two midheight A/V rings per two-storey region, not at the common slab.')
     finite=all(math.isfinite(x) for obj in ctx.objects if obj.type=='MESH' for v in obj.data.vertices for x in v.co)
     check('finite_mesh_coordinates',finite,None,'No NaN/inf geometry')
     if results.get('assembly',{}).get('crown_detail',{}).get('equipment'):

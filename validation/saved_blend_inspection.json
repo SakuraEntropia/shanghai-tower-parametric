@@ -40,7 +40,9 @@
     "V6_12_v6修正与证据.md": true,
     "V11_19_v11修正参数与核验.md": true,
     "V12_20_v12底商场地与屋顶修正.md": true,
-    "V13_21_v13位置与横环缺带.md": true
+    "V13_21_v13位置与横环缺带.md": true,
+    "V14_22_v14露台端抬升与位置核对.md": true,
+    "V15_23_v15凸尖嵌入与端部曲线.md": true
   },
   "collections": [
     "00_EVIDENCE",
@@ -96,13 +98,13 @@
     "88_V_REENTRANT_FACADE",
     "90_VALIDATION"
   ],
-  "objects": 716,
+  "objects": 721,
   "all_objects_have_source_metadata": true,
   "geometry_signature": {
-    "sha256_rounded_geometry": "8d8643b7e0ed4e50b341fae0cfdbe58f1cc13dee8bfd8f96deec67346550031f",
-    "mesh_count": 402,
-    "vertices": 1842126,
-    "polygons": 1048866
+    "sha256_rounded_geometry": "c24579033033ac8092aff6e0d9ea0f1922377a072249193e14ec0f717c09c862",
+    "mesh_count": 407,
+    "vertices": 1958880,
+    "polygons": 1124735
   },
   "signature_matches_generation": true,
   "passed": true,
@@ -110,7 +112,7 @@
     "slabs": 129,
     "mega_columns": 8,
     "installed_CWSS_objects": 5,
-    "podium_objects": 48,
+    "podium_objects": 53,
     "full_outer_transition_slabs": 16,
     "crown_cooling_towers": 8,
     "wind_turbine_shafts": 270,
@@ -164,10 +166,14 @@
   "v13_actual_entities": {
     "ring_apertures": [
       {
-        "id": "TRANSITION_01_A_HORIZONTAL_SLIT",
+        "id": "TRANSITION_01_STOREY_01_A_HORIZONTAL_SLIT",
         "z_range_m": [
-          27.535,
-          28.135
+          24.7275,
+          25.3275
+        ],
+        "transition_storey_range_m": [
+          22.22,
+          27.835
         ],
         "crossing_glass_faces": [],
         "crossing_display_frame_or_seal_elements": [],
@@ -176,10 +182,14 @@
         "passed": true
       },
       {
-        "id": "TRANSITION_02_A_HORIZONTAL_SLIT",
+        "id": "TRANSITION_01_STOREY_02_A_HORIZONTAL_SLIT",
         "z_range_m": [
-          93.95714285714286,
-          94.55714285714285
+          30.3425,
+          30.942500000000003
+        ],
+        "transition_storey_range_m": [
+          27.835,
+          33.45
         ],
         "crossing_glass_faces": [],
         "crossing_display_frame_or_seal_elements": [],
@@ -188,10 +198,14 @@
         "passed": true
       },
       {
-        "id": "TRANSITION_03_A_HORIZONTAL_SLIT",
+        "id": "TRANSITION_02_STOREY_01_A_HORIZONTAL_SLIT",
         "z_range_m": [
-          168.68749999999997,
-          169.2875
+          91.58571428571427,
+          92.18571428571427
+        ],
+        "transition_storey_range_m": [
+          89.5142857142857,
+          94.25714285714285
         ],
         "crossing_glass_faces": [],
         "crossing_display_frame_or_seal_elements": [],
@@ -200,10 +214,14 @@
         "passed": true
       },
       {
-        "id": "TRANSITION_04_A_HORIZONTAL_SLIT",
+        "id": "TRANSITION_02_STOREY_02_A_HORIZONTAL_SLIT",
         "z_range_m": [
-          234.35714285714283,
-          234.95714285714286
+          96.32857142857144,
+          96.92857142857143
+        ],
+        "transition_storey_range_m": [
+          94.25714285714285,
+          99.0
         ],
         "crossing_glass_faces": [],
         "crossing_display_frame_or_seal_elements": [],
@@ -212,10 +230,14 @@
         "passed": true
       },
       {
-        "id": "TRANSITION_05_A_HORIZONTAL_SLIT",
+        "id": "TRANSITION_03_STOREY_01_A_HORIZONTAL_SLIT",
         "z_range_m": [
-          309.0571428571429,
-          309.6571428571429
+          166.33124999999995,
+          166.93124999999998
+        ],
+        "transition_storey_range_m": [
+          164.27499999999998,
+          168.98749999999998
         ],
         "crossing_glass_faces": [],
         "crossing_display_frame_or_seal_elements": [],
@@ -224,10 +246,14 @@
         "passed": true
       },
       {
-        "id": "TRANSITION_06_A_HORIZONTAL_SLIT",
+        "id": "TRANSITION_03_STOREY_02_A_HORIZONTAL_SLIT",
         "z_range_m": [
-          388.2875,
-          388.88750000000005
+          171.04375,
+          171.64375
+        ],
+        "transition_storey_range_m": [
+          168.98749999999998,
+          173.7
         ],
         "crossing_glass_faces": [],
         "crossing_display_frame_or_seal_elements": [],
@@ -236,10 +262,14 @@
         "passed": true
       },
       {
-        "id": "TRANSITION_07_A_HORIZONTAL_SLIT",
+        "id": "TRANSITION_04_STOREY_01_A_HORIZONTAL_SLIT",
         "z_range_m": [
-          460.53749999999997,
-          461.1375
+          231.98571428571427,
+          232.5857142857143
+        ],
+        "transition_storey_range_m": [
+          229.9142857142857,
+          234.65714285714284
         ],
         "crossing_glass_faces": [],
         "crossing_display_frame_or_seal_elements": [],
@@ -248,10 +278,142 @@
         "passed": true
       },
       {
-        "id": "TRANSITION_08_A_HORIZONTAL_SLIT",
+        "id": "TRANSITION_04_STOREY_02_A_HORIZONTAL_SLIT",
         "z_range_m": [
-          537.1375,
-          537.7375
+          236.7285714285714,
+          237.32857142857142
+        ],
+        "transition_storey_range_m": [
+          234.65714285714284,
+          239.4
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_05_STOREY_01_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          306.68571428571425,
+          307.2857142857143
+        ],
+        "transition_storey_range_m": [
+          304.6142857142857,
+          309.3571428571429
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_05_STOREY_02_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          311.42857142857144,
+          312.02857142857147
+        ],
+        "transition_storey_range_m": [
+          309.3571428571429,
+          314.1
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_06_STOREY_01_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          385.93125000000003,
+          386.53125000000006
+        ],
+        "transition_storey_range_m": [
+          383.875,
+          388.58750000000003
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_06_STOREY_02_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          390.64375,
+          391.24375000000003
+        ],
+        "transition_storey_range_m": [
+          388.58750000000003,
+          393.3
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_07_STOREY_01_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          458.25624999999997,
+          458.85625
+        ],
+        "transition_storey_range_m": [
+          456.275,
+          460.8375
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_07_STOREY_02_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          462.81874999999997,
+          463.41875
+        ],
+        "transition_storey_range_m": [
+          460.8375,
+          465.4
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_08_STOREY_01_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          534.85625,
+          535.45625
+        ],
+        "transition_storey_range_m": [
+          532.875,
+          537.4375
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_08_STOREY_02_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          539.41875,
+          540.01875
+        ],
+        "transition_storey_range_m": [
+          537.4375,
+          542.0
         ],
         "crossing_glass_faces": [],
         "crossing_display_frame_or_seal_elements": [],
@@ -263,8 +425,62 @@
     "old_slab_notches": 0,
     "restored_full_transition_slabs": 16,
     "slit_scope": "Outer A including V only; not slab holes; exact height and width unconfirmed.",
-    "open_end_glass_top_m": 19.0,
+    "open_end_glass_top_m": 4.199999809265137,
     "closed_arch_exists": true,
     "old_side_balcony_absent": true
+  },
+  "v14_actual_entities": {
+    "raised_wrapper_min_z_m": 4.199064254760742,
+    "old_ground_end_glass_or_fascia": [],
+    "floor_conflicts": [],
+    "SWA_source_embedded": true,
+    "terrace_front_edge_xy_m": [
+      [
+        -58.99335994876631,
+        60.20285620071435
+      ],
+      [
+        -38.194038932994545,
+        94.11068990414262
+      ]
+    ],
+    "pier_actual_cap_centroids_m": [
+      [
+        -50.08112907409668,
+        65.5746078491211,
+        7.152557373046875e-07
+      ],
+      [
+        -55.28558540344238,
+        68.08055877685547,
+        13.7501540184021
+      ]
+    ],
+    "pier_axis_errors_m": [
+      1.8075548389573788e-06,
+      1.5083718351088082e-06
+    ],
+    "passed": true,
+    "scope": "Candidate clearance and software interface; not surveyed real-world position or clearance."
+  },
+  "v15_actual_entities": {
+    "garden_axis_candidate_deg": 111.1968742190958,
+    "convex_corner_angle_error_deg": 4.101251845640149,
+    "reentrant_V_angle_error_deg": 124.10125184564015,
+    "shared_plan_rotation_candidate_deg": -30,
+    "passed": true,
+    "scope": "Relative convex-corner phase in candidate local coordinates; not surveyed north/alignment.",
+    "actual_garden_axis_candidate_deg": 114.90437952268239,
+    "actual_garden_convex_angle_error_deg": 0.39374654205354886,
+    "actual_front_glass_z_range_m": [
+      16.200000762939453,
+      21.998897552490234
+    ],
+    "gold_or_backing_covering_front_glass": [],
+    "actual_lower_trim_z_range_m": [
+      4.199999809265137,
+      13.050000190734863
+    ],
+    "upper_slabs_occupying_open_garden": []
   }
 }

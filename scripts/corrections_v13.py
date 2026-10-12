@@ -10,6 +10,12 @@ def ring_specs(config):
     p=config.get('transition_v5',{});q=p.get('horizontal_slits_v13',{})
     if not q.get('enabled'):return []
     half=q['clear_glass_height_candidate_m']/2
+    if q.get('center_rule')=='each_transition_storey_mid_height':
+        return [{'id':r['id']+f'_STOREY_{i+1:02d}_A_HORIZONTAL_SLIT',
+                 'z_min_m':(a+b)/2-half,'z_max_m':(a+b)/2+half,
+                 'transition_storey_range_m':[a,b],'evidence_level':'待确认'}
+                for r in p['regions']
+                for i,(a,b) in enumerate(((r['z_bottom_m'],r['z_middle_m']),(r['z_middle_m'],r['z_top_m'])))]
     return [{'id':r['id']+'_A_HORIZONTAL_SLIT','z_min_m':r['z_middle_m']-half,
              'z_max_m':r['z_middle_m']+half,'evidence_level':'待确认'} for r in p['regions']]
 
@@ -47,8 +53,9 @@ def frame_fragments(a,b,holes,padding):
 
 
 def slit_meta(config):
-    return {'horizontal_slits_v13':ring_specs(config),'source_ids':['B14_GEOM','G01','S13','Y19','USER_IMAGES_V13_STREET'],
-            'facade_slit_width_evidence':'待确认','facade_slit_rule':'Remove narrow A-only circumferential glass strip at candidate middle of two transition storeys; original parent chords retained; V corner follows same rule. Floors remain complete.'}
+    rule=config.get('transition_v5',{}).get('horizontal_slits_v13',{}).get('center_rule')
+    return {'horizontal_slits_v13':ring_specs(config),'source_ids':['B14_GEOM','G01','S13','Y19','USER_IMAGES_V13_STREET']+(['USER_STOREY_SLITS_V15'] if rule=='each_transition_storey_mid_height' else []),
+            'facade_slit_width_evidence':'待确认','facade_slit_rule':('One A/V circumferential slit at midheight of EACH of the two candidate transition storeys; two rings per section, not one at their common floor. Parent chords and full slabs retained.' if rule=='each_transition_storey_mid_height' else 'Remove narrow A-only circumferential glass strip at candidate middle of two transition storeys; original parent chords retained; V corner follows same rule. Floors remain complete.')}
 
 
 def side_height(p,t):
@@ -136,6 +143,9 @@ def build_side(ctx,p):
 
 
 def build_open_end(ctx,p,poly):
+    if p.get('raised_end_v14',{}).get('enabled'):
+        from raised_end_v14 import build
+        return build(ctx,p,poly)
     from podium_v9 import _clip_height,_add,_meta
     from corrections_v11 import tile_panels
     e=p['open_end_v13'];z=e['terrace_z_candidate_m'];fascia=e['fascia_height_candidate_m'];glass=[];stone=[];rails=[]
@@ -188,7 +198,7 @@ def audit_scene(objects,config):
                 for index,spline in enumerate(obj.data.splines):
                     zs=[pt.co.z for pt in spline.points]
                     if zs and max(zs)+radius>h['z_min_m']+1e-4 and min(zs)-radius<h['z_max_m']-1e-4:crossed.append([obj.name,index])
-        rows.append({'id':h['id'],'z_range_m':[h['z_min_m'],h['z_max_m']],'crossing_glass_faces':bad[:12],
+        rows.append({'id':h['id'],'z_range_m':[h['z_min_m'],h['z_max_m']],'transition_storey_range_m':h.get('transition_storey_range_m'),'crossing_glass_faces':bad[:12],
                      'crossing_display_frame_or_seal_elements':crossed[:12],
                      'lower_boundary_panels':lower,'upper_boundary_panels':upper,'passed':not bad and not crossed and lower>=130 and upper>=130})
     return {'ring_apertures':rows,'old_slab_notches':sum(bool(o.get('interlayer_notch_v11')) for o in objects),

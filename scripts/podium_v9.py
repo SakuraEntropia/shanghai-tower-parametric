@@ -11,6 +11,14 @@ def plan_xy(p,q):
     return (x*math.cos(t)-y*math.sin(t),x*math.sin(t)+y*math.cos(t))
 
 
+def local_ground_opaque_band(p,mid):
+    """Keep the existing candidate PS zoning attached to its plan frame."""
+    reference=p.get('ground_band_reference_rotation_candidate_deg',p['rotation_candidate_deg'])
+    angle=math.radians(p['rotation_candidate_deg']-reference)
+    x=mid[0]*math.cos(angle)+mid[1]*math.sin(angle)
+    return x>p.get('ground_band_reference_x_min_candidate_m',-24)
+
+
 def rounded_poly(poly,radius,steps=8):
     out=[]
     for i,b in enumerate(poly):
@@ -214,6 +222,9 @@ def pr_panels(p,tower):
                 holes=[tower]
                 if min(q[2] for q in flat)>p['terrace_candidate_m']-.2:holes.append(court)
                 for poly in _cut3d(flat,holes):
+                    if p.get('raised_end_v14',{}).get('enabled') and (t0+t1)/2<p['raised_end_v14']['roof_transition_t_candidate']:
+                        poly=_clip_height(poly,p['raised_end_v14']['clearance_candidate_m'],True)
+                        if len(poly)<3:continue
                     regions[side].append((poly,n,ids));ids+=1;errors.append(error)
     return regions,{'candidate_panels':ids,'max_flattening_error_m':max(errors,default=0),'longitudinal_intervals':nc,'cross_section_intervals':nr,
                     'published_nominal_length_m':1.8,'published_east_width_m':.3,'axis9_coordinates_verified':False,'closed_west_shop_curve_verified':False}
@@ -243,6 +254,7 @@ def rain_canopy(ctx,geometry,p):
 def build_podium(ctx,geometry,completion,assembly):
     from site_v8 import ccw,hull,contains,_surface,xy as site_xy
     from transition_v5 import outer_reference,control_profile_at
+    from raised_end_v14 import floor_allowed,base_allowed
     p=assembly['podium_v9'];site=ctx.config['site_v8'];col='64_PODIUM_PHOTO_DERIVED';roofcol='65_PODIUM_WARM_ROOF_DERIVED';detail='66_PODIUM_DETAIL_CANDIDATE'
     _,ref=outer_reference(geometry,ctx.config);tower=ccw(hull([q[:2] for q in control_profile_at(geometry,ctx.config,ref,0)]))
     body=ccw(rounded_poly([plan_xy(p,q) for q in p['ground_outline_px']],p['corner_fillet_candidate_m']));meta=_meta(p,'podium_plan_derived_floor_candidate')
@@ -290,7 +302,8 @@ def build_podium(ctx,geometry,completion,assembly):
         else:
             v=[];f=[]
             for x,y,top in cells:
-                if top<z+.35:continue
+                if p.get('raised_end_v15') and z>p['terrace_candidate_m'] and any(contains(court,(x+dx*cell/2,y+dy*cell/2)) for dx,dy in ((-1,-1),(1,-1),(1,1),(-1,1))):continue
+                if top<z+.35 or not all(floor_allowed(p,x+dx*cell/2,y+dy*cell/2,z,margin=.15) for dx,dy in ((-1,-1),(1,-1),(1,1),(-1,1))):continue
                 _add([[(x-cell/2,y-cell/2,z),(x+cell/2,y-cell/2,z),(x+cell/2,y+cell/2,z),(x-cell/2,y+cell/2,z)]],v,f)
             obj=ctx.mesh(f'PODIUM_V9_UPPER_SLAB_{level+1:02d}_BOUNDARY_CANDIDATE',v,f,col,'core',_meta(p,'podium_upper_slab_clearance_candidate',level_m=z,formula='0.75m provisional welded cells inside published ground AND swept-shell end/side footprint, below nearby candidate roof; no floor projection beyond end facade. Upper concrete boundaries unresolved.'))
             import bmesh
@@ -309,8 +322,8 @@ def build_podium(ctx,geometry,completion,assembly):
     gv=[];gf=[];sv=[];sf=[];cables=[];ev=[];ef=[];ugv=[];ugf=[];dv=[];df=[];rv=[];rf=[];entry_frames=[]
     for a,b in zip(body,body[1:]+body[:1]):
         mid=((a[0]+b[0])/2,(a[1]+b[1])/2)
-        if contains(tower,mid):continue
-        front=mid[0]>-24
+        if contains(tower,mid) or not base_allowed(p,*mid):continue
+        front=local_ground_opaque_band(p,mid)
         tops_a=[roof_vertices[index][2] for _,index,_ in kd.find_range((a[0],a[1],0),3)]
         tops_b=[roof_vertices[index][2] for _,index,_ in kd.find_range((b[0],b[1],0),3)]
         ha=max(tops_a,default=p['terrace_candidate_m'])-.15;hb=max(tops_b,default=p['terrace_candidate_m'])-.15
@@ -360,7 +373,7 @@ def build_podium(ctx,geometry,completion,assembly):
         x=min(xs)+(i+.5)*grid
         for j in range(math.ceil((max(ys)-min(ys))/grid)):
             y=min(ys)+(j+.5)*grid
-            if contains(body,(x,y)) and not contains(tower,(x,y)) and not contains(court,(x,y)):
+            if contains(body,(x,y)) and not contains(tower,(x,y)) and not contains(court,(x,y)) and base_allowed(p,x,y):
                 tops=[roof_vertices[index][2] for _,index,_ in kd.find_range((x,y,0),2)]
                 columns.append([(x,y,0),(x,y,min(max(tops,default=22)-.6,32))])
     ctx.lines('PODIUM_V9_STEEL_FRAME_COLUMNS_CANDIDATE',columns,col,p['steel_column_radius_candidate_m'],'steel',_meta(p,'podium_primary_steel_columns_candidate'))

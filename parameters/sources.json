@@ -941,7 +941,8 @@
       "support": "金壳、白石材入口框、横窗、开放庭院的拓扑；优先级低于街景与Gensler实际航拍",
       "limitations": "未进行透视标定；只拟合可见形态。单图不证实三维坐标、标高、窗洞净尺寸或剖面。遮挡区未知；不重新发布原图。",
       "retrieved_on": "2026-10-12",
-      "credibility": "可直接查看的图像依据；发布机构/所有权未核验，不能升级为已证实绝对尺寸"
+      "credibility": "可直接查看的图像依据；发布机构/所有权未核验，不能升级为已证实绝对尺寸",
+      "provenance_followup_v14": "CTBUH_GENS_PODIUM_RENDER_V14提供同一场景Gensler效果图线索；用户副本裁剪/二次处理及转载链未知。不是竣工照片。"
     },
     {
       "id": "USER_IMAGES_V13_STREET",
@@ -963,6 +964,72 @@
       "limitations": "未进行透视标定；只拟合可见形态。单图不证实三维坐标、标高、窗洞净尺寸或剖面。遮挡区未知；不重新发布原图。",
       "retrieved_on": "2026-10-12",
       "credibility": "可直接查看的图像依据；发布机构/所有权未核验，不能升级为已证实绝对尺寸"
+    },
+    {
+      "id": "SWA_RAISED_END_V14",
+      "title": "Shanghai Tower – Jonnu Singleton-0013，抬升包覆底面实景",
+      "institution": "SWA Group；摄影Jonnu Singleton（图库名称）",
+      "publication_date": null,
+      "url": "https://www.swagroup.com/projects/shanghai-tower/",
+      "image_url": "https://swacdn.s3.amazonaws.com/wp-content/uploads/2020/07/07081612/Shanghai-Tower-Jonnu-Singleton-0013.jpg",
+      "type": "景观设计方发布的项目实景图库",
+      "primary": true,
+      "locator": "图库Next至Jonnu Singleton-0013，直接观察",
+      "original_units": "图像；无比例尺或标高",
+      "scale_or_version": "摄影日期/竣工版次/镜头未标注，2020上传路径不当成摄影日期",
+      "support": "金色包覆底面抬升、下方公共通行空间、可见斜向支撑、旁边下沉台阶",
+      "limitations": "只证实可见拓扑；不能证实底面曲率、净空、退进深度、支撑总数量或截面；未做虚构的透视标定",
+      "retrieved_on": "2026-10-12",
+      "credibility": "可核验一手实景发布；米制控制待确认"
+    },
+    {
+      "id": "CTBUH_GENS_PODIUM_RENDER_V14",
+      "title": "Shanghai Tower retail podium, ©Gensler / CTBUH",
+      "institution": "CTBUH；Gensler供图",
+      "publication_date": null,
+      "url": "https://www.skyscrapercenter.com/building/shanghai-tower/56",
+      "image_url": "https://images.skyscrapercenter.com/building/shanghaitower_ext-retailpodium_%28c%29gensler.jpg",
+      "type": "明确可见的设计效果图",
+      "primary": true,
+      "locator": "图片角标©Gensler / CTBUH，800×560；与用户图1相同视角/内容",
+      "original_units": "像素；无标尺",
+      "scale_or_version": "设计版本/日期未标注",
+      "support": "用户图1来源线索及设计阶段的庭院/金壳相对关系",
+      "limitations": "不得作为竣工或准确米制尺寸依据；优先采用SWA实景和Gensler实际航拍",
+      "retrieved_on": "2026-10-12",
+      "credibility": "设计方供图，明确区分效果图与实景"
+    },
+    {
+      "id": "USER_PODIUM_RELATION_V15",
+      "title": "用户凸尖嵌入与露台端图像校正",
+      "institution": "本项目用户；附件对应CTBUH/Gensler效果图场景",
+      "publication_date": "2026-10-12",
+      "url": null,
+      "type": "用户明确构造关系指令及设计图附件",
+      "primary": false,
+      "locator": "最新附件R.9bff88b0086166e268e6f186e7ec7b12.jpeg及说明：楼是一个尖插进去",
+      "original_units": "无米制/比例尺",
+      "scale_or_version": "设计图，不能作为竣工图",
+      "support": "塔楼凸尖嵌入金色屋面；开放露台端侧向抬起、曲线回折",
+      "limitations": "未标定相机；朝向/轮廓/标高/收边及玻璃分区仍候选；实际航拍优先核对竣工拓扑",
+      "credibility": "执行用户拓扑要求；精确坐标需外部验证",
+      "retrieved_on": "2026-10-12"
+    },
+    {
+      "id": "USER_STOREY_SLITS_V15",
+      "title": "用户夹层每层玻璃中央各一圈缺带的澄清",
+      "institution": "本项目用户",
+      "publication_date": "2026-10-12",
+      "url": null,
+      "type": "用户明确构造观察，尺寸待核验",
+      "primary": false,
+      "locator": "本轮消息：不是两层玻璃中间，而是夹层的每层玻璃中间",
+      "original_units": "每层一个环带，无米制尺寸",
+      "scale_or_version": "竣工版次未提供",
+      "support": "两层夹层分别在层高中央开窄环，每个section两圈；替代v13/v14两层共同交界一圈解释",
+      "limitations": "无开孔施工图；0.60m宽、确切标高、全周净口及节点未证实",
+      "credibility": "执行用户澄清，尺寸保持待确认",
+      "retrieved_on": "2026-10-12"
     }
   ]
 }

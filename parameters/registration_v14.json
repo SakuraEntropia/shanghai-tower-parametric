@@ -1,0 +1,40 @@
+{
+  "evidence_level": "推导值（软件图纸配准）",
+  "source_ids": [
+    "GENSLER_ARCHJOURNAL_V8",
+    "SWA_RAISED_END_V14"
+  ],
+  "asbuilt_verified": false,
+  "p31_origin_world_m": [
+    0.0,
+    0.0
+  ],
+  "p29_origin_world_m": [
+    0.0,
+    0.0
+  ],
+  "p31_scale_m_per_px": 0.19607843137254902,
+  "p29_scale_m_per_px": 0.3436426116838488,
+  "shared_rotation_candidate_deg": 90,
+  "garden_front_edge_world_m": [
+    [
+      -22.640522875817002,
+      -81.19117647058825
+    ],
+    [
+      -62.40522875816994,
+      -80.13235294117648
+    ]
+  ],
+  "tower_ground_bounds_m": [
+    [
+      -43.212378045395155,
+      52.73678077558657
+    ],
+    [
+      -45.822403122168865,
+      51.02254458321372
+    ]
+  ],
+  "uncertainty": "Origin/rotation consistency verifies implementation only. True north, phase crosswalk and below45m A/base actual contours unavailable; no surveyed alignment error bound."
+}

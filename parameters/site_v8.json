@@ -3,7 +3,8 @@
   "source_ids": [
     "GENSLER_ARCHJOURNAL_V8",
     "SWA_SITE_V8",
-    "PODIUM_GENS_V4"
+    "PODIUM_GENS_V4",
+    "USER_PODIUM_RELATION_V15"
   ],
   "source_locator": "Architectural Journal2019|03p29 site; p31 ground floor; SWA project; Gensler aerial",
   "evidence_level": "推导值",
@@ -29,7 +30,7 @@
     745,
     505
   ],
-  "rotation_candidate_deg": 90,
+  "rotation_candidate_deg": -30,
   "pixel_pick_error_px": 3,
   "ground_paving_z_m": 0.012,
   "paving_thickness_candidate_m": 0.05,
@@ -661,5 +662,6 @@
       170
     ],
     "uncertainty": "SWA/contractor confirms raised structural landscape and sunken public spaces; all heights, mound profiles, east location/depth and stair arrangement candidates, no surveyed contour/elevation plan."
-  }
+  },
+  "registration_phase_v15": "Shared with podium p31; old90deg minus120deg matches convex tower corner instead of V. Candidate relative phase, not surveyed north."
 }

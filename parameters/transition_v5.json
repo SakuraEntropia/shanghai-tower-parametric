@@ -38,11 +38,13 @@
     "enabled": true,
     "clear_glass_height_candidate_m": 0.6,
     "source_ids": [
-      "USER_IMAGES_V13_STREET"
+      "USER_IMAGES_V13_STREET",
+      "USER_STOREY_SLITS_V15"
     ],
     "evidence_level": "待确认",
-    "center_rule": "candidate transition z_middle_m",
+    "center_rule": "each_transition_storey_mid_height",
     "scope": "outer A and reentrant V only; no floor cuts",
-    "uncertainty": "User-requested narrow mid-height circumferential slit. Width0.6m is editable candidate, photo uncalibrated; source lower levels and as-built opening positions unavailable."
+    "uncertainty": "User clarification: each of the two transition-storey glass bands has a separate mid-height ring slit; not a slit at their common floor. Width0.6m and exact lower floor heights remain candidates; no calibrated facade/shop opening schedule.",
+    "slits_per_transition_region": 2
   }
 }

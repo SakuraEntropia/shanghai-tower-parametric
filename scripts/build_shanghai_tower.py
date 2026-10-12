@@ -275,8 +275,8 @@ def main():
     (valdir/'panel_registry.json').write_text(json.dumps(panel_records,ensure_ascii=False,indent=2)+'\n')
     cameras=setup(ctx)
     scene=bpy.context.scene
-    scene['project_id']=cfg['project_id'];scene['correction_version']='v13'
-    scene['accuracy_statement']='v13: A/V horizontal ring slits at8 candidate transition centers;16 full slabs restored with no old floor notches. Podium external stone face relocated, broad recessed glass and3 slot windows; t0 open garden versus t1 closed glass arch. Photo topology supported; metric heights, coordinates, sections and slit widths candidates, no as-built CAD.'
+    scene['project_id']=cfg['project_id'];scene['correction_version']='v15'
+    scene['accuracy_statement']='v15: candidate relative podium/site phase corrected to convex tower corner; shared bowed garden rim and asymmetric raised soffit with local front glazing and lower trim. SWA real photograph supports raised passage/pier; Gensler aerial supports base topology. All curve/clearance/north controls uncalibrated. Each of8 transition regions now has2 separate mid-storey A/V ring slits (16 total); full16 transition plates retained. Not surveyed/as-built precision.'
     scene['selected_geometry_version']=cfg['selected_geometry_version']
     scene['source_datum_offset_unknown']=True
     collision=collision_v7.inspect(ctx)
@@ -306,7 +306,7 @@ def main():
             if path.is_file():embed_text('V5_'+path.name,path.read_text())
         for path in list((ROOT/'docs').glob('*v7*'))+[ROOT/'parameters/inner_support_v7.json']:
             if path.is_file():embed_text('V7_'+path.name,path.read_text())
-        for version in ('v8','v9','v10','v11','v12','v13'):
+        for version in ('v8','v9','v10','v11','v12','v13','v14','v15'):
             for path in list((ROOT/'docs').glob('*'+version+'*'))+list((ROOT/'parameters').glob('*'+version+'.json')):
                 if path.is_file():embed_text(version.upper()+'_'+path.name,path.read_text())
         for path in (ROOT/'docs').glob('*v6*'):

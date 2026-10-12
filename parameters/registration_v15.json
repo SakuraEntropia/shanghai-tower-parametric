@@ -1,0 +1,183 @@
+{
+  "garden_axis_candidate_deg": 111.1968742190958,
+  "convex_corner_angle_error_deg": 4.101251845640149,
+  "reentrant_V_angle_error_deg": 124.10125184564015,
+  "shared_plan_rotation_candidate_deg": -30,
+  "passed": true,
+  "scope": "Relative convex-corner phase in candidate local coordinates; not surveyed north/alignment.",
+  "evidence_level": "推导值/待确认相位",
+  "source_ids": [
+    "GENSLER_ARCHJOURNAL_V8",
+    "PODIUM_GENS_V4",
+    "SWA_RAISED_END_V14",
+    "USER_PODIUM_RELATION_V15"
+  ],
+  "asbuilt_verified": false,
+  "p31_origin_world_m": [
+    0.0,
+    0.0
+  ],
+  "p29_origin_world_m": [
+    0.0,
+    0.0
+  ],
+  "p31_scale_m_per_px": 0.19607843137254902,
+  "p29_scale_m_per_px": 0.3436426116838488,
+  "shared_front_curve_world_m": [
+    [
+      -58.99335994876631,
+      60.20285620071435
+    ],
+    [
+      -58.78494588924088,
+      61.475089717174626
+    ],
+    [
+      -58.57227932005666,
+      62.74527564735004
+    ],
+    [
+      -58.35114868554754,
+      64.01138612433097
+    ],
+    [
+      -58.11742394362343,
+      65.27143253004994
+    ],
+    [
+      -57.86709634033324,
+      66.52348464676065
+    ],
+    [
+      -57.59631701635695,
+      67.76568924609013
+    ],
+    [
+      -57.30143407362473,
+      68.99628793664094
+    ],
+    [
+      -56.97902774509179,
+      70.21363409826164
+    ],
+    [
+      -56.625943328964404,
+      71.41620873989895
+    ],
+    [
+      -56.23932157020271,
+      72.60263512831197
+    ],
+    [
+      -55.81662619670982,
+      73.77169204676586
+    ],
+    [
+      -55.35566834501852,
+      74.92232555601665
+    ],
+    [
+      -54.854627640243095,
+      76.05365914432221
+    ],
+    [
+      -54.31206972728448,
+      77.16500216872952
+    ],
+    [
+      -53.72696008445408,
+      78.25585650634392
+    ],
+    [
+      -53.098673986483085,
+      79.32592135152474
+    ],
+    [
+      -52.427002520968344,
+      80.37509611280818
+    ],
+    [
+      -51.71215460031301,
+      81.40348138165805
+    ],
+    [
+      -50.95475494978588,
+      82.41137796371501
+    ],
+    [
+      -50.15583809107559,
+      83.39928398187371
+    ],
+    [
+      -49.31683837928114,
+      84.3678900790872
+    ],
+    [
+      -48.439576189288296,
+      85.31807276709758
+    ],
+    [
+      -47.526240384564254,
+      86.25088598514881
+    ],
+    [
+      -46.57936723720591,
+      87.16755094997578
+    ],
+    [
+      -45.601816002253116,
+      88.06944439481934
+    ],
+    [
+      -44.5967413814996,
+      88.9580853107328
+    ],
+    [
+      -43.56756314199016,
+      89.83512031786759
+    ],
+    [
+      -42.5179331817946,
+      90.70230780762114
+    ],
+    [
+      -41.45170036023299,
+      91.56150100836643
+    ],
+    [
+      -40.372873431256366,
+      92.41463013784978
+    ],
+    [
+      -39.28558243695485,
+      93.26368381413864
+    ],
+    [
+      -38.194038932994545,
+      94.11068990414262
+    ]
+  ],
+  "candidate_end_controls": {
+    "front_bow_candidate_m": 5.0,
+    "lower_lip_candidate_m": [
+      12.6,
+      4.2
+    ],
+    "front_samples": 32,
+    "front_glazing_fraction_candidate": [
+      0.08,
+      0.92
+    ],
+    "front_glazing_height_candidate_m": 5.8,
+    "lower_edge_trim_width_candidate_m": 0.45,
+    "source_ids": [
+      "PODIUM_GENS_V4",
+      "SWA_RAISED_END_V14",
+      "CTBUH_GENS_PODIUM_RENDER_V14",
+      "USER_PODIUM_RELATION_V15"
+    ],
+    "evidence_level": "待确认",
+    "uncertainty": "Gensler aerial/CTBUH design render support convex tower corner and raised curved end; SWA real photo supports gold soffit/open space/pier. Bow, side lip, return depth, glass allocation and trim are uncalibrated candidates. No camera calibration, surveyed north or final PR/PS/PG coordinates; no metric error bound."
+  },
+  "uncertainty": "Both origin/phase consistency and candidate corner relation are software checks, not a surveyed registration or north direction. Below45m tower extrapolated."
+}

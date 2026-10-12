@@ -146,7 +146,7 @@
       "check": "object_evidence_metadata",
       "passed": true,
       "measured": {
-        "objects": 716,
+        "objects": 721,
         "missing": [],
         "unresolved_source_ids": []
       },
@@ -424,13 +424,17 @@
       "asbuilt_verified": false
     },
     {
-      "check": "TRANSITION_01_A_HORIZONTAL_SLIT",
+      "check": "TRANSITION_01_STOREY_01_A_HORIZONTAL_SLIT",
       "passed": true,
       "measured": {
-        "id": "TRANSITION_01_A_HORIZONTAL_SLIT",
+        "id": "TRANSITION_01_STOREY_01_A_HORIZONTAL_SLIT",
         "z_range_m": [
-          27.535,
-          28.135
+          24.7275,
+          25.3275
+        ],
+        "transition_storey_range_m": [
+          22.22,
+          27.835
         ],
         "crossing_glass_faces": [],
         "crossing_display_frame_or_seal_elements": [],
@@ -442,13 +446,17 @@
       "asbuilt_verified": false
     },
     {
-      "check": "TRANSITION_02_A_HORIZONTAL_SLIT",
+      "check": "TRANSITION_01_STOREY_02_A_HORIZONTAL_SLIT",
       "passed": true,
       "measured": {
-        "id": "TRANSITION_02_A_HORIZONTAL_SLIT",
+        "id": "TRANSITION_01_STOREY_02_A_HORIZONTAL_SLIT",
         "z_range_m": [
-          93.95714285714286,
-          94.55714285714285
+          30.3425,
+          30.942500000000003
+        ],
+        "transition_storey_range_m": [
+          27.835,
+          33.45
         ],
         "crossing_glass_faces": [],
         "crossing_display_frame_or_seal_elements": [],
@@ -460,13 +468,17 @@
       "asbuilt_verified": false
     },
     {
-      "check": "TRANSITION_03_A_HORIZONTAL_SLIT",
+      "check": "TRANSITION_02_STOREY_01_A_HORIZONTAL_SLIT",
       "passed": true,
       "measured": {
-        "id": "TRANSITION_03_A_HORIZONTAL_SLIT",
+        "id": "TRANSITION_02_STOREY_01_A_HORIZONTAL_SLIT",
         "z_range_m": [
-          168.68749999999997,
-          169.2875
+          91.58571428571427,
+          92.18571428571427
+        ],
+        "transition_storey_range_m": [
+          89.5142857142857,
+          94.25714285714285
         ],
         "crossing_glass_faces": [],
         "crossing_display_frame_or_seal_elements": [],
@@ -478,13 +490,17 @@
       "asbuilt_verified": false
     },
     {
-      "check": "TRANSITION_04_A_HORIZONTAL_SLIT",
+      "check": "TRANSITION_02_STOREY_02_A_HORIZONTAL_SLIT",
       "passed": true,
       "measured": {
-        "id": "TRANSITION_04_A_HORIZONTAL_SLIT",
+        "id": "TRANSITION_02_STOREY_02_A_HORIZONTAL_SLIT",
         "z_range_m": [
-          234.35714285714283,
-          234.95714285714286
+          96.32857142857144,
+          96.92857142857143
+        ],
+        "transition_storey_range_m": [
+          94.25714285714285,
+          99.0
         ],
         "crossing_glass_faces": [],
         "crossing_display_frame_or_seal_elements": [],
@@ -496,13 +512,17 @@
       "asbuilt_verified": false
     },
     {
-      "check": "TRANSITION_05_A_HORIZONTAL_SLIT",
+      "check": "TRANSITION_03_STOREY_01_A_HORIZONTAL_SLIT",
       "passed": true,
       "measured": {
-        "id": "TRANSITION_05_A_HORIZONTAL_SLIT",
+        "id": "TRANSITION_03_STOREY_01_A_HORIZONTAL_SLIT",
         "z_range_m": [
-          309.0571428571429,
-          309.6571428571429
+          166.33124999999995,
+          166.93124999999998
+        ],
+        "transition_storey_range_m": [
+          164.27499999999998,
+          168.98749999999998
         ],
         "crossing_glass_faces": [],
         "crossing_display_frame_or_seal_elements": [],
@@ -514,13 +534,17 @@
       "asbuilt_verified": false
     },
     {
-      "check": "TRANSITION_06_A_HORIZONTAL_SLIT",
+      "check": "TRANSITION_03_STOREY_02_A_HORIZONTAL_SLIT",
       "passed": true,
       "measured": {
-        "id": "TRANSITION_06_A_HORIZONTAL_SLIT",
+        "id": "TRANSITION_03_STOREY_02_A_HORIZONTAL_SLIT",
         "z_range_m": [
-          388.2875,
-          388.88750000000005
+          171.04375,
+          171.64375
+        ],
+        "transition_storey_range_m": [
+          168.98749999999998,
+          173.7
         ],
         "crossing_glass_faces": [],
         "crossing_display_frame_or_seal_elements": [],
@@ -532,13 +556,17 @@
       "asbuilt_verified": false
     },
     {
-      "check": "TRANSITION_07_A_HORIZONTAL_SLIT",
+      "check": "TRANSITION_04_STOREY_01_A_HORIZONTAL_SLIT",
       "passed": true,
       "measured": {
-        "id": "TRANSITION_07_A_HORIZONTAL_SLIT",
+        "id": "TRANSITION_04_STOREY_01_A_HORIZONTAL_SLIT",
         "z_range_m": [
-          460.53749999999997,
-          461.1375
+          231.98571428571427,
+          232.5857142857143
+        ],
+        "transition_storey_range_m": [
+          229.9142857142857,
+          234.65714285714284
         ],
         "crossing_glass_faces": [],
         "crossing_display_frame_or_seal_elements": [],
@@ -550,13 +578,193 @@
       "asbuilt_verified": false
     },
     {
-      "check": "TRANSITION_08_A_HORIZONTAL_SLIT",
+      "check": "TRANSITION_04_STOREY_02_A_HORIZONTAL_SLIT",
       "passed": true,
       "measured": {
-        "id": "TRANSITION_08_A_HORIZONTAL_SLIT",
+        "id": "TRANSITION_04_STOREY_02_A_HORIZONTAL_SLIT",
         "z_range_m": [
-          537.1375,
-          537.7375
+          236.7285714285714,
+          237.32857142857142
+        ],
+        "transition_storey_range_m": [
+          234.65714285714284,
+          239.4
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      "meaning": "Actual A/V glass polygons do not cross candidate ring aperture; all parent columns border both sides",
+      "asbuilt_verified": false
+    },
+    {
+      "check": "TRANSITION_05_STOREY_01_A_HORIZONTAL_SLIT",
+      "passed": true,
+      "measured": {
+        "id": "TRANSITION_05_STOREY_01_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          306.68571428571425,
+          307.2857142857143
+        ],
+        "transition_storey_range_m": [
+          304.6142857142857,
+          309.3571428571429
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      "meaning": "Actual A/V glass polygons do not cross candidate ring aperture; all parent columns border both sides",
+      "asbuilt_verified": false
+    },
+    {
+      "check": "TRANSITION_05_STOREY_02_A_HORIZONTAL_SLIT",
+      "passed": true,
+      "measured": {
+        "id": "TRANSITION_05_STOREY_02_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          311.42857142857144,
+          312.02857142857147
+        ],
+        "transition_storey_range_m": [
+          309.3571428571429,
+          314.1
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      "meaning": "Actual A/V glass polygons do not cross candidate ring aperture; all parent columns border both sides",
+      "asbuilt_verified": false
+    },
+    {
+      "check": "TRANSITION_06_STOREY_01_A_HORIZONTAL_SLIT",
+      "passed": true,
+      "measured": {
+        "id": "TRANSITION_06_STOREY_01_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          385.93125000000003,
+          386.53125000000006
+        ],
+        "transition_storey_range_m": [
+          383.875,
+          388.58750000000003
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      "meaning": "Actual A/V glass polygons do not cross candidate ring aperture; all parent columns border both sides",
+      "asbuilt_verified": false
+    },
+    {
+      "check": "TRANSITION_06_STOREY_02_A_HORIZONTAL_SLIT",
+      "passed": true,
+      "measured": {
+        "id": "TRANSITION_06_STOREY_02_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          390.64375,
+          391.24375000000003
+        ],
+        "transition_storey_range_m": [
+          388.58750000000003,
+          393.3
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      "meaning": "Actual A/V glass polygons do not cross candidate ring aperture; all parent columns border both sides",
+      "asbuilt_verified": false
+    },
+    {
+      "check": "TRANSITION_07_STOREY_01_A_HORIZONTAL_SLIT",
+      "passed": true,
+      "measured": {
+        "id": "TRANSITION_07_STOREY_01_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          458.25624999999997,
+          458.85625
+        ],
+        "transition_storey_range_m": [
+          456.275,
+          460.8375
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      "meaning": "Actual A/V glass polygons do not cross candidate ring aperture; all parent columns border both sides",
+      "asbuilt_verified": false
+    },
+    {
+      "check": "TRANSITION_07_STOREY_02_A_HORIZONTAL_SLIT",
+      "passed": true,
+      "measured": {
+        "id": "TRANSITION_07_STOREY_02_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          462.81874999999997,
+          463.41875
+        ],
+        "transition_storey_range_m": [
+          460.8375,
+          465.4
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      "meaning": "Actual A/V glass polygons do not cross candidate ring aperture; all parent columns border both sides",
+      "asbuilt_verified": false
+    },
+    {
+      "check": "TRANSITION_08_STOREY_01_A_HORIZONTAL_SLIT",
+      "passed": true,
+      "measured": {
+        "id": "TRANSITION_08_STOREY_01_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          534.85625,
+          535.45625
+        ],
+        "transition_storey_range_m": [
+          532.875,
+          537.4375
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      "meaning": "Actual A/V glass polygons do not cross candidate ring aperture; all parent columns border both sides",
+      "asbuilt_verified": false
+    },
+    {
+      "check": "TRANSITION_08_STOREY_02_A_HORIZONTAL_SLIT",
+      "passed": true,
+      "measured": {
+        "id": "TRANSITION_08_STOREY_02_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          539.41875,
+          540.01875
+        ],
+        "transition_storey_range_m": [
+          537.4375,
+          542.0
         ],
         "crossing_glass_faces": [],
         "crossing_display_frame_or_seal_elements": [],
@@ -573,10 +781,14 @@
       "measured": {
         "ring_apertures": [
           {
-            "id": "TRANSITION_01_A_HORIZONTAL_SLIT",
+            "id": "TRANSITION_01_STOREY_01_A_HORIZONTAL_SLIT",
             "z_range_m": [
-              27.535,
-              28.135
+              24.7275,
+              25.3275
+            ],
+            "transition_storey_range_m": [
+              22.22,
+              27.835
             ],
             "crossing_glass_faces": [],
             "crossing_display_frame_or_seal_elements": [],
@@ -585,10 +797,14 @@
             "passed": true
           },
           {
-            "id": "TRANSITION_02_A_HORIZONTAL_SLIT",
+            "id": "TRANSITION_01_STOREY_02_A_HORIZONTAL_SLIT",
             "z_range_m": [
-              93.95714285714286,
-              94.55714285714285
+              30.3425,
+              30.942500000000003
+            ],
+            "transition_storey_range_m": [
+              27.835,
+              33.45
             ],
             "crossing_glass_faces": [],
             "crossing_display_frame_or_seal_elements": [],
@@ -597,10 +813,14 @@
             "passed": true
           },
           {
-            "id": "TRANSITION_03_A_HORIZONTAL_SLIT",
+            "id": "TRANSITION_02_STOREY_01_A_HORIZONTAL_SLIT",
             "z_range_m": [
-              168.68749999999997,
-              169.2875
+              91.58571428571427,
+              92.18571428571427
+            ],
+            "transition_storey_range_m": [
+              89.5142857142857,
+              94.25714285714285
             ],
             "crossing_glass_faces": [],
             "crossing_display_frame_or_seal_elements": [],
@@ -609,10 +829,14 @@
             "passed": true
           },
           {
-            "id": "TRANSITION_04_A_HORIZONTAL_SLIT",
+            "id": "TRANSITION_02_STOREY_02_A_HORIZONTAL_SLIT",
             "z_range_m": [
-              234.35714285714283,
-              234.95714285714286
+              96.32857142857144,
+              96.92857142857143
+            ],
+            "transition_storey_range_m": [
+              94.25714285714285,
+              99.0
             ],
             "crossing_glass_faces": [],
             "crossing_display_frame_or_seal_elements": [],
@@ -621,10 +845,14 @@
             "passed": true
           },
           {
-            "id": "TRANSITION_05_A_HORIZONTAL_SLIT",
+            "id": "TRANSITION_03_STOREY_01_A_HORIZONTAL_SLIT",
             "z_range_m": [
-              309.0571428571429,
-              309.6571428571429
+              166.33124999999995,
+              166.93124999999998
+            ],
+            "transition_storey_range_m": [
+              164.27499999999998,
+              168.98749999999998
             ],
             "crossing_glass_faces": [],
             "crossing_display_frame_or_seal_elements": [],
@@ -633,10 +861,14 @@
             "passed": true
           },
           {
-            "id": "TRANSITION_06_A_HORIZONTAL_SLIT",
+            "id": "TRANSITION_03_STOREY_02_A_HORIZONTAL_SLIT",
             "z_range_m": [
-              388.2875,
-              388.88750000000005
+              171.04375,
+              171.64375
+            ],
+            "transition_storey_range_m": [
+              168.98749999999998,
+              173.7
             ],
             "crossing_glass_faces": [],
             "crossing_display_frame_or_seal_elements": [],
@@ -645,10 +877,14 @@
             "passed": true
           },
           {
-            "id": "TRANSITION_07_A_HORIZONTAL_SLIT",
+            "id": "TRANSITION_04_STOREY_01_A_HORIZONTAL_SLIT",
             "z_range_m": [
-              460.53749999999997,
-              461.1375
+              231.98571428571427,
+              232.5857142857143
+            ],
+            "transition_storey_range_m": [
+              229.9142857142857,
+              234.65714285714284
             ],
             "crossing_glass_faces": [],
             "crossing_display_frame_or_seal_elements": [],
@@ -657,10 +893,142 @@
             "passed": true
           },
           {
-            "id": "TRANSITION_08_A_HORIZONTAL_SLIT",
+            "id": "TRANSITION_04_STOREY_02_A_HORIZONTAL_SLIT",
             "z_range_m": [
-              537.1375,
-              537.7375
+              236.7285714285714,
+              237.32857142857142
+            ],
+            "transition_storey_range_m": [
+              234.65714285714284,
+              239.4
+            ],
+            "crossing_glass_faces": [],
+            "crossing_display_frame_or_seal_elements": [],
+            "lower_boundary_panels": 138,
+            "upper_boundary_panels": 138,
+            "passed": true
+          },
+          {
+            "id": "TRANSITION_05_STOREY_01_A_HORIZONTAL_SLIT",
+            "z_range_m": [
+              306.68571428571425,
+              307.2857142857143
+            ],
+            "transition_storey_range_m": [
+              304.6142857142857,
+              309.3571428571429
+            ],
+            "crossing_glass_faces": [],
+            "crossing_display_frame_or_seal_elements": [],
+            "lower_boundary_panels": 138,
+            "upper_boundary_panels": 138,
+            "passed": true
+          },
+          {
+            "id": "TRANSITION_05_STOREY_02_A_HORIZONTAL_SLIT",
+            "z_range_m": [
+              311.42857142857144,
+              312.02857142857147
+            ],
+            "transition_storey_range_m": [
+              309.3571428571429,
+              314.1
+            ],
+            "crossing_glass_faces": [],
+            "crossing_display_frame_or_seal_elements": [],
+            "lower_boundary_panels": 138,
+            "upper_boundary_panels": 138,
+            "passed": true
+          },
+          {
+            "id": "TRANSITION_06_STOREY_01_A_HORIZONTAL_SLIT",
+            "z_range_m": [
+              385.93125000000003,
+              386.53125000000006
+            ],
+            "transition_storey_range_m": [
+              383.875,
+              388.58750000000003
+            ],
+            "crossing_glass_faces": [],
+            "crossing_display_frame_or_seal_elements": [],
+            "lower_boundary_panels": 138,
+            "upper_boundary_panels": 138,
+            "passed": true
+          },
+          {
+            "id": "TRANSITION_06_STOREY_02_A_HORIZONTAL_SLIT",
+            "z_range_m": [
+              390.64375,
+              391.24375000000003
+            ],
+            "transition_storey_range_m": [
+              388.58750000000003,
+              393.3
+            ],
+            "crossing_glass_faces": [],
+            "crossing_display_frame_or_seal_elements": [],
+            "lower_boundary_panels": 138,
+            "upper_boundary_panels": 138,
+            "passed": true
+          },
+          {
+            "id": "TRANSITION_07_STOREY_01_A_HORIZONTAL_SLIT",
+            "z_range_m": [
+              458.25624999999997,
+              458.85625
+            ],
+            "transition_storey_range_m": [
+              456.275,
+              460.8375
+            ],
+            "crossing_glass_faces": [],
+            "crossing_display_frame_or_seal_elements": [],
+            "lower_boundary_panels": 138,
+            "upper_boundary_panels": 138,
+            "passed": true
+          },
+          {
+            "id": "TRANSITION_07_STOREY_02_A_HORIZONTAL_SLIT",
+            "z_range_m": [
+              462.81874999999997,
+              463.41875
+            ],
+            "transition_storey_range_m": [
+              460.8375,
+              465.4
+            ],
+            "crossing_glass_faces": [],
+            "crossing_display_frame_or_seal_elements": [],
+            "lower_boundary_panels": 138,
+            "upper_boundary_panels": 138,
+            "passed": true
+          },
+          {
+            "id": "TRANSITION_08_STOREY_01_A_HORIZONTAL_SLIT",
+            "z_range_m": [
+              534.85625,
+              535.45625
+            ],
+            "transition_storey_range_m": [
+              532.875,
+              537.4375
+            ],
+            "crossing_glass_faces": [],
+            "crossing_display_frame_or_seal_elements": [],
+            "lower_boundary_panels": 138,
+            "upper_boundary_panels": 138,
+            "passed": true
+          },
+          {
+            "id": "TRANSITION_08_STOREY_02_A_HORIZONTAL_SLIT",
+            "z_range_m": [
+              539.41875,
+              540.01875
+            ],
+            "transition_storey_range_m": [
+              537.4375,
+              542.0
             ],
             "crossing_glass_faces": [],
             "crossing_display_frame_or_seal_elements": [],
@@ -674,6 +1042,240 @@
         "slit_scope": "Outer A including V only; not slab holes; exact height and width unconfirmed."
       },
       "meaning": "Facade clarification: restore full candidate plates; core void and V outline retained",
+      "asbuilt_verified": false
+    },
+    {
+      "check": "v14_raised_wrapper_and_recessed_base",
+      "passed": true,
+      "measured": {
+        "raised_wrapper_min_z_m": 4.199064254760742,
+        "old_ground_end_glass_or_fascia": [],
+        "floor_conflicts": [],
+        "SWA_source_embedded": true,
+        "terrace_front_edge_xy_m": [
+          [
+            -58.99335994876631,
+            60.20285620071435
+          ],
+          [
+            -38.194038932994545,
+            94.11068990414262
+          ]
+        ],
+        "pier_actual_cap_centroids_m": [
+          [
+            -50.08112907409668,
+            65.5746078491211,
+            7.152557373046875e-07
+          ],
+          [
+            -55.28558540344238,
+            68.08055877685547,
+            13.7501540184021
+          ]
+        ],
+        "pier_axis_errors_m": [
+          1.8075548389573788e-06,
+          1.5083718351088082e-06
+        ],
+        "passed": true,
+        "scope": "Candidate clearance and software interface; not surveyed real-world position or clearance."
+      },
+      "meaning": "Actual wrapper min height / retired ground end glass / no floor-through-soffit; metric work controls remain candidates",
+      "asbuilt_verified": false
+    },
+    {
+      "check": "v15_convex_corner_and_local_glass",
+      "passed": true,
+      "measured": {
+        "garden_axis_candidate_deg": 111.1968742190958,
+        "convex_corner_angle_error_deg": 4.101251845640149,
+        "reentrant_V_angle_error_deg": 124.10125184564015,
+        "shared_plan_rotation_candidate_deg": -30,
+        "passed": true,
+        "scope": "Relative convex-corner phase in candidate local coordinates; not surveyed north/alignment.",
+        "actual_garden_axis_candidate_deg": 114.90437952268239,
+        "actual_garden_convex_angle_error_deg": 0.39374654205354886,
+        "actual_front_glass_z_range_m": [
+          16.200000762939453,
+          21.998897552490234
+        ],
+        "gold_or_backing_covering_front_glass": [],
+        "actual_lower_trim_z_range_m": [
+          4.199999809265137,
+          13.050000190734863
+        ],
+        "upper_slabs_occupying_open_garden": []
+      },
+      "meaning": "Actual garden vertices face convex corner; front glass replaces gold/backing. Local phase and dimensions candidates.",
+      "asbuilt_verified": false
+    },
+    {
+      "check": "v15_two_midstorey_slits_per_transition",
+      "passed": true,
+      "measured": [
+        {
+          "id": "TRANSITION_01_STOREY_01_A_HORIZONTAL_SLIT",
+          "z_min_m": 24.7275,
+          "z_max_m": 25.3275,
+          "transition_storey_range_m": [
+            22.22,
+            27.835
+          ],
+          "evidence_level": "待确认"
+        },
+        {
+          "id": "TRANSITION_01_STOREY_02_A_HORIZONTAL_SLIT",
+          "z_min_m": 30.3425,
+          "z_max_m": 30.942500000000003,
+          "transition_storey_range_m": [
+            27.835,
+            33.45
+          ],
+          "evidence_level": "待确认"
+        },
+        {
+          "id": "TRANSITION_02_STOREY_01_A_HORIZONTAL_SLIT",
+          "z_min_m": 91.58571428571427,
+          "z_max_m": 92.18571428571427,
+          "transition_storey_range_m": [
+            89.5142857142857,
+            94.25714285714285
+          ],
+          "evidence_level": "待确认"
+        },
+        {
+          "id": "TRANSITION_02_STOREY_02_A_HORIZONTAL_SLIT",
+          "z_min_m": 96.32857142857144,
+          "z_max_m": 96.92857142857143,
+          "transition_storey_range_m": [
+            94.25714285714285,
+            99.0
+          ],
+          "evidence_level": "待确认"
+        },
+        {
+          "id": "TRANSITION_03_STOREY_01_A_HORIZONTAL_SLIT",
+          "z_min_m": 166.33124999999995,
+          "z_max_m": 166.93124999999998,
+          "transition_storey_range_m": [
+            164.27499999999998,
+            168.98749999999998
+          ],
+          "evidence_level": "待确认"
+        },
+        {
+          "id": "TRANSITION_03_STOREY_02_A_HORIZONTAL_SLIT",
+          "z_min_m": 171.04375,
+          "z_max_m": 171.64375,
+          "transition_storey_range_m": [
+            168.98749999999998,
+            173.7
+          ],
+          "evidence_level": "待确认"
+        },
+        {
+          "id": "TRANSITION_04_STOREY_01_A_HORIZONTAL_SLIT",
+          "z_min_m": 231.98571428571427,
+          "z_max_m": 232.5857142857143,
+          "transition_storey_range_m": [
+            229.9142857142857,
+            234.65714285714284
+          ],
+          "evidence_level": "待确认"
+        },
+        {
+          "id": "TRANSITION_04_STOREY_02_A_HORIZONTAL_SLIT",
+          "z_min_m": 236.7285714285714,
+          "z_max_m": 237.32857142857142,
+          "transition_storey_range_m": [
+            234.65714285714284,
+            239.4
+          ],
+          "evidence_level": "待确认"
+        },
+        {
+          "id": "TRANSITION_05_STOREY_01_A_HORIZONTAL_SLIT",
+          "z_min_m": 306.68571428571425,
+          "z_max_m": 307.2857142857143,
+          "transition_storey_range_m": [
+            304.6142857142857,
+            309.3571428571429
+          ],
+          "evidence_level": "待确认"
+        },
+        {
+          "id": "TRANSITION_05_STOREY_02_A_HORIZONTAL_SLIT",
+          "z_min_m": 311.42857142857144,
+          "z_max_m": 312.02857142857147,
+          "transition_storey_range_m": [
+            309.3571428571429,
+            314.1
+          ],
+          "evidence_level": "待确认"
+        },
+        {
+          "id": "TRANSITION_06_STOREY_01_A_HORIZONTAL_SLIT",
+          "z_min_m": 385.93125000000003,
+          "z_max_m": 386.53125000000006,
+          "transition_storey_range_m": [
+            383.875,
+            388.58750000000003
+          ],
+          "evidence_level": "待确认"
+        },
+        {
+          "id": "TRANSITION_06_STOREY_02_A_HORIZONTAL_SLIT",
+          "z_min_m": 390.64375,
+          "z_max_m": 391.24375000000003,
+          "transition_storey_range_m": [
+            388.58750000000003,
+            393.3
+          ],
+          "evidence_level": "待确认"
+        },
+        {
+          "id": "TRANSITION_07_STOREY_01_A_HORIZONTAL_SLIT",
+          "z_min_m": 458.25624999999997,
+          "z_max_m": 458.85625,
+          "transition_storey_range_m": [
+            456.275,
+            460.8375
+          ],
+          "evidence_level": "待确认"
+        },
+        {
+          "id": "TRANSITION_07_STOREY_02_A_HORIZONTAL_SLIT",
+          "z_min_m": 462.81874999999997,
+          "z_max_m": 463.41875,
+          "transition_storey_range_m": [
+            460.8375,
+            465.4
+          ],
+          "evidence_level": "待确认"
+        },
+        {
+          "id": "TRANSITION_08_STOREY_01_A_HORIZONTAL_SLIT",
+          "z_min_m": 534.85625,
+          "z_max_m": 535.45625,
+          "transition_storey_range_m": [
+            532.875,
+            537.4375
+          ],
+          "evidence_level": "待确认"
+        },
+        {
+          "id": "TRANSITION_08_STOREY_02_A_HORIZONTAL_SLIT",
+          "z_min_m": 539.41875,
+          "z_max_m": 540.01875,
+          "transition_storey_range_m": [
+            537.4375,
+            542.0
+          ],
+          "evidence_level": "待确认"
+        }
+      ],
+      "meaning": "Two midheight A/V rings per two-storey region, not at the common slab.",
       "asbuilt_verified": false
     },
     {
@@ -1741,7 +2343,7 @@
     {
       "check": "V_recess_V_filled_from_ground_through_crown",
       "passed": true,
-      "measured": 1676,
+      "measured": 1952,
       "meaning": "Software reconstruction check only",
       "asbuilt_verified": false
     },
@@ -3497,7 +4099,7 @@
       "check": "assembly_physical_v9_podium_arc_PR_and_partial_canopy",
       "passed": true,
       "measured": {
-        "PR": 11486,
+        "PR": 12493,
         "canopy": 232
       },
       "meaning": "Candidate assembly geometry check, not as-built verification",
@@ -3511,7 +4113,7 @@
   },
   "object_evidence_counts": {
     "推导值": 265,
-    "待确认": 395,
+    "待确认": 400,
     "已证实": 56
   },
   "object_role_counts": {
@@ -3591,7 +4193,11 @@
     "podium_PG_local_glazing_candidate": 1,
     "podium_PS_local_stone_band_candidate": 1,
     "podium_PG_cable_candidate": 1,
-    "podium_v13_open_garden_end_candidate": 3,
+    "podium_v15_asymmetric_raised_return_candidate": 4,
+    "podium_v15_front_glass_candidate": 1,
+    "podium_v15_lower_edge_trim_candidate": 1,
+    "podium_v14_recessed_base_candidate": 1,
+    "podium_v14_visible_inclined_pier_proxy": 1,
     "podium_roof_aligned_PG_arch_glazing_candidate": 2,
     "podium_v13_street_side_closed_stone_candidate": 2,
     "podium_v13_recessed_entry_candidate": 1,
@@ -3631,10 +4237,10 @@
     "presentation_camera": 28
   },
   "geometry_signature": {
-    "sha256_rounded_geometry": "8d8643b7e0ed4e50b341fae0cfdbe58f1cc13dee8bfd8f96deec67346550031f",
-    "mesh_count": 402,
-    "vertices": 1842126,
-    "polygons": 1048866
+    "sha256_rounded_geometry": "c24579033033ac8092aff6e0d9ea0f1922377a072249193e14ec0f717c09c862",
+    "mesh_count": 407,
+    "vertices": 1958880,
+    "polygons": 1124735
   },
   "components": {
     "envelope": {
@@ -103408,7 +104014,7 @@
         ],
         "reference_width_m": 12.365577338834376,
         "reference_depth_m": 5.665482000148675,
-        "added_panels": 1676,
+        "added_panels": 1952,
         "standard_coverage_m": [
           [
             0.0,
@@ -103975,7 +104581,7 @@
           {
             "name": "V_filled_from_ground_through_crown",
             "passed": true,
-            "actual": 1676
+            "actual": 1952
           }
         ],
         "crown_lips_m": [
@@ -103987,7 +104593,7 @@
           26
         ],
         "standard_V_band_schedule_matches_A": true,
-        "transition_variant_panels": 300
+        "transition_variant_panels": 576
       }
     },
     "assembly": {
@@ -132885,7 +133491,7 @@
               }
             ],
             "main_standard_panel_count": 17388,
-            "self_crossing_step_quads_repaired": 408,
+            "self_crossing_step_quads_repaired": 474,
             "topology_scope": "software sealing; not as-built extrusion"
           },
           "A_legacy_patch_suppressed": true,
@@ -133241,16 +133847,19 @@
           ]
         },
         "podium": {
-          "version": "podium-v13-image-topology-fit",
+          "version": "podium-v15-convex-tip-raised-end",
           "used_parameters": {
-            "version": "podium-v13-image-topology-fit",
+            "version": "podium-v15-convex-tip-raised-end",
             "source_ids": [
               "GENSLER_ARCHJOURNAL_V8",
               "PODIUM_LINGYUN_BIM_V7",
               "PODIUM_GENS_V4",
               "PODIUM_GENS_GROUND_V6",
               "USER_IMAGES_V13_RENDER",
-              "USER_IMAGES_V13_STREET"
+              "USER_IMAGES_V13_STREET",
+              "SWA_RAISED_END_V14",
+              "CTBUH_GENS_PODIUM_RENDER_V14",
+              "USER_PODIUM_RELATION_V15"
             ],
             "evidence_level": "推导值/待确认上部曲面",
             "asbuilt_verified": false,
@@ -133271,7 +133880,7 @@
               646,
               395
             ],
-            "rotation_candidate_deg": 90,
+            "rotation_candidate_deg": -30,
             "ground_outline_px": [
               [
                 263,
@@ -133738,11 +134347,63 @@
                 311
               ]
             ],
-            "courtyard_v13_locator": "Open t0 end centered across swept gold arch, not an opening only on its tower-side half. Upper roof fit to Gensler actual aerial; no roof plan recovered."
+            "courtyard_v13_locator": "Open t0 end centered across swept gold arch, not an opening only on its tower-side half. Upper roof fit to Gensler actual aerial; no roof plan recovered.",
+            "raised_end_v14": {
+              "enabled": true,
+              "end": 0.0,
+              "clearance_candidate_m": 4.2,
+              "edge_clearance_extra_candidate_m": 2.0,
+              "return_depth_candidate_m": 12.0,
+              "roof_transition_t_candidate": 0.24,
+              "soffit_front_bulge_candidate_m": 2.5,
+              "setback_glass_top_candidate_m": 4.2,
+              "panel_module_reference_m": [
+                1.8,
+                0.3
+              ],
+              "side_samples": 32,
+              "return_samples": 80,
+              "display_pier_fraction_candidate": 0.22,
+              "display_pier_section_candidate_m": [
+                2.4,
+                1.2
+              ],
+              "source_ids": [
+                "SWA_RAISED_END_V14"
+              ],
+              "evidence_level": "待确认",
+              "uncertainty": "SWA Jonnu Singleton0013 real photo supports raised curved soffit, open space and a visible diagonal support. All depths, clearances, curve controls, support placement/section and panel allocations candidate; no calibrated camera, survey or final end-section CAD.",
+              "display_pier_foot_depth_candidate_m": 8.0,
+              "display_pier_head_v_candidate": 0.58
+            },
+            "raised_end_v15": {
+              "front_bow_candidate_m": 5.0,
+              "lower_lip_candidate_m": [
+                12.6,
+                4.2
+              ],
+              "front_samples": 32,
+              "front_glazing_fraction_candidate": [
+                0.08,
+                0.92
+              ],
+              "front_glazing_height_candidate_m": 5.8,
+              "lower_edge_trim_width_candidate_m": 0.45,
+              "source_ids": [
+                "PODIUM_GENS_V4",
+                "SWA_RAISED_END_V14",
+                "CTBUH_GENS_PODIUM_RENDER_V14",
+                "USER_PODIUM_RELATION_V15"
+              ],
+              "evidence_level": "待确认",
+              "uncertainty": "Gensler aerial/CTBUH design render support convex tower corner and raised curved end; SWA real photo supports gold soffit/open space/pier. Bow, side lip, return depth, glass allocation and trim are uncalibrated candidates. No camera calibration, surveyed north or final PR/PS/PG coordinates; no metric error bound."
+            },
+            "ground_band_reference_rotation_candidate_deg": 90,
+            "ground_band_reference_x_min_candidate_m": -24
           },
           "PR_panel_report": {
-            "candidate_panels": 11486,
-            "max_flattening_error_m": 0.0017501592455966396,
+            "candidate_panels": 12493,
+            "max_flattening_error_m": 0.001750159245598239,
             "longitudinal_intervals": 72,
             "cross_section_intervals": 373,
             "published_nominal_length_m": 1.8,
@@ -133784,7 +134445,7 @@
               "name": "v9_podium_arc_PR_and_partial_canopy",
               "passed": true,
               "actual": {
-                "PR": 11486,
+                "PR": 12493,
                 "canopy": 232
               }
             }
@@ -133940,7 +134601,7 @@
             "name": "v9_podium_arc_PR_and_partial_canopy",
             "passed": true,
             "actual": {
-              "PR": 11486,
+              "PR": 12493,
               "canopy": 232
             }
           }
@@ -133963,10 +134624,11 @@
           "source_ids": [
             "GENSLER_ARCHJOURNAL_V8",
             "SWA_SITE_V8",
-            "PODIUM_GENS_V4"
+            "PODIUM_GENS_V4",
+            "USER_PODIUM_RELATION_V15"
           ],
           "published_scale_m_per_px": 0.3436426116838488,
-          "trees_candidate": 51,
+          "trees_candidate": 57,
           "roads": 4,
           "sunken_entry_has_ground_cut": true,
           "retail_upper_RC_schedule_verified": false,
