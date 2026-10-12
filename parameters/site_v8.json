@@ -1,0 +1,639 @@
+{
+  "version": "site-v8-p29-p31-trace",
+  "source_ids": [
+    "GENSLER_ARCHJOURNAL_V8",
+    "SWA_SITE_V8",
+    "PODIUM_GENS_V4"
+  ],
+  "source_locator": "Architectural Journal2019|03p29 site; p31 ground floor; SWA project; Gensler aerial",
+  "evidence_level": "推导值",
+  "asbuilt_verified": false,
+  "uncertainty": "Published general/ground plan raster, not surveying or approved planning/shop CAD. Scan edge picking ±3px ~±1.03m; phase, paper deformation and registration errors unbounded. Hidden levels and all furniture/plant dimensions/counts are candidates.",
+  "reference_image": "references/v8/Site_plan_p29_crop.png",
+  "reference_dimensions_px": [
+    1550,
+    1020
+  ],
+  "scale_bar_px": [
+    [
+      305,
+      974
+    ],
+    [
+      596,
+      974
+    ]
+  ],
+  "scale_bar_m": 100,
+  "tower_center_px": [
+    745,
+    505
+  ],
+  "rotation_candidate_deg": 90,
+  "pixel_pick_error_px": 3,
+  "ground_paving_z_m": 0.012,
+  "paving_thickness_candidate_m": 0.05,
+  "plot_sidewalk_outline_px": [
+    [
+      379,
+      224
+    ],
+    [
+      575,
+      251
+    ],
+    [
+      927,
+      298
+    ],
+    [
+      970,
+      353
+    ],
+    [
+      1045,
+      672
+    ],
+    [
+      1027,
+      724
+    ],
+    [
+      980,
+      761
+    ],
+    [
+      478,
+      801
+    ],
+    [
+      429,
+      792
+    ],
+    [
+      384,
+      744
+    ],
+    [
+      348,
+      322
+    ],
+    [
+      348,
+      278
+    ]
+  ],
+  "green_polygons_px": [
+    [
+      [
+        391,
+        248
+      ],
+      [
+        567,
+        265
+      ],
+      [
+        567,
+        282
+      ],
+      [
+        530,
+        300
+      ],
+      [
+        433,
+        304
+      ],
+      [
+        438,
+        420
+      ],
+      [
+        412,
+        466
+      ],
+      [
+        385,
+        466
+      ]
+    ],
+    [
+      [
+        603,
+        266
+      ],
+      [
+        924,
+        307
+      ],
+      [
+        945,
+        332
+      ],
+      [
+        908,
+        362
+      ],
+      [
+        864,
+        347
+      ],
+      [
+        799,
+        331
+      ],
+      [
+        678,
+        312
+      ],
+      [
+        595,
+        293
+      ]
+    ],
+    [
+      [
+        920,
+        360
+      ],
+      [
+        940,
+        342
+      ],
+      [
+        974,
+        479
+      ],
+      [
+        921,
+        497
+      ],
+      [
+        896,
+        446
+      ]
+    ],
+    [
+      [
+        1000,
+        553
+      ],
+      [
+        1030,
+        650
+      ],
+      [
+        1004,
+        701
+      ],
+      [
+        985,
+        719
+      ],
+      [
+        646,
+        744
+      ],
+      [
+        637,
+        706
+      ],
+      [
+        658,
+        681
+      ],
+      [
+        799,
+        665
+      ],
+      [
+        901,
+        636
+      ],
+      [
+        946,
+        584
+      ]
+    ],
+    [
+      [
+        422,
+        529
+      ],
+      [
+        527,
+        543
+      ],
+      [
+        576,
+        609
+      ],
+      [
+        595,
+        663
+      ],
+      [
+        558,
+        715
+      ],
+      [
+        461,
+        729
+      ],
+      [
+        436,
+        709
+      ]
+    ]
+  ],
+  "paths_px": [
+    [
+      [
+        388,
+        279
+      ],
+      [
+        431,
+        323
+      ],
+      [
+        507,
+        315
+      ],
+      [
+        582,
+        274
+      ]
+    ],
+    [
+      [
+        618,
+        275
+      ],
+      [
+        668,
+        315
+      ],
+      [
+        749,
+        328
+      ],
+      [
+        835,
+        303
+      ],
+      [
+        915,
+        317
+      ]
+    ],
+    [
+      [
+        938,
+        364
+      ],
+      [
+        963,
+        432
+      ],
+      [
+        928,
+        476
+      ]
+    ],
+    [
+      [
+        1002,
+        584
+      ],
+      [
+        918,
+        620
+      ],
+      [
+        940,
+        687
+      ],
+      [
+        994,
+        725
+      ]
+    ],
+    [
+      [
+        866,
+        662
+      ],
+      [
+        786,
+        704
+      ],
+      [
+        727,
+        725
+      ],
+      [
+        648,
+        720
+      ]
+    ],
+    [
+      [
+        557,
+        567
+      ],
+      [
+        591,
+        627
+      ],
+      [
+        567,
+        691
+      ],
+      [
+        479,
+        739
+      ],
+      [
+        432,
+        728
+      ]
+    ]
+  ],
+  "path_width_candidate_m": 2.8,
+  "roads": [
+    {
+      "name": "HUAYUAN_SHIQIAO_ROAD",
+      "name_zh": "花园石桥路",
+      "points_px": [
+        [
+          279,
+          183
+        ],
+        [
+          459,
+          208
+        ],
+        [
+          1069,
+          276
+        ]
+      ],
+      "width_candidate_m": 22
+    },
+    {
+      "name": "DONGTAI_ROAD",
+      "name_zh": "东泰路",
+      "points_px": [
+        [
+          1054,
+          222
+        ],
+        [
+          1096,
+          456
+        ],
+        [
+          1150,
+          748
+        ]
+      ],
+      "width_candidate_m": 22
+    },
+    {
+      "name": "LUJIAZUI_RING_ROAD",
+      "name_zh": "陆家嘴环路",
+      "points_px": [
+        [
+          365,
+          858
+        ],
+        [
+          1014,
+          821
+        ],
+        [
+          1126,
+          766
+        ]
+      ],
+      "width_candidate_m": 28
+    },
+    {
+      "name": "YINCHENG_MIDDLE_ROAD",
+      "name_zh": "银城中路",
+      "points_px": [
+        [
+          280,
+          226
+        ],
+        [
+          294,
+          649
+        ],
+        [
+          328,
+          824
+        ]
+      ],
+      "width_candidate_m": 26
+    }
+  ],
+  "retail_wing_outline_px": [
+    [
+      445,
+      330
+    ],
+    [
+      551,
+      319
+    ],
+    [
+      635,
+      324
+    ],
+    [
+      853,
+      361
+    ],
+    [
+      878,
+      373
+    ],
+    [
+      900,
+      408
+    ],
+    [
+      899,
+      435
+    ],
+    [
+      886,
+      452
+    ],
+    [
+      850,
+      466
+    ],
+    [
+      815,
+      456
+    ],
+    [
+      779,
+      430
+    ],
+    [
+      640,
+      442
+    ],
+    [
+      610,
+      490
+    ],
+    [
+      601,
+      518
+    ],
+    [
+      573,
+      529
+    ],
+    [
+      549,
+      522
+    ],
+    [
+      539,
+      505
+    ],
+    [
+      443,
+      503
+    ]
+  ],
+  "retail_ground_height_candidate_m": 4.2,
+  "retail_glass_module_candidate_m": 1.8,
+  "retail_roof_depth_candidate_m": 0.25,
+  "retail_frame_radius_candidate_m": 0.025,
+  "pavilion_outline_px": [
+    [
+      475,
+      550
+    ],
+    [
+      458,
+      559
+    ],
+    [
+      455,
+      601
+    ],
+    [
+      467,
+      645
+    ],
+    [
+      499,
+      687
+    ],
+    [
+      521,
+      701
+    ],
+    [
+      538,
+      689
+    ],
+    [
+      523,
+      663
+    ],
+    [
+      501,
+      626
+    ],
+    [
+      496,
+      587
+    ],
+    [
+      496,
+      557
+    ]
+  ],
+  "sunken_entrance_polygon_px": [
+    [
+      574,
+      483
+    ],
+    [
+      616,
+      492
+    ],
+    [
+      607,
+      523
+    ],
+    [
+      567,
+      514
+    ]
+  ],
+  "sunken_depth_candidate_m": 4.2,
+  "sunken_steps_candidate": 18,
+  "sunken_guard_height_candidate_m": 1.1,
+  "water_garden_center_px": [
+    946,
+    535
+  ],
+  "water_garden_radius_candidate_m": 6.5,
+  "water_garden_function_location_evidence": "SWA confirms bamboo pool type; p29 circular feature function/location not matched to asbuilt, candidate interface.",
+  "water_garden_island_radius_candidate_m": 2.0,
+  "bamboo_count_candidate": 18,
+  "bamboo_height_candidate_m": 3.2,
+  "tree_spacing_candidate_m": 14.0,
+  "tree_canopy_radius_candidate_m": 2.2,
+  "tree_height_candidate_m": 7.0,
+  "tree_trunk_radius_candidate_m": 0.11,
+  "tree_trunk_height_candidate_m": 4.1,
+  "lamps_candidate_count": 18,
+  "lamp_height_candidate_m": 5.5,
+  "lamp_radius_candidate_m": 0.055,
+  "bench_candidate_count": 12,
+  "bench_size_candidate_m": [
+    2.1,
+    0.52,
+    0.46
+  ],
+  "furniture_layout_evidence": "Unconfirmed parametric placeholders in published landscaped bands; no actual equipment/plant schedule.",
+  "street_detail_enabled": true,
+  "path_rounding_candidate_m": 3.0,
+  "road_dash_length_candidate_m": 2.0,
+  "road_dash_gap_candidate_m": 3.0,
+  "road_mark_width_candidate_m": 0.12,
+  "road_lane_count_candidate": 4,
+  "crosswalk_centres_candidate_px": [
+    [
+      307,
+      215
+    ],
+    [
+      1056,
+      315
+    ],
+    [
+      1103,
+      756
+    ],
+    [
+      325,
+      803
+    ]
+  ],
+  "crosswalk_width_candidate_m": 4.5,
+  "crosswalk_strip_width_candidate_m": 0.45,
+  "crosswalk_strip_pitch_candidate_m": 1.0
+}

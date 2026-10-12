@@ -155,6 +155,9 @@ def build_crown(ctx, geometry, candidate):
     Top cells clip to the shared rim; no horizontal global cap is added. Neither
     demonstration4.5m pitch nor sampling count is a crown shop schedule.
     """
+    if candidate.get('curtain_pattern_mode')=='shared_lower_grid':
+        from crown_pattern_v8 import build
+        return build(ctx,geometry,candidate)
     config = ctx.config
     mid, high, low, end = _trim_controls(candidate)
     bottom = _finite(candidate.get('base_z_m', 542.0), 'base_z_m')

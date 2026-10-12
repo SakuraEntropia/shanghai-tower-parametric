@@ -208,7 +208,7 @@ def frame_and_cwss(ctx,geometry,completion,p):
         from notch_v4 import recess_points
         ref=recess_points(geometry,ctx.config,ref,ctx.config['notch_v4'])
     total=sum(x['length'] for x in geometry.profile_segments(ctx.config))
-    rings=[];radials=[];hangers=[];support=[];tabs=[];records=[]
+    rings=[];radials=[];hangers=[];support=[];tabs=[];records=[];cross_rods=[]
     for zone in zones[1:]:
         z0=max(45.,zone['z0_m']);z1=zone['z1_m'];r=zone['radius_m']
         step=cw['ring_pitch_m'];levels=[z0+i*step for i in range(math.ceil((z1-z0)/step))]+[z1]
@@ -220,6 +220,17 @@ def frame_and_cwss(ctx,geometry,completion,p):
         for z in levels:
             ring=[inset(point,cw['ring_glass_inset_candidate_m']) for point in geometry.transform_profile(ref,z,ctx.config)]
             rings.append(ring+[ring[0]])
+            if cw.get('cross_rods_enabled',False):
+                for seg in geometry.profile_segments(ctx.config):
+                    if not seg['id'].startswith('K'):continue
+                    theta=math.radians(seg['start_deg'])+seg['length']/seg['radius']/2
+                    target=(seg['center'][0]+seg['radius']*math.cos(theta),seg['center'][1]+seg['radius']*math.sin(theta))
+                    index=min(range(len(ref)),key=lambda i:math.dist(ref[i],target))
+                    delta=cw['cross_corner_index_half_span_candidate'];a,b=ring[(index-delta)%len(ring)],ring[(index+delta)%len(ring)]
+                    inner=[]
+                    for x,y,_ in (a,b):
+                        rr=math.hypot(x,y);inner.append(((r-cw['inner_support_inset_candidate_m'])*x/rr,(r-cw['inner_support_inset_candidate_m'])*y/rr,z))
+                    cross_rods.extend(([inner[0],b],[inner[1],a]))
             for point in geometry.transform_profile(stations,z,ctx.config):
                 out=inset(point,cw['ring_glass_inset_candidate_m']);x,y,_=out;rr=math.hypot(x,y)
                 start=((r-cw['inner_support_inset_candidate_m'])*x/rr,(r-cw['inner_support_inset_candidate_m'])*y/rr,z)
@@ -249,8 +260,12 @@ def frame_and_cwss(ctx,geometry,completion,p):
     for name,paths,rad in [('RINGS',rings,cw['ring_OD_m']/2),('RADIAL_STRUTS',radials,cw['radial_OD_candidate_m']/2),
                           ('PAIRED_HANGERS',hangers,cw['hanger_diameter_candidate_m']/2),('TOP_SUPPORT_TRUSSES',support,.20),('RING_HANGER_LINKS',tabs,.04)]:
         ctx.lines('CWSS_INSTALLED_'+name+'_CANDIDATE',paths,'42_INSTALLED_CWSS_CANDIDATE',rad,'steel',cm)
+    if cross_rods:
+        ctx.lines('CWSS_V9_THREE_CORNER_PLAN_X_CROSS_RODS',cross_rods,'42_INSTALLED_CWSS_CANDIDATE',cw['cross_rod_reported_diameter_m']/2,'steel',
+                  meta('installed_CWSS_corner_cross_rods_candidate',['B14_CWSS'],'TJAD Fig3.18:3 corner cross-rod pairs at each ring level, diameter60mm; crossed inner-edge to outer-ring nodes in horizontal planes.',
+                       '2014 published system/diameter; corner node coordinates from candidate A/B geometry; no all-around vertical X grid.',published_diameter_m=.06,actual_member_count=len(cross_rods)))
     return {'mega_columns':8,'corner_columns':4,'belts':8,'outrigger_zones':f['outrigger_zones'],
-            'CWSS_ring_count':len(rings),'CWSS_radial_members':len(radials),'CWSS_hanger_axes':len(hangers),'zone_registry':records,
+            'CWSS_ring_count':len(rings),'CWSS_radial_members':len(radials),'CWSS_hanger_axes':len(hangers),'CWSS_cross_rods':len(cross_rods),'zone_registry':records,
             'checks':[{'name':'eight_mega_column_solids','passed':sum(o.name.startswith('MEGA_COLUMN_') for o in ctx.objects)==8,'actual':8},
                       {'name':'installed_CWSS_entities','passed':len(rings)>100 and len(radials)>1000 and len(hangers)>100,'actual':[len(rings),len(radials),len(hangers)]}]}
 
@@ -293,7 +308,10 @@ def podium(ctx,geometry,p):
 
 def build_assembly(ctx,geometry,completion,assembly):
     p=resolved(assembly)
-    if 'podium_v4' in assembly:
+    if 'podium_v9' in assembly:
+        from podium_v9 import build_podium
+        retail=build_podium(ctx,geometry,completion,assembly)
+    elif 'podium_v4' in assembly:
         from podium_v4 import build_podium
         retail=build_podium(ctx,geometry,completion,assembly)
     else:retail=podium(ctx,geometry,p)

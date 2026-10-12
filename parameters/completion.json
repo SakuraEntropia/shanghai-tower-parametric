@@ -481,7 +481,8 @@
       "azimuth_deg": 0.0,
       "azimuth_evidence": "待确认；local fixed0° sampling, no confirmed final panel seam azimuth",
       "B8_mapping": "interface_only; atrium-start/first-floor levels unknown",
-      "curve_samples_per_circuit": 288
+      "curve_samples_per_circuit": 288,
+      "open_bottom_band_count": 1
     }
   },
   "crown": {
@@ -870,8 +871,8 @@
     "vent_openings_candidate": [
       {
         "id": "UPPER_RECT_R1_01",
-        "s_min": 0.11499999999999999,
-        "s_max": 0.125,
+        "s_min": 0.11977538905631095,
+        "s_max": 0.12769673511763802,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "source_ids": [
@@ -880,12 +881,23 @@
         "evidence_level": "待确认",
         "source_topology_confirmed": true,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
+        "unsnapped_photo_candidate": {
+          "s_min": 0.11499999999999999,
+          "s_max": 0.125,
+          "z_min_m": 578.0,
+          "z_max_m": 587.0
+        },
+        "parent_lower_grid_indices": [
+          44,
+          45
+        ],
+        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
       },
       {
         "id": "UPPER_RECT_R1_02",
-        "s_min": 0.165,
-        "s_max": 0.17500000000000002,
+        "s_min": 0.16730346542427219,
+        "s_max": 0.17522481148559896,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "source_ids": [
@@ -894,12 +906,23 @@
         "evidence_level": "待确认",
         "source_topology_confirmed": true,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
+        "unsnapped_photo_candidate": {
+          "s_min": 0.165,
+          "s_max": 0.17500000000000002,
+          "z_min_m": 578.0,
+          "z_max_m": 587.0
+        },
+        "parent_lower_grid_indices": [
+          50,
+          51
+        ],
+        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
       },
       {
         "id": "UPPER_RECT_R1_03",
-        "s_min": 0.215,
-        "s_max": 0.225,
+        "s_min": 0.21483154179223307,
+        "s_max": 0.22275288785356015,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "source_ids": [
@@ -908,12 +931,23 @@
         "evidence_level": "待确认",
         "source_topology_confirmed": true,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
+        "unsnapped_photo_candidate": {
+          "s_min": 0.215,
+          "s_max": 0.225,
+          "z_min_m": 578.0,
+          "z_max_m": 587.0
+        },
+        "parent_lower_grid_indices": [
+          56,
+          57
+        ],
+        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
       },
       {
         "id": "UPPER_RECT_R1_04",
-        "s_min": 0.445,
-        "s_max": 0.455,
+        "s_min": 0.44455057757071176,
+        "s_max": 0.45247192363203886,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "source_ids": [
@@ -922,12 +956,23 @@
         "evidence_level": "待确认",
         "source_topology_confirmed": true,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
+        "unsnapped_photo_candidate": {
+          "s_min": 0.445,
+          "s_max": 0.455,
+          "z_min_m": 578.0,
+          "z_max_m": 587.0
+        },
+        "parent_lower_grid_indices": [
+          85,
+          86
+        ],
+        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
       },
       {
         "id": "UPPER_RECT_R1_05",
-        "s_min": 0.495,
-        "s_max": 0.505,
+        "s_min": 0.4999999999999998,
+        "s_max": 0.5079213460613268,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "source_ids": [
@@ -936,12 +981,23 @@
         "evidence_level": "待确认",
         "source_topology_confirmed": true,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
+        "unsnapped_photo_candidate": {
+          "s_min": 0.495,
+          "s_max": 0.505,
+          "z_min_m": 578.0,
+          "z_max_m": 587.0
+        },
+        "parent_lower_grid_indices": [
+          92,
+          93
+        ],
+        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
       },
       {
         "id": "UPPER_RECT_R1_06",
-        "s_min": 0.545,
-        "s_max": 0.555,
+        "s_min": 0.547528076367961,
+        "s_max": 0.5554494224292877,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "source_ids": [
@@ -950,12 +1006,23 @@
         "evidence_level": "待确认",
         "source_topology_confirmed": true,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
+        "unsnapped_photo_candidate": {
+          "s_min": 0.545,
+          "s_max": 0.555,
+          "z_min_m": 578.0,
+          "z_max_m": 587.0
+        },
+        "parent_lower_grid_indices": [
+          98,
+          99
+        ],
+        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
       },
       {
         "id": "UPPER_RECT_R1_07",
-        "s_min": 0.775,
-        "s_max": 0.785,
+        "s_min": 0.7772471121464397,
+        "s_max": 0.7851684582077664,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "source_ids": [
@@ -964,12 +1031,23 @@
         "evidence_level": "待确认",
         "source_topology_confirmed": true,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
+        "unsnapped_photo_candidate": {
+          "s_min": 0.775,
+          "s_max": 0.785,
+          "z_min_m": 578.0,
+          "z_max_m": 587.0
+        },
+        "parent_lower_grid_indices": [
+          127,
+          128
+        ],
+        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
       },
       {
         "id": "UPPER_RECT_R1_08",
-        "s_min": 0.825,
-        "s_max": 0.835,
+        "s_min": 0.824775188514401,
+        "s_max": 0.8326965345757277,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "source_ids": [
@@ -978,12 +1056,23 @@
         "evidence_level": "待确认",
         "source_topology_confirmed": true,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
+        "unsnapped_photo_candidate": {
+          "s_min": 0.825,
+          "s_max": 0.835,
+          "z_min_m": 578.0,
+          "z_max_m": 587.0
+        },
+        "parent_lower_grid_indices": [
+          133,
+          134
+        ],
+        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
       },
       {
         "id": "UPPER_RECT_R1_09",
-        "s_min": 0.875,
-        "s_max": 0.885,
+        "s_min": 0.8723032648823617,
+        "s_max": 0.8802246109436885,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "source_ids": [
@@ -992,12 +1081,23 @@
         "evidence_level": "待确认",
         "source_topology_confirmed": true,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
+        "unsnapped_photo_candidate": {
+          "s_min": 0.875,
+          "s_max": 0.885,
+          "z_min_m": 578.0,
+          "z_max_m": 587.0
+        },
+        "parent_lower_grid_indices": [
+          1,
+          2
+        ],
+        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
       },
       {
         "id": "UPPER_RECT_R2_01",
-        "s_min": 0.11499999999999999,
-        "s_max": 0.125,
+        "s_min": 0.11977538905631095,
+        "s_max": 0.12769673511763802,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "source_ids": [
@@ -1006,12 +1106,23 @@
         "evidence_level": "待确认",
         "source_topology_confirmed": true,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
+        "unsnapped_photo_candidate": {
+          "s_min": 0.11499999999999999,
+          "s_max": 0.125,
+          "z_min_m": 591.5,
+          "z_max_m": 600.5
+        },
+        "parent_lower_grid_indices": [
+          44,
+          45
+        ],
+        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
       },
       {
         "id": "UPPER_RECT_R2_02",
-        "s_min": 0.165,
-        "s_max": 0.17500000000000002,
+        "s_min": 0.16730346542427219,
+        "s_max": 0.17522481148559896,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "source_ids": [
@@ -1020,12 +1131,23 @@
         "evidence_level": "待确认",
         "source_topology_confirmed": true,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
+        "unsnapped_photo_candidate": {
+          "s_min": 0.165,
+          "s_max": 0.17500000000000002,
+          "z_min_m": 591.5,
+          "z_max_m": 600.5
+        },
+        "parent_lower_grid_indices": [
+          50,
+          51
+        ],
+        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
       },
       {
         "id": "UPPER_RECT_R2_03",
-        "s_min": 0.215,
-        "s_max": 0.225,
+        "s_min": 0.21483154179223307,
+        "s_max": 0.22275288785356015,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "source_ids": [
@@ -1034,12 +1156,23 @@
         "evidence_level": "待确认",
         "source_topology_confirmed": true,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
+        "unsnapped_photo_candidate": {
+          "s_min": 0.215,
+          "s_max": 0.225,
+          "z_min_m": 591.5,
+          "z_max_m": 600.5
+        },
+        "parent_lower_grid_indices": [
+          56,
+          57
+        ],
+        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
       },
       {
         "id": "UPPER_RECT_R2_04",
-        "s_min": 0.445,
-        "s_max": 0.455,
+        "s_min": 0.44455057757071176,
+        "s_max": 0.45247192363203886,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "source_ids": [
@@ -1048,12 +1181,23 @@
         "evidence_level": "待确认",
         "source_topology_confirmed": true,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
+        "unsnapped_photo_candidate": {
+          "s_min": 0.445,
+          "s_max": 0.455,
+          "z_min_m": 591.5,
+          "z_max_m": 600.5
+        },
+        "parent_lower_grid_indices": [
+          85,
+          86
+        ],
+        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
       },
       {
         "id": "UPPER_RECT_R2_05",
-        "s_min": 0.495,
-        "s_max": 0.505,
+        "s_min": 0.4999999999999998,
+        "s_max": 0.5079213460613268,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "source_ids": [
@@ -1062,12 +1206,23 @@
         "evidence_level": "待确认",
         "source_topology_confirmed": true,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
+        "unsnapped_photo_candidate": {
+          "s_min": 0.495,
+          "s_max": 0.505,
+          "z_min_m": 591.5,
+          "z_max_m": 600.5
+        },
+        "parent_lower_grid_indices": [
+          92,
+          93
+        ],
+        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
       },
       {
         "id": "UPPER_RECT_R2_06",
-        "s_min": 0.545,
-        "s_max": 0.555,
+        "s_min": 0.547528076367961,
+        "s_max": 0.5554494224292877,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "source_ids": [
@@ -1076,12 +1231,23 @@
         "evidence_level": "待确认",
         "source_topology_confirmed": true,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
+        "unsnapped_photo_candidate": {
+          "s_min": 0.545,
+          "s_max": 0.555,
+          "z_min_m": 591.5,
+          "z_max_m": 600.5
+        },
+        "parent_lower_grid_indices": [
+          98,
+          99
+        ],
+        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
       },
       {
         "id": "UPPER_RECT_R2_07",
-        "s_min": 0.775,
-        "s_max": 0.785,
+        "s_min": 0.7772471121464397,
+        "s_max": 0.7851684582077664,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "source_ids": [
@@ -1090,12 +1256,23 @@
         "evidence_level": "待确认",
         "source_topology_confirmed": true,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
+        "unsnapped_photo_candidate": {
+          "s_min": 0.775,
+          "s_max": 0.785,
+          "z_min_m": 591.5,
+          "z_max_m": 600.5
+        },
+        "parent_lower_grid_indices": [
+          127,
+          128
+        ],
+        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
       },
       {
         "id": "UPPER_RECT_R2_08",
-        "s_min": 0.825,
-        "s_max": 0.835,
+        "s_min": 0.824775188514401,
+        "s_max": 0.8326965345757277,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "source_ids": [
@@ -1104,12 +1281,23 @@
         "evidence_level": "待确认",
         "source_topology_confirmed": true,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
+        "unsnapped_photo_candidate": {
+          "s_min": 0.825,
+          "s_max": 0.835,
+          "z_min_m": 591.5,
+          "z_max_m": 600.5
+        },
+        "parent_lower_grid_indices": [
+          133,
+          134
+        ],
+        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
       },
       {
         "id": "UPPER_RECT_R2_09",
-        "s_min": 0.875,
-        "s_max": 0.885,
+        "s_min": 0.8723032648823617,
+        "s_max": 0.8802246109436885,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "source_ids": [
@@ -1118,7 +1306,41 @@
         "evidence_level": "待确认",
         "source_topology_confirmed": true,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口"
+        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
+        "unsnapped_photo_candidate": {
+          "s_min": 0.875,
+          "s_max": 0.885,
+          "z_min_m": 591.5,
+          "z_max_m": 600.5
+        },
+        "parent_lower_grid_indices": [
+          1,
+          2
+        ],
+        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
+      }
+    ],
+    "curtain_pattern_mode": "shared_lower_grid",
+    "linear_openings_candidate": [
+      {
+        "id": "PHOTO_LOWER_NARROW_RING_1",
+        "s_min": 0.02,
+        "s_max": 0.98,
+        "z_min_m": 550.2,
+        "z_max_m": 550.8000000000001,
+        "source_id": "CROWN_GENS_PHOTO_V7",
+        "evidence_level": "推导值/待确认全周",
+        "uncertainty": "photo-visible two narrow strips; uncalibrated height/extent candidates; not verified ventilation function"
+      },
+      {
+        "id": "PHOTO_LOWER_NARROW_RING_2",
+        "s_min": 0.02,
+        "s_max": 0.98,
+        "z_min_m": 557.3,
+        "z_max_m": 557.9,
+        "source_id": "CROWN_GENS_PHOTO_V7",
+        "evidence_level": "推导值/待确认全周",
+        "uncertainty": "photo-visible two narrow strips; uncalibrated height/extent candidates; not verified ventilation function"
       }
     ]
   },

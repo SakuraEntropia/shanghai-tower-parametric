@@ -153,7 +153,7 @@
     "glass_shader": {
       "model": "Principled dielectric transmission",
       "metallic": 0.0,
-      "transmission": 0.62,
+      "transmission": 0.78,
       "ior": 1.52,
       "roughness": 0.12,
       "outer_rgba": [
@@ -170,7 +170,7 @@
       ],
       "source_url": "https://docs.blender.org/manual/en/5.0/render/shader_nodes/shader/principled.html",
       "uncertainty": "蓝灰反射/较低透视度按摄影与用户视觉反馈调整；Transmission Weight .62/.72不是光学可见光透射率，IOR/粗糙度/镀膜非实测。alpha仍1，电介质玻璃。",
-      "inner_transmission": 0.72,
+      "inner_transmission": 0.82,
       "coat_weight": 0.25
     },
     "eevee_use_raytracing": true,
@@ -190,7 +190,62 @@
       "uncertainty": "可编辑全向程序天空与云；非上海特定时刻实测HDRI。"
     },
     "ground_size_m": 10000,
-    "ground_uncertainty": "Display plane only; no surveyed site extent"
+    "ground_uncertainty": "Display plane only; no surveyed site extent",
+    "extra_materials": {
+      "asphalt": {
+        "rgba": [
+          0.09,
+          0.1,
+          0.105,
+          1
+        ],
+        "roughness": 0.85
+      },
+      "paving": {
+        "rgba": [
+          0.46,
+          0.47,
+          0.43,
+          1
+        ],
+        "roughness": 0.82
+      },
+      "landscape_leaf": {
+        "rgba": [
+          0.075,
+          0.19,
+          0.065,
+          1
+        ],
+        "roughness": 0.8
+      },
+      "water": {
+        "rgba": [
+          0.05,
+          0.22,
+          0.2,
+          1
+        ],
+        "roughness": 0.12
+      },
+      "grg_gradient": {
+        "rgba": [
+          0.52,
+          0.37,
+          0.15,
+          1
+        ],
+        "low_rgba": [
+          0.03,
+          0.025,
+          0.02,
+          1
+        ],
+        "metallic": 0.4,
+        "roughness": 0.4,
+        "gradient_top_fraction": 0.85
+      }
+    }
   },
   "modeling_conventions": [
     {
@@ -281,5 +336,6 @@
     }
   ],
   "completion_data_file": "parameters/completion.json",
-  "completion_enabled": true
+  "completion_enabled": true,
+  "site_v8_data_file": "parameters/site_v8.json"
 }

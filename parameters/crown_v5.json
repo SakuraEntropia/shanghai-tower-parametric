@@ -1,5 +1,5 @@
 {
-  "version": "crown-v7-photo-topology-2026-10-11",
+  "version": "crown-v8-artist-nominal-C3-shared-parent-facade",
   "evidence_level": "待确认",
   "source_ids": [
     "CROWN_NTUA_2014",
@@ -80,7 +80,7 @@
   "collector_primary_rib_radial_samples_display": 12,
   "roof_strut_clearance_display_m": 0.03,
   "deck_well_lower_y_fit_m": -8.0,
-  "deck_oculus_radius_fit_m": 2.8,
+  "deck_oculus_radius_fit_m": 2.0,
   "deck_oculus_ring_radius_display_m": 0.08,
   "deck_grating_bar_width_fit_m": 0.075,
   "deck_grating_bar_depth_fit_m": 0.12,
@@ -164,7 +164,7 @@
   "cooling_tower_old_design_base_m": 592.47,
   "cooling_tower_source_conflict": "Owner2016construction L120561m adopted; NTUA2014design L128592.47m archived interface. Does not rule out additional groups.",
   "tmd_hall_floor_owner_m": 583.4,
-  "tmd_hall_radius_fit_m": 16.7,
+  "tmd_hall_radius_fit_m": 17.5,
   "tmd_hall_floor_depth_fit_m": 0.2,
   "tmd_mass_radius_fit_m": 4.8,
   "tmd_mass_thickness_fit_m": 1.8,
@@ -184,15 +184,15 @@
   "tmd_suspension_cable_radius_display_m": 0.065,
   "tmd_eye_nested_blade_count_display": 5,
   "tmd_eye_nested_scale_step_fit": 0.14,
-  "tmd_eye_height_fit_m": 7.0,
-  "tmd_eye_width_fit_m": 4.4,
-  "tmd_eye_blade_width_fit_m": 0.32,
+  "tmd_eye_height_fit_m": 7.7,
+  "tmd_eye_width_fit_m": 3.89,
+  "tmd_eye_blade_width_fit_m": 0.55,
   "tmd_eye_blade_depth_fit_m": 0.42,
   "tmd_visitor_guard_offset_fit_m": 1.0,
   "tmd_visitor_guard_height_fit_m": 1.1,
   "tmd_visitor_guard_radius_display_m": 0.022,
   "tmd_cladding_seam_radius_display_m": 0.013,
-  "tmd_canopy_rib_count_display": 360,
+  "tmd_canopy_rib_count_display": 240,
   "tmd_canopy_low_offset_fit_m": 7.5,
   "tmd_canopy_scallop_rise_fit_m": 4.0,
   "tmd_canopy_rib_radius_display_m": 0.027,
@@ -219,7 +219,7 @@
   "helipad_mark_radius_candidate_m": 0.15,
   "tmd_hall_steel_clearance_display_m": 0.25,
   "deck_grating_density_evidence": "待确认：actual aerial reads as dense metal grating; display pitch/width only, no calibrated fabrication dimension. Candidate projected coverage 1-(1-.075/.18)^2≈0.660.",
-  "crown_glass_steel_clearance_display_m": 0.55,
+  "crown_glass_steel_clearance_display_m": 1.1,
   "tmd_eye_open_ribbon_controls_fit": [
     [
       0.55,
@@ -254,17 +254,17 @@
       1.015
     ]
   ],
-  "tmd_eye_ribbon_y_weave_fit_m": 0.16,
+  "tmd_eye_ribbon_y_weave_fit_m": 0.055,
   "tmd_canopy_twist_candidate_deg": 18,
   "tmd_canopy_lamella_fill_ratio_display": 0.2,
   "tmd_canopy_lamella_depth_display_m": 0.1,
   "tmd_canopy_backing_depth_display_m": 0.03,
-  "tmd_canopy_slot_half_angle_candidate_deg": 5.2,
+  "tmd_canopy_slot_half_angle_candidate_deg": 7.5,
   "tmd_canopy_slot_radial_limits_candidate": [
-    0.43,
-    0.965
+    0.2,
+    0.76
   ],
-  "tmd_canopy_slot_end_radius_uv_candidate": 0.085,
+  "tmd_canopy_slot_end_radius_uv_candidate": 0.12,
   "tmd_canopy_slot_azimuths_candidate_deg": [
     -120,
     -60,
@@ -276,5 +276,86 @@
   "tmd_canopy_slot_count_evidence": "至少两孔在业主仰拍中清晰可见；完整6孔及方位为待确认接口，不声称实物全周数量。",
   "v6_retired_canopy": "三瓣cos(3φ)边缘与圆管顶棚撤回；闭合菱形环雕塑撤回。",
   "tmd_fine_cables_per_slot_candidate": 4,
-  "tmd_fine_cable_radius_candidate_m": 0.012
+  "tmd_fine_cable_radius_candidate_m": 0.012,
+  "tmd_canopy_slot_solid_rim_width_candidate_m": 0.18,
+  "tmd_canopy_short_strip_start_candidate": 0.22,
+  "tmd_eye_azimuth_candidate_deg": 0,
+  "tmd_eye_tile_joint_fraction_candidate": 0.012,
+  "tmd_eye_base_diameter_reported_m": 9.1,
+  "tmd_eye_base_height_candidate_m": 0.12,
+  "tmd_eye_base_wave_amplitude_candidate_m": 0.015,
+  "tmd_eye_base_wave_cycles_candidate": 12,
+  "tmd_grg_lobes_candidate": 12,
+  "tmd_grg_inward_bulge_candidate_m": 1.4,
+  "v8_artist_evidence": {
+    "source_id": "ARTIST_EYE_V8",
+    "reported_values_evidence": "已证实发布名义值",
+    "sculpture_symmetry": 3,
+    "tiles": 519,
+    "canopy_long_short_count": [
+      120,
+      120
+    ],
+    "hall_diameter_m": 35,
+    "two_floor_volume_height_m": 23,
+    "oculus_diameter_m": 4,
+    "uncertainty": "Published width axis unspecified; max XY bounding dimension convention. 23m is combined two-floor volume, not forced above L126. Surfaces, tile/slot layout and 2025 asbuilt not obtained."
+  },
+  "v8_steel_clearance_method": "Actual generated upright crown panes BVH exposed four continuous-curve frame conflicts at0.55m. Added0.55m candidate inward allowance; installed clearance not verified.",
+  "tmd_eye_geometry_mode": "direct_bezier_v9",
+  "tmd_eye_bezier_segments_candidate": [
+    [
+      [
+        0.55,
+        0
+      ],
+      [
+        0.36,
+        0.015
+      ],
+      [
+        -0.12,
+        0.1
+      ],
+      [
+        -0.29,
+        0.23
+      ]
+    ],
+    [
+      [
+        -0.29,
+        0.23
+      ],
+      [
+        -0.8591304347826088,
+        0.6652173913043479
+      ],
+      [
+        -0.42,
+        0.91
+      ],
+      [
+        0.075,
+        1.0
+      ]
+    ]
+  ],
+  "tmd_eye_upper_width_ratio_candidate": 0.38,
+  "tmd_eye_tile_depth_candidate_m": 0.035,
+  "tmd_eye_backbone_depth_candidate_m": 0.075,
+  "tmd_eye_backbone_width_ratio_candidate": 0.64,
+  "tmd_canopy_view_convention": "Clockwise from centre outward when viewed from inside below; positive XY phi from outward station",
+  "tmd_canopy_constant_width_candidate_m": 0.24,
+  "tmd_V_support_count_candidate": 12,
+  "tmd_V_support_radius_candidate_m": 15.8,
+  "tmd_V_support_branch_half_angle_candidate_deg": 5.4,
+  "tmd_V_support_skin_radius_candidate_m": 0.7,
+  "tmd_V_support_steel_radius_candidate_m": 0.3,
+  "tmd_V_support_height_candidate_m": 8.8,
+  "tmd_V_support_azimuth_candidate_deg": 15,
+  "tmd_eye_jade_outer_depth_candidate_m": 0.18,
+  "tmd_eye_jade_wall_candidate_m": 0.035,
+  "tmd_eye_inner_limb_trim_candidate_fraction": 0.12,
+  "tmd_eye_inner_limb_trim_step_candidate_fraction": 0.015
 }

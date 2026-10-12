@@ -44,6 +44,23 @@ def validate_scene(ctx,geometry_module,anchors,results):
         for row in results['v7_collision']['checks']:check(row['name'],row['passed'],row.get('actual'),row.get('meaning','Actual crown steel envelope vs generated glass; not as-built verification'))
     if results.get('assembly',{}).get('physical',{}).get('inner_support_v7'):
         for row in results['assembly']['physical']['inner_support_v7']['checks']:check(row['name'],row['passed'],row.get('actual'),'Generated floor-level support geometry')
+    if results.get('assembly',{}).get('physical',{}).get('site_v8'):
+        for row in results['assembly']['physical']['site_v8']['checks']:check(row['name'],row['passed'],row.get('actual'),'Published-plan candidate site trace; not survey')
+        eye=bpy.data.objects.get('TMD_V8_SHANGHAI_EYE_C3_519_JADE_TILE_CANDIDATES')
+        art_bounds=[max(v.co[i] for v in eye.data.vertices)-min(v.co[i] for v in eye.data.vertices) for i in range(3)] if eye else []
+        ids={v.value for v in eye.data.attributes['art_tile_id'].data} if eye else set()
+        check('v8_artist_nominal_extents_and_519_candidate_tiles',bool(eye) and len(ids)==519 and abs(art_bounds[2]-7.7)<.001 and abs(max(art_bounds[:2])-3.89)<.001,
+              {'tile_ids':len(ids),'bounds_m':art_bounds},'Software nominal dimensions/count; shape/tiling is a fit, not fabrication validation')
+    if ctx.config.get('podium_v9'):
+        cross=bpy.data.objects.get('CWSS_V9_THREE_CORNER_PLAN_X_CROSS_RODS');ring=bpy.data.objects.get('CWSS_INSTALLED_RINGS_CANDIDATE')
+        same_z=bool(cross) and all(max(q.co.z for q in sp.points)-min(q.co.z for q in sp.points)<1e-4 for sp in cross.data.splines)
+        check('v9_CWSS_three_horizontal_corner_X_pairs_each_ring',bool(cross and ring) and len(cross.data.splines)==6*len(ring.data.splines) and same_z and abs(cross.data.bevel_depth-.03)<1e-6,
+              {'cross_members':len(cross.data.splines) if cross else 0,'rings':len(ring.data.splines) if ring else 0,'all_members_horizontal':same_z},'Actual rod axes/count/diameter vs TJAD system; candidate corner coordinates')
+        vc=bpy.data.objects.get('TMD_V9_HEAVY_V_COLUMN_GRG_WRAPS');check('v9_heavy_V_hall_supports_generated',bool(vc) and len(vc.data.splines)==24,len(vc.data.splines) if vc else 0,'CIMA/owner-photo topology, candidate12 supports and sections')
+        strips=bpy.data.objects.get('TMD_V7_RADIAL_FLAT_LAMELLAE_CLIPPED_AT_CAPSULES');count=len({q.value for q in strips.data.attributes['canopy_strip_id'].data}) if strips else 0
+        check('v9_canopy_actual_120_long_120_short_strip_identifiers',count==240,count,'Artist-reported total; individual profiles and positions candidates')
+        low=bpy.data.objects.get('PODIUM_V9_LOCAL_PG_POINT_SUPPORTED_GLASS');low_top=max(q.co.z for q in low.data.vertices) if low else 0
+        check('v9_podium_generic_perimeter_glass_stops_at_ground_interface',bool(low) and low_top<=4.2001,low_top,'Tall PG arches use shared PR roof-section boundaries, no tall independently guessed perimeter cage')
     world=scene.world
     output=next((n for n in world.node_tree.nodes if n.type=='OUTPUT_WORLD'),None)
     check('world_sky_environment_connected',bool(output and output.inputs['Surface'].is_linked and any(n.type=='TEX_SKY' for n in world.node_tree.nodes)),world.get('environment_model'),'All-direction procedural sky; display weather candidate')
@@ -155,7 +172,7 @@ def validate_scene(ctx,geometry_module,anchors,results):
               {'highest_member_envelope_m':beam_top,'deck_underside_m':deck_bottom},
               'Actual curve axis plus display radius clears actual deck underside; installed member datum remains candidate')
         cp=results['assembly']['crown_detail']['used_parameters']
-        if cp.get('version','').startswith(('crown-v6','crown-v7')):
+        if cp.get('version','').startswith(('crown-v6','crown-v7','crown-v8')):
             old=[bpy.data.objects.get(f'F{n:03d}_DERIVED_SLAB') for n in (126,127,128)]
             check('v6_archived_plates_do_not_slice_TMD_hall',all(o and o.hide_render and o.hide_viewport for o in old),
                   [o.name for o in old if o],'Only duplicate upper design-floor proxies hidden; owner-supported chamber replaces visible geometry')

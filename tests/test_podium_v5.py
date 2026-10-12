@@ -61,7 +61,7 @@ class PodiumTests(unittest.TestCase):
             self.assertFalse(record['meta']['asbuilt_verified'])
             self.assertEqual(record['meta']['numeric_evidence_level'],'待确认')
             self.assertTrue(record['meta']['source_ids'])
-            self.assertTrue(set(record['meta']['source_ids']) <= {'PODIUM_GENS_V4','PODIUM_GENS_GROUND_V6','PODIUM_LINGYUN_BIM_V7'})
+            self.assertTrue(set(record['meta']['source_ids']) <= {'PODIUM_GENS_V4','PODIUM_GENS_GROUND_V6','PODIUM_LINGYUN_BIM_V7','GENSLER_ARCHJOURNAL_V8'})
         body=next(r for r in ctx.records if r['name']=='PODIUM_V6_LIMITED_LOW_FRONT_GLAZING')
         front=self.p['center_xy_m'][1]-self.p['depth_m']/2+self.p['corner_radius_m']
         lo,hi=self.p['front_opaque_band_candidate_z_m']

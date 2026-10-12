@@ -1,0 +1,39 @@
+{
+  "version": "v9",
+  "generated_on": "2026-10-12",
+  "software_checks": {
+    "total": 217,
+    "passed": 217
+  },
+  "unit_tests": {
+    "total": 66,
+    "passed": true
+  },
+  "independent_reopen_passed": true,
+  "geometry_signature": {
+    "sha256_rounded_geometry": "a5060aecb222ad59bce365301eb3c01fcb79c177c762c3783716e2e9ff13c906",
+    "mesh_count": 393,
+    "vertices": 1825732,
+    "polygons": 993591
+  },
+  "v9_actual_entities": {
+    "jade_piece_ids": 519,
+    "canopy_strip_ids": 240,
+    "cross_rods": 726,
+    "V_column_branches": 24,
+    "old_podium_geometry_absent": true
+  },
+  "PR_generation": {
+    "candidate_panels": 18480,
+    "max_flattening_error_m": 0.007698355716026412,
+    "longitudinal_intervals": 72,
+    "cross_section_intervals": 373,
+    "published_nominal_length_m": 1.8,
+    "published_east_width_m": 0.3,
+    "axis9_coordinates_verified": false,
+    "closed_west_shop_curve_verified": false
+  },
+  "views_rendered": 28,
+  "asbuilt_verified": false,
+  "precision_statement": "Source-reported nominal dimensions and system topology distinguished from fitted/candidate geometry; complete signed RC/PR/crown/art shop drawings not obtained. No construction/as-built precision claim."
+}

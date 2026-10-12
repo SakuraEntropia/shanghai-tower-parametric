@@ -26841,7 +26841,7 @@
       }
     ],
     "used_parameters": {
-      "version": "crown-v7-photo-topology-2026-10-11",
+      "version": "crown-v8-artist-nominal-C3-shared-parent-facade",
       "evidence_level": "待确认",
       "source_ids": [
         "CROWN_NTUA_2014",
@@ -26922,7 +26922,7 @@
       "collector_primary_rib_radial_samples_display": 12,
       "roof_strut_clearance_display_m": 0.03,
       "deck_well_lower_y_fit_m": -8.0,
-      "deck_oculus_radius_fit_m": 2.8,
+      "deck_oculus_radius_fit_m": 2.0,
       "deck_oculus_ring_radius_display_m": 0.08,
       "deck_grating_bar_width_fit_m": 0.075,
       "deck_grating_bar_depth_fit_m": 0.12,
@@ -27006,7 +27006,7 @@
       "cooling_tower_old_design_base_m": 592.47,
       "cooling_tower_source_conflict": "Owner2016construction L120561m adopted; NTUA2014design L128592.47m archived interface. Does not rule out additional groups.",
       "tmd_hall_floor_owner_m": 583.4,
-      "tmd_hall_radius_fit_m": 16.7,
+      "tmd_hall_radius_fit_m": 17.5,
       "tmd_hall_floor_depth_fit_m": 0.2,
       "tmd_mass_radius_fit_m": 4.8,
       "tmd_mass_thickness_fit_m": 1.8,
@@ -27026,15 +27026,15 @@
       "tmd_suspension_cable_radius_display_m": 0.065,
       "tmd_eye_nested_blade_count_display": 5,
       "tmd_eye_nested_scale_step_fit": 0.14,
-      "tmd_eye_height_fit_m": 7.0,
-      "tmd_eye_width_fit_m": 4.4,
-      "tmd_eye_blade_width_fit_m": 0.32,
+      "tmd_eye_height_fit_m": 7.7,
+      "tmd_eye_width_fit_m": 3.89,
+      "tmd_eye_blade_width_fit_m": 0.55,
       "tmd_eye_blade_depth_fit_m": 0.42,
       "tmd_visitor_guard_offset_fit_m": 1.0,
       "tmd_visitor_guard_height_fit_m": 1.1,
       "tmd_visitor_guard_radius_display_m": 0.022,
       "tmd_cladding_seam_radius_display_m": 0.013,
-      "tmd_canopy_rib_count_display": 360,
+      "tmd_canopy_rib_count_display": 240,
       "tmd_canopy_low_offset_fit_m": 7.5,
       "tmd_canopy_scallop_rise_fit_m": 4.0,
       "tmd_canopy_rib_radius_display_m": 0.027,
@@ -27061,7 +27061,7 @@
       "helipad_mark_radius_candidate_m": 0.15,
       "tmd_hall_steel_clearance_display_m": 0.25,
       "deck_grating_density_evidence": "待确认：actual aerial reads as dense metal grating; display pitch/width only, no calibrated fabrication dimension. Candidate projected coverage 1-(1-.075/.18)^2≈0.660.",
-      "crown_glass_steel_clearance_display_m": 0.55,
+      "crown_glass_steel_clearance_display_m": 1.1,
       "tmd_eye_open_ribbon_controls_fit": [
         [
           0.55,
@@ -27096,17 +27096,17 @@
           1.015
         ]
       ],
-      "tmd_eye_ribbon_y_weave_fit_m": 0.16,
+      "tmd_eye_ribbon_y_weave_fit_m": 0.055,
       "tmd_canopy_twist_candidate_deg": 18,
       "tmd_canopy_lamella_fill_ratio_display": 0.2,
       "tmd_canopy_lamella_depth_display_m": 0.1,
       "tmd_canopy_backing_depth_display_m": 0.03,
-      "tmd_canopy_slot_half_angle_candidate_deg": 5.2,
+      "tmd_canopy_slot_half_angle_candidate_deg": 7.5,
       "tmd_canopy_slot_radial_limits_candidate": [
-        0.43,
-        0.965
+        0.2,
+        0.76
       ],
-      "tmd_canopy_slot_end_radius_uv_candidate": 0.085,
+      "tmd_canopy_slot_end_radius_uv_candidate": 0.12,
       "tmd_canopy_slot_azimuths_candidate_deg": [
         -120,
         -60,
@@ -27118,7 +27118,88 @@
       "tmd_canopy_slot_count_evidence": "至少两孔在业主仰拍中清晰可见；完整6孔及方位为待确认接口，不声称实物全周数量。",
       "v6_retired_canopy": "三瓣cos(3φ)边缘与圆管顶棚撤回；闭合菱形环雕塑撤回。",
       "tmd_fine_cables_per_slot_candidate": 4,
-      "tmd_fine_cable_radius_candidate_m": 0.012
+      "tmd_fine_cable_radius_candidate_m": 0.012,
+      "tmd_canopy_slot_solid_rim_width_candidate_m": 0.18,
+      "tmd_canopy_short_strip_start_candidate": 0.22,
+      "tmd_eye_azimuth_candidate_deg": 0,
+      "tmd_eye_tile_joint_fraction_candidate": 0.012,
+      "tmd_eye_base_diameter_reported_m": 9.1,
+      "tmd_eye_base_height_candidate_m": 0.12,
+      "tmd_eye_base_wave_amplitude_candidate_m": 0.015,
+      "tmd_eye_base_wave_cycles_candidate": 12,
+      "tmd_grg_lobes_candidate": 12,
+      "tmd_grg_inward_bulge_candidate_m": 1.4,
+      "v8_artist_evidence": {
+        "source_id": "ARTIST_EYE_V8",
+        "reported_values_evidence": "已证实发布名义值",
+        "sculpture_symmetry": 3,
+        "tiles": 519,
+        "canopy_long_short_count": [
+          120,
+          120
+        ],
+        "hall_diameter_m": 35,
+        "two_floor_volume_height_m": 23,
+        "oculus_diameter_m": 4,
+        "uncertainty": "Published width axis unspecified; max XY bounding dimension convention. 23m is combined two-floor volume, not forced above L126. Surfaces, tile/slot layout and 2025 asbuilt not obtained."
+      },
+      "v8_steel_clearance_method": "Actual generated upright crown panes BVH exposed four continuous-curve frame conflicts at0.55m. Added0.55m candidate inward allowance; installed clearance not verified.",
+      "tmd_eye_geometry_mode": "direct_bezier_v9",
+      "tmd_eye_bezier_segments_candidate": [
+        [
+          [
+            0.55,
+            0
+          ],
+          [
+            0.36,
+            0.015
+          ],
+          [
+            -0.12,
+            0.1
+          ],
+          [
+            -0.29,
+            0.23
+          ]
+        ],
+        [
+          [
+            -0.29,
+            0.23
+          ],
+          [
+            -0.8591304347826088,
+            0.6652173913043479
+          ],
+          [
+            -0.42,
+            0.91
+          ],
+          [
+            0.075,
+            1.0
+          ]
+        ]
+      ],
+      "tmd_eye_upper_width_ratio_candidate": 0.38,
+      "tmd_eye_tile_depth_candidate_m": 0.035,
+      "tmd_eye_backbone_depth_candidate_m": 0.075,
+      "tmd_eye_backbone_width_ratio_candidate": 0.64,
+      "tmd_canopy_view_convention": "Clockwise from centre outward when viewed from inside below; positive XY phi from outward station",
+      "tmd_canopy_constant_width_candidate_m": 0.24,
+      "tmd_V_support_count_candidate": 12,
+      "tmd_V_support_radius_candidate_m": 15.8,
+      "tmd_V_support_branch_half_angle_candidate_deg": 5.4,
+      "tmd_V_support_skin_radius_candidate_m": 0.7,
+      "tmd_V_support_steel_radius_candidate_m": 0.3,
+      "tmd_V_support_height_candidate_m": 8.8,
+      "tmd_V_support_azimuth_candidate_deg": 15,
+      "tmd_eye_jade_outer_depth_candidate_m": 0.18,
+      "tmd_eye_jade_wall_candidate_m": 0.035,
+      "tmd_eye_inner_limb_trim_candidate_fraction": 0.12,
+      "tmd_eye_inner_limb_trim_step_candidate_fraction": 0.015
     },
     "approximation": true,
     "evidence_level": "待确认",
@@ -27158,8 +27239,8 @@
         "radial_apertures_candidate": 6,
         "at_least_two_apertures_photo_visible": true,
         "mesh_face_counts": {
-          "DARK_BACKING_WITH_RADIAL_CAPSULE_HOLES": 16938,
-          "RADIAL_FLAT_LAMELLAE_CLIPPED_AT_CAPSULES": 16482
+          "DARK_BACKING_WITH_RADIAL_CAPSULE_HOLES": 11171,
+          "RADIAL_FLAT_LAMELLAE_CLIPPED_AT_CAPSULES": 9168
         },
         "scalloped_three_lobed_canopy_retired": true,
         "closed_almond_rings_retired": true,
@@ -28744,6 +28825,7 @@
       "CWSS_ring_count": 121,
       "CWSS_radial_members": 3020,
       "CWSS_hanger_axes": 354,
+      "CWSS_cross_rods": 726,
       "zone_registry": [
         {
           "zone": 2,
@@ -28934,27 +29016,391 @@
       ]
     },
     "podium": {
-      "source_id": "PODIUM_GENS_V4",
-      "source_ids": [
-        "PODIUM_GENS_V4",
-        "PODIUM_GENS_GROUND_V6"
-      ],
-      "version": "v7-reported-PR-physical-panels-candidate",
+      "version": "podium-v9-plan-and-composite-arc-sweep",
+      "used_parameters": {
+        "version": "podium-v9-plan-and-composite-arc-sweep",
+        "source_ids": [
+          "GENSLER_ARCHJOURNAL_V8",
+          "PODIUM_LINGYUN_BIM_V7",
+          "PODIUM_GENS_V4",
+          "PODIUM_GENS_GROUND_V6"
+        ],
+        "evidence_level": "推导值/待确认上部曲面",
+        "asbuilt_verified": false,
+        "uncertainty": "p31 printed ground plan is scaled, not signed construction CAD; pixel picking ±3px ≈0.59m, registration and phase errors unbounded. Upper arcs, axis9, slab schedule, panel coordinates and steel nodes are candidates. Complete approved RC/PR/shop drawings unavailable.",
+        "ground_plan_reference": "references/v8/Ground_plan_p31_crop.png",
+        "ground_scale_bar_px": [
+          [
+            156,
+            708
+          ],
+          [
+            258,
+            708
+          ]
+        ],
+        "ground_scale_bar_m": 20,
+        "tower_center_px": [
+          646,
+          395
+        ],
+        "rotation_candidate_deg": 90,
+        "ground_outline_px": [
+          [
+            263,
+            117
+          ],
+          [
+            264,
+            58
+          ],
+          [
+            328,
+            42
+          ],
+          [
+            377,
+            39
+          ],
+          [
+            444,
+            48
+          ],
+          [
+            515,
+            68
+          ],
+          [
+            768,
+            110
+          ],
+          [
+            917,
+            140
+          ],
+          [
+            956,
+            275
+          ],
+          [
+            958,
+            296
+          ],
+          [
+            938,
+            321
+          ],
+          [
+            875,
+            337
+          ],
+          [
+            817,
+            344
+          ],
+          [
+            758,
+            337
+          ],
+          [
+            709,
+            319
+          ],
+          [
+            625,
+            305
+          ],
+          [
+            533,
+            320
+          ],
+          [
+            446,
+            334
+          ],
+          [
+            372,
+            354
+          ],
+          [
+            330,
+            374
+          ],
+          [
+            273,
+            381
+          ],
+          [
+            248,
+            370
+          ],
+          [
+            243,
+            317
+          ],
+          [
+            262,
+            312
+          ]
+        ],
+        "sweep_path_px": [
+          [
+            270,
+            183
+          ],
+          [
+            350,
+            177
+          ],
+          [
+            470,
+            177
+          ],
+          [
+            610,
+            190
+          ],
+          [
+            740,
+            207
+          ],
+          [
+            835,
+            220
+          ],
+          [
+            922,
+            236
+          ]
+        ],
+        "section_start_candidate_m": [
+          -20,
+          0
+        ],
+        "section_start_tangent_candidate_deg": 90,
+        "section_arc_chain_candidate": [
+          {
+            "radius_m": 25,
+            "turn_deg": -65
+          },
+          {
+            "radius_m": 28,
+            "turn_deg": -35
+          },
+          {
+            "radius_m": 15,
+            "turn_deg": -75
+          }
+        ],
+        "section_peak_reported_m": 37,
+        "section_end_target_candidate_m": 0,
+        "section_modulation_candidate": [
+          [
+            0,
+            0.8,
+            0.9,
+            -5
+          ],
+          [
+            0.2,
+            1.0,
+            1.0,
+            -2
+          ],
+          [
+            0.5,
+            1.08,
+            0.99,
+            3
+          ],
+          [
+            0.75,
+            0.95,
+            0.96,
+            5
+          ],
+          [
+            1,
+            0.72,
+            0.9,
+            8
+          ]
+        ],
+        "axis9_candidate_fraction": 0.58,
+        "west_PR_start_reported_m": 4.2,
+        "upper_floor_levels_candidate_m": [
+          0,
+          4.2,
+          8.4,
+          12.6,
+          16.8,
+          21,
+          25.2
+        ],
+        "slab_thickness_candidate_m": 0.225,
+        "slab_edge_setback_candidate_m": 0.7,
+        "terrace_candidate_m": 22,
+        "courtyard_photo_fit_px": [
+          [
+            290,
+            225
+          ],
+          [
+            398,
+            218
+          ],
+          [
+            451,
+            243
+          ],
+          [
+            452,
+            298
+          ],
+          [
+            412,
+            327
+          ],
+          [
+            298,
+            311
+          ]
+        ],
+        "court_corner_radius_candidate_m": 3,
+        "white_terrace_pads_candidate_px": [
+          [
+            327,
+            249
+          ],
+          [
+            388,
+            249
+          ],
+          [
+            426,
+            274
+          ],
+          [
+            334,
+            282
+          ],
+          [
+            386,
+            292
+          ],
+          [
+            422,
+            308
+          ]
+        ],
+        "white_terrace_pad_candidate_m": 3.2,
+        "corner_fillet_candidate_m": 2.0,
+        "PR_nominal_length_reported_m": 1.8,
+        "PR_east_width_reported_m": 0.3,
+        "PR_west_width_reported_range_m": [
+          0.275,
+          0.3
+        ],
+        "PR_joint_reported_m": 0.016,
+        "PR_laminate_reported_m": [
+          0.008,
+          0.00152,
+          0.008
+        ],
+        "PR_backing_offset_candidate_m": 0.06,
+        "PG_horizontal_pitch_candidate_m": 1.5,
+        "PG_cable_span_candidate_m": 6,
+        "PG_cable_radius_candidate_m": 0.025,
+        "PG_glass_height_front_candidate_m": 5.5,
+        "PS_opaque_band_candidate_m": [
+          5.5,
+          21.8
+        ],
+        "steel_column_grid_candidate_m": 8,
+        "steel_column_radius_candidate_m": 0.2,
+        "steel_roof_rib_radius_candidate_m": 0.16,
+        "rail_height_candidate_m": 1.1,
+        "garden_pavilion_candidate_outlines_px": [
+          [
+            [
+              287,
+              223
+            ],
+            [
+              310,
+              218
+            ],
+            [
+              317,
+              258
+            ],
+            [
+              309,
+              300
+            ],
+            [
+              290,
+              302
+            ]
+          ],
+          [
+            [
+              422,
+              247
+            ],
+            [
+              442,
+              244
+            ],
+            [
+              453,
+              272
+            ],
+            [
+              451,
+              307
+            ],
+            [
+              432,
+              311
+            ]
+          ]
+        ],
+        "garden_pavilion_height_candidate_m": 0.45,
+        "south_rain_canopy": {
+          "source_locator": "Lingyun Fig8 south canopy / north-south stainless-glass system; actual aerial curved first-floor canopy",
+          "profile_fraction_candidate": [
+            0.08,
+            0.64
+          ],
+          "z_candidate_m": 4.2,
+          "width_candidate_m": 5.5,
+          "rib_radius_candidate_m": 0.065,
+          "glass_rib_clearance_candidate_m": 0.12,
+          "module_width_candidate_m": 1.5
+        },
+        "landscape_pavilion_height_candidate_m": 5.5,
+        "roof_global_z_scale_candidate": 0.9943007931165522,
+        "roof_peak_before_normalization_candidate_m": 37.21207933871461
+      },
       "PR_panel_report": {
-        "panels": 6247,
-        "max_mother_surface_to_flat_panel_error_m": 0.1266242447816815,
-        "reported_nominal_length_m": 1.8,
-        "reported_east_width_m": 0.3,
-        "axis9_and_west_closed_sections_verified": false
+        "candidate_panels": 18480,
+        "max_flattening_error_m": 0.007698355716026412,
+        "longitudinal_intervals": 72,
+        "cross_section_intervals": 373,
+        "published_nominal_length_m": 1.8,
+        "published_east_width_m": 0.3,
+        "axis9_coordinates_verified": false,
+        "closed_west_shop_curve_verified": false
       },
       "slabs": [
-        "PODIUM_V7_LEVEL_00_CANDIDATE",
-        "PODIUM_V7_LEVEL_01_CANDIDATE",
-        "PODIUM_V7_LEVEL_02_CANDIDATE",
-        "PODIUM_V7_LEVEL_03_CANDIDATE",
-        "PODIUM_V7_LEVEL_04_CANDIDATE",
-        "PODIUM_V7_LEVEL_05_CANDIDATE",
-        "PODIUM_V7_UPPER_LEVEL_06_WITH_TERRACE_VOID"
+        "PODIUM_V9_GROUND_PUBLISHED_COMMERCIAL_FLOOR",
+        "PODIUM_V9_UPPER_SLAB_02_BOUNDARY_CANDIDATE",
+        "PODIUM_V9_UPPER_SLAB_03_BOUNDARY_CANDIDATE",
+        "PODIUM_V9_UPPER_SLAB_04_BOUNDARY_CANDIDATE",
+        "PODIUM_V9_UPPER_SLAB_05_BOUNDARY_CANDIDATE",
+        "PODIUM_V9_UPPER_SLAB_06_BOUNDARY_CANDIDATE",
+        "PODIUM_V9_UPPER_SLAB_07_BOUNDARY_CANDIDATE"
       ],
       "candidate_levels_m": [
         0,
@@ -28962,355 +29408,28 @@
         8.4,
         12.6,
         16.8,
-        21.0,
+        21,
         25.2
       ],
-      "candidate_roof_extents_m": [
-        0,
-        37.0
-      ],
-      "footprint_verified": false,
       "asbuilt_verified": false,
-      "orientation_verified": false,
-      "used_parameters": {
-        "source_id": "PODIUM_GENS_V4",
-        "parameter_version": "v7-reported-PR-physical-panels-photo-fit-2026-10-11",
-        "evidence_level": "推导值",
-        "numeric_evidence_level": "待确认",
-        "asbuilt_verified": false,
-        "unit": "m",
-        "source_tower_diameter_reference_m": 82.2,
-        "scale_method": "82.2m published inner-floor endpoint used solely as dimensional prior. Outer facade cannot be equated with this diameter. No calibrated camera or orthographic plan; width/depth ratios are adjustable photo-informed modelling candidates.",
-        "uncertainty": "Metric error unbounded: oblique aerial, unknown lens/camera pose, roof height and hidden boundary. No perspective rectification performed. Local azimuth not geographic north. Roof curves, numeric dimensions, levels, facade joints and pavilions remain replacement-ready candidates.; V7施工总结载7层37m/PR分格，原书及竣工修订待核验；当前7层候选标高均匀4.2m仅接口，与建筑真实层高不可等同。",
-        "historical_conflict": {
-          "source_id": "D10",
-          "year": 2010,
-          "floor_count": 7,
-          "height_m": 38,
-          "adoption": "Historical structural design scheme. Not transferred to final podium photo geometry.",
-          "parallel_records": [
-            {
-              "source_id": "PODIUM_LINGYUN_BIM_V7",
-              "floors": 7,
-              "height_m": 37.0,
-              "phase": "施工总结转载，原卷待核验"
-            },
-            {
-              "source_id": "PODIUM_BID_V7",
-              "floors": 5,
-              "eave_height_m": 38.245,
-              "phase": "投标转录，不用于最终标高"
-            }
-          ]
-        },
-        "center_xy_m": [
-          -25,
-          -65
-        ],
-        "local_azimuth_deg": -90,
-        "width_m": 72,
-        "depth_m": 80,
-        "width_to_reference_diameter_ratio_candidate": 0.8759124088,
-        "depth_to_reference_diameter_ratio_candidate": 0.9732360097,
-        "corner_radius_m": 9,
-        "corner_samples": 16,
-        "display_slab_levels_m": [
-          0,
-          4.2,
-          8.4,
-          12.6,
-          16.8,
-          21.0,
-          25.2
-        ],
-        "slab_thickness_display_m": 0.25,
-        "terrace_top_m": 22.0,
-        "roof_high_m": 37.0,
-        "roof_arch_drop_m": 3.0,
-        "roof_back_drop_m": 1.6,
-        "roof_back_v_min": 0.02,
-        "roof_samples_width": 32,
-        "roof_samples_depth": 24,
-        "frame_radius_display_m": 0.022,
-        "lamella_count_display": 0,
-        "lamella_u_range": [
-          -0.33,
-          0.3
-        ],
-        "lamella_v_range": [
-          0.12,
-          0.4
-        ],
-        "lamella_radius_display_m": 0.012,
-        "satellite_pavilion": {
-          "center_xy_m": [
-            55,
-            -56
-          ],
-          "local_azimuth_deg": -5,
-          "width_m": 39,
-          "depth_m": 18,
-          "corner_radius_m": 8,
-          "height_m": 7,
-          "outer_radius_candidate_m": 30,
-          "inner_radius_candidate_m": 18,
-          "start_angle_candidate_deg": -135,
-          "span_candidate_deg": 90,
-          "arc_samples": 48,
-          "roof_fin_count_candidate": 25
-        },
-        "junction_candidate_xy_m": [
-          -20,
-          -28
-        ],
-        "junction_candidate_z_m": 12,
-        "sources": [
-          {
-            "title": "Shanghai Tower / base aerial",
-            "publisher": "Gensler",
-            "url": "https://static2.gensler.com/uploads/image/95597/project-shanghai-tower-01-2000x_1734564801.jpg",
-            "local_file": "references/new_podium/Gensler_base_aerial.jpg",
-            "type": "Photograph",
-            "date": "Not stated; asset filename timestamp is not exposure/publication proof",
-            "supports": "Single-sided warm/gold curved podium roof, terrace courtyard, setback pavilions, separate low landscape pavilion",
-            "dimensions_supported": false
-          },
-          {
-            "title": "Shanghai Tower Retail Podium",
-            "publisher": "Gensler",
-            "url": "https://www.gensler.com/projects/shanghai-tower-retail-podium",
-            "date": "Not stated; page refers to prospective summer2016 completion",
-            "type": "Primary designer project text plus design renderings",
-            "supports": "Multi-story retail podium, curved glazed facade; warm curved exterior envelope in historical rendering",
-            "dimensions_supported": false
-          },
-          {
-            "title": "Retail Podium / rendering01",
-            "publisher": "Gensler",
-            "url": "https://static1.gensler.com/uploads/hero_element/4907/thumb_desktop/thumbs/project_shanghai-tower-retail-podium_01_1402702218_1024x576.jpg",
-            "local_file": "references/new_podium/Gensler_retail_podium_01.jpg",
-            "type": "Design rendering, not as-built photograph",
-            "dimensions_supported": false
-          },
-          {
-            "title": "Retail Podium / rendering02",
-            "publisher": "Gensler",
-            "url": "https://static2.gensler.com/uploads/hero_element/4908/thumb_desktop/thumbs/project_shanghai-tower-retail-podium_02_1402702235_1024x576.jpg",
-            "local_file": "references/new_podium/Gensler_retail_podium_02.jpg",
-            "type": "Design rendering, not as-built photograph",
-            "dimensions_supported": false
-          },
-          {
-            "title": "Shanghai Tower / actual podium ground photograph95598",
-            "publisher": "Gensler",
-            "url": "https://static1.gensler.com/uploads/image/95598/podium-50_7053_000_N76_2000x2000lo_1734564869.jpg",
-            "type": "Actual project photograph, not historical rendering",
-            "date": "Not stated; asset filename timestamp not proof",
-            "supports": "Tall arched glass opening, dark curved return, locally tapered golden roll near ground, few vertical divisions and fine horizontal stripes",
-            "dimensions_supported": false
-          }
-        ],
-        "facade_module_candidate_m": 2.4,
-        "roof_shell_thickness_candidate_m": 0.3,
-        "terrace_rail_inset_candidate_m": 0.65,
-        "railing_height_candidate_m": 1.1,
-        "railing_radius_display_m": 0.04,
-        "entrance_offset_u": 0,
-        "entrance_width_candidate_m": 10,
-        "entrance_canopy_height_candidate_m": 4.5,
-        "entrance_canopy_depth_candidate_m": 3.2,
-        "entrance_canopy_thickness_candidate_m": 0.25,
-        "entrance_door_leaf_count_candidate": 4,
-        "garden_pavilions": {
-          "centre_u_abs": 0.29,
-          "centre_v": -0.2,
-          "half_size_uv": [
-            0.085,
-            0.195
-          ],
-          "samples": 48,
-          "tip_taper_candidate": 0.25,
-          "height_candidate_m": 0.35
-        },
-        "garden": {
-          "centre_uv": [
-            0,
-            -0.21
-          ],
-          "radii_uv": [
-            0.235,
-            0.2
-          ],
-          "samples": 64,
-          "path_half_width_candidate_m": 0.8,
-          "shade_pads_uv": [
-            [
-              -0.12,
-              -0.11
-            ],
-            [
-              0.08,
-              -0.12
-            ],
-            [
-              -0.12,
-              -0.27
-            ],
-            [
-              0,
-              -0.27
-            ],
-            [
-              0.12,
-              -0.28
-            ],
-            [
-              0.02,
-              -0.38
-            ]
-          ],
-          "shade_pad_width_candidate_m": 3.2
-        },
-        "detail_evidence": {
-          "roof_and_wings": "Actual95598 supports local tapered roll beside tall glass arch. v5 broad rectangular hanging gold side walls removed. Golden roof strips narrowed and left forward extension withdrawn.",
-          "garden": "Aerial supports curved garden edge, pale path, two curved glazed lobes and six visible white square elements. Their function is unidentified, modeled without a commercial label.",
-          "satellite": "Aerial supports concave segmented low pavilion and roof stripes. Arc centre, radii and segment count are candidates.",
-          "entry": "Historical entrance rendering not shown by default in v6; editable interface retained.",
-          "all_new_numeric_parameters": "待确认; no finite metric error bound from single oblique aerial. Added detail is relation reconstruction, not shop-drawing accuracy.",
-          "glass": "Ground image95598 shows many fine horizontal stripes and few vertical divisions within one arched mouth. v5 full-perimeter glass/mullion cage removed; hidden sides use explicitly unconfirmed opaque candidate faces.",
-          "orientation": "Candidate local azimuth rotated -90deg so tall mouth faces outside street rather than penetrating tower. Geographic north not established.",
-          "floor_boundary": "Each candidate slab edge is clipped inside descending fold, with candidate clearance; assembly repair not published surveyed slab contour.",
-          "v7": "PR分格由实际小玻璃实体生成，东西排布分开；PS石材/PG索网/VIP平台/PR背板层次分别表达。母面及总图仍为图像拟合，未取得竣工CAD。"
-        },
-        "front_opaque_band_candidate_z_m": [
-          5.5,
-          21.8
-        ],
-        "v4_retired_candidate_controls": {
-          "roof_edge_drop_m": 1.5,
-          "roof_fascia_depth_display_m": 2.5,
-          "pavilion_centres_uv": [
-            [
-              -0.28,
-              -0.2
-            ],
-            [
-              0.25,
-              -0.24
-            ]
-          ],
-          "pavilion_size_m": [
-            9,
-            20
-          ],
-          "pavilion_height_m": 2.4
-        },
-        "roof_side_inner_u_left": 0.455,
-        "roof_side_inner_u_right": 0.44,
-        "left_fold_front_v_candidate": -0.24,
-        "mouth_dark_return_width_candidate_m": 0.85,
-        "entrance_enabled": false,
-        "roof_striped_surface_enabled": true,
-        "main_body_opaque_sides": true,
-        "arched_mouth": {
-          "height_candidate_m": 35.5,
-          "angular_fraction_candidate": 0.82,
-          "power_candidate": 0.65,
-          "horizontal_row_count_candidate": 29,
-          "vertical_divisions_candidate": 5,
-          "curve_samples": 48,
-          "glass_bow_candidate_m": 0.15,
-          "frame_radius_display_m": 0.015,
-          "column_radius_candidate_m": 1.25,
-          "column_samples": 24
-        },
-        "front_vertical_divisions_candidate": 12,
-        "roof_field_display_rows": 130,
-        "rectangular_gold_wrap_enabled": false,
-        "pavilion_frames_enabled": false,
-        "v5_retired_candidate_controls": {
-          "roof_side_inner_u": 0.35,
-          "roof_coping_radius_candidate_m": 0.025,
-          "side_wrap_bottom_candidate_m": 6
-        },
-        "left_end_clearance_candidate_m": 0.35,
-        "floor_fold_clearance_candidate_m": 0.08,
-        "floor_inner_setback_candidate_u": 0.02,
-        "version": "podium-v7-system-and-panel-reconstruction",
-        "pr_panel_rules": {
-          "source_id": "PODIUM_LINGYUN_BIM_V7",
-          "evidence_level": "待确认（技术文献原卷及修订待核验）",
-          "reported_length_m": 1.8,
-          "reported_width_east_m": 0.3,
-          "reported_width_west_range_m": [
-            0.275,
-            0.3
-          ],
-          "reported_standard_joint_m": 0.016,
-          "reported_joint_variation_m": 0.005,
-          "reported_laminate_layers_m": [
-            0.008,
-            0.00152,
-            0.008
-          ],
-          "reported_west_start_z_m": 4.2,
-          "axis9_mapping": "待确认；局部u=0用于显示的替换接口，不冒充9轴坐标",
-          "section_seam_rule": "东沿开放截面等弦步，西闭合截面均分宽275–300mm；本模型尚无真实全套闭合断面，西细分规则仅在拟合曲面实现",
-          "panelization_limit": "曲面控制点待核验；分格生成规则有文献线索，面板尺寸误差另输出，不能称加工单。"
-        }
-      },
-      "historical_conflict": {
-        "source_id": "D10",
-        "year": 2010,
-        "floor_count": 7,
-        "height_m": 38,
-        "adoption": "Historical structural design scheme. Not transferred to final podium photo geometry.",
-        "parallel_records": [
-          {
-            "source_id": "PODIUM_LINGYUN_BIM_V7",
-            "floors": 7,
-            "height_m": 37.0,
-            "phase": "施工总结转载，原卷待核验"
-          },
-          {
-            "source_id": "PODIUM_BID_V7",
-            "floors": 5,
-            "eave_height_m": 38.245,
-            "phase": "投标转录，不用于最终标高"
-          }
-        ]
-      },
-      "uncertainty": "Metric error unbounded: oblique aerial, unknown lens/camera pose, roof height and hidden boundary. No perspective rectification performed. Local azimuth not geographic north. Roof curves, numeric dimensions, levels, facade joints and pavilions remain replacement-ready candidates.; V7施工总结载7层37m/PR分格，原书及竣工修订待核验；当前7层候选标高均匀4.2m仅接口，与建筑真实层高不可等同。",
       "checks": [
         {
-          "name": "podium_asymmetric_off_axis",
+          "name": "v9_podium_old_mother_retired",
           "passed": true,
-          "actual": [
-            -25,
-            -65
-          ]
+          "actual": true
         },
         {
-          "name": "podium_joined_roof_closed_shell",
+          "name": "v9_podium_seven_candidate_floors",
           "passed": true,
-          "actual": [
-            2
-          ]
+          "actual": 7
         },
         {
-          "name": "podium_no_rectangular_gold_wrap",
+          "name": "v9_podium_arc_PR_and_partial_canopy",
           "passed": true,
-          "actual": false
-        },
-        {
-          "name": "podium_historical_entry_disabled",
-          "passed": true,
-          "actual": false
-        },
-        {
-          "name": "podium_candidate_reaches_ground",
-          "passed": true,
-          "actual": 0
+          "actual": {
+            "PR": 18480,
+            "canopy": 77
+          }
         }
       ]
     },
@@ -29326,7 +29445,10 @@
         "target_radial_spacing_m": 9.0,
         "ring_glass_inset_candidate_m": 0.4,
         "inner_support_inset_candidate_m": 0.5,
-        "ring_samples": 144
+        "ring_samples": 144,
+        "cross_rods_enabled": true,
+        "cross_rod_reported_diameter_m": 0.06,
+        "cross_corner_index_half_span_candidate": 3
       },
       "frame": {
         "pair_tangent_offset_m": 4.7,
@@ -29448,34 +29570,22 @@
         ]
       },
       {
-        "name": "podium_asymmetric_off_axis",
+        "name": "v9_podium_old_mother_retired",
         "passed": true,
-        "actual": [
-          -25,
-          -65
-        ]
+        "actual": true
       },
       {
-        "name": "podium_joined_roof_closed_shell",
+        "name": "v9_podium_seven_candidate_floors",
         "passed": true,
-        "actual": [
-          2
-        ]
+        "actual": 7
       },
       {
-        "name": "podium_no_rectangular_gold_wrap",
+        "name": "v9_podium_arc_PR_and_partial_canopy",
         "passed": true,
-        "actual": false
-      },
-      {
-        "name": "podium_historical_entry_disabled",
-        "passed": true,
-        "actual": false
-      },
-      {
-        "name": "podium_candidate_reaches_ground",
-        "passed": true,
-        "actual": 0
+        "actual": {
+          "PR": 18480,
+          "canopy": 77
+        }
       }
     ],
     "inner_support_v7": {
@@ -29489,6 +29599,26 @@
           "name": "inner_floor_lower_support_geometry_present",
           "passed": true,
           "actual": 124
+        }
+      ]
+    },
+    "site_v8": {
+      "source_ids": [
+        "GENSLER_ARCHJOURNAL_V8",
+        "SWA_SITE_V8",
+        "PODIUM_GENS_V4"
+      ],
+      "published_scale_m_per_px": 0.3436426116838488,
+      "trees_candidate": 54,
+      "roads": 4,
+      "sunken_entry_has_ground_cut": true,
+      "retail_upper_RC_schedule_verified": false,
+      "asbuilt_verified": false,
+      "checks": [
+        {
+          "name": "v8_site_scale_and_four_streets_present",
+          "passed": true,
+          "actual": 100
         }
       ]
     }

@@ -26,6 +26,11 @@
     "V5_11_transition_facade_v5.md": true,
     "V5_11_podium_v5.md": true,
     "V5_11_v5修正与证据.md": true,
+    "V8_14_v8参数方案与证据.md": true,
+    "V8_site_v8.json": true,
+    "V9_15_v9修正方案与证据.md": true,
+    "V9_podium_v9.json": true,
+    "V8_CROWN_PARENT_PANEL_REGISTRY": true,
     "V7_13_v7参数方案与证据.md": true,
     "V7_inner_support_v7.json": true,
     "V6_12_crown_v6.md": true,
@@ -56,9 +61,13 @@
     "51_FLOOR_PROFILE_INTERFACES",
     "52_FLOOR_DIAMETER_SPECIMENS",
     "60_PODIUM_UNRESOLVED",
+    "60_SITE_PLAN_DERIVED",
+    "61_LANDSCAPE_CANDIDATES",
+    "62_STREETS_DERIVED",
     "64_PODIUM_PHOTO_DERIVED",
     "65_PODIUM_WARM_ROOF_DERIVED",
     "66_PODIUM_DETAIL_CANDIDATE",
+    "68_SUNKEN_PUBLIC_SPACE_CANDIDATE",
     "70_OUTER_ENVELOPE",
     "72_CROWN_DERIVED",
     "73_CROWN_FRAME_DISPLAY",
@@ -83,13 +92,13 @@
     "88_V_REENTRANT_FACADE",
     "90_VALIDATION"
   ],
-  "objects": 664,
+  "objects": 697,
   "all_objects_have_source_metadata": true,
   "geometry_signature": {
-    "sha256_rounded_geometry": "9e20c647553d469ffa638fc177b42ddeccbeca94f3e68aacce0e38223531ef18",
-    "mesh_count": 369,
-    "vertices": 1519268,
-    "polygons": 821251
+    "sha256_rounded_geometry": "a5060aecb222ad59bce365301eb3c01fcb79c177c762c3783716e2e9ff13c906",
+    "mesh_count": 393,
+    "vertices": 1825732,
+    "polygons": 993591
   },
   "signature_matches_generation": true,
   "passed": true,
@@ -97,7 +106,7 @@
     "slabs": 129,
     "mega_columns": 8,
     "installed_CWSS_objects": 5,
-    "podium_objects": 46,
+    "podium_objects": 37,
     "full_outer_transition_slabs": 16,
     "crown_cooling_towers": 8,
     "wind_turbine_shafts": 270,
@@ -108,7 +117,7 @@
       "material": "ST_glass",
       "node_values": {
         "Metallic": 0.0,
-        "Transmission Weight": 0.6200000047683716,
+        "Transmission Weight": 0.7799999713897705,
         "IOR": 1.5199999809265137,
         "Alpha": 1.0
       },
@@ -120,7 +129,7 @@
       "material": "ST_glass_detail",
       "node_values": {
         "Metallic": 0.0,
-        "Transmission Weight": 0.7200000286102295,
+        "Transmission Weight": 0.8199999928474426,
         "IOR": 1.5199999809265137,
         "Alpha": 1.0
       },
@@ -129,5 +138,12 @@
       "optical_specification_verified": false
     }
   ],
-  "generation_software_checks_passed": true
+  "generation_software_checks_passed": true,
+  "v9_actual_entities": {
+    "jade_piece_ids": 519,
+    "canopy_strip_ids": 240,
+    "cross_rods": 726,
+    "V_column_branches": 24,
+    "old_podium_geometry_absent": true
+  }
 }

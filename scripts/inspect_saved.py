@@ -15,8 +15,10 @@ required+=['ASSEMBLY_V3_PARAMETERS','ASSEMBLY_V3_EVIDENCE','ASSEMBLY_V3_PARAMETE
 v5=bpy.data.objects.get('CROWN_V5_MAIN_DECK_RECT_RECESS_AND_ROUND_APERTURE') is not None
 if v5:
     required+=['V5_crown_v5.json','V5_transition_v5.json','V5_11_crown_v5_actual_aerial.md','V5_11_transition_facade_v5.md','V5_11_podium_v5.md','V5_11_v5修正与证据.md']
-v6=bpy.context.scene.get('correction_version') in ('v6','v7')
-v7=bpy.context.scene.get('correction_version')=='v7'
+v6=bpy.context.scene.get('correction_version') in ('v6','v7','v8','v9')
+v7=bpy.context.scene.get('correction_version') in ('v7','v8','v9')
+if bpy.context.scene.get('correction_version') in ('v8','v9'):required+=['V8_14_v8参数方案与证据.md','V8_site_v8.json']
+if bpy.context.scene.get('correction_version')=='v9':required+=['V9_15_v9修正方案与证据.md','V9_podium_v9.json','V8_CROWN_PARENT_PANEL_REGISTRY']
 if v7:required+=['V7_13_v7参数方案与证据.md','V7_inner_support_v7.json']
 if v6:
     required+=['V6_12_crown_v6.md','V6_12_podium_v6.md','V6_12_roof_evidence_v6.md','V6_12_v6修正与证据.md']
@@ -48,6 +50,13 @@ if v6:
     report['actual_entities']['TMD_hall_floor_top_m']=max(v.co.z for v in hall.data.vertices) if hall else None
     report['generation_software_checks_passed']=bool(original.get('software_checks_passed'))
     report['passed']=report['passed'] and report['actual_entities']['wind_turbine_shafts']==270 and report['generation_software_checks_passed']
+if bpy.context.scene.get('correction_version')=='v9':
+    eye=bpy.data.objects.get('TMD_V8_SHANGHAI_EYE_C3_519_JADE_TILE_CANDIDATES');strips=bpy.data.objects.get('TMD_V7_RADIAL_FLAT_LAMELLAE_CLIPPED_AT_CAPSULES')
+    count=len({q.value for q in eye.data.attributes['art_tile_id'].data}) if eye else 0
+    strip_count=len({q.value for q in strips.data.attributes['canopy_strip_id'].data}) if strips else 0
+    x=bpy.data.objects.get('CWSS_V9_THREE_CORNER_PLAN_X_CROSS_RODS');vc=bpy.data.objects.get('TMD_V9_HEAVY_V_COLUMN_GRG_WRAPS')
+    report['v9_actual_entities']={'jade_piece_ids':count,'canopy_strip_ids':strip_count,'cross_rods':len(x.data.splines) if x else 0,'V_column_branches':len(vc.data.splines) if vc else 0,'old_podium_geometry_absent':not any(o.name.startswith(('PODIUM_V6_','PODIUM_V7_','PODIUM_V8_')) for o in ctx.objects)}
+    report['passed']=report['passed'] and count==519 and strip_count==240 and bool(x) and bool(vc) and report['v9_actual_entities']['old_podium_geometry_absent']
 (ROOT/'validation/saved_blend_inspection.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps(report,ensure_ascii=False))
 if not report['passed']: raise RuntimeError('Saved blend inspection failed')

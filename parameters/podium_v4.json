@@ -1,13 +1,13 @@
 {
   "source_id": "PODIUM_GENS_V4",
-  "parameter_version": "v7-reported-PR-physical-panels-photo-fit-2026-10-11",
+  "parameter_version": "v8-published-ground-plan-wing-pavilion-and-PR-candidate",
   "evidence_level": "推导值",
   "numeric_evidence_level": "待确认",
   "asbuilt_verified": false,
   "unit": "m",
   "source_tower_diameter_reference_m": 82.2,
   "scale_method": "82.2m published inner-floor endpoint used solely as dimensional prior. Outer facade cannot be equated with this diameter. No calibrated camera or orthographic plan; width/depth ratios are adjustable photo-informed modelling candidates.",
-  "uncertainty": "Metric error unbounded: oblique aerial, unknown lens/camera pose, roof height and hidden boundary. No perspective rectification performed. Local azimuth not geographic north. Roof curves, numeric dimensions, levels, facade joints and pavilions remain replacement-ready candidates.; V7施工总结载7层37m/PR分格，原书及竣工修订待核验；当前7层候选标高均匀4.2m仅接口，与建筑真实层高不可等同。",
+  "uncertainty": "Metric error unbounded: oblique aerial, unknown lens/camera pose, roof height and hidden boundary. No perspective rectification performed. Local azimuth not geographic north. Roof curves, numeric dimensions, levels, facade joints and pavilions remain replacement-ready candidates.; V7施工总结载7层37m/PR分格，原书及竣工修订待核验；当前7层候选标高均匀4.2m仅接口，与建筑真实层高不可等同。 V8 ground commercial wing and detached low pavilion traced from publishedp29/p31; upper PR curve and per-level RC boundaries remain unresolved.",
   "historical_conflict": {
     "source_id": "D10",
     "year": 2010,
@@ -70,10 +70,10 @@
   "lamella_radius_display_m": 0.012,
   "satellite_pavilion": {
     "center_xy_m": [
-      55,
-      -56
+      40.924711027803816,
+      -86.41049671977507
     ],
-    "local_azimuth_deg": -5,
+    "local_azimuth_deg": 0,
     "width_m": 39,
     "depth_m": 18,
     "corner_radius_m": 8,
@@ -83,7 +83,54 @@
     "start_angle_candidate_deg": -135,
     "span_candidate_deg": 90,
     "arc_samples": 48,
-    "roof_fin_count_candidate": 25
+    "roof_fin_count_candidate": 25,
+    "plan_outline_local_m": [
+      [
+        -25.46079350203062,
+        -6.373008434864104
+      ],
+      [
+        -22.36800999687598,
+        -12.214932833489542
+      ],
+      [
+        -7.935020306154335,
+        -13.245860668541084
+      ],
+      [
+        7.185254607935015,
+        -9.122149328334899
+      ],
+      [
+        21.618244298656663,
+        1.874414245548266
+      ],
+      [
+        26.42924086223055,
+        9.434551702592941
+      ],
+      [
+        22.305529522024365,
+        15.276476101218364
+      ],
+      [
+        13.370821618244292,
+        10.121836925960636
+      ],
+      [
+        0.6560449859418895,
+        2.561699468915961
+      ],
+      [
+        -12.746016869728216,
+        0.8434864104967232
+      ],
+      [
+        -23.05529522024368,
+        0.8434864104967232
+      ]
+    ],
+    "outline_source": "GENSLER_ARCHJOURNAL_V8p29; scaled trace, registration candidate"
   },
   "junction_candidate_xy_m": [
     -20,

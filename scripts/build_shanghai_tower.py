@@ -28,6 +28,7 @@ import transition_v5
 import inner_support_v7
 import environment_v7
 import collision_v7
+import site_v8
 
 
 def embed_text(name,text):
@@ -81,7 +82,10 @@ def setup(ctx):
     ctx.collection('90_VALIDATION').objects.link(obj)
     ctx._meta(obj,{'geometry_role':'presentation_light','uncertainty':'Interior reading light for diagnostic camera; not an installed architectural light fixture'})
     ground_size=ctx.config['display'].get('ground_size_m',10000)
-    ctx.box('ST_DISPLAY_GROUND',(0,0,-.5),(ground_size,ground_size,1),'90_VALIDATION','ground',{'geometry_role':'presentation','uncertainty':'Display top0m; not surveyed site datum'})
+    if ctx.config.get('site_v8'):
+        site_v8.ground(ctx,ctx.config['site_v8'],ground_size)
+    else:
+        ctx.box('ST_DISPLAY_GROUND',(0,0,-.5),(ground_size,ground_size,1),'90_VALIDATION','ground',{'geometry_role':'presentation','uncertainty':'Display top0m; not surveyed site datum'})
     main=camera(ctx,'VIEW_01_TOWER', (780,-1050,430),(0,0,315),720)
     side=camera(ctx,'VIEW_02_SECTION',(0,-1100,315),(0,0,315),690)
     plan=camera(ctx,'VIEW_03_PLAN_45',(0,0,1100),(0,0,45),125)
@@ -124,8 +128,64 @@ def setup(ctx):
     inner_base=camera(ctx,'VIEW_24_INNER_LOWER_SUPPORT_V7',(45,-90,34),(0,-28,48),38)
     sky_view=camera(ctx,'VIEW_25_SKY_AND_GLASS_V7',(900,-1200,320),(0,0,315),720)
     sky_view.data.type='PERSP';sky_view.data.lens=60
-    return [podium_near,inner_base,sky_view,main,side,plan,detail,node,main_near,crown,inner,core_plan,core,assembly,base,steel,crown_steel,notch,v_plan,aerial,roof_detail,transition,hall,wind,cooling]
+    site_plan=camera(ctx,'VIEW_26_SITE_PLAN_V8',(0,0,950),(0,0,0),440)
+    open_base=camera(ctx,'VIEW_27_B_ATRIUM_OPEN_BASE_V8',(105,-150,179),(0,-31,177),40)
+    eye=camera(ctx,'VIEW_28_SHANGHAI_EYE_V8',(6,-12,587.4),(0,-4,587.4),14)
+    return [hall,crown,wind,site_plan,open_base,eye,podium_near,inner_base,sky_view,main,side,plan,detail,node,main_near,inner,core_plan,core,assembly,base,steel,crown_steel,notch,v_plan,aerial,roof_detail,transition,cooling]
 
+
+def render_views(ctx,cameras,cfg,wanted,filepath,views):
+    scene=bpy.context.scene
+    original_visibility={o.name:o.hide_render for o in ctx.objects}
+    sample_collections={'41_CWSS_INDEPENDENT_SPECIMENS','13_CORE_WALL_THICKNESS_SPECIMENS','52_FLOOR_DIAMETER_SPECIMENS','82_HISTORICAL_CWA_2010_SAMPLE'}
+    for cam in cameras:
+        if cam.name.split('_')[1] not in wanted: continue
+        for o in ctx.objects:
+            o.hide_render=original_visibility[o.name]
+            if o.type=='FONT': o.hide_render=True
+            sample=any(c.name in sample_collections for c in o.users_collection)
+            if cam.name in ['VIEW_01_TOWER','VIEW_02_SECTION','VIEW_06_MAIN_PATTERN','VIEW_25_SKY_AND_GLASS_V7'] and sample: o.hide_render=True
+            if cam.name=='VIEW_02_SECTION' and any(c.name.startswith('80_CURTAIN_A_') for c in o.users_collection): o.hide_render=True
+            names={c.name for c in o.users_collection}
+            if cam.name in {'VIEW_02_SECTION','VIEW_11_ASSEMBLY','VIEW_13_CWSS_INSTALLED','VIEW_14_CROWN_ROOF_STEEL'}:
+                if any(n.startswith(('80_','83_','84_','86_','87_','88_','72_','73_','70_')) for n in names):o.hide_render=True
+                if sample or o.get('geometry_role') in {'research_control','published_elevation_guide_not_floor_plate','inner_zone1_control_not_installed_facade'}:o.hide_render=True
+            if cam.name=='VIEW_24_INNER_LOWER_SUPPORT_V7':
+                if any(n.startswith(('80_','83_','84_','86_','87_','88_','72_','73_','70_','42_','64_','65_','66_')) for n in names) or sample:o.hide_render=True
+            if cam.name=='VIEW_27_B_ATRIUM_OPEN_BASE_V8':
+                if any(n.startswith(('80_','86_','87_','88_','72_','73_','70_')) for n in names) or sample:o.hide_render=True
+            if cam.name=='VIEW_26_SITE_PLAN_V8':
+                o.hide_render=not any(n.startswith(('60_','61_','62_','64_','65_','66_','67_','68_','90_')) for n in names)
+                if o.type=='FONT':o.hide_render=True
+            if cam.name=='VIEW_23_PODIUM_SYSTEMS_V7' and sample:o.hide_render=True
+            if cam.name=='VIEW_22_COOLING_CUTAWAY_V6':
+                if any(n.startswith(('80_','83_','84_','86_','87_','88_','72_','73_','70_')) for n in names) or sample:o.hide_render=True
+            if cam.name=='VIEW_08_INNER' and any(n.startswith(('86_','87_')) for n in names):o.hide_render=True
+            if cam.name=='VIEW_14_CROWN_ROOF_STEEL' and o.get('geometry_role')=='crown_open_collector_roof_candidate' and o.type=='MESH':o.hide_render=True
+            if cam.name=='VIEW_16_V_PLAN':
+                o.hide_render=True
+                if (o.name.startswith('CWA_Z02_') or o.name.startswith('CWA_V_REENTRANT_') or o.name.startswith('ST_B_Z02_')):o.hide_render=False
+            if cam.name=='VIEW_12_GROUNDED_RETAIL' and (sample or o.get('geometry_role') in {'research_control','published_elevation_guide_not_floor_plate','inner_zone1_control_not_installed_facade'}):o.hide_render=True
+            if cam.name=='VIEW_02_SECTION' and any(n.startswith(('83_','84_','72_','73_')) for n in names): o.hide_render=True
+            if cam.name=='VIEW_08_INNER' and any(n.startswith(('80_CURTAIN_A_','72_','73_','70_')) for n in names):o.hide_render=True
+            if cam.name in {'VIEW_09_CORE_PLAN','VIEW_10_CORE_WALLS'}:
+                o.hide_render=not o.name.startswith('CORE_Z') or '14_CORE_HOLLOW_DERIVED' not in names
+                if cam.name=='VIEW_09_CORE_PLAN' and not o.name.startswith('CORE_Z02_'):o.hide_render=True
+            if cam.name in {'VIEW_07_CROWN','VIEW_08_INNER','VIEW_10_CORE_WALLS'} and sample:o.hide_render=True
+            if cam.name in {'VIEW_01_TOWER','VIEW_07_CROWN','VIEW_08_INNER','VIEW_06_MAIN_PATTERN'} and o.get('geometry_role') in {'research_control','published_elevation_guide_not_floor_plate','inner_zone1_control_not_installed_facade'}:
+                o.hide_render=True
+            if cam.name=='VIEW_05_CWSS' and any(c.name in {'13_CORE_WALL_THICKNESS_SPECIMENS','52_FLOOR_DIAMETER_SPECIMENS'} for c in o.users_collection): o.hide_render=True
+        scene.camera=cam
+        scene.render.resolution_x=cfg['display']['image_width']
+        scene.render.resolution_y=cfg['display']['image_height']
+        if 'DETAIL' in cam.name or 'CWSS' in cam.name or 'PATTERN' in cam.name:
+            scene.render.resolution_y=1100
+        scene.render.filepath=str(views/(cam.name+'.png'))
+        bpy.ops.render.render(write_still=True)
+        print('RENDERED',scene.render.filepath,flush=True)
+    for o in ctx.objects: o.hide_render=original_visibility[o.name]
+    scene.camera=bpy.data.objects.get('VIEW_01_TOWER')
+    bpy.ops.wm.save_as_mainfile(filepath=str(filepath),compress=True)
 
 def main():
     argv=sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else []
@@ -136,6 +196,7 @@ def main():
     parser.add_argument('--views',default='01,02,04,05,06,07,08,09,10,11,12,13,14')
     args=parser.parse_args(argv)
     cfg=json.loads(Path(args.config).read_text())
+    if cfg.get('site_v8_data_file'):cfg['site_v8']=json.loads((ROOT/cfg['site_v8_data_file']).read_text())
     params=json.loads((ROOT/'parameters/parameters.json').read_text())
     sources=json.loads((ROOT/'parameters/sources.json').read_text())
     anchors=json.loads((ROOT/'parameters/floor_anchors.json').read_text())
@@ -151,6 +212,9 @@ def main():
             if path.exists():assembly[component]=json.loads(path.read_text())
         podium_params_path=ROOT/'parameters/podium_v4.json'
         if podium_params_path.exists():assembly['podium_v4']=json.loads(podium_params_path.read_text())
+        p9_path=ROOT/'parameters/podium_v9.json'
+        if p9_path.exists():
+            assembly['podium_v9']=json.loads(p9_path.read_text());cfg['podium_v9']=assembly['podium_v9']
         transition_v5.configure(cfg,completion,anchors,assembly,assembly.get('transition_v5',{}))
     out=Path(args.output).resolve(); out.mkdir(parents=True,exist_ok=True)
     views=out.parent/'views'; views.mkdir(parents=True,exist_ok=True)
@@ -184,7 +248,7 @@ def main():
                 legacy_roof.hide_render=True;legacy_roof.hide_viewport=True
                 legacy_roof['superseded_by']='CROWN_V5_MAIN_DECK_RECT_RECESS_AND_ROUND_APERTURE'
                 legacy_roof['uncertainty']='Archived source-local F/L129 schedule proxy. Visible roof is separately rebuilt from aerial topology with rectangular recess and round aperture; no architectural floor crosswalk resolved.'
-            if assembly['crown_v5'].get('version','').startswith(('crown-v6','crown-v7')):
+            if assembly['crown_v5'].get('version','').startswith(('crown-v6','crown-v7','crown-v8')):
                 for number in (126,127,128):
                     legacy_floor=bpy.data.objects.get(f'F{number:03d}_DERIVED_SLAB')
                     if legacy_floor:
@@ -194,6 +258,7 @@ def main():
         physical=assembly_v3.build_assembly(ctx,geometry,completion,assembly)
         support_params=json.loads((ROOT/'parameters/inner_support_v7.json').read_text())
         physical['inner_support_v7']=inner_support_v7.build(ctx,floors['levels'],support_params)
+        if cfg.get('site_v8'):physical['site_v8']=site_v8.build(ctx,geometry,cfg['site_v8'])
         results['completion']['V_recess']=notch_v4.build_notch(ctx,geometry,completion,notch_params)
         results['assembly']={'floors':floors,'crown_detail':crown_detail,'physical':physical}
         (valdir/'assembly_report.json').write_text(json.dumps(results['assembly'],ensure_ascii=False,indent=2)+'\n')
@@ -208,8 +273,8 @@ def main():
     (valdir/'panel_registry.json').write_text(json.dumps(panel_records,ensure_ascii=False,indent=2)+'\n')
     cameras=setup(ctx)
     scene=bpy.context.scene
-    scene['project_id']=cfg['project_id'];scene['correction_version']='v7'
-    scene['accuracy_statement']='v7 source-informed research reconstruction: open crossed sculpture blades, radial capsule holes cut in both canopy layers, upper two-band vents, inboard crown steel, B lower structural layers, reported PR physical glass layers and full-direction sky. Sculpture/canopy, vents, podium mother surface, structural nodes and optical values remain uncalibrated candidates. Original podium/tmd shop drawings unavailable; no as-built precision claim.'
+    scene['project_id']=cfg['project_id'];scene['correction_version']='v9'
+    scene['accuracy_statement']='v9: source-reported nominal dimensions/counts kept separate from fits. Direct-arc C3 Eye with519 thin jade candidates and separate metal backbone; source-supported V hall columns and3 corner X rod pairs per CWSS ring. Crown lower-parent grid, wind/two-band and narrow strip cuts retained. Podium old mother retired, p31-scaled ground plan + composite tangent-arc spatial sweep, provisional upper slabs, local PG/PS and first-floor rain canopy. No final PR/RC shop CAD, aperture map, unified floor crosswalk, optical or surveying data; not construction/as-built precision.'
     scene['selected_geometry_version']=cfg['selected_geometry_version']
     scene['source_datum_offset_unknown']=True
     collision=collision_v7.inspect(ctx)
@@ -239,12 +304,16 @@ def main():
             if path.is_file():embed_text('V5_'+path.name,path.read_text())
         for path in list((ROOT/'docs').glob('*v7*'))+[ROOT/'parameters/inner_support_v7.json']:
             if path.is_file():embed_text('V7_'+path.name,path.read_text())
+        for path in list((ROOT/'docs').glob('*v8*'))+list((ROOT/'parameters').glob('*v8.json'))+list((ROOT/'docs').glob('*v9*'))+list((ROOT/'parameters').glob('*v9.json')):
+            if path.is_file():embed_text(('V9_' if 'v9' in path.name else 'V8_')+path.name,path.read_text())
         for path in (ROOT/'docs').glob('*v6*'):
             if path.is_file():embed_text('V6_'+path.name,path.read_text())
     embed_text('DESIGN_STAGE2_ARCHIVE', (ROOT/'docs/02_Blender建模方案.md').read_text())
     for name,path in [('PARAMETERS_JSON',ROOT/'parameters/parameters.json'),('SOURCES_JSON',ROOT/'parameters/sources.json'),('FLOOR_ANCHORS_JSON',ROOT/'parameters/floor_anchors.json'),('MODEL_CONFIG_JSON',Path(args.config))]: embed_text(name,path.read_text())
     embed_text('VALIDATION_JSON',json.dumps(summary,ensure_ascii=False,indent=2))
     embed_text('PANEL_REGISTRY_JSON',json.dumps(panel_records,ensure_ascii=False,indent=1))
+    if results.get('completion',{}).get('crown',{}).get('shared_lower_parent_grid'):
+        embed_text('V8_CROWN_PARENT_PANEL_REGISTRY',json.dumps(results['completion']['crown']['panel_records'],ensure_ascii=False,indent=1))
     embed_text('UNCERTAINTY_SUMMARY',json.dumps(report['uncertainties'],ensure_ascii=False,indent=2))
     for path in SCRIPTS.glob('*.py'): embed_text('SCRIPT_'+path.name,path.read_text())
     for area in bpy.context.screen.areas:
@@ -259,53 +328,8 @@ def main():
     bpy.ops.wm.save_as_mainfile(filepath=str(filepath),compress=True)
     print('SAVED',filepath,flush=True)
     print('SOFTWARE_CHECKS',report['software_checks_passed'],report['geometry_signature'],flush=True)
-    if args.render:
-        wanted=set(args.views.split(','))
-        original_visibility={o.name:o.hide_render for o in ctx.objects}
-        sample_collections={'41_CWSS_INDEPENDENT_SPECIMENS','13_CORE_WALL_THICKNESS_SPECIMENS','52_FLOOR_DIAMETER_SPECIMENS','82_HISTORICAL_CWA_2010_SAMPLE'}
-        for cam in cameras:
-            if cam.name.split('_')[1] not in wanted: continue
-            for o in ctx.objects:
-                o.hide_render=original_visibility[o.name]
-                if o.type=='FONT': o.hide_render=True
-                sample=any(c.name in sample_collections for c in o.users_collection)
-                if cam.name in ['VIEW_01_TOWER','VIEW_02_SECTION','VIEW_06_MAIN_PATTERN','VIEW_25_SKY_AND_GLASS_V7'] and sample: o.hide_render=True
-                if cam.name=='VIEW_02_SECTION' and any(c.name.startswith('80_CURTAIN_A_') for c in o.users_collection): o.hide_render=True
-                names={c.name for c in o.users_collection}
-                if cam.name in {'VIEW_02_SECTION','VIEW_11_ASSEMBLY','VIEW_13_CWSS_INSTALLED','VIEW_14_CROWN_ROOF_STEEL'}:
-                    if any(n.startswith(('80_','83_','84_','86_','87_','88_','72_','73_','70_')) for n in names):o.hide_render=True
-                    if sample or o.get('geometry_role') in {'research_control','published_elevation_guide_not_floor_plate','inner_zone1_control_not_installed_facade'}:o.hide_render=True
-                if cam.name=='VIEW_24_INNER_LOWER_SUPPORT_V7':
-                    if any(n.startswith(('80_','83_','84_','86_','87_','88_','72_','73_','70_','42_','64_','65_','66_')) for n in names) or sample:o.hide_render=True
-                if cam.name=='VIEW_23_PODIUM_SYSTEMS_V7' and sample:o.hide_render=True
-                if cam.name=='VIEW_22_COOLING_CUTAWAY_V6':
-                    if any(n.startswith(('80_','83_','84_','86_','87_','88_','72_','73_','70_')) for n in names) or sample:o.hide_render=True
-                if cam.name=='VIEW_08_INNER' and any(n.startswith(('86_','87_')) for n in names):o.hide_render=True
-                if cam.name=='VIEW_14_CROWN_ROOF_STEEL' and o.get('geometry_role')=='crown_open_collector_roof_candidate' and o.type=='MESH':o.hide_render=True
-                if cam.name=='VIEW_16_V_PLAN':
-                    o.hide_render=True
-                    if (o.name.startswith('CWA_Z02_') or o.name.startswith('CWA_V_REENTRANT_') or o.name.startswith('ST_B_Z02_')):o.hide_render=False
-                if cam.name=='VIEW_12_GROUNDED_RETAIL' and (sample or o.get('geometry_role') in {'research_control','published_elevation_guide_not_floor_plate','inner_zone1_control_not_installed_facade'}):o.hide_render=True
-                if cam.name=='VIEW_02_SECTION' and any(n.startswith(('83_','84_','72_','73_')) for n in names): o.hide_render=True
-                if cam.name=='VIEW_08_INNER' and any(n.startswith(('80_CURTAIN_A_','72_','73_','70_')) for n in names):o.hide_render=True
-                if cam.name in {'VIEW_09_CORE_PLAN','VIEW_10_CORE_WALLS'}:
-                    o.hide_render=not o.name.startswith('CORE_Z') or '14_CORE_HOLLOW_DERIVED' not in names
-                    if cam.name=='VIEW_09_CORE_PLAN' and not o.name.startswith('CORE_Z02_'):o.hide_render=True
-                if cam.name in {'VIEW_07_CROWN','VIEW_08_INNER','VIEW_10_CORE_WALLS'} and sample:o.hide_render=True
-                if cam.name in {'VIEW_01_TOWER','VIEW_07_CROWN','VIEW_08_INNER','VIEW_06_MAIN_PATTERN'} and o.get('geometry_role') in {'research_control','published_elevation_guide_not_floor_plate','inner_zone1_control_not_installed_facade'}:
-                    o.hide_render=True
-                if cam.name=='VIEW_05_CWSS' and any(c.name in {'13_CORE_WALL_THICKNESS_SPECIMENS','52_FLOOR_DIAMETER_SPECIMENS'} for c in o.users_collection): o.hide_render=True
-            scene.camera=cam
-            scene.render.resolution_x=cfg['display']['image_width']
-            scene.render.resolution_y=cfg['display']['image_height']
-            if 'DETAIL' in cam.name or 'CWSS' in cam.name or 'PATTERN' in cam.name:
-                scene.render.resolution_y=1100
-            scene.render.filepath=str(views/(cam.name+'.png'))
-            bpy.ops.render.render(write_still=True)
-            print('RENDERED',scene.render.filepath,flush=True)
-        for o in ctx.objects: o.hide_render=original_visibility[o.name]
-        scene.camera=bpy.data.objects.get('VIEW_01_TOWER')
-        bpy.ops.wm.save_as_mainfile(filepath=str(filepath),compress=True)
+    if args.render and report['software_checks_passed']:
+        render_views(ctx,cameras,cfg,set(args.views.split(',')),filepath,views)
     if not report['software_checks_passed']: raise RuntimeError('Research geometry checks failed; inspect validation_report.json')
 
 if __name__=='__main__': main()

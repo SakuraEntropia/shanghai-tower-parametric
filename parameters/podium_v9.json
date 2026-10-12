@@ -1,0 +1,366 @@
+{
+  "version": "podium-v9-plan-and-composite-arc-sweep",
+  "source_ids": [
+    "GENSLER_ARCHJOURNAL_V8",
+    "PODIUM_LINGYUN_BIM_V7",
+    "PODIUM_GENS_V4",
+    "PODIUM_GENS_GROUND_V6"
+  ],
+  "evidence_level": "推导值/待确认上部曲面",
+  "asbuilt_verified": false,
+  "uncertainty": "p31 printed ground plan is scaled, not signed construction CAD; pixel picking ±3px ≈0.59m, registration and phase errors unbounded. Upper arcs, axis9, slab schedule, panel coordinates and steel nodes are candidates. Complete approved RC/PR/shop drawings unavailable.",
+  "ground_plan_reference": "references/v8/Ground_plan_p31_crop.png",
+  "ground_scale_bar_px": [
+    [
+      156,
+      708
+    ],
+    [
+      258,
+      708
+    ]
+  ],
+  "ground_scale_bar_m": 20,
+  "tower_center_px": [
+    646,
+    395
+  ],
+  "rotation_candidate_deg": 90,
+  "ground_outline_px": [
+    [
+      263,
+      117
+    ],
+    [
+      264,
+      58
+    ],
+    [
+      328,
+      42
+    ],
+    [
+      377,
+      39
+    ],
+    [
+      444,
+      48
+    ],
+    [
+      515,
+      68
+    ],
+    [
+      768,
+      110
+    ],
+    [
+      917,
+      140
+    ],
+    [
+      956,
+      275
+    ],
+    [
+      958,
+      296
+    ],
+    [
+      938,
+      321
+    ],
+    [
+      875,
+      337
+    ],
+    [
+      817,
+      344
+    ],
+    [
+      758,
+      337
+    ],
+    [
+      709,
+      319
+    ],
+    [
+      625,
+      305
+    ],
+    [
+      533,
+      320
+    ],
+    [
+      446,
+      334
+    ],
+    [
+      372,
+      354
+    ],
+    [
+      330,
+      374
+    ],
+    [
+      273,
+      381
+    ],
+    [
+      248,
+      370
+    ],
+    [
+      243,
+      317
+    ],
+    [
+      262,
+      312
+    ]
+  ],
+  "sweep_path_px": [
+    [
+      270,
+      183
+    ],
+    [
+      350,
+      177
+    ],
+    [
+      470,
+      177
+    ],
+    [
+      610,
+      190
+    ],
+    [
+      740,
+      207
+    ],
+    [
+      835,
+      220
+    ],
+    [
+      922,
+      236
+    ]
+  ],
+  "section_start_candidate_m": [
+    -20,
+    0
+  ],
+  "section_start_tangent_candidate_deg": 90,
+  "section_arc_chain_candidate": [
+    {
+      "radius_m": 25,
+      "turn_deg": -65
+    },
+    {
+      "radius_m": 28,
+      "turn_deg": -35
+    },
+    {
+      "radius_m": 15,
+      "turn_deg": -75
+    }
+  ],
+  "section_peak_reported_m": 37,
+  "section_end_target_candidate_m": 0,
+  "section_modulation_candidate": [
+    [
+      0,
+      0.8,
+      0.9,
+      -5
+    ],
+    [
+      0.2,
+      1.0,
+      1.0,
+      -2
+    ],
+    [
+      0.5,
+      1.08,
+      0.99,
+      3
+    ],
+    [
+      0.75,
+      0.95,
+      0.96,
+      5
+    ],
+    [
+      1,
+      0.72,
+      0.9,
+      8
+    ]
+  ],
+  "axis9_candidate_fraction": 0.58,
+  "west_PR_start_reported_m": 4.2,
+  "upper_floor_levels_candidate_m": [
+    0,
+    4.2,
+    8.4,
+    12.6,
+    16.8,
+    21,
+    25.2
+  ],
+  "slab_thickness_candidate_m": 0.225,
+  "slab_edge_setback_candidate_m": 0.7,
+  "terrace_candidate_m": 22,
+  "courtyard_photo_fit_px": [
+    [
+      290,
+      225
+    ],
+    [
+      398,
+      218
+    ],
+    [
+      451,
+      243
+    ],
+    [
+      452,
+      298
+    ],
+    [
+      412,
+      327
+    ],
+    [
+      298,
+      311
+    ]
+  ],
+  "court_corner_radius_candidate_m": 3,
+  "white_terrace_pads_candidate_px": [
+    [
+      327,
+      249
+    ],
+    [
+      388,
+      249
+    ],
+    [
+      426,
+      274
+    ],
+    [
+      334,
+      282
+    ],
+    [
+      386,
+      292
+    ],
+    [
+      422,
+      308
+    ]
+  ],
+  "white_terrace_pad_candidate_m": 3.2,
+  "corner_fillet_candidate_m": 2.0,
+  "PR_nominal_length_reported_m": 1.8,
+  "PR_east_width_reported_m": 0.3,
+  "PR_west_width_reported_range_m": [
+    0.275,
+    0.3
+  ],
+  "PR_joint_reported_m": 0.016,
+  "PR_laminate_reported_m": [
+    0.008,
+    0.00152,
+    0.008
+  ],
+  "PR_backing_offset_candidate_m": 0.06,
+  "PG_horizontal_pitch_candidate_m": 1.5,
+  "PG_cable_span_candidate_m": 6,
+  "PG_cable_radius_candidate_m": 0.025,
+  "PG_glass_height_front_candidate_m": 5.5,
+  "PS_opaque_band_candidate_m": [
+    5.5,
+    21.8
+  ],
+  "steel_column_grid_candidate_m": 8,
+  "steel_column_radius_candidate_m": 0.2,
+  "steel_roof_rib_radius_candidate_m": 0.16,
+  "rail_height_candidate_m": 1.1,
+  "garden_pavilion_candidate_outlines_px": [
+    [
+      [
+        287,
+        223
+      ],
+      [
+        310,
+        218
+      ],
+      [
+        317,
+        258
+      ],
+      [
+        309,
+        300
+      ],
+      [
+        290,
+        302
+      ]
+    ],
+    [
+      [
+        422,
+        247
+      ],
+      [
+        442,
+        244
+      ],
+      [
+        453,
+        272
+      ],
+      [
+        451,
+        307
+      ],
+      [
+        432,
+        311
+      ]
+    ]
+  ],
+  "garden_pavilion_height_candidate_m": 0.45,
+  "south_rain_canopy": {
+    "source_locator": "Lingyun Fig8 south canopy / north-south stainless-glass system; actual aerial curved first-floor canopy",
+    "profile_fraction_candidate": [
+      0.08,
+      0.64
+    ],
+    "z_candidate_m": 4.2,
+    "width_candidate_m": 5.5,
+    "rib_radius_candidate_m": 0.065,
+    "glass_rib_clearance_candidate_m": 0.12,
+    "module_width_candidate_m": 1.5
+  },
+  "landscape_pavilion_height_candidate_m": 5.5,
+  "roof_global_z_scale_candidate": 0.9943007931165522,
+  "roof_peak_before_normalization_candidate_m": 37.21207933871461
+}

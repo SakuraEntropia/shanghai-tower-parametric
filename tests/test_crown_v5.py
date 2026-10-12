@@ -15,8 +15,8 @@ from floors_v3 import annular_slab, ray_hole_radius
 
 class Recorder:
     def __init__(self,config):self.config=config;self.component_results={};self.records=[]
-    def mesh(self,name,verts,faces,collection,material,meta):
-        self.records.append({'name':name,'verts':verts,'faces':faces,'meta':meta,'kind':'mesh'})
+    def mesh(self,name,verts,faces,collection,material,meta,**kwargs):
+        self.records.append({'name':name,'verts':verts,'faces':faces,'meta':meta,'kind':'mesh',**kwargs})
         return SimpleNamespace(name=name)
     def lines(self,name,paths,collection,radius,material,meta):
         self.records.append({'name':name,'paths':paths,'meta':meta,'kind':'lines'})
@@ -110,15 +110,15 @@ class CrownV5Tests(unittest.TestCase):
         self.assertGreater(magnet['center'][2]-magnet['size'][2]/2,max(v[2] for v in copper['verts']))
         self.assertLess(magnet['center'][2]+magnet['size'][2]/2,min(v[2] for v in mass['verts'])+.001)
 
-    def test_wind_apertures_remove_real_glass_faces_and_frames_are_sparse(self):
+    def test_wind_apertures_cut_parent_panes_and_frames_keep_lower_grid(self):
         ctx=Recorder(self.config)
         report=crown.build_crown(ctx,geometry,self.candidate)
         self.assertTrue(report['software_checks_passed'])
-        self.assertGreater(report['wind_aperture_removed_cell_count'],200)
-        self.assertFalse(any(crown.wind_aperture_at(sum(r['stations'])/2,
-            sum(r['candidate_band_z_range_m'])/2,self.candidate) for r in report['panel_records']))
+        self.assertTrue(report['shared_lower_parent_grid'])
+        self.assertFalse(any(crown.wind_aperture_at(r['stations'][0] if r['aperture_uv_chart']=='local_shoulder_0_1' else sum(v[0] for v in poly)/len(poly),sum(v[1] for v in poly)/len(poly),self.candidate)
+            for r in report['panel_records'] for poly in r['remaining_uv_polygons']))
         frame=next(r for r in ctx.records if r['name']=='CROWN_FRAME_UNCONFIRMED_GRID')
-        self.assertLess(len(frame['paths']),len(report['panel_records'])*1.2)
+        self.assertTrue(frame['faces']);self.assertEqual(frame['meta']['shared_lower_band_pitch_m'],self.config['curtain']['nominal_band_pitch_m'])
 
     def test_roof_radial_members_do_not_pierce_deck_top(self):
         ctx=Recorder(self.config)

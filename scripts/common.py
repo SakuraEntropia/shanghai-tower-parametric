@@ -104,6 +104,14 @@ class SceneBuilder:
                 bsdf.inputs['Emission Color'].default_value=rgba
                 bsdf.inputs['Emission Strength'].default_value=.35
             self.materials[key]=mat
+        for key,opt in self.config.get('display',{}).get('extra_materials',{}).items():
+            mat=bpy.data.materials.new('ST_'+key);mat.use_nodes=True;mat.diffuse_color=opt['rgba']
+            bsdf=mat.node_tree.nodes.get('Principled BSDF');bsdf.inputs['Base Color'].default_value=opt['rgba'];bsdf.inputs['Metallic'].default_value=opt.get('metallic',0);bsdf.inputs['Roughness'].default_value=opt.get('roughness',.6)
+            if key=='grg_gradient':
+                coord=mat.node_tree.nodes.new('ShaderNodeTexCoord');sep=mat.node_tree.nodes.new('ShaderNodeSeparateXYZ');ramp=mat.node_tree.nodes.new('ShaderNodeValToRGB')
+                ramp.color_ramp.elements[0].color=opt['low_rgba'];ramp.color_ramp.elements[1].color=opt['rgba'];ramp.color_ramp.elements[1].position=opt['gradient_top_fraction']
+                mat.node_tree.links.new(coord.outputs['Generated'],sep.inputs[0]);mat.node_tree.links.new(sep.outputs['Z'],ramp.inputs[0]);mat.node_tree.links.new(ramp.outputs[0],bsdf.inputs['Base Color'])
+            mat['evidence_level']='待确认（展示）';mat['asbuilt_verified']=False;mat['uncertainty']='Display palette; no product optical or coating measurement.';self.materials[key]=mat
 
     def collection(self, name):
         c=bpy.data.collections.get(name)

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "research_date": "2026-10-11",
+  "research_date": "2026-10-12",
   "sources": [
     {
       "id": "G01",
@@ -775,6 +775,88 @@
       "local_path": null,
       "retrieved_on": "2026-10-11",
       "credibility": "见原作者、发布渠道及版次限制；照片不能证明精确坐标"
+    },
+    {
+      "id": "ARTIST_EYE_V8",
+      "title": "跨领域艺术家米丘创建上海中心垂直文化生态系统 / Shanghai Eye",
+      "institution": "漾泱艺术/米丘团队；美通社分发",
+      "publication_date": "网页2018-01-10；正文电头2017-01-10并列",
+      "url": "https://www.prnasia.com/story/199513-1.shtml",
+      "type": "创作者发布说明及2200×1467现场照片",
+      "primary": true,
+      "locator": "米丘在上海中心三大创举；慧眼/穹顶两段与照片c/d",
+      "original_units": "m, tonnes, piece counts",
+      "scale_or_version": "现场形态约2017/18；2025改造图未取得；无加工图比例尺",
+      "support": "三面对称、7.7×3.89m、519琉璃片、底座Ø9.1m；35m空间/23m两层；240铜条/Ø4m井，曲面包柱",
+      "limitations": "名义尺寸非本次测量；照片无镜头/姿态，不能支持逐片CAD/全周孔洞/2025竣工",
+      "credibility": "创作者机构原始发布；两种日期冲突保留",
+      "photo_url": "https://photos.prnasia.com/media_files/static/2018/01/201801101322_51f6ad15.jpg",
+      "retrieved_on": "2026-10-12"
+    },
+    {
+      "id": "GENSLER_ARCHJOURNAL_V8",
+      "title": "上海中心 / Shanghai Tower",
+      "institution": "Gensler/同济大学建筑设计研究院；建筑学报2019|03",
+      "publication_date": "2019-03",
+      "url": "https://jzgc.cug.edu.cn/__local/7/6D/A0/764840E256932AD409277D03B0D_5EE12AC5_5027D5.pdf?e=.pdf",
+      "type": "专业出版项目总图/首层/典型平剖及实景；大学公开副本",
+      "primary": true,
+      "locator": "PDFp2印刷p29总平；PDFp4印刷p31一层；p32/33大堂；p34下沉空间",
+      "original_units": "m, hm²；总平0–100m图示尺，首层0–20m",
+      "scale_or_version": "完成2015；2019出版；原图无施工修订/签章",
+      "support": "四道路/基地、商业首层翼及低亭轮廓、场地/地面公共空间布局",
+      "limitations": "扫描描线误差和版本系统误差需分开；不是批准规划/竣工RC图；高区逐层及PR曲面缺失",
+      "credibility": "责任方项目图在专业期刊发表，大学提供可校尺扫描；有限精度",
+      "retrieved_on": "2026-10-12"
+    },
+    {
+      "id": "SWA_SITE_V8",
+      "title": "Shanghai Tower landscape / Tower Park",
+      "institution": "SWA Group",
+      "publication_date": null,
+      "url": "https://www.swagroup.com/projects/shanghai-tower/",
+      "type": "景观设计方项目文及照片",
+      "primary": true,
+      "locator": "DETAILS及项目正文/摄影图库",
+      "original_units": "m², %",
+      "scale_or_version": "网页无发布时间/照片外参；部分2010设计图与建成照片需区别",
+      "support": "公园、屋顶/下沉花园与水池竹岛；12921m²景观服务面积",
+      "limitations": "无精确边界/标高/家具树木坐标；33%/90%是设计说明统计，不是本模型测算",
+      "credibility": "设计责任方一手项目资料",
+      "retrieved_on": "2026-10-12"
+    },
+    {
+      "id": "CONCRETE_CEMENT_V8",
+      "title": "Shanghai Tower — Monolithic pouring of the foundation slab",
+      "institution": "Jian Gong(SCG/Tongji)、Weijiu Cui/Yong Yuan(Tongji)；Cement3/2017",
+      "publication_date": "2017",
+      "url": "https://www.cementonline.nl/artikelen/shanghai-tower?file=1510232659.104.pdf",
+      "type": "原工程作者施工论文与筏板平剖",
+      "primary": true,
+      "locator": "PDFp2印刷p87Fig3a/3b；全文pp86–89",
+      "original_units": "图mm，文m/m³",
+      "scale_or_version": "施工总结/2017；不是完整施工图套图",
+      "support": "筏板外径123m、内厚6m/边厚1.6m及103.5m厚区跨距",
+      "limitations": "不支持裙房上部RC逐层/幕墙曲线；121层口径与其他源冲突，不能替代最终计数",
+      "credibility": "工程责任机构作者的一手施工技术文",
+      "retrieved_on": "2026-10-12"
+    },
+    {
+      "id": "CIMA_RHINO_HALL_V9",
+      "title": "又一个Rhino完成的项目—上海中心大厦顶端阻尼器",
+      "institution": "Robert McNeel & Associates / Rhino3D；上海熙玛工程顾问CIMA供图；上海中心供实景",
+      "publication_date": "2017-08-31",
+      "url": "https://blog.cn.rhino3d.com/shanghai-tower-open-top-damper/",
+      "type": "原软件厂商工程报道及顾问原模型截图",
+      "primary": true,
+      "locator": "实物照片及CIMA图片01/02/03；https://blog.cn.rhino3d.com/wp-content/uploads/2017/08/03.jpg",
+      "original_units": "截图无尺度；零部件编号可见，不可替代尺寸表",
+      "scale_or_version": "2017施工顾问模型/实景；原Rhino未公开",
+      "source_phase": "2017建成报道",
+      "support": "连续弧钢骨及下部外展脚、平切交叉上端；大厅周边斜柱与天花铜肋，骨架/饰面层次",
+      "limitations": "无完整模型/尺寸/视点标定，不能精确测量；模型截图可证拓扑，不能证明全部施工坐标",
+      "retrieved_on": "2026-10-12",
+      "credibility": "顾问署名原始模型/业主摄影，数值未由此虚构"
     }
   ]
 }

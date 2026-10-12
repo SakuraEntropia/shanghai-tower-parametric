@@ -317,14 +317,18 @@ def _tmd_hall(ctx,p,meta,roof_z):
     floor_poly=_circle((0,0),radius,128);masshole=_circle(center,p['tmd_mass_radius_fit_m']+p['tmd_movement_clearance_fit_m'])
     fv,ff=_extruded_polygons(_cut_polygons([floor_poly],[masshole]),hall_z,p['tmd_hall_floor_depth_fit_m'])
     ctx.mesh('TMD_V6_HALL_126_VISITOR_FLOOR',fv,ff,collection,'core',local)
-    wall_quads=[];seams=[]
-    for i in range(128):
-        a,b=2*math.pi*i/128,2*math.pi*(i+1)/128
-        x,y=radius*math.cos(a),radius*math.sin(a);u,v=radius*math.cos(b),radius*math.sin(b)
-        wall_quads.append([(x,y,hall_z),(u,v,hall_z),(u,v,roof_z-p['deck_thickness_fit_m']),(x,y,roof_z-p['deck_thickness_fit_m'])])
-        if i%2==0:seams.append([(x,y,hall_z),(x,y,roof_z-p['deck_thickness_fit_m'])])
-    _quad_mesh(ctx,'TMD_V6_HALL_CYLINDRICAL_ENCLOSURE',wall_quads,collection,'tmd_hall',local)
-    ctx.lines('TMD_V6_HALL_VERTICAL_CLADDING_SEAMS',seams,collection,p['tmd_cladding_seam_radius_display_m'],'steel',local)
+    if p.get('version','').startswith('crown-v8'):
+        from crown_art_v8 import build_hall_enclosure
+        build_hall_enclosure(ctx,p,local)
+    else:
+        wall_quads=[];seams=[]
+        for i in range(128):
+            a,b=2*math.pi*i/128,2*math.pi*(i+1)/128
+            x,y=radius*math.cos(a),radius*math.sin(a);u,v=radius*math.cos(b),radius*math.sin(b)
+            wall_quads.append([(x,y,hall_z),(u,v,hall_z),(u,v,roof_z-p['deck_thickness_fit_m']),(x,y,roof_z-p['deck_thickness_fit_m'])])
+            if i%2==0:seams.append([(x,y,hall_z),(x,y,roof_z-p['deck_thickness_fit_m'])])
+        _quad_mesh(ctx,'TMD_V6_HALL_CYLINDRICAL_ENCLOSURE',wall_quads,collection,'tmd_hall',local)
+        ctx.lines('TMD_V6_HALL_VERTICAL_CLADDING_SEAMS',seams,collection,p['tmd_cladding_seam_radius_display_m'],'steel',local)
     # Mechanical mass geometry is a cylinder proxy, not a fabricated shop body.
     mass_radius=p['tmd_mass_radius_fit_m'];mass_thickness=p['tmd_mass_thickness_fit_m']
     mv,mf=_extruded_polygons([_circle(center,mass_radius,96)],hall_z,mass_thickness)

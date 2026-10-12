@@ -20,6 +20,9 @@ def _meta(role,p,**extra):
             'material_specification_verified':False,
             'source_conflict':'D10 7/38m; contractor article7/37m vs tender5/38.245m. Public original and final revision missing; candidate37m chosen without as-built assertion'}
     result.update(extra)
+    if str(p.get('parameter_version','')).startswith('v8') and 'pavilion' in role:
+        result['source_ids']=list(dict.fromkeys(result['source_ids']+['GENSLER_ARCHJOURNAL_V8']))
+        result['source_locator']+='; publishedp29 scale-bar pavilion trace; registration/height candidate'
     return result
 
 
@@ -175,6 +178,8 @@ def lobe_outline(p,sign):
 
 def satellite_outline(p):
     q=p['satellite_pavilion'];points=[]
+    if q.get('plan_outline_local_m'):
+        return resample(q['plan_outline_local_m'],p['facade_module_candidate_m'])
     for radius,reverse in [(q['outer_radius_candidate_m'],False),(q['inner_radius_candidate_m'],True)]:
         indices=list(range(q['arc_samples']+1))
         if reverse:indices.reverse()

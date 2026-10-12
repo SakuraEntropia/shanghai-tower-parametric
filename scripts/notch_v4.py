@@ -85,11 +85,23 @@ def build_notch(ctx,geometry,completion,p):
              if i<=apex_index else min(end_left,end_right)+(end_right-min(end_left,end_right))*(i-apex_index)/(i1-apex_index)
              for i in range(i0,i1+1)}
     heights[apex_index]=min(end_left,end_right)
-    cfaces=[];cverts=[];z=542.;last=None
+    cfaces=[];cverts=[];crown_closures=[];z=542.;last=None
     while z<max(heights.values())-1e-8:
         top=min(z+pitch,max(heights.values()))
         for i,j in crown_edges:
             if z>=max(heights[i],heights[j])-1e-8:continue
+            if crown.get('curtain_pattern_mode')=='shared_lower_grid':
+                row=control_profile_at(geometry,cfg,[xy[i],xy[j]],top)
+                face=_clipped_vertical_chord(row[0],row[1],z,top,heights[i],heights[j])
+                if not face:continue
+                k=len(cverts);cverts.extend(face);cfaces.append(tuple(range(k,k+len(face))))
+                frames.extend(([face[k],face[(k+1)%len(face)]] for k in range(len(face))))
+                if last is not None:
+                    old=control_profile_at(geometry,cfg,[xy[i],xy[j]],last)
+                    for q in step_faces(old,row,z):
+                        # Step caps are frame/seal proxies, not extra glass panes.
+                        crown_closures.append(q)
+                continue
             # Evaluate corner at its actual clipped height; crown lips coincide
             # with crown perimeter control, unlike the old over-high chord XY.
             zi,zj=min(z,heights[i]),min(z,heights[j]);ti,tj=min(top,heights[i]),min(top,heights[j])
@@ -103,14 +115,15 @@ def build_notch(ctx,geometry,completion,p):
                 if min(math.dist(a,b) for a,b in zip(triangle,triangle[1:]+triangle[:1]))<1e-8:continue
                 k=len(cverts);cverts.extend(triangle);cfaces.append((k,k+1,k+2))
             frames.extend(([face[k],face[(k+1)%len(face)]] for k in range(len(face))))
-        z=top
+        last=top;z=top
     ctx.mesh('CWA_V_CROWN_REENTRANT_CLOSED_TRIM_CANDIDATE',cverts,cfaces,'88_V_REENTRANT_FACADE','glass',
              {**info,'geometry_role':'closed_reentrant_V_crown_facade_candidate',
               'crown_lip_grid_indices':[i0,i1], 'crown_lip_elevations_m':[end_left,end_right],
               'crown_shoulders_owned_by':'crown_completion',
-              'formula':'Actual clipped-height q(z),theta(z) corners; highlip→lower-apex→lowlip mapping is explicit candidate. Triangles avoid warped automatic quads.',
+              'formula':'Shared lower parent chords extruded vertically and clipped by original crown lip heights; stepped seals retained.' if crown.get('curtain_pattern_mode')=='shared_lower_grid' else 'Actual clipped-height q(z),theta(z) corners; highlip→lower-apex→lowlip mapping is explicit candidate. Triangles avoid warped automatic quads.',
               'uncertainty':info['uncertainty']+'; exact V rim/apex height remains unconfirmed; triangular mesh is control surface, not a fabricated triangular glass panel pattern.'})
     ctx.lines('CWA_V_REENTRANT_FRAME_CANDIDATE',frames,'88_V_REENTRANT_FACADE',p['frame_radius_display_m'],'steel',info)
+    if crown_closures:_quads(ctx,'CWA_V8_CROWN_PARENT_STEP_CLOSURES',crown_closures,'88_V_REENTRANT_FACADE','guide',{**info,'geometry_role':'crown_step_closure_candidate'})
     apex=tip;leftv=(a[0]-apex[0],a[1]-apex[1]);rightv=(b[0]-apex[0],b[1]-apex[1])
     angle=math.degrees(math.acos(sum(x*y for x,y in zip(leftv,rightv))/(math.hypot(*leftv)*math.hypot(*rightv))))
     # Add plan camera-independent diagnostic data, without asserting fabrication.

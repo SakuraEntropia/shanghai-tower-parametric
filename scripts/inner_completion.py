@@ -22,6 +22,7 @@ def zone_layout(zone, modelling):
     count = max(3, round(2 * math.pi * radius / module))
     bands = max(0, math.floor((upper - lower + 1e-9) / pitch))
     return {'radius_m': radius, 'facets': count, 'bands': bands,
+            'open_bottom_band_count':int(modelling.get('open_bottom_band_count',0)) if float(zone['z0_m'])>=float(modelling['entity_start_m']) else 0,
             'z0_m': lower, 'z1_m': upper,
             'last_band_top_m': lower + bands * pitch,
             'unmodelled_residual_m': max(0, upper - lower - bands * pitch),
@@ -42,7 +43,7 @@ def zone_panel_mesh(layout, pitch, azimuth_deg=0):
     """Vertical planar rectangles; module azimuth is fixed at all heights."""
     vertices, faces, band_ids, module_ids = [], [], [], []
     xy = circle_points(layout['radius_m'], 0, layout['facets'], azimuth_deg)
-    for band in range(layout['bands']):
+    for band in range(layout.get('open_bottom_band_count',0),layout['bands']):
         z0 = layout['z0_m'] + band * pitch
         z1 = z0 + pitch
         for i, p0 in enumerate(xy):
@@ -101,12 +102,15 @@ def build_inner(ctx, geometry, candidate):
         if not layout['bands']:
             continue
         verts, faces, band_ids, module_ids = zone_panel_mesh(layout, pitch, azimuth)
+        glass_lower=layout['z0_m']+layout.get('open_bottom_band_count',0)*pitch
         meta = {**_meta(number), 'radius_m': radius,
                 'radius_candidate_error_bound_m': zone['radius_error_bound_m'],
                 'sampling_facets': layout['facets'],
                 'nominal_band_height_m': pitch,
                 'nominal_band_count': layout['bands'],
-                'actual_mesh_z0_m': layout['z0_m'],
+                'actual_mesh_z0_m': glass_lower,
+                'open_bottom_band_count':layout.get('open_bottom_band_count',0),
+                'open_base_rule_evidence':'User-observed atrium access correction; architectural floor crosswalk and opening sector extent remain unconfirmed',
                 'actual_mesh_z1_m': layout['last_band_top_m'],
                 'glass_assembly_candidate_thickness_m': thickness,
                 'glass_assembly_source': modelling['glass_assembly_source'],
@@ -125,9 +129,9 @@ def build_inner(ctx, geometry, candidate):
 
         # Shared seam geometry avoids a doubled frame on every adjacent panel.
         lines = []
-        endpoints = circle_points(radius, layout['z0_m'], layout['facets'], azimuth)
+        endpoints = circle_points(radius, glass_lower, layout['facets'], azimuth)
         lines.extend([[p, (p[0], p[1], layout['last_band_top_m'])] for p in endpoints])
-        for band in range(layout['bands'] + 1):
+        for band in range(layout.get('open_bottom_band_count',0),layout['bands'] + 1):
             pts = circle_points(radius, layout['z0_m'] + band * pitch,
                                 layout['facets'], azimuth)
             lines.append(pts + [pts[0]])
@@ -157,6 +161,10 @@ def build_inner(ctx, geometry, candidate):
         check(f'inner_Z{number}_does_not_twist', twist_error < 1e-9,
               {'max_vertical_edge_xy_error_m': twist_error, 'seam_azimuth_deg': azimuth},
               'B panel seams stay fixed with height; local seam azimuth is unconfirmed.')
+        if layout.get('open_bottom_band_count',0):
+            check(f'inner_Z{number}_base_atrium_band_has_no_glass',abs(min(v[2] for v in actual_vertices)-glass_lower)<.0001,
+                  {'glass_starts_m':min(v[2] for v in actual_vertices),'open_lower_m':layout['z0_m'],'open_top_m':glass_lower},
+                  'User-observed candidate base opening; support steel and slabs kept separately, not proof of full as-built opening sector.')
 
         # Six-arc mother profile excludes actual V-notch. A clearance is a
         # geometry/version diagnostic, never a claimed actual atrium clearance.

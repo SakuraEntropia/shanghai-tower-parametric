@@ -10,7 +10,10 @@
     "target_radial_spacing_m": 9.0,
     "ring_glass_inset_candidate_m": 0.4,
     "inner_support_inset_candidate_m": 0.5,
-    "ring_samples": 144
+    "ring_samples": 144,
+    "cross_rods_enabled": true,
+    "cross_rod_reported_diameter_m": 0.06,
+    "cross_corner_index_half_span_candidate": 3
   },
   "frame": {
     "pair_tangent_offset_m": 4.7,
