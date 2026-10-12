@@ -90,7 +90,7 @@ def build(ctx,geometry,p):
     if float(p['band_pitch_display_m'])<=0 or float(p['frame_radius_display_m'])<=0:raise ValueError('Invalid crown display dimensions')
     points=[s['xy'] for s in stations];tops=[trim_height(s['s'],p) for s in stations]
     openings=p.get('wind_openings_candidate',[])+p.get('vent_openings_candidate',[])+p.get('linear_openings_candidate',[])
-    meta={'source_ids':[p.get('source_id',p.get('source_id_candidate')),'B14_GEOM','G01','CROWN_GENS_AERIAL_V5','CROWN_GENS_PHOTO_V7'],
+    meta={'source_ids':[p.get('source_id',p.get('source_id_candidate')),'B14_GEOM','G01','CROWN_GENS_AERIAL_V5','CROWN_GENS_PHOTO_V7']+(['USER_OBSERVATION_V10'] if p.get('aperture_layout_v10') else []),
           'evidence_level':'推导值','asbuilt_verified':False,'geometry_role':'crown_candidate_panel',
           'source_locator':'B14pp16–18/G01pp15–16 lower-grid rule; Gensler supplied crown010 photo',
           'formula':'Lower A parent stations and upright upper-anchored chord extrusion; local aperture subtraction; last parent clipped by unchanged crown trim.',
@@ -151,9 +151,16 @@ def build(ctx,geometry,p):
             {'check':'v8_crown_holes_are_local_not_extra_global_bands','passed':566 not in levels and 575 not in levels and omitted>0,'measured':{'bands':len(levels)-1,'parents_cut':omitted}},
             {'check':'v8_crown_remains_open_at_V_lips','passed':math.dist(points[0],points[-1])>1,'measured':math.dist(points[0],points[-1])}]
     for c in checks:c.update(meaning='Generated parent geometry consistency; not as-built fabrication verification',asbuilt_verified=False)
+    aperture_audit=[]
+    if p.get('aperture_layout_v10'):
+        from aperture_layout_v10 import audit
+        aperture_audit=audit(p,records)
+        checks.append({'check':'v10_all_77_vents_and3_wind_voids_cut_in_parent_geometry',
+                       'passed':len(aperture_audit)==80 and all(r['passed'] for r in aperture_audit),
+                       'measured':aperture_audit,'meaning':'Generated cut geometry; counts from user observation, as-built coordinates unresolved','asbuilt_verified':False})
     report={'component':'open_crown_derived','evidence_level':'推导值','asbuilt_verified':False,'surface_role':'crown_candidate_panel',
             'source_ids':meta['source_ids'],'top_cap_present':False,'base_z_m':levels[0],'highest_m':maximum,
             'station_count_display':len(stations),'panel_records':records,'structural_interfaces':5,
-            'shared_lower_parent_grid':True,'checks':checks,'software_checks_passed':all(c['passed'] for c in checks)}
+            'shared_lower_parent_grid':True,'aperture_groups_v10':p.get('aperture_groups_v10',[]),'aperture_audit_v10':aperture_audit,'checks':checks,'software_checks_passed':all(c['passed'] for c in checks)}
     ctx.component_results['completion_crown']=report
     return report

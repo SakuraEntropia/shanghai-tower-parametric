@@ -92,12 +92,89 @@ def _clip_height(poly,z,above):
     return out
 
 
+def entrance_zone(p,a,b):
+    """One explicit candidate region on the existing broad curved facade."""
+    e=p.get('entrance_v10')
+    if not e or e.get('target_arch_end') is not None:return None
+    y0,y1=e['y_span_candidate_m'];x=(a[0]+b[0])/2;y=(a[1]+b[1])/2
+    if x<=e['front_x_min_candidate_m'] or not y0<=y<=y1:return None
+    return e
+
+
+def entrance_panels(p,a,b,top):
+    """Cut actual facade polygons; do not cover old glass with a white plate."""
+    from crown_pattern_v8 import cut_pane
+    e=p['entrance_v10'];y0,y1=e['y_span_candidate_m']
+    u0,u1=(a[1]-y0)/(y1-y0),(b[1]-y0)/(y1-y0)
+    if abs(u1-u0)<1e-9:return [],[],[],[]
+    lo,hi=sorted((u0,u1));white_top=min(top,e['white_top_candidate_m'])
+    door_top=min(white_top,e['door_top_candidate_m'])
+    lower=[(lo,0),(hi,0),(hi,white_top),(lo,white_top)]
+    hole={'s_min':e['door_fraction_candidate'][0],'s_max':e['door_fraction_candidate'][1],
+          'z_min_m':0,'z_max_m':door_top}
+    def xyz(q,depth=0):
+        u,z=q;t=(u-u0)/(u1-u0)
+        # This broad face is on the east side; recession is toward the interior.
+        return (a[0]+(b[0]-a[0])*t-depth,a[1]+(b[1]-a[1])*t,z)
+    white=[[xyz(q) for q in poly] for poly in cut_pane(lower,[hole])]
+    upper=[]
+    if top>white_top:upper=[[xyz(q) for q in [(lo,white_top),(hi,white_top),(hi,top),(lo,top)]]]
+    doors=[];reveals=[];left=max(lo,hole['s_min']);right=min(hi,hole['s_max'])
+    if right>left:
+        door=[(left,0),(right,0),(right,door_top),(left,door_top)]
+        doors=[[xyz(q,e['recess_candidate_m']) for q in door]]
+        reveals.append([xyz((left,door_top)),xyz((right,door_top)),xyz((right,door_top),e['recess_candidate_m']),xyz((left,door_top),e['recess_candidate_m'])])
+        for edge in (hole['s_min'],hole['s_max']):
+            if lo<=edge<hi:reveals.append([xyz((edge,0)),xyz((edge,door_top)),xyz((edge,door_top),e['recess_candidate_m']),xyz((edge,0),e['recess_candidate_m'])])
+    return white,upper,doors,reveals
+
+
+def arch_entry_panels(p,end,poly):
+    """White cut and glass share one true end-section boundary."""
+    from crown_pattern_v8 import cut_pane
+    from site_v8 import ccw
+    e=p['entrance_v10'];a,b=poly[0],poly[-1];width=math.dist(a[:2],b[:2])
+    axis=((b[0]-a[0])/width,(b[1]-a[1])/width)
+    uv=ccw([(((q[0]-a[0])*axis[0]+(q[1]-a[1])*axis[1])/width,q[2]) for q in poly])
+    path=[plan_xy(p,q) for q in p['sweep_path_px']];inside=_sample(path,.01 if end==0 else .99);rim=_sample(path,end)
+    depth_axis=(inside[0]-rim[0],inside[1]-rim[1]);length=math.hypot(*depth_axis);depth_axis=tuple(q/length for q in depth_axis)
+    def xyz(q,depth=0):return (a[0]+axis[0]*q[0]*width+depth_axis[0]*depth,a[1]+axis[1]*q[0]*width+depth_axis[1]*depth,q[1])
+    def clip(q,z,above):return [(v[0],v[2]) for v in _clip_height([(u,0,v) for u,v in q],z,above)]
+    lower=clip(uv,e['white_top_candidate_m'],False)
+    hole={'s_min':e['door_fraction_candidate'][0],'s_max':e['door_fraction_candidate'][1],'z_min_m':0,'z_max_m':e['door_top_candidate_m']}
+    white=[[xyz(q) for q in piece] for piece in cut_pane(lower,[hole])]
+    upper=[]
+    pitch=p['PG_horizontal_pitch_candidate_m'];z=e['white_top_candidate_m']
+    while z<max(q[1] for q in uv):
+        band=clip(clip(uv,z,True),z+pitch,False)
+        if len(band)>2:upper.append([xyz(q) for q in band])
+        z+=pitch
+    door=[(hole['s_min'],0),(hole['s_max'],0),(hole['s_max'],hole['z_max_m']),(hole['s_min'],hole['z_max_m'])]
+    doors=[[xyz(q,e['recess_candidate_m']) for q in door]];returns=[]
+    for left,right in zip(door[1:],door[2:]+door[:1]):
+        returns.append([xyz(left),xyz(right),xyz(right,e['recess_candidate_m']),xyz(left,e['recess_candidate_m'])])
+    return white,upper,doors,returns
+
+
 def arch_endcaps(ctx,p,tower):
     """The glass boundary is the SAME section as the PR curved roof rim."""
     v=[];f=[];cables=[];frames=[]
     for end in (0.,1.):
         poly=[sweep_point(p,end,i/160) for i in range(161)]
         height=max(q[2] for q in poly);pitch=p['PG_horizontal_pitch_candidate_m']
+        entry=p.get('entrance_v10',{}).get('target_arch_end')==end
+        if entry:
+            white,upper,doors,returns=arch_entry_panels(p,end,poly)
+            em=_meta(p,'podium_v10_white_entry_candidate',source_ids=p['source_ids']+['USER_OBSERVATION_V10'],evidence_level='待确认',formula='Wider arch end from same PR mother section; white lower region physically cut for recessed entry, upper glass shares exact arch boundary.',uncertainty=p['entrance_v10']['uncertainty'])
+            for name,polys,material,role in [('PODIUM_V10_BROAD_FACE_WHITE_ENTRY_CUT',white,'podium_entry_white','podium_v10_white_entry_candidate'),('PODIUM_V10_GLASS_ABOVE_WHITE_ENTRY',upper,'glass_detail','podium_v10_upper_entry_glass_candidate'),('PODIUM_V10_RECESSED_ENTRY_GLAZING',doors,'glass_detail','podium_v10_recessed_entry_glass_candidate'),('PODIUM_V10_WHITE_ENTRY_RETURNS',returns,'podium_entry_white','podium_v10_entry_return_candidate')]:
+                vv=[];ff=[]
+                _add(polys,vv,ff);obj=ctx.mesh(name,vv,ff,'66_PODIUM_DETAIL_CANDIDATE',material,{**em,'geometry_role':role})
+                if material=='podium_entry_white':mod=obj.modifiers.new('WHITE_CLADDING_CANDIDATE','SOLIDIFY');mod.thickness=.12;mod.offset=-1
+            for band in upper:
+                for a,b in zip(band,band[1:]+band[:1]):
+                    if abs(a[2]-b[2])<1e-6:cables.append([a,b])
+            frames.append(poly)
+            continue
         for row in range(math.ceil(height/pitch)):
             cut=_clip_height(poly,row*pitch,True)
             if cut:cut=_clip_height(cut,min(height,(row+1)*pitch),False)
@@ -215,7 +292,7 @@ def build_podium(ctx,geometry,completion,assembly):
         _surface(ctx,f'PODIUM_V9_GARDEN_SKYLIGHT_{i+1:02d}',pp,hi,'glass_detail',detail,_meta(p,'podium_photo_garden_skylight_candidate'))
     # Source curtain systems occupy separate local bands: PS opaque strip
     # instead of a perimeter glass cage, and sparse point/cable PG glazing.
-    gv=[];gf=[];sv=[];sf=[];cables=[]
+    gv=[];gf=[];sv=[];sf=[];cables=[];ev=[];ef=[];ugv=[];ugf=[];dv=[];df=[];rv=[];rf=[];entry_frames=[]
     for a,b in zip(body,body[1:]+body[:1]):
         mid=((a[0]+b[0])/2,(a[1]+b[1])/2)
         if contains(tower,mid):continue
@@ -226,6 +303,13 @@ def build_podium(ctx,geometry,completion,assembly):
         # Only documented ground interface here. Tall arched PG uses the
         # actual roof section below, not an independently guessed rectangle.
         hi=min(p['west_PR_start_reported_m'],max(.2,min(ha,hb)))
+        entry=entrance_zone(p,a,b)
+        if entry:
+            top=min(entry['upper_glass_top_candidate_m'],ha,hb)
+            white,upper,doors,reveals=entrance_panels(p,a,b,top)
+            _add(white,ev,ef);_add(upper,ugv,ugf);_add(doors,dv,df);_add(reveals,rv,rf)
+            for z in [entry['white_top_candidate_m']+p['PG_horizontal_pitch_candidate_m']*i for i in range(1,int(max(0,top-entry['white_top_candidate_m'])/p['PG_horizontal_pitch_candidate_m']))]:entry_frames.append([(a[0],a[1],z),(b[0],b[1],z)])
+            continue
         _add([[(a[0],a[1],0),(b[0],b[1],0),(b[0],b[1],hi),(a[0],a[1],hi)]],gv,gf)
         if front:
             lo,up=p['PS_opaque_band_candidate_m'];up=min(up,ha,hb)
@@ -235,6 +319,14 @@ def build_podium(ctx,geometry,completion,assembly):
     ctx.mesh('PODIUM_V9_LOCAL_PG_POINT_SUPPORTED_GLASS',gv,gf,detail,'glass_detail',_meta(p,'podium_PG_local_glazing_candidate',source_systems='PG1 cable/PG2 plate truss/PG3 mixed point support; exact final zone limits and joints unresolved'))
     ctx.mesh('PODIUM_V9_LIMITED_PS_OPAQUE_FRONT_BAND',sv,sf,detail,'podium_stone',_meta(p,'podium_PS_local_stone_band_candidate'))
     ctx.lines('PODIUM_V9_PG_FINE_HORIZONTAL_CABLE_GRID',cables,detail,p['PG_cable_radius_candidate_m'],'steel',_meta(p,'podium_PG_cable_candidate'))
+    if p.get('entrance_v10') and p['entrance_v10'].get('target_arch_end') is None:
+        em=_meta(p,'podium_v10_white_entry_candidate',source_ids=p['source_ids']+['USER_OBSERVATION_V10'],evidence_level='待确认',uncertainty=p['entrance_v10']['uncertainty'],formula='Local broad-face boundary from published ground trace; existing PS and PG omitted there; white polygon physically cut for recessed entrance, glass retained above.')
+        white=ctx.mesh('PODIUM_V10_BROAD_FACE_WHITE_ENTRY_CUT',ev,ef,detail,'podium_entry_white',em)
+        mod=white.modifiers.new('WHITE_CLADDING_CANDIDATE','SOLIDIFY');mod.thickness=.12;mod.offset=-1
+        ctx.mesh('PODIUM_V10_GLASS_ABOVE_WHITE_ENTRY',ugv,ugf,detail,'glass_detail',{**em,'geometry_role':'podium_v10_upper_entry_glass_candidate'})
+        ctx.mesh('PODIUM_V10_RECESSED_ENTRY_GLAZING',dv,df,detail,'glass_detail',{**em,'geometry_role':'podium_v10_recessed_entry_glass_candidate'})
+        ctx.mesh('PODIUM_V10_WHITE_ENTRY_RETURNS',rv,rf,detail,'podium_entry_white',{**em,'geometry_role':'podium_v10_entry_return_candidate'})
+        ctx.lines('PODIUM_V10_SPARSE_UPPER_ENTRY_CABLES',entry_frames,detail,p['PG_cable_radius_candidate_m'],'steel',em)
     arch_endcaps(ctx,p,tower)
     steel=[]
     for i in range(0,report['longitudinal_intervals']+1,4):

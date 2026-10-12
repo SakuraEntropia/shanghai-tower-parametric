@@ -1,0 +1,54 @@
+{
+  "version": "v10",
+  "geometry_signature": {
+    "sha256_rounded_geometry": "97bf0aba36e8149a153f17747b01076144687946695a27590ec60fe022dcb41d",
+    "mesh_count": 397,
+    "vertices": 1831916,
+    "polygons": 993726
+  },
+  "unit_tests_passed": 71,
+  "scene_checks_passed": 219,
+  "scene_checks_total": 219,
+  "crown_groups": [
+    {
+      "face": 1,
+      "columns": 11,
+      "rows": 2,
+      "s_min": 0.10393269693365742,
+      "s_max": 0.27028096422152137,
+      "parent_column_count_including_separators": 21,
+      "evidence_level": "待确认",
+      "count_basis": "USER_OBSERVATION_V10",
+      "coordinate_basis": "Candidate face centres snapped to existing lower parent grid"
+    },
+    {
+      "face": 2,
+      "columns": 11,
+      "rows": 2,
+      "s_min": 0.4366292315093851,
+      "s_max": 0.602977498797249,
+      "parent_column_count_including_separators": 21,
+      "evidence_level": "待确认",
+      "count_basis": "USER_OBSERVATION_V10",
+      "coordinate_basis": "Candidate face centres snapped to existing lower parent grid"
+    },
+    {
+      "face": 3,
+      "columns": 11,
+      "rows": 3,
+      "s_min": 0.769325766085113,
+      "s_max": 0.9356740333729766,
+      "parent_column_count_including_separators": 21,
+      "evidence_level": "待确认",
+      "count_basis": "USER_OBSERVATION_V10",
+      "coordinate_basis": "Candidate face centres snapped to existing lower parent grid"
+    }
+  ],
+  "actual_80_aperture_cut_audits_passed": true,
+  "upper_aperture_count": 77,
+  "wind_aperture_count": 3,
+  "white_entry_target": "Wider PR arch end0; same roof section boundary",
+  "updated_views": 29,
+  "asbuilt_verified": false,
+  "uncertainty": "User-observed count/relative-span correction; precise aperture/entry coordinates and site curve radii remain candidates. v9 source/evidence limitations continue."
+}

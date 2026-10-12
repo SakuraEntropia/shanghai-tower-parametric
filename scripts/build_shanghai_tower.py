@@ -207,6 +207,8 @@ def main():
         assembly=json.loads(assembly_path.read_text())
         notch_params=json.loads((ROOT/'parameters/notch_v4.json').read_text())
         cfg['notch_v4']=notch_params
+        from aperture_layout_v10 import configure as configure_apertures
+        configure_apertures(geometry,cfg,completion['crown'])
         for component in ('crown_v5','transition_v5'):
             path=ROOT/'parameters'/(component+'.json')
             if path.exists():assembly[component]=json.loads(path.read_text())
@@ -273,8 +275,8 @@ def main():
     (valdir/'panel_registry.json').write_text(json.dumps(panel_records,ensure_ascii=False,indent=2)+'\n')
     cameras=setup(ctx)
     scene=bpy.context.scene
-    scene['project_id']=cfg['project_id'];scene['correction_version']='v9'
-    scene['accuracy_statement']='v9: source-reported nominal dimensions/counts kept separate from fits. Direct-arc C3 Eye with519 thin jade candidates and separate metal backbone; source-supported V hall columns and3 corner X rod pairs per CWSS ring. Crown lower-parent grid, wind/two-band and narrow strip cuts retained. Podium old mother retired, p31-scaled ground plan + composite tangent-arc spatial sweep, provisional upper slabs, local PG/PS and first-floor rain canopy. No final PR/RC shop CAD, aperture map, unified floor crosswalk, optical or surveying data; not construction/as-built precision.'
+    scene['project_id']=cfg['project_id'];scene['correction_version']='v10'
+    scene['accuracy_statement']='v10: 11x2 /11x2 /11x3 upper apertures adopted from user observation; uncalibrated candidate coordinates snapped to existing parent grid, wind openings same group width x3 parent bands. Candidate broad-face white recessed entry/upper glass and source-trace Bezier landscape curves. v9 nominal art, V hall supports, corner X rods, slabs/core and fitted podium retained. No final aperture, facade/RC/PR shop CAD, surveyed registration or optical data; not construction/as-built precision.'
     scene['selected_geometry_version']=cfg['selected_geometry_version']
     scene['source_datum_offset_unknown']=True
     collision=collision_v7.inspect(ctx)
@@ -287,7 +289,7 @@ def main():
     embed_text('MODEL_USE_AND_VALIDATION', (ROOT/'docs/05_模型使用与核验.md').read_text())
     embed_text('MODEL_IMPLEMENTATION_ASSUMPTIONS', (ROOT/'docs/06_实现参数增补.md').read_text())
     if cfg.get('completion_enabled'):
-        embed_text('COMPLETION_PARAMETERS_JSON',completion_path.read_text())
+        embed_text('COMPLETION_PARAMETERS_JSON',json.dumps(completion,ensure_ascii=False,indent=2))
         embed_text('COMPLETION_EVIDENCE_AND_LIMITS',(ROOT/'docs/07_塔冠内层核心补全.md').read_text())
         embed_text('ASSEMBLY_V3_PARAMETERS',assembly_path.read_text())
         embed_text('ASSEMBLY_V3_EVIDENCE',(ROOT/'docs/08_v3实体补齐与精度.md').read_text())
@@ -304,8 +306,9 @@ def main():
             if path.is_file():embed_text('V5_'+path.name,path.read_text())
         for path in list((ROOT/'docs').glob('*v7*'))+[ROOT/'parameters/inner_support_v7.json']:
             if path.is_file():embed_text('V7_'+path.name,path.read_text())
-        for path in list((ROOT/'docs').glob('*v8*'))+list((ROOT/'parameters').glob('*v8.json'))+list((ROOT/'docs').glob('*v9*'))+list((ROOT/'parameters').glob('*v9.json')):
-            if path.is_file():embed_text(('V9_' if 'v9' in path.name else 'V8_')+path.name,path.read_text())
+        for version in ('v8','v9','v10'):
+            for path in list((ROOT/'docs').glob('*'+version+'*'))+list((ROOT/'parameters').glob('*'+version+'.json')):
+                if path.is_file():embed_text(version.upper()+'_'+path.name,path.read_text())
         for path in (ROOT/'docs').glob('*v6*'):
             if path.is_file():embed_text('V6_'+path.name,path.read_text())
     embed_text('DESIGN_STAGE2_ARCHIVE', (ROOT/'docs/02_Blender建模方案.md').read_text())

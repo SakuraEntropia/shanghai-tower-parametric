@@ -4,7 +4,7 @@ import bpy,runpy
 R=Path(__file__).resolve().parents[1]
 runpy.run_path(str(R/'scripts/inspect_saved.py'),run_name='__main__')
 items=[('00_README_EVIDENCE',R/'README.md')]
-for version in ('v8','v9'):
+for version in ('v8','v9','v10'):
  items += [(version.upper()+'_'+p.name,p) for p in (R/'docs').glob('*'+version+'*') if p.is_file()]
  items += [(version.upper()+'_'+p.name,p) for p in (R/'parameters').glob('*'+version+'.json')]
 items += [('SCRIPT_'+p.name,p) for p in (R/'scripts').glob('*.py')]

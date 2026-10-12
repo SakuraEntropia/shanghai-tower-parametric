@@ -29381,7 +29381,28 @@
         },
         "landscape_pavilion_height_candidate_m": 5.5,
         "roof_global_z_scale_candidate": 0.9943007931165522,
-        "roof_peak_before_normalization_candidate_m": 37.21207933871461
+        "roof_peak_before_normalization_candidate_m": 37.21207933871461,
+        "entrance_v10": {
+          "y_span_candidate_m": [
+            -63.0,
+            -10.0
+          ],
+          "front_x_min_candidate_m": -24.0,
+          "white_top_candidate_m": 10.5,
+          "door_top_candidate_m": 4.2,
+          "door_fraction_candidate": [
+            0.18,
+            0.82
+          ],
+          "recess_candidate_m": 1.2,
+          "upper_glass_top_candidate_m": 21.8,
+          "source_ids": [
+            "USER_OBSERVATION_V10"
+          ],
+          "evidence_level": "待确认",
+          "uncertainty": "User-observed white cut and upper glass; assign to wider PR end0 arch (0.8 vs0.72 section width fit), same mother rim. Extents, elevations, recess and exact as-built face still uncalibrated candidates.",
+          "target_arch_end": 0.0
+        }
       },
       "PR_panel_report": {
         "candidate_panels": 18480,
@@ -29609,7 +29630,7 @@
         "PODIUM_GENS_V4"
       ],
       "published_scale_m_per_px": 0.3436426116838488,
-      "trees_candidate": 54,
+      "trees_candidate": 51,
       "roads": 4,
       "sunken_entry_has_ground_cut": true,
       "retail_upper_RC_schedule_verified": false,

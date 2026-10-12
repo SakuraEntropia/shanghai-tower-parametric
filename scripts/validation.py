@@ -52,6 +52,11 @@ def validate_scene(ctx,geometry_module,anchors,results):
         check('v8_artist_nominal_extents_and_519_candidate_tiles',bool(eye) and len(ids)==519 and abs(art_bounds[2]-7.7)<.001 and abs(max(art_bounds[:2])-3.89)<.001,
               {'tile_ids':len(ids),'bounds_m':art_bounds},'Software nominal dimensions/count; shape/tiling is a fit, not fabrication validation')
     if ctx.config.get('podium_v9'):
+        e=ctx.config['podium_v9'].get('entrance_v10')
+        if e:
+            wn=bpy.data.objects.get('PODIUM_V10_BROAD_FACE_WHITE_ENTRY_CUT');gn=bpy.data.objects.get('PODIUM_V10_GLASS_ABOVE_WHITE_ENTRY');dn=bpy.data.objects.get('PODIUM_V10_RECESSED_ENTRY_GLAZING')
+            actual={'white_faces':len(wn.data.polygons) if wn else 0,'upper_glass_faces':len(gn.data.polygons) if gn else 0,'recessed_glass_faces':len(dn.data.polygons) if dn else 0}
+            check('v10_white_cut_entry_and_upper_glass_present',all(actual.values()),actual,'Candidate user-observed entry topology; no recovered final facade elevations')
         cross=bpy.data.objects.get('CWSS_V9_THREE_CORNER_PLAN_X_CROSS_RODS');ring=bpy.data.objects.get('CWSS_INSTALLED_RINGS_CANDIDATE')
         same_z=bool(cross) and all(max(q.co.z for q in sp.points)-min(q.co.z for q in sp.points)<1e-4 for sp in cross.data.splines)
         check('v9_CWSS_three_horizontal_corner_X_pairs_each_ring',bool(cross and ring) and len(cross.data.splines)==6*len(ring.data.splines) and same_z and abs(cross.data.bevel_depth-.03)<1e-6,

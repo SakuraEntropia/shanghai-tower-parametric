@@ -65,7 +65,9 @@ def build(ctx,geometry,p):
     meta={'source_ids':p['source_ids'],'source_locator':p['source_locator'],'evidence_level':'推导值','asbuilt_verified':False,
           'geometry_role':'site_plan_trace_candidate','formula':'p29 pixel trace ×100/291m per pixel, origin at published tower centre, local90deg registration candidate.',
           'uncertainty':p['uncertainty'],'pixel_error_estimate_m':p['pixel_pick_error_px']*100/291}
-    floor=p['ground_paving_z_m'];outline=ccw([xy(p,q) for q in p['plot_sidewalk_outline_px']])
+    from podium_v9 import rounded_poly
+    meta['formula']+=' v10 quadratic Bezier corner fits at source trace controls; candidate radii, no surveying claim.'
+    floor=p['ground_paving_z_m'];outline=ccw(rounded_poly([xy(p,q) for q in p['plot_sidewalk_outline_px']],p.get('contour_rounding_candidate_m',0),16)) if p.get('contour_rounding_candidate_m') else ccw([xy(p,q) for q in p['plot_sidewalk_outline_px']])
     _,ref=outer_reference(geometry,ctx.config);tower=hull([q[:2] for q in control_profile_at(geometry,ctx.config,ref,0)])
     retail=ccw([xy(p,q) for q in p['retail_wing_outline_px']]);sunken=ccw([xy(p,q) for q in p['sunken_entrance_polygon_px']]);pavilion=ccw([xy(p,q) for q in p['pavilion_outline_px']])
     if ctx.config.get('podium_v9'):
@@ -75,8 +77,9 @@ def build(ctx,geometry,p):
     ctx.lines('SITE_V8_ACTUAL_DERIVED_TOWER_GROUND_PROFILE',[[(*q[:2],floor+.06) for q in control_profile_at(geometry,ctx.config,ref,0)+control_profile_at(geometry,ctx.config,ref[:1],0)]],col,.06,'steel',meta)
     green=[]
     for i,poly in enumerate(p['green_polygons_px']):
-        pts=ccw([xy(p,q) for q in poly]);green.append(pts)
+        pts=ccw(rounded_poly([xy(p,q) for q in poly],p.get('contour_rounding_candidate_m',0),16)) if p.get('contour_rounding_candidate_m') else ccw([xy(p,q) for q in poly]);green.append(pts)
         _surface(ctx,f'SITE_V8_GREEN_BAND_{i+1:02d}',pts,floor+.035,'landscape_leaf',green_col,{**meta,'geometry_role':'landscape_plan_band_candidate'},[tower,retail,sunken,pavilion])
+        ctx.lines(f'SITE_V10_GREEN_CURVE_CURB_{i+1:02d}',[[(*q,floor+.075) for q in pts+pts[:1]]],green_col,.045,'core',{**meta,'geometry_role':'landscape_curve_curb_candidate'})
     for i,path in enumerate(p['paths_px']):
         from site_details_v9 import smooth_route
         pts=smooth_route([xy(p,q) for q in path],p.get('path_rounding_candidate_m',3));v,f=_strip(pts,p['path_width_candidate_m'],floor+.055)

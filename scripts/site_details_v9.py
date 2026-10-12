@@ -2,7 +2,7 @@
 import math
 
 
-def smooth_route(points,radius=3,steps=8):
+def smooth_route(points,radius=3,steps=16):
     out=[points[0]]
     for a,b,c in zip(points,points[1:],points[2:]):
         da,dc=math.dist(a,b),math.dist(b,c);d=min(radius,da*.3,dc*.3)

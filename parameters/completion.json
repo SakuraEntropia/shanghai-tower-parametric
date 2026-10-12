@@ -826,498 +826,1825 @@
     "wind_openings_candidate": [
       {
         "id": "WIND_BAY_1",
-        "s_min": 0.1,
-        "s_max": 0.28,
-        "z_min_m": 566.0,
-        "z_max_m": 575.0,
+        "s_min": 0.10393269693365742,
+        "s_max": 0.27028096422152137,
+        "z_min_m": 560.0,
+        "z_max_m": 573.5,
         "evidence_level": "待确认",
         "source_ids": [
           "OWNER_TMD_WIND_V6",
           "OWNER_MEP_BUILD_V6",
-          "TURBINE_ATTEY_V6"
+          "TURBINE_ATTEY_V6",
+          "USER_OBSERVATION_V10"
         ],
-        "coordinate_evidence": "Three unglazed groups confirmed; s mapping and lower/upper boundaries uncalibrated candidates; owner L124574m anchor"
+        "coordinate_evidence": "User specifies equal group width and3 parent bands; absolute coordinates and band origin remain candidates.",
+        "spans_candidate_glass_bands": 3
       },
       {
         "id": "WIND_BAY_2",
-        "s_min": 0.43,
-        "s_max": 0.61,
-        "z_min_m": 566.0,
-        "z_max_m": 575.0,
+        "s_min": 0.4366292315093851,
+        "s_max": 0.602977498797249,
+        "z_min_m": 560.0,
+        "z_max_m": 573.5,
         "evidence_level": "待确认",
         "source_ids": [
           "OWNER_TMD_WIND_V6",
           "OWNER_MEP_BUILD_V6",
-          "TURBINE_ATTEY_V6"
+          "TURBINE_ATTEY_V6",
+          "USER_OBSERVATION_V10"
         ],
-        "coordinate_evidence": "Three unglazed groups confirmed; s mapping and lower/upper boundaries uncalibrated candidates; owner L124574m anchor"
+        "coordinate_evidence": "User specifies equal group width and3 parent bands; absolute coordinates and band origin remain candidates.",
+        "spans_candidate_glass_bands": 3
       },
       {
         "id": "WIND_BAY_3",
-        "s_min": 0.76,
-        "s_max": 0.94,
-        "z_min_m": 566.0,
-        "z_max_m": 575.0,
+        "s_min": 0.769325766085113,
+        "s_max": 0.9356740333729766,
+        "z_min_m": 560.0,
+        "z_max_m": 573.5,
         "evidence_level": "待确认",
         "source_ids": [
           "OWNER_TMD_WIND_V6",
           "OWNER_MEP_BUILD_V6",
-          "TURBINE_ATTEY_V6"
+          "TURBINE_ATTEY_V6",
+          "USER_OBSERVATION_V10"
         ],
-        "coordinate_evidence": "Three unglazed groups confirmed; s mapping and lower/upper boundaries uncalibrated candidates; owner L124574m anchor"
+        "coordinate_evidence": "User specifies equal group width and3 parent bands; absolute coordinates and band origin remain candidates.",
+        "spans_candidate_glass_bands": 3
       }
     ],
     "wind_opening_policy": "Real removed faces across source-informed candidate sectors, not dark material;270count confirmed, no exact aperture layout assertion.",
     "vent_openings_candidate": [
       {
-        "id": "UPPER_RECT_R1_01",
+        "id": "UPPER_V10_F1_R1_C01",
+        "face": 1,
+        "row": 1,
+        "column": 1,
+        "s_min": 0.10393269693365742,
+        "s_max": 0.11185404299498419,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          42,
+          43
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F1_R1_C02",
+        "face": 1,
+        "row": 1,
+        "column": 2,
         "s_min": 0.11977538905631095,
         "s_max": 0.12769673511763802,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
-        "source_ids": [
-          "CROWN_GENS_PHOTO_V7"
-        ],
-        "evidence_level": "待确认",
-        "source_topology_confirmed": true,
-        "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
-        "unsnapped_photo_candidate": {
-          "s_min": 0.11499999999999999,
-          "s_max": 0.125,
-          "z_min_m": 578.0,
-          "z_max_m": 587.0
-        },
         "parent_lower_grid_indices": [
           44,
           45
         ],
-        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
       },
       {
-        "id": "UPPER_RECT_R1_02",
+        "id": "UPPER_V10_F1_R1_C03",
+        "face": 1,
+        "row": 1,
+        "column": 3,
+        "s_min": 0.1356180811789648,
+        "s_max": 0.14353942724029156,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          46,
+          47
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F1_R1_C04",
+        "face": 1,
+        "row": 1,
+        "column": 4,
+        "s_min": 0.15146077330161836,
+        "s_max": 0.1593821193629451,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          48,
+          49
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F1_R1_C05",
+        "face": 1,
+        "row": 1,
+        "column": 5,
         "s_min": 0.16730346542427219,
         "s_max": 0.17522481148559896,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
-        "source_ids": [
-          "CROWN_GENS_PHOTO_V7"
-        ],
-        "evidence_level": "待确认",
-        "source_topology_confirmed": true,
-        "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
-        "unsnapped_photo_candidate": {
-          "s_min": 0.165,
-          "s_max": 0.17500000000000002,
-          "z_min_m": 578.0,
-          "z_max_m": 587.0
-        },
         "parent_lower_grid_indices": [
           50,
           51
         ],
-        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
       },
       {
-        "id": "UPPER_RECT_R1_03",
+        "id": "UPPER_V10_F1_R1_C06",
+        "face": 1,
+        "row": 1,
+        "column": 6,
+        "s_min": 0.18314615754692573,
+        "s_max": 0.19106750360825306,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          52,
+          53
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F1_R1_C07",
+        "face": 1,
+        "row": 1,
+        "column": 7,
+        "s_min": 0.19898884966957955,
+        "s_max": 0.20691019573090633,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          54,
+          55
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F1_R1_C08",
+        "face": 1,
+        "row": 1,
+        "column": 8,
         "s_min": 0.21483154179223307,
         "s_max": 0.22275288785356015,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
-        "source_ids": [
-          "CROWN_GENS_PHOTO_V7"
-        ],
-        "evidence_level": "待确认",
-        "source_topology_confirmed": true,
-        "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
-        "unsnapped_photo_candidate": {
-          "s_min": 0.215,
-          "s_max": 0.225,
-          "z_min_m": 578.0,
-          "z_max_m": 587.0
-        },
         "parent_lower_grid_indices": [
           56,
           57
         ],
-        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
-      },
-      {
-        "id": "UPPER_RECT_R1_04",
-        "s_min": 0.44455057757071176,
-        "s_max": 0.45247192363203886,
-        "z_min_m": 578.0,
-        "z_max_m": 587.0,
         "source_ids": [
+          "USER_OBSERVATION_V10",
           "CROWN_GENS_PHOTO_V7"
         ],
         "evidence_level": "待确认",
-        "source_topology_confirmed": true,
+        "source_topology_confirmed": false,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
-        "unsnapped_photo_candidate": {
-          "s_min": 0.445,
-          "s_max": 0.455,
-          "z_min_m": 578.0,
-          "z_max_m": 587.0
-        },
-        "parent_lower_grid_indices": [
-          85,
-          86
-        ],
-        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
       },
       {
-        "id": "UPPER_RECT_R1_05",
-        "s_min": 0.4999999999999998,
-        "s_max": 0.5079213460613268,
+        "id": "UPPER_V10_F1_R1_C09",
+        "face": 1,
+        "row": 1,
+        "column": 9,
+        "s_min": 0.23067423391488723,
+        "s_max": 0.23859557997621372,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          58,
+          59
+        ],
         "source_ids": [
+          "USER_OBSERVATION_V10",
           "CROWN_GENS_PHOTO_V7"
         ],
         "evidence_level": "待确认",
-        "source_topology_confirmed": true,
+        "source_topology_confirmed": false,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
-        "unsnapped_photo_candidate": {
-          "s_min": 0.495,
-          "s_max": 0.505,
-          "z_min_m": 578.0,
-          "z_max_m": 587.0
-        },
-        "parent_lower_grid_indices": [
-          92,
-          93
-        ],
-        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
       },
       {
-        "id": "UPPER_RECT_R1_06",
-        "s_min": 0.547528076367961,
-        "s_max": 0.5554494224292877,
+        "id": "UPPER_V10_F1_R1_C10",
+        "face": 1,
+        "row": 1,
+        "column": 10,
+        "s_min": 0.24651692603754047,
+        "s_max": 0.25443827209886727,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          60,
+          61
+        ],
         "source_ids": [
+          "USER_OBSERVATION_V10",
           "CROWN_GENS_PHOTO_V7"
         ],
         "evidence_level": "待确认",
-        "source_topology_confirmed": true,
+        "source_topology_confirmed": false,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
-        "unsnapped_photo_candidate": {
-          "s_min": 0.545,
-          "s_max": 0.555,
-          "z_min_m": 578.0,
-          "z_max_m": 587.0
-        },
-        "parent_lower_grid_indices": [
-          98,
-          99
-        ],
-        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
       },
       {
-        "id": "UPPER_RECT_R1_07",
-        "s_min": 0.7772471121464397,
-        "s_max": 0.7851684582077664,
+        "id": "UPPER_V10_F1_R1_C11",
+        "face": 1,
+        "row": 1,
+        "column": 11,
+        "s_min": 0.26235961816019404,
+        "s_max": 0.27028096422152137,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          62,
+          63
+        ],
         "source_ids": [
+          "USER_OBSERVATION_V10",
           "CROWN_GENS_PHOTO_V7"
         ],
         "evidence_level": "待确认",
-        "source_topology_confirmed": true,
+        "source_topology_confirmed": false,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
-        "unsnapped_photo_candidate": {
-          "s_min": 0.775,
-          "s_max": 0.785,
-          "z_min_m": 578.0,
-          "z_max_m": 587.0
-        },
-        "parent_lower_grid_indices": [
-          127,
-          128
-        ],
-        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
       },
       {
-        "id": "UPPER_RECT_R1_08",
-        "s_min": 0.824775188514401,
-        "s_max": 0.8326965345757277,
-        "z_min_m": 578.0,
-        "z_max_m": 587.0,
+        "id": "UPPER_V10_F1_R2_C01",
+        "face": 1,
+        "row": 2,
+        "column": 1,
+        "s_min": 0.10393269693365742,
+        "s_max": 0.11185404299498419,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          42,
+          43
+        ],
         "source_ids": [
+          "USER_OBSERVATION_V10",
           "CROWN_GENS_PHOTO_V7"
         ],
         "evidence_level": "待确认",
-        "source_topology_confirmed": true,
+        "source_topology_confirmed": false,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
-        "unsnapped_photo_candidate": {
-          "s_min": 0.825,
-          "s_max": 0.835,
-          "z_min_m": 578.0,
-          "z_max_m": 587.0
-        },
-        "parent_lower_grid_indices": [
-          133,
-          134
-        ],
-        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
       },
       {
-        "id": "UPPER_RECT_R1_09",
-        "s_min": 0.8723032648823617,
-        "s_max": 0.8802246109436885,
-        "z_min_m": 578.0,
-        "z_max_m": 587.0,
-        "source_ids": [
-          "CROWN_GENS_PHOTO_V7"
-        ],
-        "evidence_level": "待确认",
-        "source_topology_confirmed": true,
-        "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
-        "unsnapped_photo_candidate": {
-          "s_min": 0.875,
-          "s_max": 0.885,
-          "z_min_m": 578.0,
-          "z_max_m": 587.0
-        },
-        "parent_lower_grid_indices": [
-          1,
-          2
-        ],
-        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
-      },
-      {
-        "id": "UPPER_RECT_R2_01",
+        "id": "UPPER_V10_F1_R2_C02",
+        "face": 1,
+        "row": 2,
+        "column": 2,
         "s_min": 0.11977538905631095,
         "s_max": 0.12769673511763802,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
-        "source_ids": [
-          "CROWN_GENS_PHOTO_V7"
-        ],
-        "evidence_level": "待确认",
-        "source_topology_confirmed": true,
-        "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
-        "unsnapped_photo_candidate": {
-          "s_min": 0.11499999999999999,
-          "s_max": 0.125,
-          "z_min_m": 591.5,
-          "z_max_m": 600.5
-        },
         "parent_lower_grid_indices": [
           44,
           45
         ],
-        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
       },
       {
-        "id": "UPPER_RECT_R2_02",
+        "id": "UPPER_V10_F1_R2_C03",
+        "face": 1,
+        "row": 2,
+        "column": 3,
+        "s_min": 0.1356180811789648,
+        "s_max": 0.14353942724029156,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          46,
+          47
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F1_R2_C04",
+        "face": 1,
+        "row": 2,
+        "column": 4,
+        "s_min": 0.15146077330161836,
+        "s_max": 0.1593821193629451,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          48,
+          49
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F1_R2_C05",
+        "face": 1,
+        "row": 2,
+        "column": 5,
         "s_min": 0.16730346542427219,
         "s_max": 0.17522481148559896,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
-        "source_ids": [
-          "CROWN_GENS_PHOTO_V7"
-        ],
-        "evidence_level": "待确认",
-        "source_topology_confirmed": true,
-        "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
-        "unsnapped_photo_candidate": {
-          "s_min": 0.165,
-          "s_max": 0.17500000000000002,
-          "z_min_m": 591.5,
-          "z_max_m": 600.5
-        },
         "parent_lower_grid_indices": [
           50,
           51
         ],
-        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
       },
       {
-        "id": "UPPER_RECT_R2_03",
+        "id": "UPPER_V10_F1_R2_C06",
+        "face": 1,
+        "row": 2,
+        "column": 6,
+        "s_min": 0.18314615754692573,
+        "s_max": 0.19106750360825306,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          52,
+          53
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F1_R2_C07",
+        "face": 1,
+        "row": 2,
+        "column": 7,
+        "s_min": 0.19898884966957955,
+        "s_max": 0.20691019573090633,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          54,
+          55
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F1_R2_C08",
+        "face": 1,
+        "row": 2,
+        "column": 8,
         "s_min": 0.21483154179223307,
         "s_max": 0.22275288785356015,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
-        "source_ids": [
-          "CROWN_GENS_PHOTO_V7"
-        ],
-        "evidence_level": "待确认",
-        "source_topology_confirmed": true,
-        "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
-        "unsnapped_photo_candidate": {
-          "s_min": 0.215,
-          "s_max": 0.225,
-          "z_min_m": 591.5,
-          "z_max_m": 600.5
-        },
         "parent_lower_grid_indices": [
           56,
           57
         ],
-        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
-      },
-      {
-        "id": "UPPER_RECT_R2_04",
-        "s_min": 0.44455057757071176,
-        "s_max": 0.45247192363203886,
-        "z_min_m": 591.5,
-        "z_max_m": 600.5,
         "source_ids": [
+          "USER_OBSERVATION_V10",
           "CROWN_GENS_PHOTO_V7"
         ],
         "evidence_level": "待确认",
-        "source_topology_confirmed": true,
+        "source_topology_confirmed": false,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
-        "unsnapped_photo_candidate": {
-          "s_min": 0.445,
-          "s_max": 0.455,
-          "z_min_m": 591.5,
-          "z_max_m": 600.5
-        },
-        "parent_lower_grid_indices": [
-          85,
-          86
-        ],
-        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
       },
       {
-        "id": "UPPER_RECT_R2_05",
+        "id": "UPPER_V10_F1_R2_C09",
+        "face": 1,
+        "row": 2,
+        "column": 9,
+        "s_min": 0.23067423391488723,
+        "s_max": 0.23859557997621372,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          58,
+          59
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F1_R2_C10",
+        "face": 1,
+        "row": 2,
+        "column": 10,
+        "s_min": 0.24651692603754047,
+        "s_max": 0.25443827209886727,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          60,
+          61
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F1_R2_C11",
+        "face": 1,
+        "row": 2,
+        "column": 11,
+        "s_min": 0.26235961816019404,
+        "s_max": 0.27028096422152137,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          62,
+          63
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R1_C01",
+        "face": 2,
+        "row": 1,
+        "column": 1,
+        "s_min": 0.4366292315093851,
+        "s_max": 0.44455057757071176,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          84,
+          85
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R1_C02",
+        "face": 2,
+        "row": 1,
+        "column": 2,
+        "s_min": 0.45247192363203886,
+        "s_max": 0.46039326969336547,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          86,
+          87
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R1_C03",
+        "face": 2,
+        "row": 1,
+        "column": 3,
+        "s_min": 0.4683146157546924,
+        "s_max": 0.4762359618160193,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          88,
+          89
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R1_C04",
+        "face": 2,
+        "row": 1,
+        "column": 4,
+        "s_min": 0.4841573078773461,
+        "s_max": 0.492078653938673,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          90,
+          91
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R1_C05",
+        "face": 2,
+        "row": 1,
+        "column": 5,
         "s_min": 0.4999999999999998,
         "s_max": 0.5079213460613268,
-        "z_min_m": 591.5,
-        "z_max_m": 600.5,
-        "source_ids": [
-          "CROWN_GENS_PHOTO_V7"
-        ],
-        "evidence_level": "待确认",
-        "source_topology_confirmed": true,
-        "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
-        "unsnapped_photo_candidate": {
-          "s_min": 0.495,
-          "s_max": 0.505,
-          "z_min_m": 591.5,
-          "z_max_m": 600.5
-        },
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
         "parent_lower_grid_indices": [
           92,
           93
         ],
-        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
-      },
-      {
-        "id": "UPPER_RECT_R2_06",
-        "s_min": 0.547528076367961,
-        "s_max": 0.5554494224292877,
-        "z_min_m": 591.5,
-        "z_max_m": 600.5,
         "source_ids": [
+          "USER_OBSERVATION_V10",
           "CROWN_GENS_PHOTO_V7"
         ],
         "evidence_level": "待确认",
-        "source_topology_confirmed": true,
+        "source_topology_confirmed": false,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
-        "unsnapped_photo_candidate": {
-          "s_min": 0.545,
-          "s_max": 0.555,
-          "z_min_m": 591.5,
-          "z_max_m": 600.5
-        },
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R1_C06",
+        "face": 2,
+        "row": 1,
+        "column": 6,
+        "s_min": 0.5158426921226535,
+        "s_max": 0.5237640381839803,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          94,
+          95
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R1_C07",
+        "face": 2,
+        "row": 1,
+        "column": 7,
+        "s_min": 0.5316853842453072,
+        "s_max": 0.5396067303066341,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          96,
+          97
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R1_C08",
+        "face": 2,
+        "row": 1,
+        "column": 8,
+        "s_min": 0.547528076367961,
+        "s_max": 0.5554494224292877,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
         "parent_lower_grid_indices": [
           98,
           99
         ],
-        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
-      },
-      {
-        "id": "UPPER_RECT_R2_07",
-        "s_min": 0.7772471121464397,
-        "s_max": 0.7851684582077664,
-        "z_min_m": 591.5,
-        "z_max_m": 600.5,
         "source_ids": [
+          "USER_OBSERVATION_V10",
           "CROWN_GENS_PHOTO_V7"
         ],
         "evidence_level": "待确认",
-        "source_topology_confirmed": true,
+        "source_topology_confirmed": false,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
-        "unsnapped_photo_candidate": {
-          "s_min": 0.775,
-          "s_max": 0.785,
-          "z_min_m": 591.5,
-          "z_max_m": 600.5
-        },
-        "parent_lower_grid_indices": [
-          127,
-          128
-        ],
-        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
       },
       {
-        "id": "UPPER_RECT_R2_08",
-        "s_min": 0.824775188514401,
-        "s_max": 0.8326965345757277,
-        "z_min_m": 591.5,
-        "z_max_m": 600.5,
+        "id": "UPPER_V10_F2_R1_C09",
+        "face": 2,
+        "row": 1,
+        "column": 9,
+        "s_min": 0.5633707684906147,
+        "s_max": 0.5712921145519415,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          100,
+          101
+        ],
         "source_ids": [
+          "USER_OBSERVATION_V10",
           "CROWN_GENS_PHOTO_V7"
         ],
         "evidence_level": "待确认",
-        "source_topology_confirmed": true,
+        "source_topology_confirmed": false,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
-        "unsnapped_photo_candidate": {
-          "s_min": 0.825,
-          "s_max": 0.835,
-          "z_min_m": 591.5,
-          "z_max_m": 600.5
-        },
-        "parent_lower_grid_indices": [
-          133,
-          134
-        ],
-        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
       },
       {
-        "id": "UPPER_RECT_R2_09",
-        "s_min": 0.8723032648823617,
-        "s_max": 0.8802246109436885,
-        "z_min_m": 591.5,
-        "z_max_m": 600.5,
+        "id": "UPPER_V10_F2_R1_C10",
+        "face": 2,
+        "row": 1,
+        "column": 10,
+        "s_min": 0.5792134606132685,
+        "s_max": 0.5871348066745953,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          102,
+          103
+        ],
         "source_ids": [
+          "USER_OBSERVATION_V10",
           "CROWN_GENS_PHOTO_V7"
         ],
         "evidence_level": "待确认",
-        "source_topology_confirmed": true,
+        "source_topology_confirmed": false,
         "spans_candidate_glass_bands": 2,
-        "uncertainty": "可见两排双格竖孔；周向/标高/全周数量无摄影测量依据，替换接口",
-        "unsnapped_photo_candidate": {
-          "s_min": 0.875,
-          "s_max": 0.885,
-          "z_min_m": 591.5,
-          "z_max_m": 600.5
-        },
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R1_C11",
+        "face": 2,
+        "row": 1,
+        "column": 11,
+        "s_min": 0.5950561527359219,
+        "s_max": 0.602977498797249,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          1,
-          2
+          104,
+          105
         ],
-        "rule": "One original lower-grid column x two adjacent4.5m candidate parent panes; source photo supports two-row topology, exact indices/coordinates unconfirmed."
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R2_C01",
+        "face": 2,
+        "row": 2,
+        "column": 1,
+        "s_min": 0.4366292315093851,
+        "s_max": 0.44455057757071176,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          84,
+          85
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R2_C02",
+        "face": 2,
+        "row": 2,
+        "column": 2,
+        "s_min": 0.45247192363203886,
+        "s_max": 0.46039326969336547,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          86,
+          87
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R2_C03",
+        "face": 2,
+        "row": 2,
+        "column": 3,
+        "s_min": 0.4683146157546924,
+        "s_max": 0.4762359618160193,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          88,
+          89
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R2_C04",
+        "face": 2,
+        "row": 2,
+        "column": 4,
+        "s_min": 0.4841573078773461,
+        "s_max": 0.492078653938673,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          90,
+          91
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R2_C05",
+        "face": 2,
+        "row": 2,
+        "column": 5,
+        "s_min": 0.4999999999999998,
+        "s_max": 0.5079213460613268,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          92,
+          93
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R2_C06",
+        "face": 2,
+        "row": 2,
+        "column": 6,
+        "s_min": 0.5158426921226535,
+        "s_max": 0.5237640381839803,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          94,
+          95
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R2_C07",
+        "face": 2,
+        "row": 2,
+        "column": 7,
+        "s_min": 0.5316853842453072,
+        "s_max": 0.5396067303066341,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          96,
+          97
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R2_C08",
+        "face": 2,
+        "row": 2,
+        "column": 8,
+        "s_min": 0.547528076367961,
+        "s_max": 0.5554494224292877,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          98,
+          99
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R2_C09",
+        "face": 2,
+        "row": 2,
+        "column": 9,
+        "s_min": 0.5633707684906147,
+        "s_max": 0.5712921145519415,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          100,
+          101
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R2_C10",
+        "face": 2,
+        "row": 2,
+        "column": 10,
+        "s_min": 0.5792134606132685,
+        "s_max": 0.5871348066745953,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          102,
+          103
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F2_R2_C11",
+        "face": 2,
+        "row": 2,
+        "column": 11,
+        "s_min": 0.5950561527359219,
+        "s_max": 0.602977498797249,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          104,
+          105
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R1_C01",
+        "face": 3,
+        "row": 1,
+        "column": 1,
+        "s_min": 0.769325766085113,
+        "s_max": 0.7772471121464397,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          126,
+          127
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R1_C02",
+        "face": 3,
+        "row": 1,
+        "column": 2,
+        "s_min": 0.7851684582077664,
+        "s_max": 0.7930898042690933,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          128,
+          129
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R1_C03",
+        "face": 3,
+        "row": 1,
+        "column": 3,
+        "s_min": 0.8010111503304203,
+        "s_max": 0.8089324963917471,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          130,
+          131
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R1_C04",
+        "face": 3,
+        "row": 1,
+        "column": 4,
+        "s_min": 0.8168538424530739,
+        "s_max": 0.824775188514401,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          132,
+          133
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R1_C05",
+        "face": 3,
+        "row": 1,
+        "column": 5,
+        "s_min": 0.8326965345757277,
+        "s_max": 0.8406178806370547,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          134,
+          135
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R1_C06",
+        "face": 3,
+        "row": 1,
+        "column": 6,
+        "s_min": 0.8485392266983812,
+        "s_max": 0.8564605727597081,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          136,
+          137
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R1_C07",
+        "face": 3,
+        "row": 1,
+        "column": 7,
+        "s_min": 0.8643819188210351,
+        "s_max": 0.8723032648823617,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          0,
+          1
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R1_C08",
+        "face": 3,
+        "row": 1,
+        "column": 8,
+        "s_min": 0.8802246109436885,
+        "s_max": 0.8881459570050155,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          2,
+          3
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R1_C09",
+        "face": 3,
+        "row": 1,
+        "column": 9,
+        "s_min": 0.8960673030663423,
+        "s_max": 0.9039886491276691,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          4,
+          5
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R1_C10",
+        "face": 3,
+        "row": 1,
+        "column": 10,
+        "s_min": 0.9119099951889962,
+        "s_max": 0.919831341250323,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          6,
+          7
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R1_C11",
+        "face": 3,
+        "row": 1,
+        "column": 11,
+        "s_min": 0.9277526873116497,
+        "s_max": 0.9356740333729766,
+        "z_min_m": 578.0,
+        "z_max_m": 587.0,
+        "parent_lower_grid_indices": [
+          8,
+          9
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R2_C01",
+        "face": 3,
+        "row": 2,
+        "column": 1,
+        "s_min": 0.769325766085113,
+        "s_max": 0.7772471121464397,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          126,
+          127
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R2_C02",
+        "face": 3,
+        "row": 2,
+        "column": 2,
+        "s_min": 0.7851684582077664,
+        "s_max": 0.7930898042690933,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          128,
+          129
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R2_C03",
+        "face": 3,
+        "row": 2,
+        "column": 3,
+        "s_min": 0.8010111503304203,
+        "s_max": 0.8089324963917471,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          130,
+          131
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R2_C04",
+        "face": 3,
+        "row": 2,
+        "column": 4,
+        "s_min": 0.8168538424530739,
+        "s_max": 0.824775188514401,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          132,
+          133
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R2_C05",
+        "face": 3,
+        "row": 2,
+        "column": 5,
+        "s_min": 0.8326965345757277,
+        "s_max": 0.8406178806370547,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          134,
+          135
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R2_C06",
+        "face": 3,
+        "row": 2,
+        "column": 6,
+        "s_min": 0.8485392266983812,
+        "s_max": 0.8564605727597081,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          136,
+          137
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R2_C07",
+        "face": 3,
+        "row": 2,
+        "column": 7,
+        "s_min": 0.8643819188210351,
+        "s_max": 0.8723032648823617,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          0,
+          1
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R2_C08",
+        "face": 3,
+        "row": 2,
+        "column": 8,
+        "s_min": 0.8802246109436885,
+        "s_max": 0.8881459570050155,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          2,
+          3
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R2_C09",
+        "face": 3,
+        "row": 2,
+        "column": 9,
+        "s_min": 0.8960673030663423,
+        "s_max": 0.9039886491276691,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          4,
+          5
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R2_C10",
+        "face": 3,
+        "row": 2,
+        "column": 10,
+        "s_min": 0.9119099951889962,
+        "s_max": 0.919831341250323,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          6,
+          7
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R2_C11",
+        "face": 3,
+        "row": 2,
+        "column": 11,
+        "s_min": 0.9277526873116497,
+        "s_max": 0.9356740333729766,
+        "z_min_m": 591.5,
+        "z_max_m": 600.5,
+        "parent_lower_grid_indices": [
+          8,
+          9
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R3_C01",
+        "face": 3,
+        "row": 3,
+        "column": 1,
+        "s_min": 0.769325766085113,
+        "s_max": 0.7772471121464397,
+        "z_min_m": 605.0,
+        "z_max_m": 614.0,
+        "parent_lower_grid_indices": [
+          126,
+          127
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R3_C02",
+        "face": 3,
+        "row": 3,
+        "column": 2,
+        "s_min": 0.7851684582077664,
+        "s_max": 0.7930898042690933,
+        "z_min_m": 605.0,
+        "z_max_m": 614.0,
+        "parent_lower_grid_indices": [
+          128,
+          129
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R3_C03",
+        "face": 3,
+        "row": 3,
+        "column": 3,
+        "s_min": 0.8010111503304203,
+        "s_max": 0.8089324963917471,
+        "z_min_m": 605.0,
+        "z_max_m": 614.0,
+        "parent_lower_grid_indices": [
+          130,
+          131
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R3_C04",
+        "face": 3,
+        "row": 3,
+        "column": 4,
+        "s_min": 0.8168538424530739,
+        "s_max": 0.824775188514401,
+        "z_min_m": 605.0,
+        "z_max_m": 614.0,
+        "parent_lower_grid_indices": [
+          132,
+          133
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R3_C05",
+        "face": 3,
+        "row": 3,
+        "column": 5,
+        "s_min": 0.8326965345757277,
+        "s_max": 0.8406178806370547,
+        "z_min_m": 605.0,
+        "z_max_m": 614.0,
+        "parent_lower_grid_indices": [
+          134,
+          135
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R3_C06",
+        "face": 3,
+        "row": 3,
+        "column": 6,
+        "s_min": 0.8485392266983812,
+        "s_max": 0.8564605727597081,
+        "z_min_m": 605.0,
+        "z_max_m": 614.0,
+        "parent_lower_grid_indices": [
+          136,
+          137
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R3_C07",
+        "face": 3,
+        "row": 3,
+        "column": 7,
+        "s_min": 0.8643819188210351,
+        "s_max": 0.8723032648823617,
+        "z_min_m": 605.0,
+        "z_max_m": 614.0,
+        "parent_lower_grid_indices": [
+          0,
+          1
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R3_C08",
+        "face": 3,
+        "row": 3,
+        "column": 8,
+        "s_min": 0.8802246109436885,
+        "s_max": 0.8881459570050155,
+        "z_min_m": 605.0,
+        "z_max_m": 614.0,
+        "parent_lower_grid_indices": [
+          2,
+          3
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R3_C09",
+        "face": 3,
+        "row": 3,
+        "column": 9,
+        "s_min": 0.8960673030663423,
+        "s_max": 0.9039886491276691,
+        "z_min_m": 605.0,
+        "z_max_m": 614.0,
+        "parent_lower_grid_indices": [
+          4,
+          5
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R3_C10",
+        "face": 3,
+        "row": 3,
+        "column": 10,
+        "s_min": 0.9119099951889962,
+        "s_max": 0.919831341250323,
+        "z_min_m": 605.0,
+        "z_max_m": 614.0,
+        "parent_lower_grid_indices": [
+          6,
+          7
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
+      },
+      {
+        "id": "UPPER_V10_F3_R3_C11",
+        "face": 3,
+        "row": 3,
+        "column": 11,
+        "s_min": 0.9277526873116497,
+        "s_max": 0.9356740333729766,
+        "z_min_m": 605.0,
+        "z_max_m": 614.0,
+        "parent_lower_grid_indices": [
+          8,
+          9
+        ],
+        "source_ids": [
+          "USER_OBSERVATION_V10",
+          "CROWN_GENS_PHOTO_V7"
+        ],
+        "evidence_level": "待确认",
+        "source_topology_confirmed": false,
+        "spans_candidate_glass_bands": 2,
+        "rule": "11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.",
+        "uncertainty": "Counts adopted from user observation; face assignment, absolute elevations and widths remain uncalibrated candidates."
       }
     ],
     "curtain_pattern_mode": "shared_lower_grid",
@@ -1341,6 +2668,65 @@
         "source_id": "CROWN_GENS_PHOTO_V7",
         "evidence_level": "推导值/待确认全周",
         "uncertainty": "photo-visible two narrow strips; uncalibrated height/extent candidates; not verified ventilation function"
+      }
+    ],
+    "aperture_layout_v10": {
+      "columns": 11,
+      "rows_per_face": [
+        2,
+        2,
+        3
+      ],
+      "face_centers_s": [
+        0.19,
+        0.52,
+        0.85
+      ],
+      "separator_parent_columns": 1,
+      "vent_height_parent_bands": 2,
+      "row_starts_parent_band": [
+        8,
+        11,
+        14
+      ],
+      "wind_bottom_parent_band": 4,
+      "wind_height_parent_bands": 3,
+      "count_evidence_level": "待确认",
+      "source_id": "USER_OBSERVATION_V10"
+    },
+    "aperture_groups_v10": [
+      {
+        "face": 1,
+        "columns": 11,
+        "rows": 2,
+        "s_min": 0.10393269693365742,
+        "s_max": 0.27028096422152137,
+        "parent_column_count_including_separators": 21,
+        "evidence_level": "待确认",
+        "count_basis": "USER_OBSERVATION_V10",
+        "coordinate_basis": "Candidate face centres snapped to existing lower parent grid"
+      },
+      {
+        "face": 2,
+        "columns": 11,
+        "rows": 2,
+        "s_min": 0.4366292315093851,
+        "s_max": 0.602977498797249,
+        "parent_column_count_including_separators": 21,
+        "evidence_level": "待确认",
+        "count_basis": "USER_OBSERVATION_V10",
+        "coordinate_basis": "Candidate face centres snapped to existing lower parent grid"
+      },
+      {
+        "face": 3,
+        "columns": 11,
+        "rows": 3,
+        "s_min": 0.769325766085113,
+        "s_max": 0.9356740333729766,
+        "parent_column_count_including_separators": 21,
+        "evidence_level": "待确认",
+        "count_basis": "USER_OBSERVATION_V10",
+        "coordinate_basis": "Candidate face centres snapped to existing lower parent grid"
       }
     ]
   },

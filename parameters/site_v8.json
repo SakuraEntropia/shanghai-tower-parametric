@@ -610,7 +610,7 @@
   ],
   "furniture_layout_evidence": "Unconfirmed parametric placeholders in published landscaped bands; no actual equipment/plant schedule.",
   "street_detail_enabled": true,
-  "path_rounding_candidate_m": 3.0,
+  "path_rounding_candidate_m": 18,
   "road_dash_length_candidate_m": 2.0,
   "road_dash_gap_candidate_m": 3.0,
   "road_mark_width_candidate_m": 0.12,
@@ -635,5 +635,12 @@
   ],
   "crosswalk_width_candidate_m": 4.5,
   "crosswalk_strip_width_candidate_m": 0.45,
-  "crosswalk_strip_pitch_candidate_m": 1.0
+  "crosswalk_strip_pitch_candidate_m": 1.0,
+  "contour_rounding_candidate_m": 7,
+  "curve_fit_v10": {
+    "method": "Quadratic Bezier corner trimming at published p29 trace controls, d=min(candidate radius,0.3 adjacent lengths)",
+    "samples_per_corner": 16,
+    "evidence_level": "待确认",
+    "uncertainty": "Source raster trace retained; smoothing radii not measured road/landscape engineering radii. Fit errors additional to pixel and registration uncertainty."
+  }
 }
