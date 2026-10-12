@@ -12,7 +12,7 @@ class CorrectionsV11Tests(unittest.TestCase):
                 ia=next(i for i,s in enumerate(st) if abs(s['s']-left['s_max'])<1e-9);ib=next(i for i,s in enumerate(st) if abs(s['s']-right['s_min'])<1e-9);self.assertEqual(ib-ia,2)
         self.assertTrue(all(g['parent_column_count_including_separators']==31 for g in p['aperture_groups_v10']))
     def test_tiles_have_physical_joint_and_flat_horizontal_proportion(self):
-        p=json.loads((R/'parameters/podium_v9.json').read_text());polys=v.tile_panels(p,[[(0,0,0),(5.4,0,0),(5.4,0,1.2),(0,0,1.2)]])
+        p=json.loads((R/'parameters/podium_v9.json').read_text());p['opaque_tiles_v11']={'module_candidate_m':[1.8,.3],'joint_candidate_m':.01};polys=v.tile_panels(p,[[(0,0,0),(5.4,0,0),(5.4,0,1.2),(0,0,1.2)]])
         self.assertEqual(len(polys),12)
         for q in polys:
             width=max(a[0] for a in q)-min(a[0] for a in q);height=max(a[2] for a in q)-min(a[2] for a in q)

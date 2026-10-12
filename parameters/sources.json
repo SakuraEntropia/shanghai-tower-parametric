@@ -889,6 +889,38 @@
       "limitations": "无原图、孔表、入口立面、层间楼板开洞图及terrace测量尺寸",
       "retrieved_on": "2026-10-12",
       "credibility": "按用户明确观察执行，尺寸拟合为候选"
+    },
+    {
+      "id": "USER_OBSERVATION_V12",
+      "title": "用户开放阳台、石材内嵌玻璃小入口、地形与屋顶圆盘校正",
+      "institution": "本项目用户",
+      "publication_date": "2026-10-12",
+      "url": null,
+      "type": "用户观察/指令，尺寸待外部确认",
+      "primary": false,
+      "locator": "本轮消息",
+      "original_units": "相对大小和拓扑，未提供米制测量",
+      "scale_or_version": "对应竣工版次待确认",
+      "support": "开放阳台、石材分块和内嵌入口、非平面场地、缩小屋顶盘",
+      "limitations": "无节点图、测绘标高或屋顶盘平面",
+      "retrieved_on": "2026-10-12",
+      "credibility": "按用户要求执行，具体尺寸为候选"
+    },
+    {
+      "id": "GENSLER_RETAIL_V12",
+      "title": "Shanghai Tower Retail Podium",
+      "institution": "Gensler",
+      "publication_date": null,
+      "url": "https://www.gensler.com/projects/shanghai-tower-retail-podium",
+      "type": "设计方原项目介绍与发布图，图像竣工版次未核验",
+      "primary": true,
+      "locator": "项目正文及2个图片链接；URL时间戳不作为摄影日期",
+      "original_units": "无尺寸/比例尺",
+      "scale_or_version": "正文预计2016夏建成；图库是否后续更新未确认，不作为竣工尺寸依据",
+      "support": "多层商业裙房、曲面玻璃立面及入口商业组织",
+      "limitations": "不能由效果图证实实际孔位、楼层标高或施工节点",
+      "retrieved_on": "2026-10-12",
+      "credibility": "一手设计介绍；明确限制设计与竣工混用"
     }
   ]
 }

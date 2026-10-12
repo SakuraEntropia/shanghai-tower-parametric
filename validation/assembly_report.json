@@ -27161,7 +27161,7 @@
       {
         "name": "crown_lower_roof_entity",
         "passed": true,
-        "actual": 10346
+        "actual": 10050
       },
       {
         "name": "crown_wide_return_entity",
@@ -27240,7 +27240,7 @@
       "collector_net_radius_display_m": 0.021,
       "collector_primary_rib_radius_display_m": 0.12,
       "collector_ring_rib_radius_display_m": 0.08,
-      "deck_radius_fit_m": 17.0,
+      "deck_radius_fit_m": 15.3,
       "deck_thickness_fit_m": 0.25,
       "deck_aperture_half_width_fit_m": 4.1,
       "deck_aperture_rect_upper_y_fit_m": 10.0,
@@ -27574,7 +27574,8 @@
       "tmd_eye_jade_outer_depth_candidate_m": 0.18,
       "tmd_eye_jade_wall_candidate_m": 0.035,
       "tmd_eye_inner_limb_trim_candidate_fraction": 0.12,
-      "tmd_eye_inner_limb_trim_step_candidate_fraction": 0.015
+      "tmd_eye_inner_limb_trim_step_candidate_fraction": 0.015,
+      "deck_radius_v12_basis": "User asks smaller roof disc; 0.9x former17m candidate. Not the35m nominal TMD hall or4m oculus; precise roof radius unverified."
     },
     "approximation": true,
     "evidence_level": "待确认",
@@ -27587,7 +27588,8 @@
       "OWNER_TMD_WIND_V6",
       "TURBINE_ATTEY_V6",
       "TMD_MOTIONEERING_V6",
-      "OWNER_MEP_BUILD_V6"
+      "OWNER_MEP_BUILD_V6",
+      "USER_OBSERVATION_V12"
     ],
     "roof_is_at_601_not_flat_632_cap": true,
     "K2_gap_preserved": false,
@@ -29796,20 +29798,39 @@
         },
         "opaque_tiles_v11": {
           "module_candidate_m": [
-            1.8,
-            0.3
+            1.2,
+            0.6
           ],
-          "joint_candidate_m": 0.01,
+          "joint_candidate_m": 0.012,
           "evidence_level": "待确认",
           "source_ids": [
-            "USER_OBSERVATION_V11"
+            "USER_OBSERVATION_V12"
           ],
           "uncertainty": "PS/white cladding module candidate; PR nominal dimensions do not certify PS panels."
         },
         "terrace_scale_v11": [
           1.35,
           1.2
-        ]
+        ],
+        "side_v12": {
+          "balcony_z_candidate_m": 22.0,
+          "balcony_depth_candidate_m": 5.0,
+          "guard_height_candidate_m": 1.1,
+          "inset_fraction": [
+            0.43,
+            0.61
+          ],
+          "inset_top_candidate_m": 12.6,
+          "inset_depth_candidate_m": 1.0,
+          "uncertainty": "User-observed open balcony and stone face with smaller inset glass. Platform/entry elevations, fraction, depth and orientation are uncalibrated fits, no final facade drawing."
+        },
+        "canopy_v12": {
+          "radial_rows": 2,
+          "glass_thickness_candidate_m": 0.024,
+          "joint_candidate_m": 0.012,
+          "edge_radius_candidate_m": 0.035,
+          "drain_panel_stride": 16
+        }
       },
       "PR_panel_report": {
         "candidate_panels": 13992,
@@ -29856,7 +29877,7 @@
           "passed": true,
           "actual": {
             "PR": 13992,
-            "canopy": 77
+            "canopy": 232
           }
         }
       ]
@@ -30012,7 +30033,7 @@
         "passed": true,
         "actual": {
           "PR": 13992,
-          "canopy": 77
+          "canopy": 232
         }
       }
     ],

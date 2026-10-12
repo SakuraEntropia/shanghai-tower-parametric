@@ -143,6 +143,7 @@ def build_detail(ctx,geometry,candidate,assembly,p):
           'uncertainty':'Actual image is oblique, uncalibrated. Dimensions, azimuth, counts, exact equipment functions and fabrication sections unbounded; NTUA elevation samples approximately±1.5m plus unresolved datum/version.',
           'used_parameters':p}
     anchors={a['id']:a['z_m'] for a in candidate.get('anchors',[])}
+    if p.get('deck_radius_v12_basis'):meta['source_ids'].append('USER_OBSERVATION_V12')
     roof_z=float(legacy.get('roof_z_m',anchors.get('main_inner_roof',601.099)))
     base=float(legacy.get('support_z_m',anchors.get('crown_support_base',546.993)))
     lower_z=float(legacy.get('lower_frame_top_candidate_m',542.))

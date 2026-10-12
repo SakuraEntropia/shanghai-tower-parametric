@@ -38,7 +38,8 @@
     "V6_12_podium_v6.md": true,
     "V6_12_roof_evidence_v6.md": true,
     "V6_12_v6修正与证据.md": true,
-    "V11_19_v11修正参数与核验.md": true
+    "V11_19_v11修正参数与核验.md": true,
+    "V12_20_v12底商场地与屋顶修正.md": true
   },
   "collections": [
     "00_EVIDENCE",
@@ -94,13 +95,13 @@
     "88_V_REENTRANT_FACADE",
     "90_VALIDATION"
   ],
-  "objects": 707,
+  "objects": 714,
   "all_objects_have_source_metadata": true,
   "geometry_signature": {
-    "sha256_rounded_geometry": "826a5c1979a905003d2a7747ab5630d883abc7f5029c3f616d98c29e82867102",
-    "mesh_count": 397,
-    "vertices": 1788142,
-    "polygons": 981815
+    "sha256_rounded_geometry": "94ad87ffa1a8df7e424e6521fec7906dd3ef4fc36201792a9d08d94c2b95653d",
+    "mesh_count": 401,
+    "vertices": 1917780,
+    "polygons": 1083161
   },
   "signature_matches_generation": true,
   "passed": true,
@@ -108,7 +109,7 @@
     "slabs": 129,
     "mega_columns": 8,
     "installed_CWSS_objects": 5,
-    "podium_objects": 42,
+    "podium_objects": 46,
     "full_outer_transition_slabs": 16,
     "crown_cooling_towers": 8,
     "wind_turbine_shafts": 270,
@@ -152,10 +153,10 @@
     "vent_count": 77,
     "apertures_cut_in_saved_registry": 80,
     "entry_mesh_faces": [
-      1302,
-      804,
-      32,
-      34
+      3174,
+      90,
+      12,
+      48
     ],
     "green_curve_curbs": 5
   },
@@ -256,5 +257,14 @@
       "passed": true,
       "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
     }
-  ]
+  ],
+  "v12_actual_entities": {
+    "balcony_z_m": 22.0,
+    "inset_glass_top_m": 12.600000381469727,
+    "guard_top_m": 23.100000381469727,
+    "landscape_z_max_m": 1.5469471216201782,
+    "sunken_pool_z_m": -3.513000011444092,
+    "roof_disc_radius_m": 15.300000589517992,
+    "old_full_height_side_glass_absent": true
+  }
 }

@@ -402,18 +402,37 @@
   },
   "opaque_tiles_v11": {
     "module_candidate_m": [
-      1.8,
-      0.3
+      1.2,
+      0.6
     ],
-    "joint_candidate_m": 0.01,
+    "joint_candidate_m": 0.012,
     "evidence_level": "待确认",
     "source_ids": [
-      "USER_OBSERVATION_V11"
+      "USER_OBSERVATION_V12"
     ],
     "uncertainty": "PS/white cladding module candidate; PR nominal dimensions do not certify PS panels."
   },
   "terrace_scale_v11": [
     1.35,
     1.2
-  ]
+  ],
+  "side_v12": {
+    "balcony_z_candidate_m": 22.0,
+    "balcony_depth_candidate_m": 5.0,
+    "guard_height_candidate_m": 1.1,
+    "inset_fraction": [
+      0.43,
+      0.61
+    ],
+    "inset_top_candidate_m": 12.6,
+    "inset_depth_candidate_m": 1.0,
+    "uncertainty": "User-observed open balcony and stone face with smaller inset glass. Platform/entry elevations, fraction, depth and orientation are uncalibrated fits, no final facade drawing."
+  },
+  "canopy_v12": {
+    "radial_rows": 2,
+    "glass_thickness_candidate_m": 0.024,
+    "joint_candidate_m": 0.012,
+    "edge_radius_candidate_m": 0.035,
+    "drain_panel_stride": 16
+  }
 }

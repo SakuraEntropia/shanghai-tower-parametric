@@ -95,9 +95,9 @@
       "check": "v10_white_cut_entry_and_upper_glass_present",
       "passed": true,
       "measured": {
-        "white_faces": 1302,
-        "upper_glass_faces": 804,
-        "recessed_glass_faces": 32
+        "white_faces": 3174,
+        "upper_glass_faces": 90,
+        "recessed_glass_faces": 12
       },
       "meaning": "Candidate user-observed entry topology; no recovered final facade elevations",
       "asbuilt_verified": false
@@ -145,7 +145,7 @@
       "check": "object_evidence_metadata",
       "passed": true,
       "measured": {
-        "objects": 707,
+        "objects": 714,
         "missing": [],
         "unresolved_source_ids": []
       },
@@ -479,7 +479,7 @@
     {
       "check": "v6_actual_exterior_radial_net_generators_straight",
       "passed": true,
-      "measured": 3.903345997670906e-05,
+      "measured": 4.260862216171561e-05,
       "meaning": "Actual float32 curve points; no lower curved transition; grid dimensions remain photo-fit candidates",
       "asbuilt_verified": false
     },
@@ -3129,7 +3129,7 @@
     {
       "check": "assembly_crown_detail_crown_lower_roof_entity",
       "passed": true,
-      "measured": 10346,
+      "measured": 10050,
       "meaning": "Candidate assembly geometry check, not as-built verification",
       "asbuilt_verified": false
     },
@@ -3244,7 +3244,7 @@
       "passed": true,
       "measured": {
         "PR": 13992,
-        "canopy": 77
+        "canopy": 232
       },
       "meaning": "Candidate assembly geometry check, not as-built verification",
       "asbuilt_verified": false
@@ -3256,8 +3256,8 @@
     "推导值": 10
   },
   "object_evidence_counts": {
-    "推导值": 267,
-    "待确认": 384,
+    "推导值": 265,
+    "待确认": 393,
     "已证实": 56
   },
   "object_role_counts": {
@@ -3338,14 +3338,15 @@
     "podium_PS_local_stone_band_candidate": 1,
     "podium_PG_cable_candidate": 1,
     "podium_roof_aligned_PG_arch_glazing_candidate": 2,
-    "podium_v11_side_entry_candidate": 2,
-    "podium_v11_side_upper_glass_candidate": 1,
-    "podium_v11_side_recess_candidate": 1,
-    "podium_v11_side_return_candidate": 1,
+    "podium_v12_stone_block_candidate": 1,
+    "podium_v12_inset_entry_candidate": 1,
+    "podium_v12_stone_return_candidate": 1,
+    "podium_v12_open_balcony_candidate": 2,
+    "podium_v12_low_balcony_guard_candidate": 1,
     "podium_under_roof_steel_candidate": 1,
     "podium_primary_steel_columns_candidate": 1,
     "podium_unresolved_closed_soffit_interface": 1,
-    "podium_first_floor_partial_rain_canopy_candidate": 2,
+    "podium_v12_canopy_detail_candidate": 5,
     "podium_landscape_pavilion_candidate": 2,
     "curtain_B_continuity_candidate": 2,
     "primary_mega_column_candidate": 28,
@@ -3368,6 +3369,7 @@
     "street_fixture_placeholder": 1,
     "street_furniture_placeholder": 12,
     "street_photo_marking_candidate": 3,
+    "site_v12_grade_candidate": 3,
     "closed_reentrant_V_facade_candidate": 2,
     "closed_reentrant_V_crown_facade_candidate": 1,
     "presentation_light": 4,
@@ -3375,10 +3377,10 @@
     "presentation_camera": 28
   },
   "geometry_signature": {
-    "sha256_rounded_geometry": "826a5c1979a905003d2a7747ab5630d883abc7f5029c3f616d98c29e82867102",
-    "mesh_count": 397,
-    "vertices": 1788142,
-    "polygons": 981815
+    "sha256_rounded_geometry": "94ad87ffa1a8df7e424e6521fec7906dd3ef4fc36201792a9d08d94c2b95653d",
+    "mesh_count": 401,
+    "vertices": 1917780,
+    "polygons": 1083161
   },
   "components": {
     "envelope": {
@@ -130897,7 +130899,7 @@
           {
             "name": "crown_lower_roof_entity",
             "passed": true,
-            "actual": 10346
+            "actual": 10050
           },
           {
             "name": "crown_wide_return_entity",
@@ -130976,7 +130978,7 @@
           "collector_net_radius_display_m": 0.021,
           "collector_primary_rib_radius_display_m": 0.12,
           "collector_ring_rib_radius_display_m": 0.08,
-          "deck_radius_fit_m": 17.0,
+          "deck_radius_fit_m": 15.3,
           "deck_thickness_fit_m": 0.25,
           "deck_aperture_half_width_fit_m": 4.1,
           "deck_aperture_rect_upper_y_fit_m": 10.0,
@@ -131310,7 +131312,8 @@
           "tmd_eye_jade_outer_depth_candidate_m": 0.18,
           "tmd_eye_jade_wall_candidate_m": 0.035,
           "tmd_eye_inner_limb_trim_candidate_fraction": 0.12,
-          "tmd_eye_inner_limb_trim_step_candidate_fraction": 0.015
+          "tmd_eye_inner_limb_trim_step_candidate_fraction": 0.015,
+          "deck_radius_v12_basis": "User asks smaller roof disc; 0.9x former17m candidate. Not the35m nominal TMD hall or4m oculus; precise roof radius unverified."
         },
         "approximation": true,
         "evidence_level": "待确认",
@@ -131323,7 +131326,8 @@
           "OWNER_TMD_WIND_V6",
           "TURBINE_ATTEY_V6",
           "TMD_MOTIONEERING_V6",
-          "OWNER_MEP_BUILD_V6"
+          "OWNER_MEP_BUILD_V6",
+          "USER_OBSERVATION_V12"
         ],
         "roof_is_at_601_not_flat_632_cap": true,
         "K2_gap_preserved": false,
@@ -133532,20 +133536,39 @@
             },
             "opaque_tiles_v11": {
               "module_candidate_m": [
-                1.8,
-                0.3
+                1.2,
+                0.6
               ],
-              "joint_candidate_m": 0.01,
+              "joint_candidate_m": 0.012,
               "evidence_level": "待确认",
               "source_ids": [
-                "USER_OBSERVATION_V11"
+                "USER_OBSERVATION_V12"
               ],
               "uncertainty": "PS/white cladding module candidate; PR nominal dimensions do not certify PS panels."
             },
             "terrace_scale_v11": [
               1.35,
               1.2
-            ]
+            ],
+            "side_v12": {
+              "balcony_z_candidate_m": 22.0,
+              "balcony_depth_candidate_m": 5.0,
+              "guard_height_candidate_m": 1.1,
+              "inset_fraction": [
+                0.43,
+                0.61
+              ],
+              "inset_top_candidate_m": 12.6,
+              "inset_depth_candidate_m": 1.0,
+              "uncertainty": "User-observed open balcony and stone face with smaller inset glass. Platform/entry elevations, fraction, depth and orientation are uncalibrated fits, no final facade drawing."
+            },
+            "canopy_v12": {
+              "radial_rows": 2,
+              "glass_thickness_candidate_m": 0.024,
+              "joint_candidate_m": 0.012,
+              "edge_radius_candidate_m": 0.035,
+              "drain_panel_stride": 16
+            }
           },
           "PR_panel_report": {
             "candidate_panels": 13992,
@@ -133592,7 +133615,7 @@
               "passed": true,
               "actual": {
                 "PR": 13992,
-                "canopy": 77
+                "canopy": 232
               }
             }
           ]
@@ -133748,7 +133771,7 @@
             "passed": true,
             "actual": {
               "PR": 13992,
-              "canopy": 77
+              "canopy": 232
             }
           }
         ],
@@ -133805,13 +133828,13 @@
           "object": "CROWN_V5_INNER_PRIMARY_RADIAL_RIBS",
           "axis_crossings": 0,
           "minimum_sampled_envelope_clearance_m": 0.5072720125317574,
-          "sample_count": 1860,
+          "sample_count": 1884,
           "radius_m": 0.11999999731779099
         },
         {
           "object": "CROWN_V5_INNER_CONTINUOUS_RING_RIBS",
           "axis_crossings": 0,
-          "minimum_sampled_envelope_clearance_m": 1.575779601931572,
+          "minimum_sampled_envelope_clearance_m": 1.72561876475811,
           "sample_count": 3060,
           "radius_m": 0.07999999821186066
         },
@@ -133840,7 +133863,7 @@
           "object": "CROWN_INNER_KICKER_TRUSSES_ABOVE_ROOF_CANDIDATE",
           "axis_crossings": 0,
           "minimum_sampled_envelope_clearance_m": 0.9958060681819916,
-          "sample_count": 627,
+          "sample_count": 678,
           "radius_m": 0.15000000596046448
         },
         {

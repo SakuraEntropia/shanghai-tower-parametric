@@ -1,6 +1,8 @@
-# Shanghai Tower 参数化研究模型 v11
+# Shanghai Tower 参数化研究模型 v12
 
-2026-10-12。孔間留2父列；8個過渡交界的兩塊樓板同步切出夾層候選豁口。入口撤離拱口，長側面母面局部剔除後接白色凹入口及上玻璃。白區/PS牆改實體扁長瓦片分縫；terrace、屋面庭院洞和設施統一擴大。
+2026-10-12。侧面上方改敞开阳台，下方石材面内只切较小入口并嵌入退进的玻璃。石块分缝、雨棚分板/钢件/排水候选构件、场地起伏及东西下沉空间、缩小屋顶圆盘均已补；TMD大厅名义尺寸保留。标高/边界仍为候选。
+
+v11历史：孔間留2父列；8個過渡交界的兩塊樓板同步切出夾層候選豁口。入口撤離拱口，長側面母面局部剔除後接白色凹入口及上玻璃。白區/PS牆改實體扁長瓦片分縫；terrace、屋面庭院洞和設施統一擴大。
 
 v10歷史：冠部上方改为11×2 /11×2 /11×3共77孔；风机洞与孔组同宽、跨3个原父格。补较宽拱口端面候选白色凹入入口及上部玻璃，出版场地图锚点内改连续Bezier转角。孔数采用用户观察，孔位/入口坐标未由竣工图证实。
 
@@ -9,9 +11,9 @@ v9基础保留：补典型幕墙夹层三角部X拉杆、大厅V支撑；慧眼�
 **公开资料所支持的研究重建。裙房完整曲面、全周开孔、慧眼加工形状仍未精确复原；不是竣工或施工图级模型。**
 
 - [可编辑模型](model/shanghai_tower_evidence.blend)：米制1:1；Collection分组件；对象属性与Text保存来源、公式和不确定性。
-- [生成脚本](scripts/build_shanghai_tower.py) · [参数与来源](parameters) · [本轮参数方案与证据](docs/19_v11修正参数与核验.md) · [v10历史方案](docs/18_v10孔组入口与街区.md) · [v9基础方案](docs/15_v9修正方案与证据.md) · [参数证据索引](docs/16_v9参数索引.md) · [核验与缺失项](docs/17_v9核验与缺失项.md)。
-- [冠部/慧眼](parameters/crown_v5.json) · [开孔/内B](parameters/completion.json) · [新裙房](parameters/podium_v9.json) · [夹层钢架](parameters/assembly_v3.json) · [场地](parameters/site_v8.json) · [玻璃/天空](parameters/model_config.json)。旧文件名用于兼容，内部版次和v11说明优先。
-- [長側面入口核验](views/VIEW_30_LONG_SIDE_ENTRY_V11.png) · [77孔分格展开核验](views/VIEW_29_CROWN_APERTURE_UNWRAPPED_V10.png) · [v11对照视图](views/reference_comparison_v11.html) · [生成检查](validation/validation_report.json) · [独立重开检查](validation/saved_blend_inspection.json) · [交付校验表](validation/delivery_manifest.json)。软件检查通过不证明与实物完全一致。
+- [生成脚本](scripts/build_shanghai_tower.py) · [参数与来源](parameters) · [本轮参数方案与证据](docs/20_v12底商场地与屋顶修正.md) · [v11历史方案](docs/19_v11修正参数与核验.md) · [v10历史方案](docs/18_v10孔组入口与街区.md) · [v9基础方案](docs/15_v9修正方案与证据.md) · [参数证据索引](docs/16_v9参数索引.md) · [核验与缺失项](docs/17_v9核验与缺失项.md)。
+- [冠部/慧眼](parameters/crown_v5.json) · [开孔/内B](parameters/completion.json) · [新裙房](parameters/podium_v9.json) · [夹层钢架](parameters/assembly_v3.json) · [场地](parameters/site_v8.json) · [玻璃/天空](parameters/model_config.json)。旧文件名用于兼容，内部版次和v12说明优先。
+- [场地高差核验](views/VIEW_31_SITE_LEVELS_V12.png) · [石材嵌入口近景](views/VIEW_32_STONE_INSET_ENTRY_V12.png) · [長側面入口核验](views/VIEW_30_LONG_SIDE_ENTRY_V11.png) · [77孔分格展开核验](views/VIEW_29_CROWN_APERTURE_UNWRAPPED_V10.png) · [v12对照视图](views/reference_comparison_v12.html) · [生成检查](validation/validation_report.json) · [独立重开检查](validation/saved_blend_inspection.json) · [交付校验表](validation/delivery_manifest.json)。软件检查通过不证明与实物完全一致。
 
 已证实的资料内容：公开名义632m、120°扭转；业主L126=583.4m、1000吨TMD、270风机。艺术家报告慧眼7.7×3.89m、三面、519玉件、9.1m铜底座、35m厅径、4m天窗、120长+120短铜条。CIMA供图支持连续弧骨架和厅内斜柱。TJAD/CTBUH2014支持典型Z2–8每层三个角部X杆及60mm设计直径。名义数据和类型不等于竣工坐标表。
 

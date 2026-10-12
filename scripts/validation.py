@@ -54,7 +54,7 @@ def validate_scene(ctx,geometry_module,anchors,results):
     if ctx.config.get('podium_v9'):
         e=ctx.config['podium_v9'].get('entrance_v10')
         if e:
-            wn=bpy.data.objects.get('PODIUM_V10_BROAD_FACE_WHITE_ENTRY_CUT');gn=bpy.data.objects.get('PODIUM_V10_GLASS_ABOVE_WHITE_ENTRY');dn=bpy.data.objects.get('PODIUM_V10_RECESSED_ENTRY_GLAZING')
+            wn=bpy.data.objects.get('PODIUM_V12_LONG_SIDE_STONE_BLOCKS') or bpy.data.objects.get('PODIUM_V10_BROAD_FACE_WHITE_ENTRY_CUT');gn=bpy.data.objects.get('PODIUM_V12_INSET_ENTRANCE_GLASS') or bpy.data.objects.get('PODIUM_V10_GLASS_ABOVE_WHITE_ENTRY');dn=bpy.data.objects.get('PODIUM_V12_ENTRY_STONE_REVEALS') or bpy.data.objects.get('PODIUM_V10_RECESSED_ENTRY_GLAZING')
             actual={'white_faces':len(wn.data.polygons) if wn else 0,'upper_glass_faces':len(gn.data.polygons) if gn else 0,'recessed_glass_faces':len(dn.data.polygons) if dn else 0}
             check('v10_white_cut_entry_and_upper_glass_present',all(actual.values()),actual,'Candidate user-observed entry topology; no recovered final facade elevations')
         cross=bpy.data.objects.get('CWSS_V9_THREE_CORNER_PLAN_X_CROSS_RODS');ring=bpy.data.objects.get('CWSS_INSTALLED_RINGS_CANDIDATE')

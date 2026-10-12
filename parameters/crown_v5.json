@@ -23,7 +23,7 @@
   "collector_net_radius_display_m": 0.021,
   "collector_primary_rib_radius_display_m": 0.12,
   "collector_ring_rib_radius_display_m": 0.08,
-  "deck_radius_fit_m": 17.0,
+  "deck_radius_fit_m": 15.3,
   "deck_thickness_fit_m": 0.25,
   "deck_aperture_half_width_fit_m": 4.1,
   "deck_aperture_rect_upper_y_fit_m": 10.0,
@@ -357,5 +357,6 @@
   "tmd_eye_jade_outer_depth_candidate_m": 0.18,
   "tmd_eye_jade_wall_candidate_m": 0.035,
   "tmd_eye_inner_limb_trim_candidate_fraction": 0.12,
-  "tmd_eye_inner_limb_trim_step_candidate_fraction": 0.015
+  "tmd_eye_inner_limb_trim_step_candidate_fraction": 0.015,
+  "deck_radius_v12_basis": "User asks smaller roof disc; 0.9x former17m candidate. Not the35m nominal TMD hall or4m oculus; precise roof radius unverified."
 }

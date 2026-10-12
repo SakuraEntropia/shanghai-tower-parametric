@@ -1,9 +1,9 @@
 {
-  "version": "v11",
+  "version": "v12",
   "repository_url": "https://github.com/SakuraEntropia/shanghai-tower-parametric",
   "generated_on": "2026-10-12",
   "editable_model": "model/shanghai_tower_evidence.blend",
-  "model_bytes": 46193824,
+  "model_bytes": 50548767,
   "regenerator": "scripts/build_shanghai_tower.py",
   "software_checks_passed": true,
   "independent_reopen_passed": true,
@@ -12,13 +12,13 @@
   "files": [
     {
       "path": "README.md",
-      "size_bytes": 4800,
-      "sha256": "ddbc9907e5479c4b7bccba3b366bf1d14d589d16480dbe28849af158e2e6e50c"
+      "size_bytes": 5278,
+      "sha256": "deb5a7f5ecb3255a40140dbc755a491414b92b36782014544babd0a3f773ba6b"
     },
     {
       "path": "model/shanghai_tower_evidence.blend",
-      "size_bytes": 46193824,
-      "sha256": "ae41f3c95fe411a426e1e3064a0db5a707fde5cf9c18fb4a9e4c606f0a68606e"
+      "size_bytes": 50548767,
+      "sha256": "07e7986474e0d2f47049be1552a178a0e4dbca978c220637e8ec021f198e1df9"
     },
     {
       "path": "views/reference_comparison_v9.html",
@@ -32,8 +32,8 @@
     },
     {
       "path": "scripts/build_shanghai_tower.py",
-      "size_bytes": 24267,
-      "sha256": "308df9cf5d8542a41c500c92b608f66bf9265d2fe82b50877d4131931b28bf42"
+      "size_bytes": 24041,
+      "sha256": "575923b9c95d1d25d3219b26ad83a931c0a1ab0cbba2c2e32114d9f5b66ef8cd"
     },
     {
       "path": "scripts/collision_v7.py",
@@ -77,8 +77,8 @@
     },
     {
       "path": "scripts/crown_v5.py",
-      "size_bytes": 37465,
-      "sha256": "3f87e99c0e1967f6a7dd35e7b958be0e0edddd88ddadad515f834b372e4c074a"
+      "size_bytes": 37553,
+      "sha256": "cf066000ee007fccfb3031fc9bef2a1b04aa1b0d06a62843c6480c3e92a6e5bb"
     },
     {
       "path": "scripts/curtain_wall.py",
@@ -112,8 +112,8 @@
     },
     {
       "path": "scripts/finalize_delivery_v9.py",
-      "size_bytes": 843,
-      "sha256": "4937b38a9f932bcf5a6172b16ea8d0447d0e0147f0068c8768d4fdbf83d0c2a3"
+      "size_bytes": 2307,
+      "sha256": "6382b222b90e136c305547b7c23df9c0af52e066d4e1974d854170d303232ded"
     },
     {
       "path": "scripts/floors_v3.py",
@@ -137,8 +137,8 @@
     },
     {
       "path": "scripts/inspect_saved.py",
-      "size_bytes": 7316,
-      "sha256": "378a8d25c40a2545a0691978a6bbca326612682b0d070e20625ef73aaec5308c"
+      "size_bytes": 9014,
+      "sha256": "71edd0590c46f69871c5f6630a5999f5ee5729f5e465fad534dcb99d81f4f133"
     },
     {
       "path": "scripts/make_assembly_comparisons.py",
@@ -177,8 +177,8 @@
     },
     {
       "path": "scripts/podium_v9.py",
-      "size_bytes": 26521,
-      "sha256": "79adc53bfa5f2ec2ba4a5f08d91b552f2703ef14fc2b4da920dc0734c60db747"
+      "size_bytes": 26809,
+      "sha256": "06296cd85973bb937b485c0b41afceeae8a6e6f6216c1f4ab68580e2dae1633a"
     },
     {
       "path": "scripts/render_saved_v8.py",
@@ -192,8 +192,8 @@
     },
     {
       "path": "scripts/site_v8.py",
-      "size_bytes": 12533,
-      "sha256": "e3c0ac0ab183088c48166b4a8f7d7ecd6545c753fc6c3346b05b0df8c559394c"
+      "size_bytes": 13341,
+      "sha256": "b12680929c6492df6a0dce458dc102614741eb3f98092c85efe0102c101e3421"
     },
     {
       "path": "scripts/structure.py",
@@ -207,8 +207,8 @@
     },
     {
       "path": "scripts/validation.py",
-      "size_bytes": 21073,
-      "sha256": "c07e262df12752363f5eed6748d2b6c443c94c44f35036d72f704ed0bf1680e7"
+      "size_bytes": 21251,
+      "sha256": "9f3ceb21bbef8b6afd7482f187ed59c0e4e37245bff693cc35bbaf23d9c865c9"
     },
     {
       "path": "parameters/assembly_v3.json",
@@ -222,8 +222,8 @@
     },
     {
       "path": "parameters/crown_v5.json",
-      "size_bytes": 11377,
-      "sha256": "cc0d0cbaf4f82a4efcc8a8beb236117f03aeeea3cfdc2d4e5c72f9319ec2f995"
+      "size_bytes": 11535,
+      "sha256": "5d975158b699fd61b55767f0453d672c6b4ff4c977fb2a48a539d5618365f141"
     },
     {
       "path": "parameters/floor_anchors.json",
@@ -257,18 +257,18 @@
     },
     {
       "path": "parameters/podium_v9.json",
-      "size_bytes": 6735,
-      "sha256": "9617799075079ad16dcacef27cdfe8712da2d0923b13bdc83045ddd65d0360a0"
+      "size_bytes": 7374,
+      "sha256": "b7627b0c8cfdd8cb22b342643b91498b8c7dbb47fc19592ea9bd5466b345f442"
     },
     {
       "path": "parameters/site_v8.json",
-      "size_bytes": 8831,
-      "sha256": "69eec2ff4ef1c6e99cff8e3fd74ec1cea2d851579dcef1eec8d76a49d045e713"
+      "size_bytes": 9446,
+      "sha256": "bdf3732855c3a1c9c2c842b9bff26bf0812c754ce7d05c756c70cf812ce13454"
     },
     {
       "path": "parameters/sources.json",
-      "size_bytes": 52590,
-      "sha256": "5ae8a2dffe5e4485423d79b5d7bac2d1b6c410afa4b07ba1bbfa802124b39b1b"
+      "size_bytes": 54242,
+      "sha256": "bfda6e65fbb7f83ae6564dc7390ac94151503d1345488a0ded934010572d2443"
     },
     {
       "path": "parameters/transition_v5.json",
@@ -412,158 +412,158 @@
     },
     {
       "path": "views/VIEW_01_TOWER.png",
-      "size_bytes": 2458880,
-      "sha256": "842070082b989216fb5b998d6ee7b2055b8d500f984a63329c75ddb6a95042e9"
+      "size_bytes": 2459725,
+      "sha256": "b0a137086d127a15ae487b3e410f3179ff91f92268caffdae18eb3f2357b9bc2"
     },
     {
       "path": "views/VIEW_02_SECTION.png",
-      "size_bytes": 2441412,
-      "sha256": "0fbdbc63cf351dfc5a95f7afd55f2ee24d1ff8f14597f0ddd0328a4b6219c05e"
+      "size_bytes": 2442265,
+      "sha256": "df03d49a5f228a712b4f6effe9ad77e3a4f627b531ffa635579d2570c14ffe71"
     },
     {
       "path": "views/VIEW_03_PLAN_45.png",
-      "size_bytes": 4167507,
-      "sha256": "802fd0b1c1c13cea31af8c94e6cedd35ad846733366bd79960c95433e2efb523"
+      "size_bytes": 4174977,
+      "sha256": "2144b0040b33b478db77596a043cd3b562284fbc13bde07d5128a8ab54db3d8c"
     },
     {
       "path": "views/VIEW_04_CURTAIN_DETAIL.png",
-      "size_bytes": 1668263,
-      "sha256": "bc6467f126145a5a3a5866df98b3fe2d3eadbbe20542ce76762f62684e907d22"
+      "size_bytes": 1668341,
+      "sha256": "9d69a7aeca10b2156360d134c87ae69acaf0c3ddd0f875827d74ccebdfab8ec4"
     },
     {
       "path": "views/VIEW_05_CWSS.png",
-      "size_bytes": 1596948,
-      "sha256": "61e927442cb18fe9cb3a0152f5f37d26a1767201d556744db35498d475137668"
+      "size_bytes": 1597061,
+      "sha256": "0ff1fa48ce02e2dd910b5493bd85b2f03494e884e791e60b04d35a7a15c3fac9"
     },
     {
       "path": "views/VIEW_06_MAIN_PATTERN.png",
-      "size_bytes": 2388336,
-      "sha256": "c980578283d64dbfc313cb88c085088f8b6f5d9d5e4314013682ba591d9d48b2"
+      "size_bytes": 2388672,
+      "sha256": "1e350180aeb587b7f6ab9af47cf7aafaa2514ccdc9b08ddc485908fc24fde636"
     },
     {
       "path": "views/VIEW_07_CROWN.png",
-      "size_bytes": 2917838,
-      "sha256": "c911a91fefa66c20ec702ee06576a2850bd52fc7d427167748e3d10782e5c814"
+      "size_bytes": 2920197,
+      "sha256": "a928dc0f62d3a503a78fba72026191fade2a3c4e04e088b9b929ea9009ab574b"
     },
     {
       "path": "views/VIEW_08_INNER.png",
-      "size_bytes": 2531905,
-      "sha256": "4294a1155622f0c2faa35cfa30eafdd26784a7ab0b95791bc9199a058a97c6c1"
+      "size_bytes": 2531296,
+      "sha256": "3cc9360c889413e669ad91eb36709f869b4fa82d8bca1f488be80ec39e1c7161"
     },
     {
       "path": "views/VIEW_09_CORE_PLAN.png",
       "size_bytes": 1066726,
-      "sha256": "2437071a874d6341d836a2676b1ea8dc7c8637150c3079971d22bed7b3fe9999"
+      "sha256": "2ca690e8bc9e0c36eb1b071d469952fecfc299f354de31acee0786d79fdf0c5e"
     },
     {
       "path": "views/VIEW_10_CORE_WALLS.png",
-      "size_bytes": 2219627,
-      "sha256": "61c9e79d54389575a36cb55f9711c50c14cba3ed7aa5b2275f0d0158bc3bc80d"
+      "size_bytes": 2219934,
+      "sha256": "c09799997313e0eda376baa243d60ed83a1b83ea9473b28b71d852b59189885e"
     },
     {
       "path": "views/VIEW_11_ASSEMBLY.png",
-      "size_bytes": 2630857,
-      "sha256": "5b2ce377f242bec86e6d047389a74ad42858169fd0c6ef3edd711ee1be4f6e52"
+      "size_bytes": 2630721,
+      "sha256": "e03850ea3a4acee47ff32afe0f90f30b2d3f31765b5799f13064e55548d68152"
     },
     {
       "path": "views/VIEW_12_GROUNDED_RETAIL.png",
-      "size_bytes": 3311166,
-      "sha256": "ef51629acfaeb79770f28b0ddf75c6bb3dbcd5404afdae1dae87c61b15ee9e4e"
+      "size_bytes": 3277804,
+      "sha256": "5b4fbb178f9d21108b1445f77a57ad4650459b57fd90b9d95359ddd10c6a1255"
     },
     {
       "path": "views/VIEW_13_CWSS_INSTALLED.png",
-      "size_bytes": 1763776,
-      "sha256": "7c6d5a052b7fe9bd12c26ff67547d57d4cd288fec0347973ef4a0b5fb1c0b14d"
+      "size_bytes": 1764051,
+      "sha256": "228820d90b96528d783ec25c826d4561e4c9b4c8a18cc46b8e792fb2173e6546"
     },
     {
       "path": "views/VIEW_14_CROWN_ROOF_STEEL.png",
-      "size_bytes": 2920141,
-      "sha256": "279cae8b3b7ca152c1dda41c20b198e6e4f4a5560c07ee23df3d1ad3a863cb19"
+      "size_bytes": 2927109,
+      "sha256": "80329c820f1aa1eddc1ed5504d404e77fef71bb73b8383e6c8d6d0910b9c601b"
     },
     {
       "path": "views/VIEW_15_V_RECESS.png",
-      "size_bytes": 3554699,
-      "sha256": "20f16c555463d34eba3314513b021a50037339c393ba86c684ce34fe9ea97b57"
+      "size_bytes": 3554717,
+      "sha256": "1c54de0f8f131a4333c23c8765e656e914ae4594a7f3da195ba6ddac14932856"
     },
     {
       "path": "views/VIEW_16_V_PLAN.png",
-      "size_bytes": 1233741,
-      "sha256": "92bf02659d87e1f76a810f1e756aad436f123b0aebfa148a81efe39ea6976917"
+      "size_bytes": 1233740,
+      "sha256": "c58365dcd7a52debafca74f8cb64be9be735abbc7a7ea2ad313e861f34da8833"
     },
     {
       "path": "views/VIEW_17_CROWN_AERIAL_V5.png",
-      "size_bytes": 3231112,
-      "sha256": "5f07c8c5dedb7afa758bfd422ea7adc75d9ee242297628ea3c7e550f2dd24d54"
+      "size_bytes": 3238385,
+      "sha256": "a3ba874b8308bb1b132d56c2f4d708e591718b06f3fa51cd7152b04cd00ee7fe"
     },
     {
       "path": "views/VIEW_18_CROWN_EQUIPMENT_V5.png",
-      "size_bytes": 4414863,
-      "sha256": "0bf6f027f2d8fa1065d8ac39a08de9a5752f40af03ca5a49b2737f2439bfe03f"
+      "size_bytes": 4402988,
+      "sha256": "c019f7ce2ef1dbe9c49cf7836fb9851d431d4223ae566a8395cacf989a5cde7b"
     },
     {
       "path": "views/VIEW_19_TRANSITION_V5.png",
-      "size_bytes": 3686330,
-      "sha256": "4f45d4cf759efdb3ba18cb7a74b08e556a7f674178b5f29c4688e75d1fa1358f"
+      "size_bytes": 3686475,
+      "sha256": "33747d25e1e7d0ea36c55592998f88eb9089fc75be289844e97ca6c1f2a28007"
     },
     {
       "path": "views/VIEW_20_TMD_HALL_V6.png",
-      "size_bytes": 3889782,
-      "sha256": "f96ee957cd5d29e2a645b14b37f8bf2514b320120a3eafe8705cd7339cb1de72"
+      "size_bytes": 3892518,
+      "sha256": "02080f08a2e5722457040ecc238fd755a6e304c447f06ca5996fbbd3839ab4e6"
     },
     {
       "path": "views/VIEW_21_WIND_BAYS_V6.png",
-      "size_bytes": 3807633,
-      "sha256": "a0f2fdfe4e13fd8b1afc7963cc4d7690c644c5341a06f7bbd38c67c737b39f7a"
+      "size_bytes": 3807865,
+      "sha256": "4d4d1fc3dfb4b7ecb542dd4a0e366e9da73a33464f66f5e73380f92664e13864"
     },
     {
       "path": "views/VIEW_22_COOLING_CUTAWAY_V6.png",
-      "size_bytes": 3371676,
-      "sha256": "6ab00b17704e400d23d9fe94e6447971708b66d9907eef8e5651c680ee9e0d7a"
+      "size_bytes": 3371847,
+      "sha256": "b47aa02f09246c04fc2658764b68f2d0d6adaf18450145edc5e7eac78b5f9462"
     },
     {
       "path": "views/VIEW_23_PODIUM_SYSTEMS_V7.png",
-      "size_bytes": 3068998,
-      "sha256": "e7188e810f2ee51bcfd8d33f5c6ae1ba129d6f7a12a66bec7b2aeffb1d2e887a"
+      "size_bytes": 3074518,
+      "sha256": "93da558443525d562efb1ae151f2cb2203522f8f75a669bf345bb11f537cc8c3"
     },
     {
       "path": "views/VIEW_24_INNER_LOWER_SUPPORT_V7.png",
-      "size_bytes": 2717945,
-      "sha256": "f5cadcfd8d8edc112e37045cb2959500f3081efbce9ca188f8674ac60822198e"
+      "size_bytes": 2718198,
+      "sha256": "aaf29cd10fd15b486b9547b41d3c7e50f45c8d5b3e02c78f0153970ad1e9931d"
     },
     {
       "path": "views/VIEW_25_SKY_AND_GLASS_V7.png",
-      "size_bytes": 2436592,
-      "sha256": "f60f535a96124e3750d4b750276ed1db9155e19268026fd5a57ac4ce078872b7"
+      "size_bytes": 2438427,
+      "sha256": "1bcf7a5f605fb8a815a24a1db22e9c1053b9a76045841280f579d2c012e60a58"
     },
     {
       "path": "views/VIEW_26_SITE_PLAN_V8.png",
-      "size_bytes": 2565921,
-      "sha256": "3739b83725c4614dcbbe982c372f82b3168532eedd18b46c3baffe0ba5c6e13a"
+      "size_bytes": 2564658,
+      "sha256": "dd3a7d7297c39e064fc4c41a10077d762746e08d93b2ed1a2f35c1fbdc3bc936"
     },
     {
       "path": "views/VIEW_27_B_ATRIUM_OPEN_BASE_V8.png",
-      "size_bytes": 3428405,
-      "sha256": "048919582990653cc9889473a509c8a06968bbece235dbd38d5ab4e2eca9e08b"
+      "size_bytes": 3428245,
+      "sha256": "8e7f34049ac28bc1d0581469f49102b67e09b8d4273393383c800cb99bcf0e27"
     },
     {
       "path": "views/VIEW_28_SHANGHAI_EYE_V8.png",
-      "size_bytes": 3041128,
-      "sha256": "7fcaf06f7d988b913074aa49fe6e36039507ce4560d96fc879b7216076277b93"
+      "size_bytes": 3041371,
+      "sha256": "2ada5df79426c9781524f69ce5da18d6f788ad05f22f6a48b767bdddc38b7956"
     },
     {
       "path": "validation/validation_report.json",
-      "size_bytes": 3549783,
-      "sha256": "4c529dc75b1d3a936014192d40af61523e3c0efe481fbfd9e4c943007622c735"
+      "size_bytes": 3550882,
+      "sha256": "7b0a4b8cc5f6a6453218f56e95b56ba09268e77d6e923442261552ab2b1d865e"
     },
     {
       "path": "validation/assembly_report.json",
-      "size_bytes": 708390,
-      "sha256": "3ba2c7238408677749df39231484895fcd1e7500e3d1098ece1a1e2bd703765d"
+      "size_bytes": 709337,
+      "sha256": "b6db0d018d1100cadcb304bbd5ce2c7eb16f175e3fccb8ba468d53bab359cb22"
     },
     {
       "path": "validation/saved_blend_inspection.json",
-      "size_bytes": 8735,
-      "sha256": "ebd96b8f4cb3fc66350e5d11558f372ff9d6d69934a213ab14dc9e9ca4a0a4be"
+      "size_bytes": 9110,
+      "sha256": "378cc0f3c57f75202a508f9d1cea0a52e5085c0986e4d768245c38d5adad97f3"
     },
     {
       "path": "validation/v9_verification_summary.json",
@@ -617,13 +617,13 @@
     },
     {
       "path": "scripts/corrections_v11.py",
-      "size_bytes": 8778,
-      "sha256": "2c6e555ee1dc61def80efd013537f25a348a27f07cdd29aba10e48fc8deed2c7"
+      "size_bytes": 8884,
+      "sha256": "21abf3c40e6ba3f680884cb3ebc7ac651eda4a80d4f6d17b4bc577daec1d7163"
     },
     {
       "path": "scripts/render_side_v11.py",
-      "size_bytes": 1496,
-      "sha256": "5c9d6b230c8d6669681c79ea346ec36f0f4f819c5034ee90b378dafe97ed2fec"
+      "size_bytes": 1938,
+      "sha256": "b00b9d0d30ebc8af32a53c93d202ec8beebb90159baf8677078996591f8c1713"
     },
     {
       "path": "scripts/make_comparisons_v11.py",
@@ -632,8 +632,8 @@
     },
     {
       "path": "tests/test_v11_corrections.py",
-      "size_bytes": 2250,
-      "sha256": "6743c504cdd62aaa1ebc2a4eaf1fe611d1786f58eaf9f2d0462174da1cbbb155"
+      "size_bytes": 2328,
+      "sha256": "62298ef74f88c6b02dd1c2f6cb08c773f354fa52ff8527d989161e4ae2779c08"
     },
     {
       "path": "validation/v11_verification_summary.json",
@@ -642,13 +642,53 @@
     },
     {
       "path": "views/VIEW_30_LONG_SIDE_ENTRY_V11.png",
-      "size_bytes": 2710994,
-      "sha256": "6e377d179a5deb69959421dc0772846c81dc4269eb50b0e21a509c217dd018ba"
+      "size_bytes": 2652298,
+      "sha256": "a35f07f82100b8ab0a055d0ab75d8aee9b84e6f14b9cc22c4f6113bedbef6148"
     },
     {
       "path": "views/reference_comparison_v11.html",
       "size_bytes": 4201,
       "sha256": "3b769ba251a754bd30900d0051fab1305eb1297999c8ba0790733b3170b99071"
+    },
+    {
+      "path": "docs/20_v12底商场地与屋顶修正.md",
+      "size_bytes": 3749,
+      "sha256": "cdc795e29b1500af240cab81e66cdfddaeaaa0794c90b1a00f8e6933f4871a82"
+    },
+    {
+      "path": "scripts/corrections_v12.py",
+      "size_bytes": 11701,
+      "sha256": "b2f9e34ec9c07016dc0e3a1f0ba162f4c7ba68537cbcd59b4408e25571cfcdd3"
+    },
+    {
+      "path": "scripts/make_comparisons_v12.py",
+      "size_bytes": 5100,
+      "sha256": "1838d65d3ddba70a052b4902f89d982b8d342a026782338355b93c334aab4705"
+    },
+    {
+      "path": "tests/test_v12_corrections.py",
+      "size_bytes": 1691,
+      "sha256": "3e7cbc65b016bf4e79c76138656e49c22d519f2255312bcb50be2f45f0950e67"
+    },
+    {
+      "path": "validation/v12_verification_summary.json",
+      "size_bytes": 561,
+      "sha256": "56ba2fadfb5a9b16a376f4a63c82dd08dcd7531cd0844ecb4112ae2f0fb75c5e"
+    },
+    {
+      "path": "views/VIEW_31_SITE_LEVELS_V12.png",
+      "size_bytes": 2269440,
+      "sha256": "c5d6b743d2dae953859d9e010ef59c9454611d95e6b98a9eae27c76dfc5d393f"
+    },
+    {
+      "path": "views/VIEW_32_STONE_INSET_ENTRY_V12.png",
+      "size_bytes": 2175740,
+      "sha256": "24aabf645a76acf6b92a9fae0d971b834277a583bd80c5803c2983a06652f8c2"
+    },
+    {
+      "path": "views/reference_comparison_v12.html",
+      "size_bytes": 4638,
+      "sha256": "ac337f401a3a92fb552cb50f09eafa5de90dd7cf4385517cf1747b93fa49c3cf"
     }
   ]
 }

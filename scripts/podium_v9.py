@@ -216,6 +216,9 @@ def pr_panels(p,tower):
 
 
 def rain_canopy(ctx,geometry,p):
+    if p.get('canopy_v12'):
+        from corrections_v12 import fine_canopy
+        return fine_canopy(ctx,geometry,p)
     from transition_v5 import outer_reference,control_profile_at
     _,ref=outer_reference(geometry,ctx.config);profile=control_profile_at(geometry,ctx.config,ref,0)
     q=p['south_rain_canopy'];lo,hi=q['profile_fraction_candidate'];n=len(profile);ids=list(range(round(lo*n),round(hi*n)+1))
@@ -322,7 +325,7 @@ def build_podium(ctx,geometry,completion,assembly):
     ctx.mesh('PODIUM_V9_LOCAL_PG_POINT_SUPPORTED_GLASS',gv,gf,detail,'glass_detail',_meta(p,'podium_PG_local_glazing_candidate',source_systems='PG1 cable/PG2 plate truss/PG3 mixed point support; exact final zone limits and joints unresolved'))
     if p.get('opaque_tiles_v11'):
         opaque=tile_panels(p,[[sv[i] for i in face] for face in sf]);sv=[];sf=[];_add(opaque,sv,sf)
-    ctx.mesh('PODIUM_V9_LIMITED_PS_OPAQUE_FRONT_BAND',sv,sf,detail,'podium_stone',_meta(p,'podium_PS_local_stone_band_candidate',tile_module_evidence='Candidate1.8x0.3m/10mm geometry joints; no PS panel schedule recovered'))
+    ctx.mesh('PODIUM_V9_LIMITED_PS_OPAQUE_FRONT_BAND',sv,sf,detail,'podium_stone',_meta(p,'podium_PS_local_stone_band_candidate',tile_module_evidence=str(p.get('opaque_tiles_v11',{}))+'; candidate stone module, no PS shop schedule recovered'))
     ctx.lines('PODIUM_V9_PG_FINE_HORIZONTAL_CABLE_GRID',cables,detail,p['PG_cable_radius_candidate_m'],'steel',_meta(p,'podium_PG_cable_candidate'))
     if p.get('entrance_v10') and p['entrance_v10'].get('target_arch_end') is None and not p.get('entrance_v11'):
         em=_meta(p,'podium_v10_white_entry_candidate',source_ids=p['source_ids']+['USER_OBSERVATION_V10'],evidence_level='待确认',uncertainty=p['entrance_v10']['uncertainty'],formula='Local broad-face boundary from published ground trace; existing PS and PG omitted there; white polygon physically cut for recessed entrance, glass retained above.')
@@ -338,6 +341,7 @@ def build_podium(ctx,geometry,completion,assembly):
     for i in range(0,report['longitudinal_intervals']+1,4):
         t=min(1,i/report['longitudinal_intervals']);path=[]
         for j in range(65):
+            if p.get('side_v12') and p['entrance_v11']['t_span'][0]<=t<=p['entrance_v11']['t_span'][1] and j/64>p['entrance_v11']['roof_cut_u']:break
             q=sweep_point(p,t,j/64)
             if not contains(tower,q[:2]) and not (q[2]>=p['terrace_candidate_m'] and contains(court,q[:2])):path.append((q[0],q[1],q[2]-.35))
             elif len(path)>1:steel.append(path);path=[]

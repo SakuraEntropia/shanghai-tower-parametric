@@ -1,0 +1,18 @@
+{
+  "version": "v12",
+  "unit_tests_passed": 78,
+  "scene_checks_passed": 219,
+  "scene_checks_total": 219,
+  "geometry_signature": {
+    "sha256_rounded_geometry": "94ad87ffa1a8df7e424e6521fec7906dd3ef4fc36201792a9d08d94c2b95653d",
+    "mesh_count": 401,
+    "vertices": 1917780,
+    "polygons": 1083161
+  },
+  "upper_balcony": "Open, low guard only",
+  "entry": "Smaller recessed glass in individual stone blocks",
+  "roof_disc_radius_candidate_m": 15.3,
+  "nominal_TMD_hall_radius_m": 17.5,
+  "new_site_grades_surveyed": false,
+  "asbuilt_verified": false
+}

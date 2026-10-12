@@ -54,8 +54,12 @@ def _strip(points,width,z):
 
 def ground(ctx,p,size):
     hole=ccw([xy(p,q) for q in p['sunken_entrance_polygon_px']]);s=size/2
+    holes=[hole]
+    if p.get('levels_v12'):
+        from crown_v5 import _circle
+        holes.append(_circle(xy(p,p['water_garden_center_px']),p['levels_v12']['east_sunken_radius_candidate_m'],96))
     return _surface(ctx,'ST_DISPLAY_GROUND',[(-s,-s),(s,-s),(s,s),(-s,s)],-.025,'ground','90_VALIDATION',
-            {'source_ids':p['source_ids'],'geometry_role':'presentation','uncertainty':'Display ground, cut at published-plan sunken entrance candidate; no surveyed terrain.'},[hole])
+            {'source_ids':p['source_ids'],'geometry_role':'presentation','uncertainty':'Display ground, cut at published-plan sunken entrance and candidate lowered water garden; no surveyed terrain.'},holes)
 
 
 def build(ctx,geometry,p):
@@ -73,12 +77,20 @@ def build(ctx,geometry,p):
     if ctx.config.get('podium_v9'):
         from podium_v9 import plan_xy,rounded_poly
         q=ctx.config['podium_v9'];retail=ccw(rounded_poly([plan_xy(q,v) for v in q['ground_outline_px']],q['corner_fillet_candidate_m']))
-    _surface(ctx,'SITE_V8_PUBLISHED_SIDEWALK_PLAZA',outline,floor,'paving',col,meta,[tower,retail,sunken,pavilion])
+    holes=[tower,retail,sunken,pavilion]
+    if p.get('levels_v12'):holes.append(_circle(xy(p,p['water_garden_center_px']),p['levels_v12']['east_sunken_radius_candidate_m'],96))
+    _surface(ctx,'SITE_V8_PUBLISHED_SIDEWALK_PLAZA',outline,floor,'paving',col,meta,holes)
     ctx.lines('SITE_V8_ACTUAL_DERIVED_TOWER_GROUND_PROFILE',[[(*q[:2],floor+.06) for q in control_profile_at(geometry,ctx.config,ref,0)+control_profile_at(geometry,ctx.config,ref[:1],0)]],col,.06,'steel',meta)
     green=[]
+    path_holes=[]
+    if p.get('levels_v12'):
+        from site_details_v9 import smooth_route
+        for path in p['paths_px']:
+            vv,ff=_strip(smooth_route([xy(p,q) for q in path],p['path_rounding_candidate_m']),p['path_width_candidate_m'],0)
+            path_holes.extend(ccw([vv[i][:2] for i in face]) for face in ff)
     for i,poly in enumerate(p['green_polygons_px']):
         pts=ccw(rounded_poly([xy(p,q) for q in poly],p.get('contour_rounding_candidate_m',0),16)) if p.get('contour_rounding_candidate_m') else ccw([xy(p,q) for q in poly]);green.append(pts)
-        _surface(ctx,f'SITE_V8_GREEN_BAND_{i+1:02d}',pts,floor+.035,'landscape_leaf',green_col,{**meta,'geometry_role':'landscape_plan_band_candidate'},[tower,retail,sunken,pavilion])
+        _surface(ctx,f'SITE_V8_GREEN_BAND_{i+1:02d}',pts,floor+.035,'landscape_leaf',green_col,{**meta,'geometry_role':'landscape_plan_band_candidate'},holes+path_holes)
         ctx.lines(f'SITE_V10_GREEN_CURVE_CURB_{i+1:02d}',[[(*q,floor+.075) for q in pts+pts[:1]]],green_col,.045,'core',{**meta,'geometry_role':'landscape_curve_curb_candidate'})
     for i,path in enumerate(p['paths_px']):
         from site_details_v9 import smooth_route
@@ -152,6 +164,9 @@ def build(ctx,geometry,p):
     if p.get('street_detail_enabled',False):
         from site_details_v9 import build_details
         build_details(ctx,p,meta)
+    if p.get('levels_v12'):
+        from corrections_v12 import landscape_levels
+        landscape_levels(ctx,p)
     return {'source_ids':p['source_ids'],'published_scale_m_per_px':100/291,'trees_candidate':len(tree_points),'roads':4,
             'sunken_entry_has_ground_cut':True,'retail_upper_RC_schedule_verified':False,'asbuilt_verified':False,
             'checks':[{'name':'v8_site_scale_and_four_streets_present','passed':len(p['roads'])==4 and abs(math.dist(xy(p,p['scale_bar_px'][0]),xy(p,p['scale_bar_px'][1]))-100)<1e-8,'actual':100}]}

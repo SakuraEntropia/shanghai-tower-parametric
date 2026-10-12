@@ -642,5 +642,24 @@
     "samples_per_corner": 16,
     "evidence_level": "待确认",
     "uncertainty": "Source raster trace retained; smoothing radii not measured road/landscape engineering radii. Fit errors additional to pixel and registration uncertainty."
+  },
+  "levels_v12": {
+    "green_mound_heights_candidate_m": [
+      0.6,
+      1.2,
+      1.1,
+      0.8,
+      1.5
+    ],
+    "terrain_mesh_step_candidate_m": 0.75,
+    "east_sunken_depth_candidate_m": 3.6,
+    "east_sunken_radius_candidate_m": 9.0,
+    "east_stair_steps_candidate": 20,
+    "east_stair_width_candidate_m": 1.8,
+    "east_stair_arc_candidate_deg": [
+      20,
+      170
+    ],
+    "uncertainty": "SWA/contractor confirms raised structural landscape and sunken public spaces; all heights, mound profiles, east location/depth and stair arrangement candidates, no surveyed contour/elevation plan."
   }
 }

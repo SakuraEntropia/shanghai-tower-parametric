@@ -59,6 +59,9 @@ def tile_panels(p,polygons):
 
 
 def build_side_entry(ctx,p):
+    if p.get('side_v12'):
+        from corrections_v12 import build_side
+        return build_side(ctx,p)
     from podium_v9 import _add,_meta,entrance_panels
     e=p['entrance_v11'];start,end=e['t_span'];steps=e['samples'];white=[];glass=[];doors=[];returns=[];cables=[]
     # Local planar charts use full-side accumulated station for the opening.
