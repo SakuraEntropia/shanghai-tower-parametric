@@ -95,7 +95,7 @@ def _clip_height(poly,z,above):
 def entrance_zone(p,a,b):
     """One explicit candidate region on the existing broad curved facade."""
     e=p.get('entrance_v10')
-    if not e or e.get('target_arch_end') is not None:return None
+    if not e or e.get('target_arch_end') is not None or p.get('entrance_v11'):return None
     y0,y1=e['y_span_candidate_m'];x=(a[0]+b[0])/2;y=(a[1]+b[1])/2
     if x<=e['front_x_min_candidate_m'] or not y0<=y<=y1:return None
     return e
@@ -196,19 +196,21 @@ def pr_panels(p,tower):
     nc=math.ceil(length/p['PR_nominal_length_reported_m']);section=arc_section(p);arclength=sum(math.dist(a,b) for a,b in zip(section,section[1:]))
     # Equal closed-section fractions avoid a free residual-tooth seam. Their
     # final physical widths depend on the unrecovered loft/axis9 geometry.
-    nr=round(arclength/p['PR_east_width_reported_m']);court=ccw(hull([plan_xy(p,q) for q in p['courtyard_photo_fit_px']]))
+    from corrections_v11 import courtyard_points,roof_quadlets
+    nr=round(arclength/p['PR_east_width_reported_m']);court=ccw(hull([plan_xy(p,q) for q in courtyard_points(p,p['courtyard_photo_fit_px'])]))
     regions={'EAST':[],'WEST':[]};errors=[];ids=0
     for i in range(nc):
         t0,t1=i/nc,(i+1)/nc;side='WEST' if (t0+t1)/2<p['axis9_candidate_fraction'] else 'EAST'
         for j in range(nr):
-            u0,u1=j/nr,(j+1)/nr;quad=[sweep_point(p,t,u) for t,u in ((t0,u0),(t1,u0),(t1,u1),(t0,u1))]
-            if side=='WEST' and max(q[2] for q in quad)<p['west_PR_start_reported_m']:continue
-            flat,n,error=planarize(quad,p['PR_joint_reported_m'])
-            if not flat:continue
-            holes=[tower]
-            if min(q[2] for q in flat)>p['terrace_candidate_m']-.2:holes.append(court)
-            for poly in _cut3d(flat,holes):
-                regions[side].append((poly,n,ids));ids+=1;errors.append(error)
+            u0,u1=j/nr,(j+1)/nr
+            for quad in roof_quadlets(p,t0,t1,u0,u1):
+                if side=='WEST' and max(q[2] for q in quad)<p['west_PR_start_reported_m']:continue
+                flat,n,error=planarize(quad,p['PR_joint_reported_m'])
+                if not flat:continue
+                holes=[tower]
+                if min(q[2] for q in flat)>p['terrace_candidate_m']-.2:holes.append(court)
+                for poly in _cut3d(flat,holes):
+                    regions[side].append((poly,n,ids));ids+=1;errors.append(error)
     return regions,{'candidate_panels':ids,'max_flattening_error_m':max(errors,default=0),'longitudinal_intervals':nc,'cross_section_intervals':nr,
                     'published_nominal_length_m':1.8,'published_east_width_m':.3,'axis9_coordinates_verified':False,'closed_west_shop_curve_verified':False}
 
@@ -237,7 +239,8 @@ def build_podium(ctx,geometry,completion,assembly):
     p=assembly['podium_v9'];site=ctx.config['site_v8'];col='64_PODIUM_PHOTO_DERIVED';roofcol='65_PODIUM_WARM_ROOF_DERIVED';detail='66_PODIUM_DETAIL_CANDIDATE'
     _,ref=outer_reference(geometry,ctx.config);tower=ccw(hull([q[:2] for q in control_profile_at(geometry,ctx.config,ref,0)]))
     body=ccw(rounded_poly([plan_xy(p,q) for q in p['ground_outline_px']],p['corner_fillet_candidate_m']));meta=_meta(p,'podium_plan_derived_floor_candidate')
-    court=ccw(hull([plan_xy(p,q) for q in p['courtyard_photo_fit_px']]))
+    from corrections_v11 import courtyard_points,tile_panels,build_side_entry
+    court=ccw(hull([plan_xy(p,q) for q in courtyard_points(p,p['courtyard_photo_fit_px'])]))
     regions,report=pr_panels(p,tower)
     for side,panels in regions.items():
         offset=0
@@ -285,10 +288,10 @@ def build_podium(ctx,geometry,completion,assembly):
     terrace=_surface(ctx,'PODIUM_V9_OPEN_PLANTED_TERRACE',court,p['terrace_candidate_m'],'landscape_leaf',detail,_meta(p,'podium_photo_courtyard_candidate'))
     paths=[[(*q,p['terrace_candidate_m']+p['rail_height_candidate_m']) for q in court+court[:1]]]
     ctx.lines('PODIUM_V9_COURTYARD_RAIL',paths,detail,.035,'steel',_meta(p,'podium_court_guard_candidate'))
-    for i,q in enumerate(p['white_terrace_pads_candidate_px']):
+    for i,q in enumerate(courtyard_points(p,p['white_terrace_pads_candidate_px'])):
         x,y=plan_xy(p,q);s=p['white_terrace_pad_candidate_m'];ctx.box(f'PODIUM_V9_UNIDENTIFIED_WHITE_PAD_{i+1:02d}',(x,y,p['terrace_candidate_m']+.13),(s,s,.16),detail,'ground',_meta(p,'podium_photo_visible_unidentified_pad_candidate',count_location_verified=False))
     for i,poly in enumerate(p['garden_pavilion_candidate_outlines_px']):
-        pp=ccw(rounded_poly([plan_xy(p,q) for q in poly],2));hi=p['terrace_candidate_m']+p['garden_pavilion_height_candidate_m']
+        pp=ccw(rounded_poly([plan_xy(p,q) for q in courtyard_points(p,poly)],2));hi=p['terrace_candidate_m']+p['garden_pavilion_height_candidate_m']
         _surface(ctx,f'PODIUM_V9_GARDEN_SKYLIGHT_{i+1:02d}',pp,hi,'glass_detail',detail,_meta(p,'podium_photo_garden_skylight_candidate'))
     # Source curtain systems occupy separate local bands: PS opaque strip
     # instead of a perimeter glass cage, and sparse point/cable PG glazing.
@@ -317,9 +320,11 @@ def build_podium(ctx,geometry,completion,assembly):
         if math.dist(a,b)>.5:
             for z in [p['PG_horizontal_pitch_candidate_m']*i for i in range(1,int(hi/p['PG_horizontal_pitch_candidate_m']))]:cables.append([(a[0],a[1],z),(b[0],b[1],z)])
     ctx.mesh('PODIUM_V9_LOCAL_PG_POINT_SUPPORTED_GLASS',gv,gf,detail,'glass_detail',_meta(p,'podium_PG_local_glazing_candidate',source_systems='PG1 cable/PG2 plate truss/PG3 mixed point support; exact final zone limits and joints unresolved'))
-    ctx.mesh('PODIUM_V9_LIMITED_PS_OPAQUE_FRONT_BAND',sv,sf,detail,'podium_stone',_meta(p,'podium_PS_local_stone_band_candidate'))
+    if p.get('opaque_tiles_v11'):
+        opaque=tile_panels(p,[[sv[i] for i in face] for face in sf]);sv=[];sf=[];_add(opaque,sv,sf)
+    ctx.mesh('PODIUM_V9_LIMITED_PS_OPAQUE_FRONT_BAND',sv,sf,detail,'podium_stone',_meta(p,'podium_PS_local_stone_band_candidate',tile_module_evidence='Candidate1.8x0.3m/10mm geometry joints; no PS panel schedule recovered'))
     ctx.lines('PODIUM_V9_PG_FINE_HORIZONTAL_CABLE_GRID',cables,detail,p['PG_cable_radius_candidate_m'],'steel',_meta(p,'podium_PG_cable_candidate'))
-    if p.get('entrance_v10') and p['entrance_v10'].get('target_arch_end') is None:
+    if p.get('entrance_v10') and p['entrance_v10'].get('target_arch_end') is None and not p.get('entrance_v11'):
         em=_meta(p,'podium_v10_white_entry_candidate',source_ids=p['source_ids']+['USER_OBSERVATION_V10'],evidence_level='待确认',uncertainty=p['entrance_v10']['uncertainty'],formula='Local broad-face boundary from published ground trace; existing PS and PG omitted there; white polygon physically cut for recessed entrance, glass retained above.')
         white=ctx.mesh('PODIUM_V10_BROAD_FACE_WHITE_ENTRY_CUT',ev,ef,detail,'podium_entry_white',em)
         mod=white.modifiers.new('WHITE_CLADDING_CANDIDATE','SOLIDIFY');mod.thickness=.12;mod.offset=-1
@@ -328,6 +333,7 @@ def build_podium(ctx,geometry,completion,assembly):
         ctx.mesh('PODIUM_V10_WHITE_ENTRY_RETURNS',rv,rf,detail,'podium_entry_white',{**em,'geometry_role':'podium_v10_entry_return_candidate'})
         ctx.lines('PODIUM_V10_SPARSE_UPPER_ENTRY_CABLES',entry_frames,detail,p['PG_cable_radius_candidate_m'],'steel',em)
     arch_endcaps(ctx,p,tower)
+    if p.get('entrance_v11'):build_side_entry(ctx,p)
     steel=[]
     for i in range(0,report['longitudinal_intervals']+1,4):
         t=min(1,i/report['longitudinal_intervals']);path=[]

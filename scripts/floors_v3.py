@@ -264,11 +264,22 @@ def build_floors(ctx, geometry, candidate, anchors, assembly):
                         topology_evidence_level='已证实', placement_evidence_level='推导值')
         obj = ctx.mesh(f'F{number:03d}_DERIVED_SLAB', verts, faces,
                        '50_DERIVED_SOLID_FLOOR_PLATES', 'core', meta)
+        notch=None
+        if full_region and transition.get('interlayer_notch_v11'):
+            from corrections_v11 import cut_transition
+            notch=cut_transition(ctx,obj,radius,outer_outline,top,thickness)
+            import json
+            obj['source_ids']=json.dumps(list(dict.fromkeys(json.loads(obj['source_ids'])+['USER_OBSERVATION_V11'])))
+            obj['formula']+='; candidate interlayer notch per user, shared by both transition plates, follows tower twist.'
+            obj['uncertainty']+=' Notch placement/width unverified; does not establish final floor opening schedule.'
         actual_top = max(v.co.z for v in obj.data.vertices)
         if full_region:
-            ring_count = len(verts) // 4
-            radius_error = max(_distance_to_outline((v.co.x, v.co.y), outer_outline)
-                               for v in list(obj.data.vertices)[ring_count:2 * ring_count])
+            if notch:
+                radius_error=max(max(0.,math.hypot(v.co.x,v.co.y)-ray_hole_radius(outer_outline,math.atan2(v.co.y,v.co.x))) for v in obj.data.vertices)
+            else:
+                ring_count = len(verts) // 4
+                radius_error = max(_distance_to_outline((v.co.x, v.co.y), outer_outline)
+                                   for v in list(obj.data.vertices)[ring_count:2 * ring_count])
         else:
             radius_error = max(abs(math.hypot(v.co.x, v.co.y) - radius)
                                for v in obj.data.vertices if math.hypot(v.co.x, v.co.y) > radius - .1)
@@ -283,7 +294,7 @@ def build_floors(ctx, geometry, candidate, anchors, assembly):
                         'object': obj.name, 'core_hole_vertices': hole,
                         'full_outer_transition_plate': bool(full_region),
                         'transition_region_id': full_region['id'] if full_region else None,
-                        'outer_outline_candidate_m': outer_outline})
+                        'outer_outline_candidate_m': outer_outline,'interlayer_notch_v11':notch})
         if top >= 45 and not full_region:
             a_min = (ctx.config['profile']['R1_m'] - ctx.config['profile']['L4_m']) * geometry.curve_state(top, ctx.config)['scale']
             if a_min < radius:

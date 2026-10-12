@@ -29,7 +29,7 @@ class CorrectionsV10Tests(unittest.TestCase):
         self.assertTrue(all(r['passed'] for r in report['aperture_audit_v10']))
     def test_white_entry_is_cut_with_recess_and_glass_only_above_white(self):
         p=json.loads((R/'parameters/podium_v9.json').read_text())
-        end=p['entrance_v10']['target_arch_end'];poly=[podium.sweep_point(p,end,i/160) for i in range(161)];white,upper,doors,returns=podium.arch_entry_panels(p,end,poly)
+        end=0.;poly=[podium.sweep_point(p,end,i/160) for i in range(161)];white,upper,doors,returns=podium.arch_entry_panels(p,end,poly)
         self.assertTrue(white and upper and doors and returns)
         self.assertTrue(all(min(q[2] for q in poly)>=10.5 for poly in upper))
         self.assertAlmostEqual(max(q[2] for piece in doors for q in piece),4.2)

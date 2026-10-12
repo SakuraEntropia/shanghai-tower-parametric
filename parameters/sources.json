@@ -873,6 +873,22 @@
       "limitations": "未提供原图/全周开孔图、标定、标高或施工版次，不能单独证实精确坐标/尺寸；旧每排3孔拟合撤销",
       "retrieved_on": "2026-10-12",
       "credibility": "按用户明确观察执行；待确认外部核验"
+    },
+    {
+      "id": "USER_OBSERVATION_V11",
+      "title": "用户孔间隔、过渡夹层豁口、长侧面入口、瓦片及terrace校正",
+      "institution": "本项目用户",
+      "publication_date": "2026-10-12",
+      "url": null,
+      "type": "用户观察，外部待核验",
+      "primary": false,
+      "locator": "本轮消息：孔间隔2列、各section夹层豁口、入口在大侧面、扁长方形瓦片、terrace过小",
+      "original_units": "相对玻璃格；无米制测量",
+      "scale_or_version": "版次待确认",
+      "support": "拓扑和相对间隔；不证实绝对坐标",
+      "limitations": "无原图、孔表、入口立面、层间楼板开洞图及terrace测量尺寸",
+      "retrieved_on": "2026-10-12",
+      "credibility": "按用户明确观察执行，尺寸拟合为候选"
     }
   ]
 }

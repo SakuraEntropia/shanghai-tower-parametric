@@ -19,9 +19,9 @@ def main():
         ax.text((g['s_min']+g['s_max'])/2,566.75,'Wind: same width / 3 bands',ha='center',fontsize=9)
     ax.set_xlabel('Existing parent-grid open-arc station s (not metric facade width)')
     ax.set_ylabel('Candidate z [m]')
-    ax.set_title('v10: actual crown glass cuts / 22 + 22 + 33 = 77 upper apertures',fontsize=15)
+    ax.set_title('v11: actual crown glass cuts / 22 + 22 + 33 = 77 upper apertures',fontsize=15)
     ax.spines[['right','top']].set_visible(False)
-    fig.text(.055,.018,'User-observed counts; candidate absolute positions. 11 holes + 10 retained columns per group. Existing 4.5m parent bands / 2-band vents. Not an as-built elevation.',fontsize=9)
+    fig.text(.055,.018,'User-observed counts; candidate absolute positions. 11 holes + 20 retained columns (2 between each pair) per group. Existing 4.5m parent bands / 2-band vents. Not an as-built elevation.',fontsize=9)
     fig.tight_layout(rect=(0,.04,1,1));fig.savefig(R/'views/VIEW_29_CROWN_APERTURE_UNWRAPPED_V10.png',dpi=140);plt.close(fig)
 
 if __name__=='__main__':main()

@@ -98,6 +98,7 @@ def build(ctx,geometry,p):
           'station_mapping_evidence':'待确认','fabrication_pattern_verified':False,
           'shared_lower_grid_indices':[s['grid_index'] for s in stations],
           'shared_lower_band_pitch_m':cfg['curtain']['nominal_band_pitch_m']}
+    if p.get('aperture_layout_v10',{}).get('spacing_source_id'):meta['source_ids'].append(p['aperture_layout_v10']['spacing_source_id'])
     verts=[];faces=[];face_parents=[];records=[];frames=_buffers();keys=set();steps=[];previous=None;omitted=0
     for band,(lo,hi) in enumerate(zip(levels,levels[1:]),1):
         anchor=control_profile_at(geometry,cfg,points,hi)

@@ -31,7 +31,7 @@ def configure(geometry, cfg, crown):
                       'z_min_m':base+rule['wind_bottom_parent_band']*pitch,
                       'z_max_m':base+(rule['wind_bottom_parent_band']+rule['wind_height_parent_bands'])*pitch,
                       'spans_candidate_glass_bands':rule['wind_height_parent_bands'],
-                      'source_ids':list(dict.fromkeys(old['source_ids']+['USER_OBSERVATION_V10'])),
+                      'source_ids':list(dict.fromkeys(old['source_ids']+['USER_OBSERVATION_V10']+[rule['spacing_source_id']] if rule.get('spacing_source_id') else old['source_ids']+['USER_OBSERVATION_V10'])),
                       'coordinate_evidence':'User specifies equal group width and3 parent bands; absolute coordinates and band origin remain candidates.'})
         for row in range(rows):
             band=rule['row_starts_parent_band'][row]
@@ -43,7 +43,7 @@ def configure(geometry, cfg, crown):
                               'z_min_m':base+band*pitch,
                               'z_max_m':base+(band+rule['vent_height_parent_bands'])*pitch,
                               'parent_lower_grid_indices':[a['grid_index'],b['grid_index']],
-                              'source_ids':['USER_OBSERVATION_V10','CROWN_GENS_PHOTO_V7'],
+                              'source_ids':['USER_OBSERVATION_V10','CROWN_GENS_PHOTO_V7']+([rule['spacing_source_id']] if rule.get('spacing_source_id') else []),
                               'evidence_level':'待确认','source_topology_confirmed':False,
                               'spans_candidate_glass_bands':rule['vent_height_parent_bands'],
                               'rule':'11 separated one-column cuts per row; retain earlier two-pane height; 2/2/3 rows. User count, not an as-built aperture schedule.',

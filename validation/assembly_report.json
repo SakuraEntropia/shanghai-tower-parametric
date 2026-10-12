@@ -39,7 +39,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 2,
@@ -77,7 +78,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 3,
@@ -115,7 +117,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 4,
@@ -153,7 +156,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 5,
@@ -191,7 +195,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 6,
@@ -782,7 +787,14 @@
             -41.07406792926843,
             4.653715318067217
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 41.4,
+          "outer_radius_m": 53.62675835669679,
+          "angle_deg": -3.5090289608177168,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 7,
@@ -1373,7 +1385,14 @@
             -40.92392337126363,
             3.8080743327380953
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 38.199999999999996,
+          "outer_radius_m": 53.331937255912514,
+          "angle_deg": -2.3611584327086876,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 8,
@@ -1411,7 +1430,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 9,
@@ -1449,7 +1469,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 10,
@@ -1487,7 +1508,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 11,
@@ -1525,7 +1547,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 12,
@@ -1563,7 +1586,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 13,
@@ -1601,7 +1625,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 14,
@@ -1639,7 +1664,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 15,
@@ -1677,7 +1703,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 16,
@@ -1715,7 +1742,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 17,
@@ -1753,7 +1781,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 18,
@@ -1791,7 +1820,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 19,
@@ -1829,7 +1859,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 20,
@@ -2420,7 +2451,14 @@
             -38.33065429489766,
             -4.7842230158771475
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 38.199999999999996,
+          "outer_radius_m": 50.24489521748566,
+          "angle_deg": 10.069603309807738,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 21,
@@ -3011,7 +3049,14 @@
             -38.059561835543725,
             -5.405924512587352
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 35.599999999999994,
+          "outer_radius_m": 50.01205273175257,
+          "angle_deg": 11.039182282793867,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 22,
@@ -3049,7 +3094,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 23,
@@ -3087,7 +3133,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 24,
@@ -3125,7 +3172,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 25,
@@ -3163,7 +3211,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 26,
@@ -3201,7 +3250,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 27,
@@ -3239,7 +3289,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 28,
@@ -3277,7 +3328,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 29,
@@ -3315,7 +3367,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 30,
@@ -3353,7 +3406,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 31,
@@ -3391,7 +3445,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 32,
@@ -3429,7 +3484,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 33,
@@ -3467,7 +3523,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 34,
@@ -3505,7 +3562,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 35,
@@ -3543,7 +3601,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 36,
@@ -4134,7 +4193,14 @@
             -33.093055224004914,
             -13.634316602530074
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 35.599999999999994,
+          "outer_radius_m": 46.70373585814098,
+          "angle_deg": 25.34667802385008,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 37,
@@ -4725,7 +4791,14 @@
             -32.7014811117296,
             -14.120712529396249
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 33.0,
+          "outer_radius_m": 46.489335207057955,
+          "angle_deg": 26.31005110732538,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 38,
@@ -4763,7 +4836,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 39,
@@ -4801,7 +4875,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 40,
@@ -4839,7 +4914,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 41,
@@ -4877,7 +4953,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 42,
@@ -4915,7 +4992,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 43,
@@ -4953,7 +5031,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 44,
@@ -4991,7 +5070,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 45,
@@ -5029,7 +5109,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 46,
@@ -5067,7 +5148,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 47,
@@ -5105,7 +5187,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 48,
@@ -5143,7 +5226,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 49,
@@ -5181,7 +5265,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 50,
@@ -5772,7 +5857,14 @@
             -27.141755187824018,
             -19.587083442192892
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 33.0,
+          "outer_radius_m": 43.8068000632885,
+          "angle_deg": 38.77147724507179,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 51,
@@ -6379,7 +6471,14 @@
             -26.67696201736807,
             -19.946757476927537
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 30.400000000000002,
+          "outer_radius_m": 43.60498128057343,
+          "angle_deg": 39.74105621805792,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 52,
@@ -6433,7 +6532,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 53,
@@ -6487,7 +6587,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 54,
@@ -6541,7 +6642,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 55,
@@ -6595,7 +6697,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 56,
@@ -6649,7 +6752,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 57,
@@ -6703,7 +6807,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 58,
@@ -6757,7 +6862,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 59,
@@ -6811,7 +6917,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 60,
@@ -6865,7 +6972,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 61,
@@ -6919,7 +7027,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 62,
@@ -6973,7 +7082,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 63,
@@ -7027,7 +7137,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 64,
@@ -7081,7 +7192,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 65,
@@ -7135,7 +7247,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 66,
@@ -7742,7 +7855,14 @@
             -19.480875876534103,
             -24.13196378382717
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 30.400000000000002,
+          "outer_radius_m": 40.73866128856004,
+          "angle_deg": 54.04234606960331,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 67,
@@ -8349,7 +8469,14 @@
             -18.977621771423202,
             -24.34001170964747
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 27.8,
+          "outer_radius_m": 40.551627162468634,
+          "angle_deg": 55.011925042589446,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 68,
@@ -8403,7 +8530,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 69,
@@ -8457,7 +8585,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 70,
@@ -8511,7 +8640,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 71,
@@ -8565,7 +8695,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 72,
@@ -8619,7 +8750,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 73,
@@ -8673,7 +8805,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 74,
@@ -8727,7 +8860,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 75,
@@ -8781,7 +8915,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 76,
@@ -8835,7 +8970,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 77,
@@ -8889,7 +9025,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 78,
@@ -8943,7 +9080,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 79,
@@ -8997,7 +9135,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 80,
@@ -9051,7 +9190,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 81,
@@ -9105,7 +9245,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 82,
@@ -9159,7 +9300,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 83,
@@ -9766,7 +9908,14 @@
             -11.045570442542035,
             -26.38497947137967
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 27.8,
+          "outer_radius_m": 37.729701006301255,
+          "angle_deg": 70.23935264054516,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 84,
@@ -10389,7 +10538,14 @@
             -10.54950435810856,
             -26.43942553422659
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 25.5,
+          "outer_radius_m": 37.558268046873735,
+          "angle_deg": 71.20272572402044,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 85,
@@ -10459,7 +10615,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 86,
@@ -10529,7 +10686,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 87,
@@ -10599,7 +10757,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 88,
@@ -10669,7 +10828,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 89,
@@ -10739,7 +10899,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 90,
@@ -10809,7 +10970,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 91,
@@ -10879,7 +11041,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 92,
@@ -10949,7 +11112,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 93,
@@ -11019,7 +11183,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 94,
@@ -11089,7 +11254,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 95,
@@ -11159,7 +11325,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 96,
@@ -11229,7 +11396,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 97,
@@ -11299,7 +11467,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 98,
@@ -11369,7 +11538,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 99,
@@ -11992,7 +12162,14 @@
             -3.6727700255615763,
             -26.314108644224174
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 25.5,
+          "outer_radius_m": 35.18965234605395,
+          "angle_deg": 85.00936967632028,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 100,
@@ -12615,7 +12792,14 @@
             -3.2288580137556497,
             -26.247810839819635
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 23.55,
+          "outer_radius_m": 35.035439013832814,
+          "angle_deg": 85.94207836456559,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 101,
@@ -12685,7 +12869,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 102,
@@ -12755,7 +12940,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 103,
@@ -12825,7 +13011,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 104,
@@ -12895,7 +13082,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 105,
@@ -12965,7 +13153,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 106,
@@ -13035,7 +13224,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 107,
@@ -13105,7 +13295,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 108,
@@ -13175,7 +13366,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 109,
@@ -13245,7 +13437,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 110,
@@ -13315,7 +13508,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 111,
@@ -13385,7 +13579,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 112,
@@ -13455,7 +13650,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 113,
@@ -13525,7 +13721,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 114,
@@ -13595,7 +13792,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 115,
@@ -13665,7 +13863,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 116,
@@ -14288,7 +14487,14 @@
             3.297764592726463,
             -24.347252287739884
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 23.55,
+          "outer_radius_m": 32.69318427831994,
+          "angle_deg": 100.6686541737649,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 117,
@@ -14879,7 +15085,14 @@
             3.676479229298773,
             -24.177392319609286
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 23.55,
+          "outer_radius_m": 32.550544452279,
+          "angle_deg": 101.60136286201022,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 118,
@@ -14917,7 +15130,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 119,
@@ -14955,7 +15169,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 120,
@@ -14993,7 +15208,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 121,
@@ -15031,7 +15247,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 122,
@@ -15069,7 +15286,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 123,
@@ -15107,7 +15325,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 124,
@@ -15145,7 +15364,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 125,
@@ -15184,7 +15404,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 126,
@@ -15223,7 +15444,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 127,
@@ -15262,7 +15484,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 128,
@@ -15301,7 +15524,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 129,
@@ -15340,7 +15564,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       }
     ],
     "checks": [
@@ -15405,7 +15630,7 @@
         "actual": {
           "top_z_m": 27.834999084472656,
           "target_z_m": 27.835,
-          "radius_error_m": 1.8683809022907425e-06,
+          "radius_error_m": 2.298047689919258e-06,
           "nonmanifold_edges": 0
         },
         "scope": "Software solid / candidate position checks, not as-built floor verification"
@@ -15416,7 +15641,7 @@
         "actual": {
           "top_z_m": 33.45000076293945,
           "target_z_m": 33.45,
-          "radius_error_m": 2.0909750326269607e-06,
+          "radius_error_m": 2.229008323695325e-06,
           "nonmanifold_edges": 0
         },
         "scope": "Software solid / candidate position checks, not as-built floor verification"
@@ -15559,7 +15784,7 @@
         "actual": {
           "top_z_m": 94.25714111328125,
           "target_z_m": 94.25714285714285,
-          "radius_error_m": 2.057948500026758e-06,
+          "radius_error_m": 2.6745654793103313e-06,
           "nonmanifold_edges": 0
         },
         "scope": "Software solid / candidate position checks, not as-built floor verification"
@@ -15570,7 +15795,7 @@
         "actual": {
           "top_z_m": 99.0,
           "target_z_m": 99.0,
-          "radius_error_m": 1.8940271064315405e-06,
+          "radius_error_m": 2.5754675974098973e-06,
           "nonmanifold_edges": 0
         },
         "scope": "Software solid / candidate position checks, not as-built floor verification"
@@ -15735,7 +15960,7 @@
         "actual": {
           "top_z_m": 168.9875030517578,
           "target_z_m": 168.98749999999998,
-          "radius_error_m": 1.832977443719895e-06,
+          "radius_error_m": 1.935539472697201e-06,
           "nonmanifold_edges": 0
         },
         "scope": "Software solid / candidate position checks, not as-built floor verification"
@@ -15746,7 +15971,7 @@
         "actual": {
           "top_z_m": 173.6999969482422,
           "target_z_m": 173.7,
-          "radius_error_m": 1.8655343327951107e-06,
+          "radius_error_m": 1.942643891084117e-06,
           "nonmanifold_edges": 0
         },
         "scope": "Software solid / candidate position checks, not as-built floor verification"
@@ -15889,7 +16114,7 @@
         "actual": {
           "top_z_m": 234.6571502685547,
           "target_z_m": 234.65714285714284,
-          "radius_error_m": 1.8110810433641268e-06,
+          "radius_error_m": 1.7886442122971857e-06,
           "nonmanifold_edges": 0
         },
         "scope": "Software solid / candidate position checks, not as-built floor verification"
@@ -15900,7 +16125,7 @@
         "actual": {
           "top_z_m": 239.39999389648438,
           "target_z_m": 239.4,
-          "radius_error_m": 1.9935284757469366e-06,
+          "radius_error_m": 2.0422751845217135e-06,
           "nonmanifold_edges": 0
         },
         "scope": "Software solid / candidate position checks, not as-built floor verification"
@@ -16065,7 +16290,7 @@
         "actual": {
           "top_z_m": 309.3571472167969,
           "target_z_m": 309.3571428571429,
-          "radius_error_m": 1.8807979907985564e-06,
+          "radius_error_m": 1.9063265384033912e-06,
           "nonmanifold_edges": 0
         },
         "scope": "Software solid / candidate position checks, not as-built floor verification"
@@ -16076,7 +16301,7 @@
         "actual": {
           "top_z_m": 314.1000061035156,
           "target_z_m": 314.1,
-          "radius_error_m": 1.986131267878938e-06,
+          "radius_error_m": 2.0092949881700406e-06,
           "nonmanifold_edges": 0
         },
         "scope": "Software solid / candidate position checks, not as-built floor verification"
@@ -16252,7 +16477,7 @@
         "actual": {
           "top_z_m": 388.5874938964844,
           "target_z_m": 388.58750000000003,
-          "radius_error_m": 1.6170204240940752e-06,
+          "radius_error_m": 1.7612154223911602e-06,
           "nonmanifold_edges": 0
         },
         "scope": "Software solid / candidate position checks, not as-built floor verification"
@@ -16263,7 +16488,7 @@
         "actual": {
           "top_z_m": 393.29998779296875,
           "target_z_m": 393.3,
-          "radius_error_m": 1.7838606982741385e-06,
+          "radius_error_m": 1.8793350520240892e-06,
           "nonmanifold_edges": 0
         },
         "scope": "Software solid / candidate position checks, not as-built floor verification"
@@ -16428,7 +16653,7 @@
         "actual": {
           "top_z_m": 460.8374938964844,
           "target_z_m": 460.8375,
-          "radius_error_m": 1.6715523286059613e-06,
+          "radius_error_m": 1.7113178785166383e-06,
           "nonmanifold_edges": 0
         },
         "scope": "Software solid / candidate position checks, not as-built floor verification"
@@ -16439,7 +16664,7 @@
         "actual": {
           "top_z_m": 465.3999938964844,
           "target_z_m": 465.4,
-          "radius_error_m": 1.5614987381496829e-06,
+          "radius_error_m": 1.429271286212952e-06,
           "nonmanifold_edges": 0
         },
         "scope": "Software solid / candidate position checks, not as-built floor verification"
@@ -16615,7 +16840,7 @@
         "actual": {
           "top_z_m": 537.4375,
           "target_z_m": 537.4375,
-          "radius_error_m": 1.0816532545102874e-06,
+          "radius_error_m": 1.2465711165532412e-06,
           "nonmanifold_edges": 0
         },
         "scope": "Software solid / candidate position checks, not as-built floor verification"
@@ -16626,7 +16851,7 @@
         "actual": {
           "top_z_m": 542.0,
           "target_z_m": 542.0,
-          "radius_error_m": 1.2749330876663622e-06,
+          "radius_error_m": 1.308333903438097e-06,
           "nonmanifold_edges": 0
         },
         "scope": "Software solid / candidate position checks, not as-built floor verification"
@@ -17658,7 +17883,14 @@
             -41.07406792926843,
             4.653715318067217
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 41.4,
+          "outer_radius_m": 53.62675835669679,
+          "angle_deg": -3.5090289608177168,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 8,
@@ -17696,7 +17928,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 9,
@@ -17734,7 +17967,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 10,
@@ -17772,7 +18006,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 11,
@@ -17810,7 +18045,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 12,
@@ -17848,7 +18084,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 13,
@@ -17886,7 +18123,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 15,
@@ -17924,7 +18162,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 16,
@@ -17962,7 +18201,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 17,
@@ -18000,7 +18240,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 18,
@@ -18038,7 +18279,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 19,
@@ -18076,7 +18318,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 20,
@@ -18667,7 +18910,14 @@
             -38.33065429489766,
             -4.7842230158771475
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 38.199999999999996,
+          "outer_radius_m": 50.24489521748566,
+          "angle_deg": 10.069603309807738,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 22,
@@ -18705,7 +18955,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 23,
@@ -18743,7 +18994,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 24,
@@ -18781,7 +19033,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 25,
@@ -18819,7 +19072,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 26,
@@ -18857,7 +19111,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 27,
@@ -18895,7 +19150,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 28,
@@ -18933,7 +19189,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 30,
@@ -18971,7 +19228,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 31,
@@ -19009,7 +19267,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 32,
@@ -19047,7 +19306,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 33,
@@ -19085,7 +19345,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 34,
@@ -19123,7 +19384,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 35,
@@ -19161,7 +19423,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 36,
@@ -19752,7 +20015,14 @@
             -33.093055224004914,
             -13.634316602530074
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 35.599999999999994,
+          "outer_radius_m": 46.70373585814098,
+          "angle_deg": 25.34667802385008,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 38,
@@ -19790,7 +20060,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 39,
@@ -19828,7 +20099,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 40,
@@ -19866,7 +20138,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 41,
@@ -19904,7 +20177,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 42,
@@ -19942,7 +20216,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 43,
@@ -19980,7 +20255,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 45,
@@ -20018,7 +20294,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 46,
@@ -20056,7 +20333,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 47,
@@ -20094,7 +20372,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 48,
@@ -20132,7 +20411,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 49,
@@ -20170,7 +20450,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 50,
@@ -20761,7 +21042,14 @@
             -27.141755187824018,
             -19.587083442192892
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 33.0,
+          "outer_radius_m": 43.8068000632885,
+          "angle_deg": 38.77147724507179,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 52,
@@ -20815,7 +21103,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 53,
@@ -20869,7 +21158,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 54,
@@ -20923,7 +21213,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 55,
@@ -20977,7 +21268,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 56,
@@ -21031,7 +21323,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 57,
@@ -21085,7 +21378,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 58,
@@ -21139,7 +21433,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 59,
@@ -21193,7 +21488,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 61,
@@ -21247,7 +21543,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 62,
@@ -21301,7 +21598,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 63,
@@ -21355,7 +21653,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 64,
@@ -21409,7 +21708,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 65,
@@ -21463,7 +21763,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 66,
@@ -22070,7 +22371,14 @@
             -19.480875876534103,
             -24.13196378382717
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 30.400000000000002,
+          "outer_radius_m": 40.73866128856004,
+          "angle_deg": 54.04234606960331,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 68,
@@ -22124,7 +22432,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 69,
@@ -22178,7 +22487,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 70,
@@ -22232,7 +22542,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 71,
@@ -22286,7 +22597,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 72,
@@ -22340,7 +22652,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 73,
@@ -22394,7 +22707,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 74,
@@ -22448,7 +22762,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 75,
@@ -22502,7 +22817,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 77,
@@ -22556,7 +22872,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 78,
@@ -22610,7 +22927,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 79,
@@ -22664,7 +22982,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 80,
@@ -22718,7 +23037,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 81,
@@ -22772,7 +23092,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 82,
@@ -22826,7 +23147,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 83,
@@ -23433,7 +23755,14 @@
             -11.045570442542035,
             -26.38497947137967
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 27.8,
+          "outer_radius_m": 37.729701006301255,
+          "angle_deg": 70.23935264054516,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 85,
@@ -23503,7 +23832,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 86,
@@ -23573,7 +23903,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 87,
@@ -23643,7 +23974,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 88,
@@ -23713,7 +24045,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 89,
@@ -23783,7 +24116,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 90,
@@ -23853,7 +24187,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 91,
@@ -23923,7 +24258,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 93,
@@ -23993,7 +24329,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 94,
@@ -24063,7 +24400,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 95,
@@ -24133,7 +24471,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 96,
@@ -24203,7 +24542,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 97,
@@ -24273,7 +24613,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 98,
@@ -24343,7 +24684,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 99,
@@ -24966,7 +25308,14 @@
             -3.6727700255615763,
             -26.314108644224174
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 25.5,
+          "outer_radius_m": 35.18965234605395,
+          "angle_deg": 85.00936967632028,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 101,
@@ -25036,7 +25385,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 102,
@@ -25106,7 +25456,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 103,
@@ -25176,7 +25527,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 104,
@@ -25246,7 +25598,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 105,
@@ -25316,7 +25669,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 106,
@@ -25386,7 +25740,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 107,
@@ -25456,7 +25811,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 108,
@@ -25526,7 +25882,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 110,
@@ -25596,7 +25953,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 111,
@@ -25666,7 +26024,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 112,
@@ -25736,7 +26095,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 113,
@@ -25806,7 +26166,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 114,
@@ -25876,7 +26237,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 115,
@@ -25946,7 +26308,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 116,
@@ -26569,7 +26932,14 @@
             3.297764592726463,
             -24.347252287739884
           ]
-        ]
+        ],
+        "interlayer_notch_v11": {
+          "width_candidate_m": 3.0,
+          "inner_radius_m": 23.55,
+          "outer_radius_m": 32.69318427831994,
+          "angle_deg": 100.6686541737649,
+          "evidence_level": "待确认"
+        }
       },
       {
         "candidate_number": 118,
@@ -26607,7 +26977,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 119,
@@ -26645,7 +27016,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 120,
@@ -26683,7 +27055,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 122,
@@ -26721,7 +27094,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       },
       {
         "candidate_number": 123,
@@ -26759,7 +27133,8 @@
         ],
         "full_outer_transition_plate": false,
         "transition_region_id": null,
-        "outer_outline_candidate_m": null
+        "outer_outline_candidate_m": null,
+        "interlayer_notch_v11": null
       }
     ],
     "assumptions": [
@@ -29401,11 +29776,43 @@
           ],
           "evidence_level": "待确认",
           "uncertainty": "User-observed white cut and upper glass; assign to wider PR end0 arch (0.8 vs0.72 section width fit), same mother rim. Extents, elevations, recess and exact as-built face still uncalibrated candidates.",
-          "target_arch_end": 0.0
-        }
+          "target_arch_end": null
+        },
+        "entrance_v11": {
+          "t_span": [
+            0.32,
+            0.83
+          ],
+          "roof_cut_u": 0.65,
+          "samples": 48,
+          "white_top_candidate_m": 10.5,
+          "door_top_candidate_m": 4.2,
+          "door_fraction_candidate": [
+            0.18,
+            0.82
+          ],
+          "recess_candidate_m": 1.2,
+          "uncertainty": "User correction: long side, not arch end. Candidate t/u mapping, elevations and location; no final facade elevations recovered."
+        },
+        "opaque_tiles_v11": {
+          "module_candidate_m": [
+            1.8,
+            0.3
+          ],
+          "joint_candidate_m": 0.01,
+          "evidence_level": "待确认",
+          "source_ids": [
+            "USER_OBSERVATION_V11"
+          ],
+          "uncertainty": "PS/white cladding module candidate; PR nominal dimensions do not certify PS panels."
+        },
+        "terrace_scale_v11": [
+          1.35,
+          1.2
+        ]
       },
       "PR_panel_report": {
-        "candidate_panels": 18480,
+        "candidate_panels": 13992,
         "max_flattening_error_m": 0.007698355716026412,
         "longitudinal_intervals": 72,
         "cross_section_intervals": 373,
@@ -29448,7 +29855,7 @@
           "name": "v9_podium_arc_PR_and_partial_canopy",
           "passed": true,
           "actual": {
-            "PR": 18480,
+            "PR": 13992,
             "canopy": 77
           }
         }
@@ -29604,7 +30011,7 @@
         "name": "v9_podium_arc_PR_and_partial_canopy",
         "passed": true,
         "actual": {
-          "PR": 18480,
+          "PR": 13992,
           "canopy": 77
         }
       }

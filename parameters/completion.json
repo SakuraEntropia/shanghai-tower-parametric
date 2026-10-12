@@ -826,8 +826,8 @@
     "wind_openings_candidate": [
       {
         "id": "WIND_BAY_1",
-        "s_min": 0.10393269693365742,
-        "s_max": 0.27028096422152137,
+        "s_min": 0.06432596662702326,
+        "s_max": 0.3098876945281553,
         "z_min_m": 560.0,
         "z_max_m": 573.5,
         "evidence_level": "待确认",
@@ -835,15 +835,16 @@
           "OWNER_TMD_WIND_V6",
           "OWNER_MEP_BUILD_V6",
           "TURBINE_ATTEY_V6",
-          "USER_OBSERVATION_V10"
+          "USER_OBSERVATION_V10",
+          "USER_OBSERVATION_V11"
         ],
         "coordinate_evidence": "User specifies equal group width and3 parent bands; absolute coordinates and band origin remain candidates.",
         "spans_candidate_glass_bands": 3
       },
       {
         "id": "WIND_BAY_2",
-        "s_min": 0.4366292315093851,
-        "s_max": 0.602977498797249,
+        "s_min": 0.3970225012027508,
+        "s_max": 0.6425842291038832,
         "z_min_m": 560.0,
         "z_max_m": 573.5,
         "evidence_level": "待确认",
@@ -851,15 +852,16 @@
           "OWNER_TMD_WIND_V6",
           "OWNER_MEP_BUILD_V6",
           "TURBINE_ATTEY_V6",
-          "USER_OBSERVATION_V10"
+          "USER_OBSERVATION_V10",
+          "USER_OBSERVATION_V11"
         ],
         "coordinate_evidence": "User specifies equal group width and3 parent bands; absolute coordinates and band origin remain candidates.",
         "spans_candidate_glass_bands": 3
       },
       {
         "id": "WIND_BAY_3",
-        "s_min": 0.769325766085113,
-        "s_max": 0.9356740333729766,
+        "s_min": 0.7297190357784787,
+        "s_max": 0.975280763679611,
         "z_min_m": 560.0,
         "z_max_m": 573.5,
         "evidence_level": "待确认",
@@ -867,7 +869,8 @@
           "OWNER_TMD_WIND_V6",
           "OWNER_MEP_BUILD_V6",
           "TURBINE_ATTEY_V6",
-          "USER_OBSERVATION_V10"
+          "USER_OBSERVATION_V10",
+          "USER_OBSERVATION_V11"
         ],
         "coordinate_evidence": "User specifies equal group width and3 parent bands; absolute coordinates and band origin remain candidates.",
         "spans_candidate_glass_bands": 3
@@ -880,17 +883,18 @@
         "face": 1,
         "row": 1,
         "column": 1,
-        "s_min": 0.10393269693365742,
-        "s_max": 0.11185404299498419,
+        "s_min": 0.06432596662702326,
+        "s_max": 0.07224731268834975,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          42,
-          43
+          37,
+          38
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -903,17 +907,18 @@
         "face": 1,
         "row": 1,
         "column": 2,
-        "s_min": 0.11977538905631095,
-        "s_max": 0.12769673511763802,
+        "s_min": 0.08809000481100329,
+        "s_max": 0.09601135087233036,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          44,
-          45
+          40,
+          41
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -926,17 +931,18 @@
         "face": 1,
         "row": 1,
         "column": 3,
-        "s_min": 0.1356180811789648,
-        "s_max": 0.14353942724029156,
+        "s_min": 0.11185404299498419,
+        "s_max": 0.11977538905631095,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          46,
-          47
+          43,
+          44
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -949,17 +955,18 @@
         "face": 1,
         "row": 1,
         "column": 4,
-        "s_min": 0.15146077330161836,
-        "s_max": 0.1593821193629451,
+        "s_min": 0.1356180811789648,
+        "s_max": 0.14353942724029156,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          48,
-          49
+          46,
+          47
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -972,17 +979,18 @@
         "face": 1,
         "row": 1,
         "column": 5,
-        "s_min": 0.16730346542427219,
-        "s_max": 0.17522481148559896,
+        "s_min": 0.1593821193629451,
+        "s_max": 0.16730346542427219,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          50,
-          51
+          49,
+          50
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1005,7 +1013,8 @@
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1018,17 +1027,18 @@
         "face": 1,
         "row": 1,
         "column": 7,
-        "s_min": 0.19898884966957955,
-        "s_max": 0.20691019573090633,
+        "s_min": 0.20691019573090633,
+        "s_max": 0.21483154179223307,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          54,
-          55
+          55,
+          56
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1041,17 +1051,18 @@
         "face": 1,
         "row": 1,
         "column": 8,
-        "s_min": 0.21483154179223307,
-        "s_max": 0.22275288785356015,
+        "s_min": 0.23067423391488723,
+        "s_max": 0.23859557997621372,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          56,
-          57
+          58,
+          59
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1064,17 +1075,18 @@
         "face": 1,
         "row": 1,
         "column": 9,
-        "s_min": 0.23067423391488723,
-        "s_max": 0.23859557997621372,
+        "s_min": 0.25443827209886727,
+        "s_max": 0.26235961816019404,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          58,
-          59
+          61,
+          62
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1087,17 +1099,18 @@
         "face": 1,
         "row": 1,
         "column": 10,
-        "s_min": 0.24651692603754047,
-        "s_max": 0.25443827209886727,
+        "s_min": 0.27820231028284775,
+        "s_max": 0.28612365634417486,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          60,
-          61
+          64,
+          65
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1110,17 +1123,18 @@
         "face": 1,
         "row": 1,
         "column": 11,
-        "s_min": 0.26235961816019404,
-        "s_max": 0.27028096422152137,
+        "s_min": 0.3019663484668286,
+        "s_max": 0.3098876945281553,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          62,
-          63
+          67,
+          68
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1133,17 +1147,18 @@
         "face": 1,
         "row": 2,
         "column": 1,
-        "s_min": 0.10393269693365742,
-        "s_max": 0.11185404299498419,
+        "s_min": 0.06432596662702326,
+        "s_max": 0.07224731268834975,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          42,
-          43
+          37,
+          38
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1156,17 +1171,18 @@
         "face": 1,
         "row": 2,
         "column": 2,
-        "s_min": 0.11977538905631095,
-        "s_max": 0.12769673511763802,
+        "s_min": 0.08809000481100329,
+        "s_max": 0.09601135087233036,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          44,
-          45
+          40,
+          41
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1179,17 +1195,18 @@
         "face": 1,
         "row": 2,
         "column": 3,
-        "s_min": 0.1356180811789648,
-        "s_max": 0.14353942724029156,
+        "s_min": 0.11185404299498419,
+        "s_max": 0.11977538905631095,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          46,
-          47
+          43,
+          44
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1202,17 +1219,18 @@
         "face": 1,
         "row": 2,
         "column": 4,
-        "s_min": 0.15146077330161836,
-        "s_max": 0.1593821193629451,
+        "s_min": 0.1356180811789648,
+        "s_max": 0.14353942724029156,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          48,
-          49
+          46,
+          47
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1225,17 +1243,18 @@
         "face": 1,
         "row": 2,
         "column": 5,
-        "s_min": 0.16730346542427219,
-        "s_max": 0.17522481148559896,
+        "s_min": 0.1593821193629451,
+        "s_max": 0.16730346542427219,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          50,
-          51
+          49,
+          50
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1258,7 +1277,8 @@
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1271,17 +1291,18 @@
         "face": 1,
         "row": 2,
         "column": 7,
-        "s_min": 0.19898884966957955,
-        "s_max": 0.20691019573090633,
+        "s_min": 0.20691019573090633,
+        "s_max": 0.21483154179223307,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          54,
-          55
+          55,
+          56
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1294,17 +1315,18 @@
         "face": 1,
         "row": 2,
         "column": 8,
-        "s_min": 0.21483154179223307,
-        "s_max": 0.22275288785356015,
+        "s_min": 0.23067423391488723,
+        "s_max": 0.23859557997621372,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          56,
-          57
+          58,
+          59
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1317,17 +1339,18 @@
         "face": 1,
         "row": 2,
         "column": 9,
-        "s_min": 0.23067423391488723,
-        "s_max": 0.23859557997621372,
+        "s_min": 0.25443827209886727,
+        "s_max": 0.26235961816019404,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          58,
-          59
+          61,
+          62
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1340,17 +1363,18 @@
         "face": 1,
         "row": 2,
         "column": 10,
-        "s_min": 0.24651692603754047,
-        "s_max": 0.25443827209886727,
+        "s_min": 0.27820231028284775,
+        "s_max": 0.28612365634417486,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          60,
-          61
+          64,
+          65
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1363,17 +1387,18 @@
         "face": 1,
         "row": 2,
         "column": 11,
-        "s_min": 0.26235961816019404,
-        "s_max": 0.27028096422152137,
+        "s_min": 0.3019663484668286,
+        "s_max": 0.3098876945281553,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          62,
-          63
+          67,
+          68
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1386,17 +1411,18 @@
         "face": 2,
         "row": 1,
         "column": 1,
-        "s_min": 0.4366292315093851,
-        "s_max": 0.44455057757071176,
+        "s_min": 0.3970225012027508,
+        "s_max": 0.40494384726407756,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          84,
-          85
+          79,
+          80
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1409,17 +1435,18 @@
         "face": 2,
         "row": 1,
         "column": 2,
-        "s_min": 0.45247192363203886,
-        "s_max": 0.46039326969336547,
+        "s_min": 0.42078653938673133,
+        "s_max": 0.4287078854480582,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          86,
-          87
+          82,
+          83
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1432,17 +1459,18 @@
         "face": 2,
         "row": 1,
         "column": 3,
-        "s_min": 0.4683146157546924,
-        "s_max": 0.4762359618160193,
+        "s_min": 0.44455057757071176,
+        "s_max": 0.45247192363203886,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          88,
-          89
+          85,
+          86
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1455,17 +1483,18 @@
         "face": 2,
         "row": 1,
         "column": 4,
-        "s_min": 0.4841573078773461,
-        "s_max": 0.492078653938673,
+        "s_min": 0.4683146157546924,
+        "s_max": 0.4762359618160193,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          90,
-          91
+          88,
+          89
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1478,17 +1507,18 @@
         "face": 2,
         "row": 1,
         "column": 5,
-        "s_min": 0.4999999999999998,
-        "s_max": 0.5079213460613268,
+        "s_min": 0.492078653938673,
+        "s_max": 0.4999999999999998,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          92,
-          93
+          91,
+          92
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1511,7 +1541,8 @@
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1524,17 +1555,18 @@
         "face": 2,
         "row": 1,
         "column": 7,
-        "s_min": 0.5316853842453072,
-        "s_max": 0.5396067303066341,
+        "s_min": 0.5396067303066341,
+        "s_max": 0.547528076367961,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          96,
-          97
+          97,
+          98
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1547,17 +1579,18 @@
         "face": 2,
         "row": 1,
         "column": 8,
-        "s_min": 0.547528076367961,
-        "s_max": 0.5554494224292877,
+        "s_min": 0.5633707684906147,
+        "s_max": 0.5712921145519415,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          98,
-          99
+          100,
+          101
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1570,17 +1603,18 @@
         "face": 2,
         "row": 1,
         "column": 9,
-        "s_min": 0.5633707684906147,
-        "s_max": 0.5712921145519415,
+        "s_min": 0.5871348066745953,
+        "s_max": 0.5950561527359219,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          100,
-          101
+          103,
+          104
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1593,17 +1627,18 @@
         "face": 2,
         "row": 1,
         "column": 10,
-        "s_min": 0.5792134606132685,
-        "s_max": 0.5871348066745953,
+        "s_min": 0.6108988448585759,
+        "s_max": 0.6188201909199026,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          102,
-          103
+          106,
+          107
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1616,17 +1651,18 @@
         "face": 2,
         "row": 1,
         "column": 11,
-        "s_min": 0.5950561527359219,
-        "s_max": 0.602977498797249,
+        "s_min": 0.6346628830425566,
+        "s_max": 0.6425842291038832,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          104,
-          105
+          109,
+          110
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1639,17 +1675,18 @@
         "face": 2,
         "row": 2,
         "column": 1,
-        "s_min": 0.4366292315093851,
-        "s_max": 0.44455057757071176,
+        "s_min": 0.3970225012027508,
+        "s_max": 0.40494384726407756,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          84,
-          85
+          79,
+          80
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1662,17 +1699,18 @@
         "face": 2,
         "row": 2,
         "column": 2,
-        "s_min": 0.45247192363203886,
-        "s_max": 0.46039326969336547,
+        "s_min": 0.42078653938673133,
+        "s_max": 0.4287078854480582,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          86,
-          87
+          82,
+          83
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1685,17 +1723,18 @@
         "face": 2,
         "row": 2,
         "column": 3,
-        "s_min": 0.4683146157546924,
-        "s_max": 0.4762359618160193,
+        "s_min": 0.44455057757071176,
+        "s_max": 0.45247192363203886,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          88,
-          89
+          85,
+          86
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1708,17 +1747,18 @@
         "face": 2,
         "row": 2,
         "column": 4,
-        "s_min": 0.4841573078773461,
-        "s_max": 0.492078653938673,
+        "s_min": 0.4683146157546924,
+        "s_max": 0.4762359618160193,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          90,
-          91
+          88,
+          89
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1731,17 +1771,18 @@
         "face": 2,
         "row": 2,
         "column": 5,
-        "s_min": 0.4999999999999998,
-        "s_max": 0.5079213460613268,
+        "s_min": 0.492078653938673,
+        "s_max": 0.4999999999999998,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          92,
-          93
+          91,
+          92
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1764,7 +1805,8 @@
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1777,17 +1819,18 @@
         "face": 2,
         "row": 2,
         "column": 7,
-        "s_min": 0.5316853842453072,
-        "s_max": 0.5396067303066341,
+        "s_min": 0.5396067303066341,
+        "s_max": 0.547528076367961,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          96,
-          97
+          97,
+          98
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1800,17 +1843,18 @@
         "face": 2,
         "row": 2,
         "column": 8,
-        "s_min": 0.547528076367961,
-        "s_max": 0.5554494224292877,
+        "s_min": 0.5633707684906147,
+        "s_max": 0.5712921145519415,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          98,
-          99
+          100,
+          101
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1823,17 +1867,18 @@
         "face": 2,
         "row": 2,
         "column": 9,
-        "s_min": 0.5633707684906147,
-        "s_max": 0.5712921145519415,
+        "s_min": 0.5871348066745953,
+        "s_max": 0.5950561527359219,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          100,
-          101
+          103,
+          104
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1846,17 +1891,18 @@
         "face": 2,
         "row": 2,
         "column": 10,
-        "s_min": 0.5792134606132685,
-        "s_max": 0.5871348066745953,
+        "s_min": 0.6108988448585759,
+        "s_max": 0.6188201909199026,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          102,
-          103
+          106,
+          107
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1869,17 +1915,18 @@
         "face": 2,
         "row": 2,
         "column": 11,
-        "s_min": 0.5950561527359219,
-        "s_max": 0.602977498797249,
+        "s_min": 0.6346628830425566,
+        "s_max": 0.6425842291038832,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          104,
-          105
+          109,
+          110
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1892,17 +1939,18 @@
         "face": 3,
         "row": 1,
         "column": 1,
-        "s_min": 0.769325766085113,
-        "s_max": 0.7772471121464397,
+        "s_min": 0.7297190357784787,
+        "s_max": 0.7376403818398055,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          126,
-          127
+          121,
+          122
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1915,17 +1963,18 @@
         "face": 3,
         "row": 1,
         "column": 2,
-        "s_min": 0.7851684582077664,
-        "s_max": 0.7930898042690933,
+        "s_min": 0.7534830739624591,
+        "s_max": 0.761404420023786,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          128,
-          129
+          124,
+          125
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1938,17 +1987,18 @@
         "face": 3,
         "row": 1,
         "column": 3,
-        "s_min": 0.8010111503304203,
-        "s_max": 0.8089324963917471,
+        "s_min": 0.7772471121464397,
+        "s_max": 0.7851684582077664,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          130,
-          131
+          127,
+          128
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1961,17 +2011,18 @@
         "face": 3,
         "row": 1,
         "column": 4,
-        "s_min": 0.8168538424530739,
-        "s_max": 0.824775188514401,
+        "s_min": 0.8010111503304203,
+        "s_max": 0.8089324963917471,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          132,
-          133
+          130,
+          131
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -1984,17 +2035,18 @@
         "face": 3,
         "row": 1,
         "column": 5,
-        "s_min": 0.8326965345757277,
-        "s_max": 0.8406178806370547,
+        "s_min": 0.824775188514401,
+        "s_max": 0.8326965345757277,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          134,
-          135
+          133,
+          134
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2017,7 +2069,8 @@
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2030,17 +2083,18 @@
         "face": 3,
         "row": 1,
         "column": 7,
-        "s_min": 0.8643819188210351,
-        "s_max": 0.8723032648823617,
+        "s_min": 0.8723032648823617,
+        "s_max": 0.8802246109436885,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          0,
-          1
+          1,
+          2
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2053,17 +2107,18 @@
         "face": 3,
         "row": 1,
         "column": 8,
-        "s_min": 0.8802246109436885,
-        "s_max": 0.8881459570050155,
+        "s_min": 0.8960673030663423,
+        "s_max": 0.9039886491276691,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          2,
-          3
+          4,
+          5
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2076,17 +2131,18 @@
         "face": 3,
         "row": 1,
         "column": 9,
-        "s_min": 0.8960673030663423,
-        "s_max": 0.9039886491276691,
+        "s_min": 0.919831341250323,
+        "s_max": 0.9277526873116497,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          4,
-          5
+          7,
+          8
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2099,17 +2155,18 @@
         "face": 3,
         "row": 1,
         "column": 10,
-        "s_min": 0.9119099951889962,
-        "s_max": 0.919831341250323,
+        "s_min": 0.9435953794343036,
+        "s_max": 0.9515167254956306,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          6,
-          7
+          10,
+          11
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2122,17 +2179,18 @@
         "face": 3,
         "row": 1,
         "column": 11,
-        "s_min": 0.9277526873116497,
-        "s_max": 0.9356740333729766,
+        "s_min": 0.9673594176182841,
+        "s_max": 0.975280763679611,
         "z_min_m": 578.0,
         "z_max_m": 587.0,
         "parent_lower_grid_indices": [
-          8,
-          9
+          13,
+          14
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2145,17 +2203,18 @@
         "face": 3,
         "row": 2,
         "column": 1,
-        "s_min": 0.769325766085113,
-        "s_max": 0.7772471121464397,
+        "s_min": 0.7297190357784787,
+        "s_max": 0.7376403818398055,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          126,
-          127
+          121,
+          122
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2168,17 +2227,18 @@
         "face": 3,
         "row": 2,
         "column": 2,
-        "s_min": 0.7851684582077664,
-        "s_max": 0.7930898042690933,
+        "s_min": 0.7534830739624591,
+        "s_max": 0.761404420023786,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          128,
-          129
+          124,
+          125
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2191,17 +2251,18 @@
         "face": 3,
         "row": 2,
         "column": 3,
-        "s_min": 0.8010111503304203,
-        "s_max": 0.8089324963917471,
+        "s_min": 0.7772471121464397,
+        "s_max": 0.7851684582077664,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          130,
-          131
+          127,
+          128
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2214,17 +2275,18 @@
         "face": 3,
         "row": 2,
         "column": 4,
-        "s_min": 0.8168538424530739,
-        "s_max": 0.824775188514401,
+        "s_min": 0.8010111503304203,
+        "s_max": 0.8089324963917471,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          132,
-          133
+          130,
+          131
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2237,17 +2299,18 @@
         "face": 3,
         "row": 2,
         "column": 5,
-        "s_min": 0.8326965345757277,
-        "s_max": 0.8406178806370547,
+        "s_min": 0.824775188514401,
+        "s_max": 0.8326965345757277,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          134,
-          135
+          133,
+          134
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2270,7 +2333,8 @@
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2283,17 +2347,18 @@
         "face": 3,
         "row": 2,
         "column": 7,
-        "s_min": 0.8643819188210351,
-        "s_max": 0.8723032648823617,
+        "s_min": 0.8723032648823617,
+        "s_max": 0.8802246109436885,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          0,
-          1
+          1,
+          2
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2306,17 +2371,18 @@
         "face": 3,
         "row": 2,
         "column": 8,
-        "s_min": 0.8802246109436885,
-        "s_max": 0.8881459570050155,
+        "s_min": 0.8960673030663423,
+        "s_max": 0.9039886491276691,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          2,
-          3
+          4,
+          5
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2329,17 +2395,18 @@
         "face": 3,
         "row": 2,
         "column": 9,
-        "s_min": 0.8960673030663423,
-        "s_max": 0.9039886491276691,
+        "s_min": 0.919831341250323,
+        "s_max": 0.9277526873116497,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          4,
-          5
+          7,
+          8
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2352,17 +2419,18 @@
         "face": 3,
         "row": 2,
         "column": 10,
-        "s_min": 0.9119099951889962,
-        "s_max": 0.919831341250323,
+        "s_min": 0.9435953794343036,
+        "s_max": 0.9515167254956306,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          6,
-          7
+          10,
+          11
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2375,17 +2443,18 @@
         "face": 3,
         "row": 2,
         "column": 11,
-        "s_min": 0.9277526873116497,
-        "s_max": 0.9356740333729766,
+        "s_min": 0.9673594176182841,
+        "s_max": 0.975280763679611,
         "z_min_m": 591.5,
         "z_max_m": 600.5,
         "parent_lower_grid_indices": [
-          8,
-          9
+          13,
+          14
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2398,17 +2467,18 @@
         "face": 3,
         "row": 3,
         "column": 1,
-        "s_min": 0.769325766085113,
-        "s_max": 0.7772471121464397,
+        "s_min": 0.7297190357784787,
+        "s_max": 0.7376403818398055,
         "z_min_m": 605.0,
         "z_max_m": 614.0,
         "parent_lower_grid_indices": [
-          126,
-          127
+          121,
+          122
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2421,17 +2491,18 @@
         "face": 3,
         "row": 3,
         "column": 2,
-        "s_min": 0.7851684582077664,
-        "s_max": 0.7930898042690933,
+        "s_min": 0.7534830739624591,
+        "s_max": 0.761404420023786,
         "z_min_m": 605.0,
         "z_max_m": 614.0,
         "parent_lower_grid_indices": [
-          128,
-          129
+          124,
+          125
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2444,17 +2515,18 @@
         "face": 3,
         "row": 3,
         "column": 3,
-        "s_min": 0.8010111503304203,
-        "s_max": 0.8089324963917471,
+        "s_min": 0.7772471121464397,
+        "s_max": 0.7851684582077664,
         "z_min_m": 605.0,
         "z_max_m": 614.0,
         "parent_lower_grid_indices": [
-          130,
-          131
+          127,
+          128
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2467,17 +2539,18 @@
         "face": 3,
         "row": 3,
         "column": 4,
-        "s_min": 0.8168538424530739,
-        "s_max": 0.824775188514401,
+        "s_min": 0.8010111503304203,
+        "s_max": 0.8089324963917471,
         "z_min_m": 605.0,
         "z_max_m": 614.0,
         "parent_lower_grid_indices": [
-          132,
-          133
+          130,
+          131
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2490,17 +2563,18 @@
         "face": 3,
         "row": 3,
         "column": 5,
-        "s_min": 0.8326965345757277,
-        "s_max": 0.8406178806370547,
+        "s_min": 0.824775188514401,
+        "s_max": 0.8326965345757277,
         "z_min_m": 605.0,
         "z_max_m": 614.0,
         "parent_lower_grid_indices": [
-          134,
-          135
+          133,
+          134
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2523,7 +2597,8 @@
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2536,17 +2611,18 @@
         "face": 3,
         "row": 3,
         "column": 7,
-        "s_min": 0.8643819188210351,
-        "s_max": 0.8723032648823617,
+        "s_min": 0.8723032648823617,
+        "s_max": 0.8802246109436885,
         "z_min_m": 605.0,
         "z_max_m": 614.0,
         "parent_lower_grid_indices": [
-          0,
-          1
+          1,
+          2
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2559,17 +2635,18 @@
         "face": 3,
         "row": 3,
         "column": 8,
-        "s_min": 0.8802246109436885,
-        "s_max": 0.8881459570050155,
+        "s_min": 0.8960673030663423,
+        "s_max": 0.9039886491276691,
         "z_min_m": 605.0,
         "z_max_m": 614.0,
         "parent_lower_grid_indices": [
-          2,
-          3
+          4,
+          5
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2582,17 +2659,18 @@
         "face": 3,
         "row": 3,
         "column": 9,
-        "s_min": 0.8960673030663423,
-        "s_max": 0.9039886491276691,
+        "s_min": 0.919831341250323,
+        "s_max": 0.9277526873116497,
         "z_min_m": 605.0,
         "z_max_m": 614.0,
         "parent_lower_grid_indices": [
-          4,
-          5
+          7,
+          8
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2605,17 +2683,18 @@
         "face": 3,
         "row": 3,
         "column": 10,
-        "s_min": 0.9119099951889962,
-        "s_max": 0.919831341250323,
+        "s_min": 0.9435953794343036,
+        "s_max": 0.9515167254956306,
         "z_min_m": 605.0,
         "z_max_m": 614.0,
         "parent_lower_grid_indices": [
-          6,
-          7
+          10,
+          11
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2628,17 +2707,18 @@
         "face": 3,
         "row": 3,
         "column": 11,
-        "s_min": 0.9277526873116497,
-        "s_max": 0.9356740333729766,
+        "s_min": 0.9673594176182841,
+        "s_max": 0.975280763679611,
         "z_min_m": 605.0,
         "z_max_m": 614.0,
         "parent_lower_grid_indices": [
-          8,
-          9
+          13,
+          14
         ],
         "source_ids": [
           "USER_OBSERVATION_V10",
-          "CROWN_GENS_PHOTO_V7"
+          "CROWN_GENS_PHOTO_V7",
+          "USER_OBSERVATION_V11"
         ],
         "evidence_level": "待确认",
         "source_topology_confirmed": false,
@@ -2682,7 +2762,7 @@
         0.52,
         0.85
       ],
-      "separator_parent_columns": 1,
+      "separator_parent_columns": 2,
       "vent_height_parent_bands": 2,
       "row_starts_parent_band": [
         8,
@@ -2692,16 +2772,17 @@
       "wind_bottom_parent_band": 4,
       "wind_height_parent_bands": 3,
       "count_evidence_level": "待确认",
-      "source_id": "USER_OBSERVATION_V10"
+      "source_id": "USER_OBSERVATION_V10",
+      "spacing_source_id": "USER_OBSERVATION_V11"
     },
     "aperture_groups_v10": [
       {
         "face": 1,
         "columns": 11,
         "rows": 2,
-        "s_min": 0.10393269693365742,
-        "s_max": 0.27028096422152137,
-        "parent_column_count_including_separators": 21,
+        "s_min": 0.06432596662702326,
+        "s_max": 0.3098876945281553,
+        "parent_column_count_including_separators": 31,
         "evidence_level": "待确认",
         "count_basis": "USER_OBSERVATION_V10",
         "coordinate_basis": "Candidate face centres snapped to existing lower parent grid"
@@ -2710,9 +2791,9 @@
         "face": 2,
         "columns": 11,
         "rows": 2,
-        "s_min": 0.4366292315093851,
-        "s_max": 0.602977498797249,
-        "parent_column_count_including_separators": 21,
+        "s_min": 0.3970225012027508,
+        "s_max": 0.6425842291038832,
+        "parent_column_count_including_separators": 31,
         "evidence_level": "待确认",
         "count_basis": "USER_OBSERVATION_V10",
         "coordinate_basis": "Candidate face centres snapped to existing lower parent grid"
@@ -2721,9 +2802,9 @@
         "face": 3,
         "columns": 11,
         "rows": 3,
-        "s_min": 0.769325766085113,
-        "s_max": 0.9356740333729766,
-        "parent_column_count_including_separators": 21,
+        "s_min": 0.7297190357784787,
+        "s_max": 0.975280763679611,
+        "parent_column_count_including_separators": 31,
         "evidence_level": "待确认",
         "count_basis": "USER_OBSERVATION_V10",
         "coordinate_basis": "Candidate face centres snapped to existing lower parent grid"

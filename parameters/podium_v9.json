@@ -382,6 +382,38 @@
     ],
     "evidence_level": "待确认",
     "uncertainty": "User-observed white cut and upper glass; assign to wider PR end0 arch (0.8 vs0.72 section width fit), same mother rim. Extents, elevations, recess and exact as-built face still uncalibrated candidates.",
-    "target_arch_end": 0.0
-  }
+    "target_arch_end": null
+  },
+  "entrance_v11": {
+    "t_span": [
+      0.32,
+      0.83
+    ],
+    "roof_cut_u": 0.65,
+    "samples": 48,
+    "white_top_candidate_m": 10.5,
+    "door_top_candidate_m": 4.2,
+    "door_fraction_candidate": [
+      0.18,
+      0.82
+    ],
+    "recess_candidate_m": 1.2,
+    "uncertainty": "User correction: long side, not arch end. Candidate t/u mapping, elevations and location; no final facade elevations recovered."
+  },
+  "opaque_tiles_v11": {
+    "module_candidate_m": [
+      1.8,
+      0.3
+    ],
+    "joint_candidate_m": 0.01,
+    "evidence_level": "待确认",
+    "source_ids": [
+      "USER_OBSERVATION_V11"
+    ],
+    "uncertainty": "PS/white cladding module candidate; PR nominal dimensions do not certify PS panels."
+  },
+  "terrace_scale_v11": [
+    1.35,
+    1.2
+  ]
 }

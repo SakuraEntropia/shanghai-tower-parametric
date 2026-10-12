@@ -1,0 +1,20 @@
+{
+  "version": "v11",
+  "unit_tests_passed": 75,
+  "scene_checks_passed": 219,
+  "scene_checks_total": 219,
+  "geometry_signature": {
+    "sha256_rounded_geometry": "826a5c1979a905003d2a7747ab5630d883abc7f5029c3f616d98c29e82867102",
+    "mesh_count": 397,
+    "vertices": 1788142,
+    "polygons": 981815
+  },
+  "upper_vents": 77,
+  "retained_parent_columns_between_vents": 2,
+  "parent_columns_per_group": 31,
+  "transition_plate_notches": 16,
+  "section_interfaces": 8,
+  "entry": "Long descending side PR cut, not arch end",
+  "terrace_candidate_area_factor": 1.62,
+  "asbuilt_verified": false
+}

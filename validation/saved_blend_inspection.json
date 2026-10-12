@@ -37,7 +37,8 @@
     "V6_12_crown_v6.md": true,
     "V6_12_podium_v6.md": true,
     "V6_12_roof_evidence_v6.md": true,
-    "V6_12_v6修正与证据.md": true
+    "V6_12_v6修正与证据.md": true,
+    "V11_19_v11修正参数与核验.md": true
   },
   "collections": [
     "00_EVIDENCE",
@@ -93,13 +94,13 @@
     "88_V_REENTRANT_FACADE",
     "90_VALIDATION"
   ],
-  "objects": 706,
+  "objects": 707,
   "all_objects_have_source_metadata": true,
   "geometry_signature": {
-    "sha256_rounded_geometry": "97bf0aba36e8149a153f17747b01076144687946695a27590ec60fe022dcb41d",
+    "sha256_rounded_geometry": "826a5c1979a905003d2a7747ab5630d883abc7f5029c3f616d98c29e82867102",
     "mesh_count": 397,
-    "vertices": 1831916,
-    "polygons": 993726
+    "vertices": 1788142,
+    "polygons": 981815
   },
   "signature_matches_generation": true,
   "passed": true,
@@ -107,7 +108,7 @@
     "slabs": 129,
     "mega_columns": 8,
     "installed_CWSS_objects": 5,
-    "podium_objects": 41,
+    "podium_objects": 42,
     "full_outer_transition_slabs": 16,
     "crown_cooling_towers": 8,
     "wind_turbine_shafts": 270,
@@ -151,11 +152,109 @@
     "vent_count": 77,
     "apertures_cut_in_saved_registry": 80,
     "entry_mesh_faces": [
-      3,
-      15,
-      1,
-      3
+      1302,
+      804,
+      32,
+      34
     ],
     "green_curve_curbs": 5
-  }
+  },
+  "v11_actual_notches": [
+    {
+      "object": "F006_DERIVED_SLAB",
+      "remaining_top_slab_area_in_notch_m2": 6.783669965315653e-06,
+      "passed": true,
+      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
+    },
+    {
+      "object": "F007_DERIVED_SLAB",
+      "remaining_top_slab_area_in_notch_m2": 1.9381337050816683e-06,
+      "passed": true,
+      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
+    },
+    {
+      "object": "F020_DERIVED_SLAB",
+      "remaining_top_slab_area_in_notch_m2": 7.324162965005598e-06,
+      "passed": true,
+      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
+    },
+    {
+      "object": "F021_DERIVED_SLAB",
+      "remaining_top_slab_area_in_notch_m2": 9.1222846165806e-07,
+      "passed": true,
+      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
+    },
+    {
+      "object": "F036_DERIVED_SLAB",
+      "remaining_top_slab_area_in_notch_m2": 6.969705927062364e-06,
+      "passed": true,
+      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
+    },
+    {
+      "object": "F037_DERIVED_SLAB",
+      "remaining_top_slab_area_in_notch_m2": 1.1396518964090774e-06,
+      "passed": true,
+      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
+    },
+    {
+      "object": "F050_DERIVED_SLAB",
+      "remaining_top_slab_area_in_notch_m2": 1.1866468090815374e-05,
+      "passed": true,
+      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
+    },
+    {
+      "object": "F051_DERIVED_SLAB",
+      "remaining_top_slab_area_in_notch_m2": 8.894977593598696e-06,
+      "passed": true,
+      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
+    },
+    {
+      "object": "F066_DERIVED_SLAB",
+      "remaining_top_slab_area_in_notch_m2": 4.659103276516419e-06,
+      "passed": true,
+      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
+    },
+    {
+      "object": "F067_DERIVED_SLAB",
+      "remaining_top_slab_area_in_notch_m2": 1.1040539088735812e-05,
+      "passed": true,
+      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
+    },
+    {
+      "object": "F083_DERIVED_SLAB",
+      "remaining_top_slab_area_in_notch_m2": 7.347235552845888e-06,
+      "passed": true,
+      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
+    },
+    {
+      "object": "F084_DERIVED_SLAB",
+      "remaining_top_slab_area_in_notch_m2": 8.018332921744253e-06,
+      "passed": true,
+      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
+    },
+    {
+      "object": "F099_DERIVED_SLAB",
+      "remaining_top_slab_area_in_notch_m2": 1.2237584936514168e-06,
+      "passed": true,
+      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
+    },
+    {
+      "object": "F100_DERIVED_SLAB",
+      "remaining_top_slab_area_in_notch_m2": 3.904527952958148e-06,
+      "passed": true,
+      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
+    },
+    {
+      "object": "F116_DERIVED_SLAB",
+      "remaining_top_slab_area_in_notch_m2": 1.1558557035939998e-06,
+      "passed": true,
+      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
+    },
+    {
+      "object": "F117_DERIVED_SLAB",
+      "remaining_top_slab_area_in_notch_m2": 1.419278994330142e-06,
+      "passed": true,
+      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
+    }
+  ]
 }
