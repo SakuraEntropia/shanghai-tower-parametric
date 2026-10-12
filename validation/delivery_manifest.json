@@ -1,0 +1,574 @@
+{
+  "version": "v9",
+  "repository_url": "https://github.com/SakuraEntropia/shanghai-tower-parametric",
+  "generated_on": "2026-10-12",
+  "editable_model": "model/shanghai_tower_evidence.blend",
+  "model_bytes": 47268127,
+  "regenerator": "scripts/build_shanghai_tower.py",
+  "software_checks_passed": true,
+  "independent_reopen_passed": true,
+  "asbuilt_verified": false,
+  "third_party_reference_images_in_repository": false,
+  "files": [
+    {
+      "path": "README.md",
+      "size_bytes": 3378,
+      "sha256": "004c5473e1a188431226a395e64c74ec846a55e98bff2aabb6dd99ba0aca7b8d"
+    },
+    {
+      "path": "model/shanghai_tower_evidence.blend",
+      "size_bytes": 47268127,
+      "sha256": "cc7ab58c7999d6a56e5d8e85150efa4fe834caf883b809facb53d07c7cfa358e"
+    },
+    {
+      "path": "views/reference_comparison_v9.html",
+      "size_bytes": 3533,
+      "sha256": "d393da7647fa62f81a62b4145bb42ad7dfb7e017c01e0d8b0684832bd6de6a5a"
+    },
+    {
+      "path": "scripts/assembly_v3.py",
+      "size_bytes": 21744,
+      "sha256": "ed1effb2d69f4e23bb2cc7ce0d5ce1e6190a46b9e902f368434e7fe333acb55f"
+    },
+    {
+      "path": "scripts/build_shanghai_tower.py",
+      "size_bytes": 24020,
+      "sha256": "84dd82c2363a6adf7cc6f0e93ab9f9c722bb001eeea5918ae71ad5457c529e9f"
+    },
+    {
+      "path": "scripts/collision_v7.py",
+      "size_bytes": 2186,
+      "sha256": "22eec0610f86dea4078f29be8381abba8e28159d4be921286194cd02d7a0526e"
+    },
+    {
+      "path": "scripts/common.py",
+      "size_bytes": 10874,
+      "sha256": "19d3160d614296f53776c5781494895d6a8bbb8681ecfdab8aca23cd47e524ef"
+    },
+    {
+      "path": "scripts/core_completion.py",
+      "size_bytes": 7330,
+      "sha256": "b8a81380985bfccc5784f3494bea0103f481372922fe68c05e6ccb7e8bcd7014"
+    },
+    {
+      "path": "scripts/crown_art_v7.py",
+      "size_bytes": 9584,
+      "sha256": "6111f3ab63c94e8d38b9fe29d9dbc5f0ef0d7472106ff2b712b49d3b9bc1716b"
+    },
+    {
+      "path": "scripts/crown_art_v8.py",
+      "size_bytes": 11827,
+      "sha256": "9029328ff8c18820c8a3a28d37ea1e849712d9991b9254cf87fa8c5cfee5fbdd"
+    },
+    {
+      "path": "scripts/crown_completion.py",
+      "size_bytes": 19852,
+      "sha256": "7bf795abdd7967ab5071dc9a898fc29e7899f1060facc989b39748d0c8302d78"
+    },
+    {
+      "path": "scripts/crown_detail_v3.py",
+      "size_bytes": 439,
+      "sha256": "64fdf9580bc7e7fe6d2362e43a12734a0250a248b8ea9f5f425e13ee1416ba01"
+    },
+    {
+      "path": "scripts/crown_pattern_v8.py",
+      "size_bytes": 10624,
+      "sha256": "67392292daaa9859fcb9b537529728fb7b3e5e91a909ff7ec0be62f38d9c7f99"
+    },
+    {
+      "path": "scripts/crown_v5.py",
+      "size_bytes": 37465,
+      "sha256": "3f87e99c0e1967f6a7dd35e7b958be0e0edddd88ddadad515f834b372e4c074a"
+    },
+    {
+      "path": "scripts/curtain_wall.py",
+      "size_bytes": 36964,
+      "sha256": "825b9e59c9172fb41e783a2fac6260e8afdfaf461b4592124cf399ebf17a59fe"
+    },
+    {
+      "path": "scripts/environment_v7.py",
+      "size_bytes": 2127,
+      "sha256": "2c59285e30c3d5545021b72cd44f7b9fbbf442f32f3353fade75e9a4ace41c69"
+    },
+    {
+      "path": "scripts/finalize_delivery_v4.py",
+      "size_bytes": 547,
+      "sha256": "8b28b078f17137846a2da3e7bf2d2b11f7e90492a27f555178172a3d7d208889"
+    },
+    {
+      "path": "scripts/finalize_delivery_v5.py",
+      "size_bytes": 997,
+      "sha256": "7ff1805eaff5ba892f5adf64fe5ffad93f80590aa2d3457f1f5589c456d02136"
+    },
+    {
+      "path": "scripts/finalize_delivery_v6.py",
+      "size_bytes": 801,
+      "sha256": "5a86e624ff282c188d839639a83681c23df521741b07785f8d3b81e7deb14298"
+    },
+    {
+      "path": "scripts/finalize_delivery_v7.py",
+      "size_bytes": 783,
+      "sha256": "594583b7f6653a57fa7afba7b3b87bc2c4cfa55aa257ca3ab40a3fd44bd10d1f"
+    },
+    {
+      "path": "scripts/finalize_delivery_v9.py",
+      "size_bytes": 831,
+      "sha256": "75bc47066c86cb7f6fdf84908c3e79d046f1a2088903d847a92a62598ca84822"
+    },
+    {
+      "path": "scripts/floors_v3.py",
+      "size_bytes": 20420,
+      "sha256": "99bb6883599896f3c3a2ed1fcf12b6fe52fb36422e5dd3ae95671f9597359616"
+    },
+    {
+      "path": "scripts/geometry.py",
+      "size_bytes": 16431,
+      "sha256": "b99dfb35ae42dd3e0854a2ea5164ab46cd8ca7ed95a009435744d3ea5ed4765b"
+    },
+    {
+      "path": "scripts/inner_completion.py",
+      "size_bytes": 12765,
+      "sha256": "ca6d5ca3ef6c0f2b4acd8e8c93d3f0bd017072192bb11c769e497e60da997821"
+    },
+    {
+      "path": "scripts/inner_support_v7.py",
+      "size_bytes": 3903,
+      "sha256": "4fbfa7eea0083cd3f034aa20f0a01d09ffb682c3cbe2447694c419bb1e6c37e4"
+    },
+    {
+      "path": "scripts/inspect_saved.py",
+      "size_bytes": 5762,
+      "sha256": "3377354af63acd887a6d60606ebef877640f85638de3e5c6cf865e61b3a05df8"
+    },
+    {
+      "path": "scripts/make_assembly_comparisons.py",
+      "size_bytes": 3628,
+      "sha256": "7fa18c874744b321e7c4ef79592d2c30205c200a2359db9b36ce25917822b0bc"
+    },
+    {
+      "path": "scripts/make_comparisons.py",
+      "size_bytes": 6408,
+      "sha256": "0ea4f92d955f31aa8744c5142e3d729575b49e34da86e4e75addb7d597d51729"
+    },
+    {
+      "path": "scripts/make_comparisons_v9.py",
+      "size_bytes": 3955,
+      "sha256": "970addb0b5863a2e169125eea8cd35b00b822f7ed1867242666c0e45d57190b6"
+    },
+    {
+      "path": "scripts/make_completion_comparisons.py",
+      "size_bytes": 4119,
+      "sha256": "432292891332e2598489123b4f8fadee41a079b2e8c36053eb43d77ebd05d08d"
+    },
+    {
+      "path": "scripts/notch_v4.py",
+      "size_bytes": 9472,
+      "sha256": "a3a54eac4e4afcb23cb7adc366ba1b5378e0467c4d5974a7907f60d2f7b4781c"
+    },
+    {
+      "path": "scripts/podium_panels_v7.py",
+      "size_bytes": 5706,
+      "sha256": "96ccbfa39b2be180a129277152bd687027a8da0bc753b4382a372e5f72049eda"
+    },
+    {
+      "path": "scripts/podium_v4.py",
+      "size_bytes": 24675,
+      "sha256": "d4609d7163752b251ac407ed521016a0c9fc6bd7803bf260a0c21c0b2e6ee700"
+    },
+    {
+      "path": "scripts/podium_v9.py",
+      "size_bytes": 18980,
+      "sha256": "fc8dbdd1dedc5b5f41b84fc07608533b08a6920e845c15864bd5f96077c053bc"
+    },
+    {
+      "path": "scripts/render_saved_v8.py",
+      "size_bytes": 834,
+      "sha256": "3e6e81e76d8ae102dc62b297c3236beafbd618d116a29031d84d6e4e805b2fe7"
+    },
+    {
+      "path": "scripts/site_details_v9.py",
+      "size_bytes": 3100,
+      "sha256": "c717074bbe28703f4f8951bd037b677a5cd813b33a6427bdecfe37efc31d835a"
+    },
+    {
+      "path": "scripts/site_v8.py",
+      "size_bytes": 11906,
+      "sha256": "b14c559db1f00b759f867bb46fa033915d835ddc8af87ad2d509a9a4324a1833"
+    },
+    {
+      "path": "scripts/structure.py",
+      "size_bytes": 28684,
+      "sha256": "4f08cabeafe7057c0c5ef4f8986a8d3e9d4517a560b3256be54dded26047addc"
+    },
+    {
+      "path": "scripts/transition_v5.py",
+      "size_bytes": 5993,
+      "sha256": "a952d29fa387306db7d50aa1e4fd7f15174bf271847333c737725ff4d1928817"
+    },
+    {
+      "path": "scripts/validation.py",
+      "size_bytes": 20450,
+      "sha256": "4ba6a283839b5cea0a55f969b63a21a3476931528e15125b2ae74b53227c855e"
+    },
+    {
+      "path": "parameters/assembly_v3.json",
+      "size_bytes": 34144,
+      "sha256": "eb2a7585336d2a48d91f1b7fbbc8a1b3e5b9610e13e1266b776fe0399427e81f"
+    },
+    {
+      "path": "parameters/completion.json",
+      "size_bytes": 53748,
+      "sha256": "c960aa6ddb963fe83a850ee67615f836263edebcf7a2ab2ae7ddfd1ba2dad97a"
+    },
+    {
+      "path": "parameters/crown_v5.json",
+      "size_bytes": 11377,
+      "sha256": "cc0d0cbaf4f82a4efcc8a8beb236117f03aeeea3cfdc2d4e5c72f9319ec2f995"
+    },
+    {
+      "path": "parameters/floor_anchors.json",
+      "size_bytes": 9632,
+      "sha256": "32e38084a8ca1c2a97e0bc884927267015949cb74f29d1013ea34547fcfa3373"
+    },
+    {
+      "path": "parameters/inner_support_v7.json",
+      "size_bytes": 785,
+      "sha256": "0450d0956271db18975c02cd7f9e16047f5d9d197bdc6273c4b786658938f620"
+    },
+    {
+      "path": "parameters/model_config.json",
+      "size_bytes": 8917,
+      "sha256": "d3c0ec65a03bfb8c127a90ae1038e914b81e0b9816762114c288bf08f6f3a8c5"
+    },
+    {
+      "path": "parameters/notch_v4.json",
+      "size_bytes": 1273,
+      "sha256": "4ab710bbfcf69e3b20e1ca09499f7a908368cae6b4e6ef6145f7075d8f4734b4"
+    },
+    {
+      "path": "parameters/parameters.json",
+      "size_bytes": 63616,
+      "sha256": "492130d835f2572abc536eb37db20decfadae1fcb795e093487bbd1899cf677d"
+    },
+    {
+      "path": "parameters/podium_v4.json",
+      "size_bytes": 11510,
+      "sha256": "9d9cfbde24d8a1ae5093737dc7c00520ffc37a44c55c1b90e7a2b5faa9e10bbc"
+    },
+    {
+      "path": "parameters/podium_v9.json",
+      "size_bytes": 5281,
+      "sha256": "2377e38d069062cc65f667df16d07355ed24dec73bb1b4bbb409fdf0efd5f22c"
+    },
+    {
+      "path": "parameters/site_v8.json",
+      "size_bytes": 8401,
+      "sha256": "e9fa9854206fa60433c30d2979865dd41dbdfa9d4a1d8c1afa469367cc374cbe"
+    },
+    {
+      "path": "parameters/sources.json",
+      "size_bytes": 50792,
+      "sha256": "3fadf68976e77ac667add21b30b3927874743a216ed0f45f0155a6d2a04cfc7d"
+    },
+    {
+      "path": "parameters/transition_v5.json",
+      "size_bytes": 2034,
+      "sha256": "2e2f7c0c2b703e968a3d7834580077f654fd0fd2ced22456a5f6022a66a84b96"
+    },
+    {
+      "path": "docs/00_资料研究报告.md",
+      "size_bytes": 33826,
+      "sha256": "c92e3b7bd23944a12d9d61707fe7d2a8c9693e40f688b111ac86889e692a5be4"
+    },
+    {
+      "path": "docs/01_参数与证据表.md",
+      "size_bytes": 24470,
+      "sha256": "7291f659776c660a7b6b0cbbc921eb36028ca675b7996bfbcdf5c184735a0bd8"
+    },
+    {
+      "path": "docs/02_Blender建模方案.md",
+      "size_bytes": 14758,
+      "sha256": "fab791e923ca649c325e8841ed642124ae580869e12cd42b21bda2becbf54584"
+    },
+    {
+      "path": "docs/03_幕墙pattern专项.md",
+      "size_bytes": 7267,
+      "sha256": "44bbd999d8da23a6d9cc304f130d969a8db7a4a36f094d96b9ff9ab4522a69fe"
+    },
+    {
+      "path": "docs/04_参考图索引.md",
+      "size_bytes": 3063,
+      "sha256": "008e348b507f354cc483a949553ebcc7c50726b874ecd6ac018c1bb0c06e403b"
+    },
+    {
+      "path": "docs/05_模型使用与核验.md",
+      "size_bytes": 15285,
+      "sha256": "fca64022da037deafc209b433497438c88d15812cebe4d55a02a82bd446984ce"
+    },
+    {
+      "path": "docs/06_实现参数增补.md",
+      "size_bytes": 4353,
+      "sha256": "a8aba6260ee44cfefaf8c3ba907b6470ada714e0dfb475234ed3afa629a51619"
+    },
+    {
+      "path": "docs/07_塔冠内层核心补全.md",
+      "size_bytes": 10308,
+      "sha256": "4db7bf7f36064c534622e0a07e92f551e31a3ad41618a783b8ea0f0d62a65892"
+    },
+    {
+      "path": "docs/08_v3实体补齐与精度.md",
+      "size_bytes": 2852,
+      "sha256": "d1a95249592326da9193bf3bcc36db02bc9902c39401f719a2c65c81a0ba4efc"
+    },
+    {
+      "path": "docs/09_v3参数证据表.md",
+      "size_bytes": 9604,
+      "sha256": "df9dbd4a8c07b63d9460c74cbe930b19476062c467e9bac0000298306fb06731"
+    },
+    {
+      "path": "docs/10_crown_v4.md",
+      "size_bytes": 2813,
+      "sha256": "8b3c6bb6332cfc71ca194753cca6d725f1017cee979669d3620a561f922c5c14"
+    },
+    {
+      "path": "docs/10_podium_v4.md",
+      "size_bytes": 3976,
+      "sha256": "ff8a8ac59e5efb0038d8dbe50caf54d342955f5cfcba19081040b4ff237f46b8"
+    },
+    {
+      "path": "docs/10_v4修正与图像依据.md",
+      "size_bytes": 1574,
+      "sha256": "dbca77062db175988d69ad10041bfecc14687588d7aacc048a7788014bc2efd1"
+    },
+    {
+      "path": "docs/11_crown_v5_actual_aerial.md",
+      "size_bytes": 5949,
+      "sha256": "919d14a30e5cb401cc040b4260e73dff69773322d2a1b472410de584dfea31fd"
+    },
+    {
+      "path": "docs/11_podium_v5.md",
+      "size_bytes": 6438,
+      "sha256": "58ee00f966b884d363ac02548dacab19fdb032e79b52e6f801466be2ea6bc483"
+    },
+    {
+      "path": "docs/11_transition_facade_v5.md",
+      "size_bytes": 5469,
+      "sha256": "6bd398a50654efda41754f6030b878b671656f6151953996590e735a75c74317"
+    },
+    {
+      "path": "docs/11_v5修正与证据.md",
+      "size_bytes": 2379,
+      "sha256": "38e9c00c759fba2015bb9efeda95df414cb333c6cd9e392868a21eb68d53dd76"
+    },
+    {
+      "path": "docs/12_crown_v6.md",
+      "size_bytes": 7867,
+      "sha256": "6766448b5df2f6eb48dc97c9557bf06543a87c150d04b1657f2c6ba7000f6283"
+    },
+    {
+      "path": "docs/12_podium_v6.md",
+      "size_bytes": 6657,
+      "sha256": "0caadaaad9a6c4dd6bcd39535d78b18086a2da87d67c9de5d09a4a98d66d2b00"
+    },
+    {
+      "path": "docs/12_roof_evidence_v6.md",
+      "size_bytes": 7292,
+      "sha256": "f182de399b22f67ea8408ce2b4a2462b3f444d69e911a671e32c474e55335231"
+    },
+    {
+      "path": "docs/12_v6修正与证据.md",
+      "size_bytes": 4019,
+      "sha256": "e5a570f737d4068f33be6dc9f0e8bfdf9ee908ef8d29c759a3132b0e07a694c8"
+    },
+    {
+      "path": "docs/13_v7参数方案与证据.md",
+      "size_bytes": 5020,
+      "sha256": "473f74efbb7db48d0d190d2b1f208c761d6894d72babfe52d3f3bdda4e10a0e1"
+    },
+    {
+      "path": "docs/13_v7核验与缺失项.md",
+      "size_bytes": 5481,
+      "sha256": "013a163d55e5a3dc134d3c3699106a1c0fcb1e58e5707219b59fe8f3a142b56f"
+    },
+    {
+      "path": "docs/14_v8参数方案与证据.md",
+      "size_bytes": 5645,
+      "sha256": "d9183179accea795cb57e009100efcf30db7eca784837b1554edac11aa87a8d5"
+    },
+    {
+      "path": "docs/15_v9修正方案与证据.md",
+      "size_bytes": 3921,
+      "sha256": "eb1a2e5e670aff556aade89d90193768b99feaf5e3cd83bc477b9c55e2acd695"
+    },
+    {
+      "path": "docs/16_v9参数索引.md",
+      "size_bytes": 45064,
+      "sha256": "928a9f5c13a9cb68f31b81b255f01c62ccb49bde8de39b891bddc9a1a6aecf71"
+    },
+    {
+      "path": "docs/17_v9核验与缺失项.md",
+      "size_bytes": 5017,
+      "sha256": "5071eb07bc15587f981f29491f13a8331f39c777c10940cad9b1c997ec77e09d"
+    },
+    {
+      "path": "views/VIEW_01_TOWER.png",
+      "size_bytes": 2457095,
+      "sha256": "0df8df6539941da1e46a69cd2c8fbede3a7676e6ddfdbab878094c146ccbdbc1"
+    },
+    {
+      "path": "views/VIEW_02_SECTION.png",
+      "size_bytes": 2440692,
+      "sha256": "8f8fc2fe141647a1b266ae7f42ad081586a18ff8880b1054630e00003ce49f91"
+    },
+    {
+      "path": "views/VIEW_03_PLAN_45.png",
+      "size_bytes": 4165724,
+      "sha256": "1e2d9fbda0d2f5a2ee4b1aa73413e3f49c412520cec7b367d138793164684088"
+    },
+    {
+      "path": "views/VIEW_04_CURTAIN_DETAIL.png",
+      "size_bytes": 1667742,
+      "sha256": "46e684f71488683e7ca27f7fd35060644a1a570c714d9f246ea4c2206bf6dd5b"
+    },
+    {
+      "path": "views/VIEW_05_CWSS.png",
+      "size_bytes": 1597661,
+      "sha256": "4617c8d2471d72677ea00b5773fcadc12a22153d9b2179c01adea887ec9e3e7a"
+    },
+    {
+      "path": "views/VIEW_06_MAIN_PATTERN.png",
+      "size_bytes": 2388542,
+      "sha256": "fa300138335d551d0faa3174124db41933a44f4e27ee834fa09dd866fc66fe52"
+    },
+    {
+      "path": "views/VIEW_07_CROWN.png",
+      "size_bytes": 2878225,
+      "sha256": "3f62c6c0bb57ed89a80104dd303356b14b3aa55af5a1037500b779c9f33c1ab6"
+    },
+    {
+      "path": "views/VIEW_08_INNER.png",
+      "size_bytes": 2529958,
+      "sha256": "05168da9716a8ea5e60c011ee000a85fdfdb91a0a256959a4100383b7ee277f8"
+    },
+    {
+      "path": "views/VIEW_09_CORE_PLAN.png",
+      "size_bytes": 1066726,
+      "sha256": "e0200866d2f275da52c5e6043aa24aea07e7a4805c3a09bbcd3ccd3d99311ee6"
+    },
+    {
+      "path": "views/VIEW_10_CORE_WALLS.png",
+      "size_bytes": 2219934,
+      "sha256": "291b93ef2e16ac519f5db0a96f93a07186e5b5670b8173e39addcfd6e7d96e75"
+    },
+    {
+      "path": "views/VIEW_11_ASSEMBLY.png",
+      "size_bytes": 2630179,
+      "sha256": "4e9190d83ea9338572d9f34eee0d15e74fc121a7313fdd030a965ce0e4a411c1"
+    },
+    {
+      "path": "views/VIEW_12_GROUNDED_RETAIL.png",
+      "size_bytes": 3284107,
+      "sha256": "798d6614a807907c7af4a36a570cc8b3deac77aeb579a052b76b34411a441012"
+    },
+    {
+      "path": "views/VIEW_13_CWSS_INSTALLED.png",
+      "size_bytes": 1764163,
+      "sha256": "cdaa71216980f27204fd1009f324ebf7add0158f0ba4f59a4bdc015753241b49"
+    },
+    {
+      "path": "views/VIEW_14_CROWN_ROOF_STEEL.png",
+      "size_bytes": 2917357,
+      "sha256": "1779dfd56b591b15666829403252d54755ea5727401b001d9da100fe886d0e26"
+    },
+    {
+      "path": "views/VIEW_15_V_RECESS.png",
+      "size_bytes": 3554995,
+      "sha256": "06c1d4e2c1ae1374d57c0e361930ad94fdb9b4929e82f9621095bd70ac936a2c"
+    },
+    {
+      "path": "views/VIEW_16_V_PLAN.png",
+      "size_bytes": 1233739,
+      "sha256": "2572ba95c540976de4df1b9f9d844e094444663b619f7ffb9cbde55785e59900"
+    },
+    {
+      "path": "views/VIEW_17_CROWN_AERIAL_V5.png",
+      "size_bytes": 3207001,
+      "sha256": "c4756e355ff5f6a5fe91e8cc66d98e8ca8c4f275408b60d757f64a5e60a0ebfc"
+    },
+    {
+      "path": "views/VIEW_18_CROWN_EQUIPMENT_V5.png",
+      "size_bytes": 4371130,
+      "sha256": "9eae78279149eb85db6fa2fb8c474ad5c13940944d3c36a9511697eb058211e7"
+    },
+    {
+      "path": "views/VIEW_19_TRANSITION_V5.png",
+      "size_bytes": 3686292,
+      "sha256": "b252d91e262d6741204916efb00834b36b163b0aae0b7792b8869fbbe887f8bb"
+    },
+    {
+      "path": "views/VIEW_20_TMD_HALL_V6.png",
+      "size_bytes": 3890707,
+      "sha256": "c740c015be839dc7314b155d9ececffbc4719b79d52da920aca8fa48ed6168ea"
+    },
+    {
+      "path": "views/VIEW_21_WIND_BAYS_V6.png",
+      "size_bytes": 3785154,
+      "sha256": "9f66a0bceaa261a2381d540d21744cc13e01fb3bd84ad748c5c70c28e5123f78"
+    },
+    {
+      "path": "views/VIEW_22_COOLING_CUTAWAY_V6.png",
+      "size_bytes": 3373156,
+      "sha256": "60acab7b6dc71370a86ff956aeb158aa2bf77dae7d99e42e372e2e5d17d2d667"
+    },
+    {
+      "path": "views/VIEW_23_PODIUM_SYSTEMS_V7.png",
+      "size_bytes": 3056469,
+      "sha256": "cc7c454419979a8c6a7be04c72e073d5ffe4cf64b404e88018195659d9ef434a"
+    },
+    {
+      "path": "views/VIEW_24_INNER_LOWER_SUPPORT_V7.png",
+      "size_bytes": 2718735,
+      "sha256": "6008751ee00d9b03d5a65504f0349fb77fc1588f321032237484093baa097505"
+    },
+    {
+      "path": "views/VIEW_25_SKY_AND_GLASS_V7.png",
+      "size_bytes": 2430325,
+      "sha256": "db7c7e91aa4549f10c7c1bc1732252e90ad1b770f19cc9c7c033a57a6a70eba2"
+    },
+    {
+      "path": "views/VIEW_26_SITE_PLAN_V8.png",
+      "size_bytes": 2567655,
+      "sha256": "b8c6e97e1fb4f5d73baa7cb67cd99b3e4113cd132c08377ba33217646eb5d86c"
+    },
+    {
+      "path": "views/VIEW_27_B_ATRIUM_OPEN_BASE_V8.png",
+      "size_bytes": 3428349,
+      "sha256": "a5656297bedd7bc0e76cb8191f3af426388f8c1d5dd1cc8fe132d8f57622bbba"
+    },
+    {
+      "path": "views/VIEW_28_SHANGHAI_EYE_V8.png",
+      "size_bytes": 3048142,
+      "sha256": "69dcdd29083a8f924677419f4aef6d9cb64c068d532bc5c0c05c478ee6a5d97c"
+    },
+    {
+      "path": "validation/validation_report.json",
+      "size_bytes": 3626451,
+      "sha256": "adfbb54c7d4949e4798ef3533978d67d4c3261556115a17e32b720087d90ff0f"
+    },
+    {
+      "path": "validation/assembly_report.json",
+      "size_bytes": 692755,
+      "sha256": "426679358494275de3c37e1c792c742104fe2469dbf0503fd23f9e41c7aaf55c"
+    },
+    {
+      "path": "validation/saved_blend_inspection.json",
+      "size_bytes": 4662,
+      "sha256": "b8a411e545bcbba58fe60aced5b89ea26f24f5bd4936b0e60238e1b630565fa0"
+    },
+    {
+      "path": "validation/v9_verification_summary.json",
+      "size_bytes": 1216,
+      "sha256": "658a31afd381d3f126910ea59d7319494019ce51fce01542e2d66fbe9738077e"
+    }
+  ]
+}
