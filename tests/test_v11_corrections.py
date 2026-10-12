@@ -22,7 +22,7 @@ class CorrectionsV11Tests(unittest.TestCase):
         self.assertAlmostEqual(area(r)/area(q),1.62)
     def test_roof_is_really_removed_on_selected_side_only(self):
         p=json.loads((R/'parameters/podium_v9.json').read_text())
-        self.assertFalse(v.roof_quadlets(p,.4,.41,.7,.71))
+        self.assertFalse(v.roof_quadlets(p,.4,.41,.8,.81))
         self.assertTrue(v.roof_quadlets(p,.4,.41,.2,.21))
         self.assertTrue(v.roof_quadlets(p,.1,.11,.7,.71))
 

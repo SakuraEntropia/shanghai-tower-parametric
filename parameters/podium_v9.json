@@ -1,10 +1,12 @@
 {
-  "version": "podium-v9-plan-and-composite-arc-sweep",
+  "version": "podium-v13-image-topology-fit",
   "source_ids": [
     "GENSLER_ARCHJOURNAL_V8",
     "PODIUM_LINGYUN_BIM_V7",
     "PODIUM_GENS_V4",
-    "PODIUM_GENS_GROUND_V6"
+    "PODIUM_GENS_GROUND_V6",
+    "USER_IMAGES_V13_RENDER",
+    "USER_IMAGES_V13_STREET"
   ],
   "evidence_level": "推导值/待确认上部曲面",
   "asbuilt_verified": false,
@@ -223,55 +225,55 @@
   "terrace_candidate_m": 22,
   "courtyard_photo_fit_px": [
     [
-      290,
-      225
+      276,
+      95
     ],
     [
-      398,
-      218
+      423,
+      99
     ],
     [
-      451,
-      243
+      464,
+      141
     ],
     [
-      452,
-      298
+      472,
+      237
     ],
     [
       412,
-      327
+      282
     ],
     [
-      298,
-      311
+      272,
+      264
     ]
   ],
   "court_corner_radius_candidate_m": 3,
   "white_terrace_pads_candidate_px": [
     [
-      327,
-      249
+      335,
+      145
     ],
     [
-      388,
-      249
+      390,
+      158
     ],
     [
       426,
-      274
+      197
     ],
     [
-      334,
-      282
+      330,
+      205
     ],
     [
-      386,
-      292
+      383,
+      221
     ],
     [
-      422,
-      308
+      414,
+      249
     ]
   ],
   "white_terrace_pad_candidate_m": 3.2,
@@ -304,46 +306,46 @@
   "garden_pavilion_candidate_outlines_px": [
     [
       [
-        287,
-        223
+        282,
+        115
       ],
       [
-        310,
-        218
+        307,
+        108
       ],
       [
-        317,
-        258
+        322,
+        172
       ],
       [
-        309,
-        300
+        315,
+        244
       ],
       [
-        290,
-        302
+        288,
+        261
       ]
     ],
     [
       [
-        422,
-        247
+        419,
+        141
       ],
       [
-        442,
-        244
+        447,
+        146
       ],
       [
-        453,
-        272
+        457,
+        191
       ],
       [
-        451,
-        307
+        449,
+        237
       ],
       [
-        432,
-        311
+        429,
+        256
       ]
     ]
   ],
@@ -386,10 +388,10 @@
   },
   "entrance_v11": {
     "t_span": [
-      0.32,
-      0.83
+      0.12,
+      0.88
     ],
-    "roof_cut_u": 0.65,
+    "roof_cut_u": 0.72,
     "samples": 48,
     "white_top_candidate_m": 10.5,
     "door_top_candidate_m": 4.2,
@@ -416,23 +418,81 @@
     1.35,
     1.2
   ],
-  "side_v12": {
-    "balcony_z_candidate_m": 22.0,
-    "balcony_depth_candidate_m": 5.0,
-    "guard_height_candidate_m": 1.1,
-    "inset_fraction": [
-      0.43,
-      0.61
-    ],
-    "inset_top_candidate_m": 12.6,
-    "inset_depth_candidate_m": 1.0,
-    "uncertainty": "User-observed open balcony and stone face with smaller inset glass. Platform/entry elevations, fraction, depth and orientation are uncalibrated fits, no final facade drawing."
-  },
   "canopy_v12": {
     "radial_rows": 2,
     "glass_thickness_candidate_m": 0.024,
     "joint_candidate_m": 0.012,
     "edge_radius_candidate_m": 0.035,
     "drain_panel_stride": 16
-  }
+  },
+  "side_v13": {
+    "samples": 64,
+    "shoulder_fraction_candidate": 0.14,
+    "shoulder_start_z_candidate_m": 6.0,
+    "inset_fraction": [
+      0.4,
+      0.92
+    ],
+    "inset_top_candidate_m": 23.0,
+    "inset_depth_candidate_m": 1.0,
+    "slot_fraction": [
+      0.24,
+      0.34
+    ],
+    "slot_centers_candidate_m": [
+      7.5,
+      14.0,
+      20.5
+    ],
+    "slot_height_candidate_m": 0.75,
+    "stone_thickness_candidate_m": 0.12,
+    "glass_thickness_candidate_m": 0.024,
+    "glass_module_height_candidate_m": 1.5,
+    "source_ids": [
+      "USER_IMAGES_V13_STREET"
+    ],
+    "evidence_level": "待确认",
+    "uncertainty": "Topology fit to user street photo: gold external long side, sloped stone shoulder and broad rectangular recessed entry plus three visible slots. t/u placement, height, depths, modules and optical values uncalibrated. No metric error bound or final facade coordinate survey."
+  },
+  "open_end_v13": {
+    "end": 0.0,
+    "terrace_z_candidate_m": 22.0,
+    "fascia_height_candidate_m": 3.0,
+    "guard_height_candidate_m": 1.1,
+    "guard_post_spacing_candidate_m": 1.5,
+    "guard_radius_candidate_m": 0.035,
+    "source_ids": [
+      "PODIUM_GENS_V4",
+      "USER_IMAGES_V13_RENDER"
+    ],
+    "evidence_level": "待确认",
+    "uncertainty": "Gensler actual aerial supports open terrace end versus opposite closed arch. End assignment, exact upper floor bounds and rail dimensions candidates."
+  },
+  "courtyard_pre_v13_fit_px": [
+    [
+      290,
+      225
+    ],
+    [
+      398,
+      218
+    ],
+    [
+      451,
+      243
+    ],
+    [
+      452,
+      298
+    ],
+    [
+      412,
+      327
+    ],
+    [
+      298,
+      311
+    ]
+  ],
+  "courtyard_v13_locator": "Open t0 end centered across swept gold arch, not an opening only on its tower-side half. Upper roof fit to Gensler actual aerial; no roof plan recovered."
 }

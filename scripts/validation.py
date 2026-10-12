@@ -53,7 +53,11 @@ def validate_scene(ctx,geometry_module,anchors,results):
               {'tile_ids':len(ids),'bounds_m':art_bounds},'Software nominal dimensions/count; shape/tiling is a fit, not fabrication validation')
     if ctx.config.get('podium_v9'):
         e=ctx.config['podium_v9'].get('entrance_v10')
-        if e:
+        if ctx.config['podium_v9'].get('side_v13'):
+            names=('PODIUM_V13_STREET_STONE_FRAME_BLOCKS','PODIUM_V13_RECESSED_LARGE_ENTRY_GLASS','PODIUM_V13_THREE_STONE_SLOT_WINDOWS','PODIUM_V13_STONE_WINDOW_REVEALS')
+            actual={name:len(bpy.data.objects[name].data.polygons) if bpy.data.objects.get(name) else 0 for name in names}
+            check('v13_closed_stone_inset_entry_and_slots_present',all(actual.values()),actual,'Street-photo topology; fitted coordinates and modules remain candidates')
+        elif e:
             wn=bpy.data.objects.get('PODIUM_V12_LONG_SIDE_STONE_BLOCKS') or bpy.data.objects.get('PODIUM_V10_BROAD_FACE_WHITE_ENTRY_CUT');gn=bpy.data.objects.get('PODIUM_V12_INSET_ENTRANCE_GLASS') or bpy.data.objects.get('PODIUM_V10_GLASS_ABOVE_WHITE_ENTRY');dn=bpy.data.objects.get('PODIUM_V12_ENTRY_STONE_REVEALS') or bpy.data.objects.get('PODIUM_V10_RECESSED_ENTRY_GLAZING')
             actual={'white_faces':len(wn.data.polygons) if wn else 0,'upper_glass_faces':len(gn.data.polygons) if gn else 0,'recessed_glass_faces':len(dn.data.polygons) if dn else 0}
             check('v10_white_cut_entry_and_upper_glass_present',all(actual.values()),actual,'Candidate user-observed entry topology; no recovered final facade elevations')
@@ -138,6 +142,12 @@ def validate_scene(ctx,geometry_module,anchors,results):
     check('glass_panels_are_vertical_planar_rectangles',len(rows)>0 and not badfaces and max_plane<=.001 and max_vertical<=math.sin(math.radians(.01)) and max_orth<=math.sin(math.radians(.01)),
           {'quad_panels':len(rows),'max_plane_error_m':max_plane,'max_normal_z_abs':max_vertical,'max_adjacent_edge_cos_abs':max_orth,'invalid':badfaces[:20]},
           'Numerical geometric rule validation; tolerances are software targets, not glass manufacturing tolerances')
+    if ctx.config.get('transition_v5',{}).get('horizontal_slits_v13',{}).get('enabled'):
+        from corrections_v13 import audit_scene
+        current=audit_scene(ctx.objects,ctx.config)
+        for q in current['ring_apertures']:
+            check(q['id'],q['passed'],q,'Actual A/V glass polygons do not cross candidate ring aperture; all parent columns border both sides')
+        check('v13_transition_floor_notches_removed',current['old_slab_notches']==0 and current['restored_full_transition_slabs']==16,current,'Facade clarification: restore full candidate plates; core void and V outline retained')
     finite=all(math.isfinite(x) for obj in ctx.objects if obj.type=='MESH' for v in obj.data.vertices for x in v.co)
     check('finite_mesh_coordinates',finite,None,'No NaN/inf geometry')
     if results.get('assembly',{}).get('crown_detail',{}).get('equipment'):

@@ -15,6 +15,9 @@ def side_entry_segment(p,t):
 
 
 def roof_quadlets(p,t0,t1,u0,u1):
+    if p.get('side_v13'):
+        from corrections_v13 import roof_quadlets as current
+        return current(p,t0,t1,u0,u1)
     from podium_v9 import sweep_point
     e=p.get('entrance_v11')
     if not e:return [[sweep_point(p,t,u) for t,u in ((t0,u0),(t1,u0),(t1,u1),(t0,u1))]]
@@ -59,6 +62,9 @@ def tile_panels(p,polygons):
 
 
 def build_side_entry(ctx,p):
+    if p.get('side_v13'):
+        from corrections_v13 import build_side
+        return build_side(ctx,p)
     if p.get('side_v12'):
         from corrections_v12 import build_side
         return build_side(ctx,p)

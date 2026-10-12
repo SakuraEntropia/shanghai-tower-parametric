@@ -265,14 +265,9 @@ def build_floors(ctx, geometry, candidate, anchors, assembly):
         obj = ctx.mesh(f'F{number:03d}_DERIVED_SLAB', verts, faces,
                        '50_DERIVED_SOLID_FLOOR_PLATES', 'core', meta)
         notch=None
-        if full_region and transition.get('interlayer_notch_v11'):
-            from corrections_v11 import cut_transition
-            notch=cut_transition(ctx,obj,radius,outer_outline,top,thickness)
-            import json
-            obj['source_ids']=json.dumps(list(dict.fromkeys(json.loads(obj['source_ids'])+['USER_OBSERVATION_V11'])))
-            obj['formula']+='; candidate interlayer notch per user, shared by both transition plates, follows tower twist.'
-            obj['uncertainty']+=' Notch placement/width unverified; does not establish final floor opening schedule.'
+        # v13 clarification: facade strip aperture never implies a slab cut.
         actual_top = max(v.co.z for v in obj.data.vertices)
+
         if full_region:
             if notch:
                 radius_error=max(max(0.,math.hypot(v.co.x,v.co.y)-ray_hole_radius(outer_outline,math.atan2(v.co.y,v.co.x))) for v in obj.data.vertices)

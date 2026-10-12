@@ -161,6 +161,10 @@ def arch_endcaps(ctx,p,tower):
     v=[];f=[];cables=[];frames=[]
     for end in (0.,1.):
         poly=[sweep_point(p,end,i/160) for i in range(161)]
+        if p.get('open_end_v13',{}).get('end')==end:
+            from corrections_v13 import build_open_end
+            build_open_end(ctx,p,poly)
+            continue
         height=max(q[2] for q in poly);pitch=p['PG_horizontal_pitch_candidate_m']
         entry=p.get('entrance_v10',{}).get('target_arch_end')==end
         if entry:
@@ -183,7 +187,7 @@ def arch_endcaps(ctx,p,tower):
             for a,b in zip(cut,cut[1:]+cut[:1]):
                 if abs(a[2]-b[2])<1e-6:cables.append([a,b])
         frames.append(poly)
-    m=_meta(p,'podium_roof_aligned_PG_arch_glazing_candidate',formula='End-section PG candidates directly clipped from the identical composite-arc roof rim; horizontal point/cable bands; no independent tall perimeter glass box.',source_support='Lingyun PG1/PG3 local point-supported systems and five-arc boundary principle; actual Gensler tall arched opening. Exact shop station mapping remains unverified.')
+    m=_meta(p,'podium_roof_aligned_PG_arch_glazing_candidate',source_ids=p['source_ids'],open_end_excluded=p.get('open_end_v13',{}).get('end',-1),formula='End-section PG candidates directly clipped from the identical composite-arc roof rim; horizontal point/cable bands; no independent tall perimeter glass box.',source_support='Lingyun PG1/PG3 local point-supported systems and five-arc boundary principle; actual Gensler tall arched opening. Exact shop station mapping remains unverified.')
     ctx.mesh('PODIUM_V9_PG_ARCHES_SHARE_PR_SECTION_BOUNDARY',v,f,'66_PODIUM_DETAIL_CANDIDATE','glass_detail',m)
     ctx.lines('PODIUM_V9_PG_ARCH_RIMS_AND_FINE_HORIZONTAL_CABLES',frames+cables,'66_PODIUM_DETAIL_CANDIDATE',p['PG_cable_radius_candidate_m'],'steel',m)
     return len(f)
@@ -265,13 +269,17 @@ def build_podium(ctx,geometry,completion,assembly):
     kd=KDTree(len(roof_vertices))
     for index,q in enumerate(roof_vertices):kd.insert((q[0],q[1],0),index)
     kd.balance()
+    # Upper floor candidates must stay behind the two end facades and the
+    # swept shell. Ground-plan lobes alone cannot define their upper extent.
+    mother_xy=ccw([sweep_point(p,i/64,1)[:2] for i in range(65)]+
+                  [sweep_point(p,i/64,0)[:2] for i in reversed(range(65))])
     cell=.75;xs=[q[0] for q in body];ys=[q[1] for q in body];cells=[]
     for i in range(math.ceil((max(xs)-min(xs))/cell)):
         x=min(xs)+(i+.5)*cell
         for j in range(math.ceil((max(ys)-min(ys))/cell)):
             y=min(ys)+(j+.5)*cell
             corners=[(x+dx*cell/2,y+dy*cell/2) for dx,dy in ((-1,-1),(1,-1),(1,1),(-1,1))]
-            if all(contains(body,q) and not contains(tower,q) for q in corners):
+            if all(contains(body,q) and contains(mother_xy,q) and not contains(tower,q) for q in corners):
                 # Nearby mother height is a construction-clearance candidate,
                 # not a recovered upper structural footprint.
                 nearby=[roof_vertices[index][2] for _,index,_ in kd.find_range((x,y,0),1.5)]
@@ -284,7 +292,7 @@ def build_podium(ctx,geometry,completion,assembly):
             for x,y,top in cells:
                 if top<z+.35:continue
                 _add([[(x-cell/2,y-cell/2,z),(x+cell/2,y-cell/2,z),(x+cell/2,y+cell/2,z),(x-cell/2,y+cell/2,z)]],v,f)
-            obj=ctx.mesh(f'PODIUM_V9_UPPER_SLAB_{level+1:02d}_BOUNDARY_CANDIDATE',v,f,col,'core',_meta(p,'podium_upper_slab_clearance_candidate',level_m=z,formula='0.75m provisional welded slab cells within ground trace, below nearby candidate roof; upper concrete boundaries unresolved'))
+            obj=ctx.mesh(f'PODIUM_V9_UPPER_SLAB_{level+1:02d}_BOUNDARY_CANDIDATE',v,f,col,'core',_meta(p,'podium_upper_slab_clearance_candidate',level_m=z,formula='0.75m provisional welded cells inside published ground AND swept-shell end/side footprint, below nearby candidate roof; no floor projection beyond end facade. Upper concrete boundaries unresolved.'))
             import bmesh
             bm=bmesh.new();bm.from_mesh(obj.data);bmesh.ops.remove_doubles(bm,verts=list(bm.verts),dist=1e-5);bm.to_mesh(obj.data);bm.free()
         mod=obj.modifiers.new('SLAB_SECTION_CANDIDATE','SOLIDIFY');mod.thickness=p['slab_thickness_candidate_m'];mod.offset=-1;slabnames.append(obj.name)
@@ -341,7 +349,7 @@ def build_podium(ctx,geometry,completion,assembly):
     for i in range(0,report['longitudinal_intervals']+1,4):
         t=min(1,i/report['longitudinal_intervals']);path=[]
         for j in range(65):
-            if p.get('side_v12') and p['entrance_v11']['t_span'][0]<=t<=p['entrance_v11']['t_span'][1] and j/64>p['entrance_v11']['roof_cut_u']:break
+            if (p.get('side_v12') or p.get('side_v13')) and p['entrance_v11']['t_span'][0]<=t<=p['entrance_v11']['t_span'][1] and j/64>p['entrance_v11']['roof_cut_u']:break
             q=sweep_point(p,t,j/64)
             if not contains(tower,q[:2]) and not (q[2]>=p['terrace_candidate_m'] and contains(court,q[:2])):path.append((q[0],q[1],q[2]-.35))
             elif len(path)>1:steel.append(path);path=[]

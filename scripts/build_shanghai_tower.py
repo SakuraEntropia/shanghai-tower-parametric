@@ -275,8 +275,8 @@ def main():
     (valdir/'panel_registry.json').write_text(json.dumps(panel_records,ensure_ascii=False,indent=2)+'\n')
     cameras=setup(ctx)
     scene=bpy.context.scene
-    scene['project_id']=cfg['project_id'];scene['correction_version']='v12'
-    scene['accuracy_statement']='v12: open upper balcony; smaller recessed glass entry in separate stone blocks; detailed candidate glass/stainless canopy; p29 XY with unsurveyed grade mounds and two sunken courts; roof disc radius15.3m candidate, nominal35m TMD hall retained. 77 crown apertures with2 retained columns,3-band wind bays and16 candidate transition slab notches retained. No final facade/RC/shop/elevation CAD or roof disc survey; not construction/as-built precision.'
+    scene['project_id']=cfg['project_id'];scene['correction_version']='v13'
+    scene['accuracy_statement']='v13: A/V horizontal ring slits at8 candidate transition centers;16 full slabs restored with no old floor notches. Podium external stone face relocated, broad recessed glass and3 slot windows; t0 open garden versus t1 closed glass arch. Photo topology supported; metric heights, coordinates, sections and slit widths candidates, no as-built CAD.'
     scene['selected_geometry_version']=cfg['selected_geometry_version']
     scene['source_datum_offset_unknown']=True
     collision=collision_v7.inspect(ctx)
@@ -306,7 +306,7 @@ def main():
             if path.is_file():embed_text('V5_'+path.name,path.read_text())
         for path in list((ROOT/'docs').glob('*v7*'))+[ROOT/'parameters/inner_support_v7.json']:
             if path.is_file():embed_text('V7_'+path.name,path.read_text())
-        for version in ('v8','v9','v10','v11','v12'):
+        for version in ('v8','v9','v10','v11','v12','v13'):
             for path in list((ROOT/'docs').glob('*'+version+'*'))+list((ROOT/'parameters').glob('*'+version+'.json')):
                 if path.is_file():embed_text(version.upper()+'_'+path.name,path.read_text())
         for path in (ROOT/'docs').glob('*v6*'):

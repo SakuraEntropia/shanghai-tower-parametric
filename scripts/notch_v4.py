@@ -39,7 +39,8 @@ def recess_points(geometry,cfg,points,p):
 def build_notch(ctx,geometry,completion,p):
     from crown_completion import trim_height,open_profile_stations,_clipped_vertical_chord
     from transition_v5 import band_schedule,step_faces,control_profile_at
-    cfg=ctx.config;grid,a,tip,b,width,depth=notch_controls(geometry,cfg,p)
+    from corrections_v13 import ring_specs, glass_fragments, frame_fragments, slit_meta
+    cfg=ctx.config;slits=ring_specs(cfg);grid,a,tip,b,width,depth=notch_controls(geometry,cfg,p)
     xy=recess_points(geometry,cfg,[v['xy'] for v in grid],p)
     edges=[(i,(i+1)%len(grid)) for i,v in enumerate(grid) if v['excluded_by_notch_uncertainty']]
     quads=[];ordinary_quads=[];transition_quads=[];frames=[];closures=[];coverage=[]
@@ -50,15 +51,18 @@ def build_notch(ctx,geometry,completion,p):
               reference_notch_width_m=width,reference_notch_depth_m=depth,
               interior_angle_deg=p['interior_angle_deg'],topology_is_closed_reentrant_facade=True,
               real_panel_schedule=False)
+    info.update(slit_meta(cfg))
     def band(bottom,top,previous_top=None,is_transition=False):
         row=profile_at(geometry,cfg,xy,top)
         for i,j in edges:
             v,w=row[i],row[j]
             q=[(v[0],v[1],bottom),(w[0],w[1],bottom),w,v]
-            quads.append(q)
-            (transition_quads if is_transition else ordinary_quads).append(q)
-            frames.extend(([q[0],q[3]],[q[3],q[2]]))
-        if previous_top is not None:
+            for fragment in glass_fragments(q,slits):
+                quads.append(fragment)
+                (transition_quads if is_transition else ordinary_quads).append(fragment)
+                for k in range(4):
+                    frames.extend(frame_fragments(fragment[k],fragment[(k+1)%4],slits,p['frame_radius_display_m']+.005))
+        if previous_top is not None and not any(h['z_min_m']<bottom<h['z_max_m'] for h in slits):
             old=profile_at(geometry,cfg,xy,previous_top)
             for i,j in edges:closures.extend(step_faces((old[i],old[j]),(row[i],row[j]),bottom))
         coverage.append([bottom,top])

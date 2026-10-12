@@ -1,9 +1,9 @@
 {
-  "version": "v12",
+  "version": "v13",
   "repository_url": "https://github.com/SakuraEntropia/shanghai-tower-parametric",
   "generated_on": "2026-10-12",
   "editable_model": "model/shanghai_tower_evidence.blend",
-  "model_bytes": 50548767,
+  "model_bytes": 53368857,
   "regenerator": "scripts/build_shanghai_tower.py",
   "software_checks_passed": true,
   "independent_reopen_passed": true,
@@ -12,268 +12,8 @@
   "files": [
     {
       "path": "README.md",
-      "size_bytes": 5278,
-      "sha256": "deb5a7f5ecb3255a40140dbc755a491414b92b36782014544babd0a3f773ba6b"
-    },
-    {
-      "path": "model/shanghai_tower_evidence.blend",
-      "size_bytes": 50548767,
-      "sha256": "07e7986474e0d2f47049be1552a178a0e4dbca978c220637e8ec021f198e1df9"
-    },
-    {
-      "path": "views/reference_comparison_v9.html",
-      "size_bytes": 3533,
-      "sha256": "d393da7647fa62f81a62b4145bb42ad7dfb7e017c01e0d8b0684832bd6de6a5a"
-    },
-    {
-      "path": "scripts/assembly_v3.py",
-      "size_bytes": 21744,
-      "sha256": "ed1effb2d69f4e23bb2cc7ce0d5ce1e6190a46b9e902f368434e7fe333acb55f"
-    },
-    {
-      "path": "scripts/build_shanghai_tower.py",
-      "size_bytes": 24041,
-      "sha256": "575923b9c95d1d25d3219b26ad83a931c0a1ab0cbba2c2e32114d9f5b66ef8cd"
-    },
-    {
-      "path": "scripts/collision_v7.py",
-      "size_bytes": 2186,
-      "sha256": "22eec0610f86dea4078f29be8381abba8e28159d4be921286194cd02d7a0526e"
-    },
-    {
-      "path": "scripts/common.py",
-      "size_bytes": 10938,
-      "sha256": "878ae7bdc281201ade8e5728a323210f361b65c5cc6f6944c6cec41a7c1e0df7"
-    },
-    {
-      "path": "scripts/core_completion.py",
-      "size_bytes": 7330,
-      "sha256": "b8a81380985bfccc5784f3494bea0103f481372922fe68c05e6ccb7e8bcd7014"
-    },
-    {
-      "path": "scripts/crown_art_v7.py",
-      "size_bytes": 9584,
-      "sha256": "6111f3ab63c94e8d38b9fe29d9dbc5f0ef0d7472106ff2b712b49d3b9bc1716b"
-    },
-    {
-      "path": "scripts/crown_art_v8.py",
-      "size_bytes": 11827,
-      "sha256": "9029328ff8c18820c8a3a28d37ea1e849712d9991b9254cf87fa8c5cfee5fbdd"
-    },
-    {
-      "path": "scripts/crown_completion.py",
-      "size_bytes": 19852,
-      "sha256": "7bf795abdd7967ab5071dc9a898fc29e7899f1060facc989b39748d0c8302d78"
-    },
-    {
-      "path": "scripts/crown_detail_v3.py",
-      "size_bytes": 439,
-      "sha256": "64fdf9580bc7e7fe6d2362e43a12734a0250a248b8ea9f5f425e13ee1416ba01"
-    },
-    {
-      "path": "scripts/crown_pattern_v8.py",
-      "size_bytes": 11429,
-      "sha256": "9060e1a9a029ba978d0cef1d539a731dfb6608d3772fcb738e0538b44ba9c69c"
-    },
-    {
-      "path": "scripts/crown_v5.py",
-      "size_bytes": 37553,
-      "sha256": "cf066000ee007fccfb3031fc9bef2a1b04aa1b0d06a62843c6480c3e92a6e5bb"
-    },
-    {
-      "path": "scripts/curtain_wall.py",
-      "size_bytes": 36964,
-      "sha256": "825b9e59c9172fb41e783a2fac6260e8afdfaf461b4592124cf399ebf17a59fe"
-    },
-    {
-      "path": "scripts/environment_v7.py",
-      "size_bytes": 2127,
-      "sha256": "2c59285e30c3d5545021b72cd44f7b9fbbf442f32f3353fade75e9a4ace41c69"
-    },
-    {
-      "path": "scripts/finalize_delivery_v4.py",
-      "size_bytes": 547,
-      "sha256": "8b28b078f17137846a2da3e7bf2d2b11f7e90492a27f555178172a3d7d208889"
-    },
-    {
-      "path": "scripts/finalize_delivery_v5.py",
-      "size_bytes": 997,
-      "sha256": "7ff1805eaff5ba892f5adf64fe5ffad93f80590aa2d3457f1f5589c456d02136"
-    },
-    {
-      "path": "scripts/finalize_delivery_v6.py",
-      "size_bytes": 801,
-      "sha256": "5a86e624ff282c188d839639a83681c23df521741b07785f8d3b81e7deb14298"
-    },
-    {
-      "path": "scripts/finalize_delivery_v7.py",
-      "size_bytes": 783,
-      "sha256": "594583b7f6653a57fa7afba7b3b87bc2c4cfa55aa257ca3ab40a3fd44bd10d1f"
-    },
-    {
-      "path": "scripts/finalize_delivery_v9.py",
-      "size_bytes": 2307,
-      "sha256": "6382b222b90e136c305547b7c23df9c0af52e066d4e1974d854170d303232ded"
-    },
-    {
-      "path": "scripts/floors_v3.py",
-      "size_bytes": 21255,
-      "sha256": "29a3b12d3b8001591ddd7548f86afec80ff7f5570087e9daa7c5ef16905fd307"
-    },
-    {
-      "path": "scripts/geometry.py",
-      "size_bytes": 16431,
-      "sha256": "b99dfb35ae42dd3e0854a2ea5164ab46cd8ca7ed95a009435744d3ea5ed4765b"
-    },
-    {
-      "path": "scripts/inner_completion.py",
-      "size_bytes": 12765,
-      "sha256": "ca6d5ca3ef6c0f2b4acd8e8c93d3f0bd017072192bb11c769e497e60da997821"
-    },
-    {
-      "path": "scripts/inner_support_v7.py",
-      "size_bytes": 3903,
-      "sha256": "4fbfa7eea0083cd3f034aa20f0a01d09ffb682c3cbe2447694c419bb1e6c37e4"
-    },
-    {
-      "path": "scripts/inspect_saved.py",
-      "size_bytes": 9014,
-      "sha256": "71edd0590c46f69871c5f6630a5999f5ee5729f5e465fad534dcb99d81f4f133"
-    },
-    {
-      "path": "scripts/make_assembly_comparisons.py",
-      "size_bytes": 3628,
-      "sha256": "7fa18c874744b321e7c4ef79592d2c30205c200a2359db9b36ce25917822b0bc"
-    },
-    {
-      "path": "scripts/make_comparisons.py",
-      "size_bytes": 6408,
-      "sha256": "0ea4f92d955f31aa8744c5142e3d729575b49e34da86e4e75addb7d597d51729"
-    },
-    {
-      "path": "scripts/make_comparisons_v9.py",
-      "size_bytes": 3955,
-      "sha256": "970addb0b5863a2e169125eea8cd35b00b822f7ed1867242666c0e45d57190b6"
-    },
-    {
-      "path": "scripts/make_completion_comparisons.py",
-      "size_bytes": 4119,
-      "sha256": "432292891332e2598489123b4f8fadee41a079b2e8c36053eb43d77ebd05d08d"
-    },
-    {
-      "path": "scripts/notch_v4.py",
-      "size_bytes": 9472,
-      "sha256": "a3a54eac4e4afcb23cb7adc366ba1b5378e0467c4d5974a7907f60d2f7b4781c"
-    },
-    {
-      "path": "scripts/podium_panels_v7.py",
-      "size_bytes": 5706,
-      "sha256": "96ccbfa39b2be180a129277152bd687027a8da0bc753b4382a372e5f72049eda"
-    },
-    {
-      "path": "scripts/podium_v4.py",
-      "size_bytes": 24675,
-      "sha256": "d4609d7163752b251ac407ed521016a0c9fc6bd7803bf260a0c21c0b2e6ee700"
-    },
-    {
-      "path": "scripts/podium_v9.py",
-      "size_bytes": 26809,
-      "sha256": "06296cd85973bb937b485c0b41afceeae8a6e6f6216c1f4ab68580e2dae1633a"
-    },
-    {
-      "path": "scripts/render_saved_v8.py",
-      "size_bytes": 834,
-      "sha256": "3e6e81e76d8ae102dc62b297c3236beafbd618d116a29031d84d6e4e805b2fe7"
-    },
-    {
-      "path": "scripts/site_details_v9.py",
-      "size_bytes": 3101,
-      "sha256": "f1c2a4aa59320934c0dfdbc0e89b70123c62de6b4e6a828644ffdd2df1540617"
-    },
-    {
-      "path": "scripts/site_v8.py",
-      "size_bytes": 13341,
-      "sha256": "b12680929c6492df6a0dce458dc102614741eb3f98092c85efe0102c101e3421"
-    },
-    {
-      "path": "scripts/structure.py",
-      "size_bytes": 28684,
-      "sha256": "4f08cabeafe7057c0c5ef4f8986a8d3e9d4517a560b3256be54dded26047addc"
-    },
-    {
-      "path": "scripts/transition_v5.py",
-      "size_bytes": 5993,
-      "sha256": "a952d29fa387306db7d50aa1e4fd7f15174bf271847333c737725ff4d1928817"
-    },
-    {
-      "path": "scripts/validation.py",
-      "size_bytes": 21251,
-      "sha256": "9f3ceb21bbef8b6afd7482f187ed59c0e4e37245bff693cc35bbaf23d9c865c9"
-    },
-    {
-      "path": "parameters/assembly_v3.json",
-      "size_bytes": 34144,
-      "sha256": "eb2a7585336d2a48d91f1b7fbbc8a1b3e5b9610e13e1266b776fe0399427e81f"
-    },
-    {
-      "path": "parameters/completion.json",
-      "size_bytes": 106569,
-      "sha256": "a6862f54925e5465f4e74d82b375df9d357aad7ccd8fca5cf4f489cdee95afcb"
-    },
-    {
-      "path": "parameters/crown_v5.json",
-      "size_bytes": 11535,
-      "sha256": "5d975158b699fd61b55767f0453d672c6b4ff4c977fb2a48a539d5618365f141"
-    },
-    {
-      "path": "parameters/floor_anchors.json",
-      "size_bytes": 9632,
-      "sha256": "32e38084a8ca1c2a97e0bc884927267015949cb74f29d1013ea34547fcfa3373"
-    },
-    {
-      "path": "parameters/inner_support_v7.json",
-      "size_bytes": 785,
-      "sha256": "0450d0956271db18975c02cd7f9e16047f5d9d197bdc6273c4b786658938f620"
-    },
-    {
-      "path": "parameters/model_config.json",
-      "size_bytes": 8917,
-      "sha256": "d3c0ec65a03bfb8c127a90ae1038e914b81e0b9816762114c288bf08f6f3a8c5"
-    },
-    {
-      "path": "parameters/notch_v4.json",
-      "size_bytes": 1273,
-      "sha256": "4ab710bbfcf69e3b20e1ca09499f7a908368cae6b4e6ef6145f7075d8f4734b4"
-    },
-    {
-      "path": "parameters/parameters.json",
-      "size_bytes": 63616,
-      "sha256": "492130d835f2572abc536eb37db20decfadae1fcb795e093487bbd1899cf677d"
-    },
-    {
-      "path": "parameters/podium_v4.json",
-      "size_bytes": 11510,
-      "sha256": "9d9cfbde24d8a1ae5093737dc7c00520ffc37a44c55c1b90e7a2b5faa9e10bbc"
-    },
-    {
-      "path": "parameters/podium_v9.json",
-      "size_bytes": 7374,
-      "sha256": "b7627b0c8cfdd8cb22b342643b91498b8c7dbb47fc19592ea9bd5466b345f442"
-    },
-    {
-      "path": "parameters/site_v8.json",
-      "size_bytes": 9446,
-      "sha256": "bdf3732855c3a1c9c2c842b9bff26bf0812c754ce7d05c756c70cf812ce13454"
-    },
-    {
-      "path": "parameters/sources.json",
-      "size_bytes": 54242,
-      "sha256": "bfda6e65fbb7f83ae6564dc7390ac94151503d1345488a0ded934010572d2443"
-    },
-    {
-      "path": "parameters/transition_v5.json",
-      "size_bytes": 2468,
-      "sha256": "d3a261d7f58d87ba3150477b10c2e483016fa484623b67a7926c6a19b2be835b"
+      "size_bytes": 5541,
+      "sha256": "8767aad0ba63bc0580e54f2f7d6369d278dbc35c627a76f942b0618b1e9e1a8d"
     },
     {
       "path": "docs/00_资料研究报告.md",
@@ -409,6 +149,396 @@
       "path": "docs/17_v9核验与缺失项.md",
       "size_bytes": 5017,
       "sha256": "5071eb07bc15587f981f29491f13a8331f39c777c10940cad9b1c997ec77e09d"
+    },
+    {
+      "path": "docs/18_v10孔组入口与街区.md",
+      "size_bytes": 3500,
+      "sha256": "2b72f7e9d96b4209f8c900c2f794cb37b9673fa2590526d5412d30241415e142"
+    },
+    {
+      "path": "docs/19_v11修正参数与核验.md",
+      "size_bytes": 2293,
+      "sha256": "d2a96109b8bdd69908b48087f5cc1ef389d1e8d12604dcaa68a7e3ec953290d5"
+    },
+    {
+      "path": "docs/20_v12底商场地与屋顶修正.md",
+      "size_bytes": 3749,
+      "sha256": "cdc795e29b1500af240cab81e66cdfddaeaaa0794c90b1a00f8e6933f4871a82"
+    },
+    {
+      "path": "docs/21_v13位置与横环缺带.md",
+      "size_bytes": 4097,
+      "sha256": "5b4a0c369f562ddd6ed14644ab851d87eb992e586dfe07966f5734bcf8726965"
+    },
+    {
+      "path": "model/shanghai_tower_evidence.blend",
+      "size_bytes": 53368857,
+      "sha256": "0fa593934e8c18bc0d527c92c686472833b5856040ad94a3b91c3dd7c7daf1d7"
+    },
+    {
+      "path": "parameters/assembly_v3.json",
+      "size_bytes": 34144,
+      "sha256": "eb2a7585336d2a48d91f1b7fbbc8a1b3e5b9610e13e1266b776fe0399427e81f"
+    },
+    {
+      "path": "parameters/completion.json",
+      "size_bytes": 106569,
+      "sha256": "a6862f54925e5465f4e74d82b375df9d357aad7ccd8fca5cf4f489cdee95afcb"
+    },
+    {
+      "path": "parameters/crown_v5.json",
+      "size_bytes": 11535,
+      "sha256": "5d975158b699fd61b55767f0453d672c6b4ff4c977fb2a48a539d5618365f141"
+    },
+    {
+      "path": "parameters/floor_anchors.json",
+      "size_bytes": 9632,
+      "sha256": "32e38084a8ca1c2a97e0bc884927267015949cb74f29d1013ea34547fcfa3373"
+    },
+    {
+      "path": "parameters/inner_support_v7.json",
+      "size_bytes": 785,
+      "sha256": "0450d0956271db18975c02cd7f9e16047f5d9d197bdc6273c4b786658938f620"
+    },
+    {
+      "path": "parameters/model_config.json",
+      "size_bytes": 9019,
+      "sha256": "4f05507468cde7f6c69a9bd3db3c3870809aa317fc65ddcbff74bae147b7492e"
+    },
+    {
+      "path": "parameters/notch_v4.json",
+      "size_bytes": 1273,
+      "sha256": "4ab710bbfcf69e3b20e1ca09499f7a908368cae6b4e6ef6145f7075d8f4734b4"
+    },
+    {
+      "path": "parameters/parameters.json",
+      "size_bytes": 63616,
+      "sha256": "492130d835f2572abc536eb37db20decfadae1fcb795e093487bbd1899cf677d"
+    },
+    {
+      "path": "parameters/podium_v4.json",
+      "size_bytes": 11510,
+      "sha256": "9d9cfbde24d8a1ae5093737dc7c00520ffc37a44c55c1b90e7a2b5faa9e10bbc"
+    },
+    {
+      "path": "parameters/podium_v9.json",
+      "size_bytes": 8842,
+      "sha256": "7ab29183716eac8d88d4253ffe35dc79c1ea18fb17076949a39fbd716f9703e3"
+    },
+    {
+      "path": "parameters/site_v8.json",
+      "size_bytes": 9446,
+      "sha256": "bdf3732855c3a1c9c2c842b9bff26bf0812c754ce7d05c756c70cf812ce13454"
+    },
+    {
+      "path": "parameters/sources.json",
+      "size_bytes": 56622,
+      "sha256": "5ca2825377d313d18ae53dd520ababca5b979fb9f06c83faea68ab17d5c42114"
+    },
+    {
+      "path": "parameters/transition_v5.json",
+      "size_bytes": 2579,
+      "sha256": "2c238d148082a8cfc8a997162aaf4c2f4e2577186640c658f0cf09a98bcbd525"
+    },
+    {
+      "path": "scripts/aperture_layout_v10.py",
+      "size_bytes": 4779,
+      "sha256": "6b7b4a08820ec5bf1912f8b410fbd3c327aca8f7ddf259c5f57bdb91aa1fe642"
+    },
+    {
+      "path": "scripts/assembly_v3.py",
+      "size_bytes": 21744,
+      "sha256": "ed1effb2d69f4e23bb2cc7ce0d5ce1e6190a46b9e902f368434e7fe333acb55f"
+    },
+    {
+      "path": "scripts/build_shanghai_tower.py",
+      "size_bytes": 23942,
+      "sha256": "a956313a5624f56d23f2c7fb0dc32dc955061ecb771c306aa925c71909ac8883"
+    },
+    {
+      "path": "scripts/collision_v7.py",
+      "size_bytes": 2186,
+      "sha256": "22eec0610f86dea4078f29be8381abba8e28159d4be921286194cd02d7a0526e"
+    },
+    {
+      "path": "scripts/common.py",
+      "size_bytes": 10938,
+      "sha256": "878ae7bdc281201ade8e5728a323210f361b65c5cc6f6944c6cec41a7c1e0df7"
+    },
+    {
+      "path": "scripts/core_completion.py",
+      "size_bytes": 7330,
+      "sha256": "b8a81380985bfccc5784f3494bea0103f481372922fe68c05e6ccb7e8bcd7014"
+    },
+    {
+      "path": "scripts/corrections_v11.py",
+      "size_bytes": 9115,
+      "sha256": "f3eb198904c1aa0c235bfa14abc96484d9f585436e1dc96f67927513e4f3c6e4"
+    },
+    {
+      "path": "scripts/corrections_v12.py",
+      "size_bytes": 11701,
+      "sha256": "b2f9e34ec9c07016dc0e3a1f0ba162f4c7ba68537cbcd59b4408e25571cfcdd3"
+    },
+    {
+      "path": "scripts/corrections_v13.py",
+      "size_bytes": 12285,
+      "sha256": "33aff96c8673938ca0961567adc5ee63a4555b3e08eb91721ead63e467b81950"
+    },
+    {
+      "path": "scripts/crown_art_v7.py",
+      "size_bytes": 9584,
+      "sha256": "6111f3ab63c94e8d38b9fe29d9dbc5f0ef0d7472106ff2b712b49d3b9bc1716b"
+    },
+    {
+      "path": "scripts/crown_art_v8.py",
+      "size_bytes": 11827,
+      "sha256": "9029328ff8c18820c8a3a28d37ea1e849712d9991b9254cf87fa8c5cfee5fbdd"
+    },
+    {
+      "path": "scripts/crown_completion.py",
+      "size_bytes": 19852,
+      "sha256": "7bf795abdd7967ab5071dc9a898fc29e7899f1060facc989b39748d0c8302d78"
+    },
+    {
+      "path": "scripts/crown_detail_v3.py",
+      "size_bytes": 439,
+      "sha256": "64fdf9580bc7e7fe6d2362e43a12734a0250a248b8ea9f5f425e13ee1416ba01"
+    },
+    {
+      "path": "scripts/crown_pattern_v8.py",
+      "size_bytes": 11429,
+      "sha256": "9060e1a9a029ba978d0cef1d539a731dfb6608d3772fcb738e0538b44ba9c69c"
+    },
+    {
+      "path": "scripts/crown_v5.py",
+      "size_bytes": 37553,
+      "sha256": "cf066000ee007fccfb3031fc9bef2a1b04aa1b0d06a62843c6480c3e92a6e5bb"
+    },
+    {
+      "path": "scripts/curtain_wall.py",
+      "size_bytes": 37760,
+      "sha256": "cdbf19eb61135551db22073bbfb3a6afb1c35c70ef224f33944b3bcb127e6458"
+    },
+    {
+      "path": "scripts/environment_v7.py",
+      "size_bytes": 2127,
+      "sha256": "2c59285e30c3d5545021b72cd44f7b9fbbf442f32f3353fade75e9a4ace41c69"
+    },
+    {
+      "path": "scripts/finalize_delivery_v4.py",
+      "size_bytes": 547,
+      "sha256": "8b28b078f17137846a2da3e7bf2d2b11f7e90492a27f555178172a3d7d208889"
+    },
+    {
+      "path": "scripts/finalize_delivery_v5.py",
+      "size_bytes": 997,
+      "sha256": "7ff1805eaff5ba892f5adf64fe5ffad93f80590aa2d3457f1f5589c456d02136"
+    },
+    {
+      "path": "scripts/finalize_delivery_v6.py",
+      "size_bytes": 801,
+      "sha256": "5a86e624ff282c188d839639a83681c23df521741b07785f8d3b81e7deb14298"
+    },
+    {
+      "path": "scripts/finalize_delivery_v7.py",
+      "size_bytes": 783,
+      "sha256": "594583b7f6653a57fa7afba7b3b87bc2c4cfa55aa257ca3ab40a3fd44bd10d1f"
+    },
+    {
+      "path": "scripts/finalize_delivery_v9.py",
+      "size_bytes": 2313,
+      "sha256": "85687f836df72265abcc27c6586a457a6600ba4a7329b466295230a200ee76a1"
+    },
+    {
+      "path": "scripts/floors_v3.py",
+      "size_bytes": 20750,
+      "sha256": "26409ea4d820fed214895a9135476497fdf88c9b71c4fcb660857e34739b125c"
+    },
+    {
+      "path": "scripts/geometry.py",
+      "size_bytes": 16431,
+      "sha256": "b99dfb35ae42dd3e0854a2ea5164ab46cd8ca7ed95a009435744d3ea5ed4765b"
+    },
+    {
+      "path": "scripts/inner_completion.py",
+      "size_bytes": 12765,
+      "sha256": "ca6d5ca3ef6c0f2b4acd8e8c93d3f0bd017072192bb11c769e497e60da997821"
+    },
+    {
+      "path": "scripts/inner_support_v7.py",
+      "size_bytes": 3903,
+      "sha256": "4fbfa7eea0083cd3f034aa20f0a01d09ffb682c3cbe2447694c419bb1e6c37e4"
+    },
+    {
+      "path": "scripts/inspect_saved.py",
+      "size_bytes": 10911,
+      "sha256": "8b6d8f242fa77c074871a7e2537a699aa29595db0df076b76a88be8f325f687c"
+    },
+    {
+      "path": "scripts/make_assembly_comparisons.py",
+      "size_bytes": 3628,
+      "sha256": "7fa18c874744b321e7c4ef79592d2c30205c200a2359db9b36ce25917822b0bc"
+    },
+    {
+      "path": "scripts/make_comparisons.py",
+      "size_bytes": 6408,
+      "sha256": "0ea4f92d955f31aa8744c5142e3d729575b49e34da86e4e75addb7d597d51729"
+    },
+    {
+      "path": "scripts/make_comparisons_v10.py",
+      "size_bytes": 4370,
+      "sha256": "daf3e68442e6eb68eb308993833d6b1d3e24cc1a08af4d0482978ff1ae4df7f1"
+    },
+    {
+      "path": "scripts/make_comparisons_v11.py",
+      "size_bytes": 4650,
+      "sha256": "47f22c96b6b38aff979a6dcf9530a4987107b5f1bb1ad35b0c2cce993d984765"
+    },
+    {
+      "path": "scripts/make_comparisons_v12.py",
+      "size_bytes": 5100,
+      "sha256": "1838d65d3ddba70a052b4902f89d982b8d342a026782338355b93c334aab4705"
+    },
+    {
+      "path": "scripts/make_comparisons_v13.py",
+      "size_bytes": 2640,
+      "sha256": "56d1e87a2af0bffb4ab255b3e04e0875f465d655d308d500ee27c7baf5e0f90d"
+    },
+    {
+      "path": "scripts/make_comparisons_v9.py",
+      "size_bytes": 3955,
+      "sha256": "970addb0b5863a2e169125eea8cd35b00b822f7ed1867242666c0e45d57190b6"
+    },
+    {
+      "path": "scripts/make_completion_comparisons.py",
+      "size_bytes": 4119,
+      "sha256": "432292891332e2598489123b4f8fadee41a079b2e8c36053eb43d77ebd05d08d"
+    },
+    {
+      "path": "scripts/make_v10_aperture_view.py",
+      "size_bytes": 1671,
+      "sha256": "764df1b545d9ef333e758b6ad7a40400bcd887362b2503788690ad6dda34b15b"
+    },
+    {
+      "path": "scripts/notch_v4.py",
+      "size_bytes": 9854,
+      "sha256": "74db36ed7d6c967b5c445a41bb6ce9ede872bb4e66ed3eeec913bae7eebc38a2"
+    },
+    {
+      "path": "scripts/podium_panels_v7.py",
+      "size_bytes": 5706,
+      "sha256": "96ccbfa39b2be180a129277152bd687027a8da0bc753b4382a372e5f72049eda"
+    },
+    {
+      "path": "scripts/podium_v4.py",
+      "size_bytes": 24675,
+      "sha256": "d4609d7163752b251ac407ed521016a0c9fc6bd7803bf260a0c21c0b2e6ee700"
+    },
+    {
+      "path": "scripts/podium_v9.py",
+      "size_bytes": 27477,
+      "sha256": "f1d065bb86ae1e9a6afe98acfe29762ded03aa956577de701662d5321c77e3f2"
+    },
+    {
+      "path": "scripts/render_saved_v8.py",
+      "size_bytes": 834,
+      "sha256": "3e6e81e76d8ae102dc62b297c3236beafbd618d116a29031d84d6e4e805b2fe7"
+    },
+    {
+      "path": "scripts/render_side_v11.py",
+      "size_bytes": 1938,
+      "sha256": "b00b9d0d30ebc8af32a53c93d202ec8beebb90159baf8677078996591f8c1713"
+    },
+    {
+      "path": "scripts/render_v13.py",
+      "size_bytes": 2148,
+      "sha256": "3a8ca5f55b751d9701d1c188178d3b1c3c87addfa3cef857360926d755595606"
+    },
+    {
+      "path": "scripts/site_details_v9.py",
+      "size_bytes": 3101,
+      "sha256": "f1c2a4aa59320934c0dfdbc0e89b70123c62de6b4e6a828644ffdd2df1540617"
+    },
+    {
+      "path": "scripts/site_v8.py",
+      "size_bytes": 13341,
+      "sha256": "b12680929c6492df6a0dce458dc102614741eb3f98092c85efe0102c101e3421"
+    },
+    {
+      "path": "scripts/structure.py",
+      "size_bytes": 28684,
+      "sha256": "4f08cabeafe7057c0c5ef4f8986a8d3e9d4517a560b3256be54dded26047addc"
+    },
+    {
+      "path": "scripts/transition_v5.py",
+      "size_bytes": 5993,
+      "sha256": "a952d29fa387306db7d50aa1e4fd7f15174bf271847333c737725ff4d1928817"
+    },
+    {
+      "path": "scripts/validation.py",
+      "size_bytes": 22377,
+      "sha256": "743000ea6568135a2917bd62fbac400155db824fde2c6d41726bf28927476ed2"
+    },
+    {
+      "path": "tests/test_v10_corrections.py",
+      "size_bytes": 3281,
+      "sha256": "d03c954637266a81ae7326a8106103e6c779e325125b121969e9049fec7af80e"
+    },
+    {
+      "path": "tests/test_v11_corrections.py",
+      "size_bytes": 2328,
+      "sha256": "7fa5f9d2fa3b2335703cc9e2f47f029b7a1d7428e753eff634e276decc29421e"
+    },
+    {
+      "path": "tests/test_v12_corrections.py",
+      "size_bytes": 1691,
+      "sha256": "3e7cbc65b016bf4e79c76138656e49c22d519f2255312bcb50be2f45f0950e67"
+    },
+    {
+      "path": "tests/test_v13_geometry.py",
+      "size_bytes": 2261,
+      "sha256": "ad3062d09b2dc9723b8a9a814c6462f6ff46947347cec7174072972aad7cdb0f"
+    },
+    {
+      "path": "validation/assembly_report.json",
+      "size_bytes": 706072,
+      "sha256": "7d2285232c82a19887b498cf9b0e14f49092eb163d78753e9c194001c2987f16"
+    },
+    {
+      "path": "validation/saved_blend_inspection.json",
+      "size_bytes": 8106,
+      "sha256": "be86ef4789d5ee7bb5cfe5362744372838004b310bc30b82ae782fcfe0888331"
+    },
+    {
+      "path": "validation/v10_verification_summary.json",
+      "size_bytes": 1837,
+      "sha256": "525f14c34c7ab11eecbccc6879edc82b8a4b4a18973897284efa1a84d8b998b7"
+    },
+    {
+      "path": "validation/v11_verification_summary.json",
+      "size_bytes": 598,
+      "sha256": "a1b0a0d29bd240d7b2526bbe3c00520a8c5946c65eb51aee85324c64b0884878"
+    },
+    {
+      "path": "validation/v12_verification_summary.json",
+      "size_bytes": 561,
+      "sha256": "56ba2fadfb5a9b16a376f4a63c82dd08dcd7531cd0844ecb4112ae2f0fb75c5e"
+    },
+    {
+      "path": "validation/v13_verification_summary.json",
+      "size_bytes": 3762,
+      "sha256": "1e4fa32375699e9fcdc9ef917e988314fc18c9b426ec7e18f812fcd63d9bef3b"
+    },
+    {
+      "path": "validation/v9_verification_summary.json",
+      "size_bytes": 1216,
+      "sha256": "658a31afd381d3f126910ea59d7319494019ce51fce01542e2d66fbe9738077e"
+    },
+    {
+      "path": "validation/validation_report.json",
+      "size_bytes": 3555691,
+      "sha256": "c518ffd5b94d70da8bbe0478604f3ba22c17c6259c50845c681aeea1f9f2eed9"
     },
     {
       "path": "views/VIEW_01_TOWER.png",
@@ -551,129 +681,14 @@
       "sha256": "2ada5df79426c9781524f69ce5da18d6f788ad05f22f6a48b767bdddc38b7956"
     },
     {
-      "path": "validation/validation_report.json",
-      "size_bytes": 3550882,
-      "sha256": "7b0a4b8cc5f6a6453218f56e95b56ba09268e77d6e923442261552ab2b1d865e"
-    },
-    {
-      "path": "validation/assembly_report.json",
-      "size_bytes": 709337,
-      "sha256": "b6db0d018d1100cadcb304bbd5ce2c7eb16f175e3fccb8ba468d53bab359cb22"
-    },
-    {
-      "path": "validation/saved_blend_inspection.json",
-      "size_bytes": 9110,
-      "sha256": "378cc0f3c57f75202a508f9d1cea0a52e5085c0986e4d768245c38d5adad97f3"
-    },
-    {
-      "path": "validation/v9_verification_summary.json",
-      "size_bytes": 1216,
-      "sha256": "658a31afd381d3f126910ea59d7319494019ce51fce01542e2d66fbe9738077e"
-    },
-    {
-      "path": "docs/18_v10孔组入口与街区.md",
-      "size_bytes": 3500,
-      "sha256": "2b72f7e9d96b4209f8c900c2f794cb37b9673fa2590526d5412d30241415e142"
-    },
-    {
-      "path": "scripts/aperture_layout_v10.py",
-      "size_bytes": 4779,
-      "sha256": "6b7b4a08820ec5bf1912f8b410fbd3c327aca8f7ddf259c5f57bdb91aa1fe642"
-    },
-    {
-      "path": "scripts/make_comparisons_v10.py",
-      "size_bytes": 4370,
-      "sha256": "daf3e68442e6eb68eb308993833d6b1d3e24cc1a08af4d0482978ff1ae4df7f1"
-    },
-    {
-      "path": "scripts/make_v10_aperture_view.py",
-      "size_bytes": 1671,
-      "sha256": "764df1b545d9ef333e758b6ad7a40400bcd887362b2503788690ad6dda34b15b"
-    },
-    {
-      "path": "tests/test_v10_corrections.py",
-      "size_bytes": 3281,
-      "sha256": "d03c954637266a81ae7326a8106103e6c779e325125b121969e9049fec7af80e"
-    },
-    {
       "path": "views/VIEW_29_CROWN_APERTURE_UNWRAPPED_V10.png",
       "size_bytes": 85093,
       "sha256": "16260d439d569512f2885944984348af307b9f8a8752e22998ebc1bb608e1855"
     },
     {
-      "path": "views/reference_comparison_v10.html",
-      "size_bytes": 3934,
-      "sha256": "7aca6adc37bffdd600b7b5b5b6a85d80a4cc30def4f7efe168c4be1bbe78edbc"
-    },
-    {
-      "path": "validation/v10_verification_summary.json",
-      "size_bytes": 1837,
-      "sha256": "525f14c34c7ab11eecbccc6879edc82b8a4b4a18973897284efa1a84d8b998b7"
-    },
-    {
-      "path": "docs/19_v11修正参数与核验.md",
-      "size_bytes": 2293,
-      "sha256": "d2a96109b8bdd69908b48087f5cc1ef389d1e8d12604dcaa68a7e3ec953290d5"
-    },
-    {
-      "path": "scripts/corrections_v11.py",
-      "size_bytes": 8884,
-      "sha256": "21abf3c40e6ba3f680884cb3ebc7ac651eda4a80d4f6d17b4bc577daec1d7163"
-    },
-    {
-      "path": "scripts/render_side_v11.py",
-      "size_bytes": 1938,
-      "sha256": "b00b9d0d30ebc8af32a53c93d202ec8beebb90159baf8677078996591f8c1713"
-    },
-    {
-      "path": "scripts/make_comparisons_v11.py",
-      "size_bytes": 4650,
-      "sha256": "47f22c96b6b38aff979a6dcf9530a4987107b5f1bb1ad35b0c2cce993d984765"
-    },
-    {
-      "path": "tests/test_v11_corrections.py",
-      "size_bytes": 2328,
-      "sha256": "62298ef74f88c6b02dd1c2f6cb08c773f354fa52ff8527d989161e4ae2779c08"
-    },
-    {
-      "path": "validation/v11_verification_summary.json",
-      "size_bytes": 598,
-      "sha256": "a1b0a0d29bd240d7b2526bbe3c00520a8c5946c65eb51aee85324c64b0884878"
-    },
-    {
       "path": "views/VIEW_30_LONG_SIDE_ENTRY_V11.png",
       "size_bytes": 2652298,
       "sha256": "a35f07f82100b8ab0a055d0ab75d8aee9b84e6f14b9cc22c4f6113bedbef6148"
-    },
-    {
-      "path": "views/reference_comparison_v11.html",
-      "size_bytes": 4201,
-      "sha256": "3b769ba251a754bd30900d0051fab1305eb1297999c8ba0790733b3170b99071"
-    },
-    {
-      "path": "docs/20_v12底商场地与屋顶修正.md",
-      "size_bytes": 3749,
-      "sha256": "cdc795e29b1500af240cab81e66cdfddaeaaa0794c90b1a00f8e6933f4871a82"
-    },
-    {
-      "path": "scripts/corrections_v12.py",
-      "size_bytes": 11701,
-      "sha256": "b2f9e34ec9c07016dc0e3a1f0ba162f4c7ba68537cbcd59b4408e25571cfcdd3"
-    },
-    {
-      "path": "scripts/make_comparisons_v12.py",
-      "size_bytes": 5100,
-      "sha256": "1838d65d3ddba70a052b4902f89d982b8d342a026782338355b93c334aab4705"
-    },
-    {
-      "path": "tests/test_v12_corrections.py",
-      "size_bytes": 1691,
-      "sha256": "3e7cbc65b016bf4e79c76138656e49c22d519f2255312bcb50be2f45f0950e67"
-    },
-    {
-      "path": "validation/v12_verification_summary.json",
-      "size_bytes": 561,
-      "sha256": "56ba2fadfb5a9b16a376f4a63c82dd08dcd7531cd0844ecb4112ae2f0fb75c5e"
     },
     {
       "path": "views/VIEW_31_SITE_LEVELS_V12.png",
@@ -686,9 +701,56 @@
       "sha256": "24aabf645a76acf6b92a9fae0d971b834277a583bd80c5803c2983a06652f8c2"
     },
     {
+      "path": "views/VIEW_33_V13_CLOSED_STREET_SIDE.png",
+      "size_bytes": 2105390,
+      "sha256": "0e8087b283f493d63c7b41f9841c58880a3376b39ff5bb4e3deadb39e1d12e0c"
+    },
+    {
+      "path": "views/VIEW_34_V13_OPEN_GARDEN_END.png",
+      "size_bytes": 2435469,
+      "sha256": "1fc46171d5d6bd4d716073918adf2aa84f7171741cdf81b834369765341370d5"
+    },
+    {
+      "path": "views/VIEW_35_V13_STONE_ENTRY_NEAR.png",
+      "size_bytes": 1917737,
+      "sha256": "b1614f3d5ff5eb9c8982eb4e12e3a4ecce3e2753271c4fea1842d80ffa7636f4"
+    },
+    {
+      "path": "views/VIEW_36_V13_TRANSITION_RING.png",
+      "size_bytes": 2381437,
+      "sha256": "6a040617d5c03791f0f0eb108aba47aa77e04bbde94345e6b67ac560b69805b9"
+    },
+    {
+      "path": "views/reference_comparison_v10.html",
+      "size_bytes": 3934,
+      "sha256": "7aca6adc37bffdd600b7b5b5b6a85d80a4cc30def4f7efe168c4be1bbe78edbc"
+    },
+    {
+      "path": "views/reference_comparison_v11.html",
+      "size_bytes": 4201,
+      "sha256": "3b769ba251a754bd30900d0051fab1305eb1297999c8ba0790733b3170b99071"
+    },
+    {
       "path": "views/reference_comparison_v12.html",
       "size_bytes": 4638,
       "sha256": "ac337f401a3a92fb552cb50f09eafa5de90dd7cf4385517cf1747b93fa49c3cf"
+    },
+    {
+      "path": "views/reference_comparison_v13.html",
+      "size_bytes": 2979,
+      "sha256": "996e527a752706081615451546e9dd9af3eac942d06ee3ad8adb2a35956dee55"
+    },
+    {
+      "path": "views/reference_comparison_v9.html",
+      "size_bytes": 3533,
+      "sha256": "d393da7647fa62f81a62b4145bb42ad7dfb7e017c01e0d8b0684832bd6de6a5a"
     }
-  ]
+  ],
+  "current_model_verification_views": [
+    "views/VIEW_33_V13_CLOSED_STREET_SIDE.png",
+    "views/VIEW_34_V13_OPEN_GARDEN_END.png",
+    "views/VIEW_35_V13_STONE_ENTRY_NEAR.png",
+    "views/VIEW_36_V13_TRANSITION_RING.png"
+  ],
+  "historical_view_notice": "VIEW01–32 and v10/v11/v12 comparisons archive earlier geometry; current model checks use VIEW33–36."
 }

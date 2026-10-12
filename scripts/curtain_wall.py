@@ -193,7 +193,9 @@ def _build_standard_v5(ctx, geometry, records, interfaces, checks, glass_thickne
     Special transition zones are independent material/interface candidates.
     """
     from transition_v5 import band_schedule, outer_reference, control_profile_at
+    from corrections_v13 import ring_specs, glass_fragments, frame_fragments, slit_meta
     config, curtain = ctx.config, ctx.config['curtain']
+    slits = ring_specs(config)
     schedule = band_schedule(config)
     grid, xy = outer_reference(geometry, config)
     valid_edges = [i for i, row in enumerate(grid) if not row['excluded_by_notch_uncertainty']]
@@ -243,35 +245,42 @@ def _build_standard_v5(ctx, geometry, records, interfaces, checks, glass_thickne
                       'uncertainty': 'Shared schedule avoids duplicate residual/zone patches. Transition lower levels and material mapping are candidates; actual vents, frit, extrusion, shop grid and B/A floor crosswalk unresolved.',
                       **metrics}
             glassbuf = buf['transition'] if band['transition_id'] else buf['standard']
-            _append_face(glassbuf, quad, panel_index)
-            # Adjacent modules share the same vertical edge; create it once.
-            for k in range(4):
-                p0, p1 = quad[k], quad[(k + 1) % 4]
-                key = tuple(sorted(tuple(round(v, 10) for v in p) for p in (p0, p1)))
-                if key not in buf['frame_edges']:
-                    _append_member(buf['frames'], p0, p1, curtain['frame_face_width_display_m'],
-                                   curtain['horizontal_frame_depth_display_m'], normal, panel_index)
-                    buf['frame_edges'].add(key)
+            fragments = glass_fragments(quad, slits)
+            record['retained_fragments_vertices_m'] = fragments
+            record['horizontal_slit_ids'] = [h['id'] for h in slits if band['z_bottom_m'] < h['z_max_m'] and band['z_top_m'] > h['z_min_m']]
+            for fragment in fragments:
+                _append_face(glassbuf, fragment, panel_index)
+                for k in range(4):
+                    for p0, p1 in frame_fragments(fragment[k], fragment[(k + 1) % 4], slits, curtain['frame_face_width_display_m']/2 + .005):
+                        key = tuple(sorted(tuple(round(v, 10) for v in p) for p in (p0, p1)))
+                        if key not in buf['frame_edges']:
+                            _append_member(buf['frames'], p0, p1, curtain['frame_face_width_display_m'],
+                                           curtain['horizontal_frame_depth_display_m'], normal, panel_index)
+                            buf['frame_edges'].add(key)
             if previous is not None:
                 before = previous['anchor']
                 next_quad = _rectangle(anchor[i], anchor[j], band['z_bottom_m'], band['z_top_m'])
                 old_quad = _rectangle(before[i], before[j], previous['band']['z_bottom_m'], band['z_bottom_m'])
                 record.update(_step_metrics(old_quad, next_quad, _outward_normal(old_quad)))
-                repaired += _append_step_faces(buf['steps'], (before[i], before[j]),
-                                                (anchor[i], anchor[j]), band['z_bottom_m'], panel_index) == 2
+                if not any(h['z_min_m'] < band['z_bottom_m'] < h['z_max_m'] for h in slits):
+                    repaired += _append_step_faces(buf['steps'], (before[i], before[j]),
+                                                    (anchor[i], anchor[j]), band['z_bottom_m'], panel_index) == 2
+                else:
+                    record['step_closure_removed_at_slit'] = True
             else:
                 record['step_width_normal_m'] = None
             records.append(record); checks.append(metrics)
         previous = {'anchor': anchor, 'band': band}
     zones = []
     for zone, buf in payloads.items():
-        common = _meta(['B14_GEOM', 'G01', 'S13', 'Y19'], 'glass_panel_derived',
+        common = _meta(slit_meta(config)['source_ids'], 'glass_panel_derived',
                        'Shared finite band partition; 138 source-derived stations, upper control chord extruded vertically. Transition source nominal interface heights retained.',
                        'Full floor and final net panel schedules unavailable; all nominal/subdivided bands are geometry candidates. Below45m is extrapolation.',
-                       zone=zone, true_floor_schedule=False, unified_schedule_version='v5',
+                       **{k:v for k,v in slit_meta(config).items() if k!='source_ids'}, zone=zone, true_floor_schedule=False, unified_schedule_version='v5',
                        geometry_version=config['selected_geometry_version'], nominal_glass_thickness_m=glass_thickness)
         _emit(ctx, f'CWA_Z{zone:02d}_GLASS_DERIVED', buf['standard'], '80_CURTAIN_A_GLASS',
               'glass', common, glass_thickness)
+        common['source_ids'] = slit_meta(config)['source_ids']
         transition_meta = dict(common, evidence_level='待确认', geometry_role='transition_glass_variant_candidate',
                                source_locator='G01 PDFp16 Fig34 intake/exhaust/maintenance variation; S13 Fig1b interfaces',
                                formula='Separate candidate MEP/refuge region at source-strengthening interfaces; same upright panel method. Display material only, final special panel map unknown.',

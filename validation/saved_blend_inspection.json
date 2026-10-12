@@ -39,7 +39,8 @@
     "V6_12_roof_evidence_v6.md": true,
     "V6_12_v6修正与证据.md": true,
     "V11_19_v11修正参数与核验.md": true,
-    "V12_20_v12底商场地与屋顶修正.md": true
+    "V12_20_v12底商场地与屋顶修正.md": true,
+    "V13_21_v13位置与横环缺带.md": true
   },
   "collections": [
     "00_EVIDENCE",
@@ -95,13 +96,13 @@
     "88_V_REENTRANT_FACADE",
     "90_VALIDATION"
   ],
-  "objects": 714,
+  "objects": 716,
   "all_objects_have_source_metadata": true,
   "geometry_signature": {
-    "sha256_rounded_geometry": "94ad87ffa1a8df7e424e6521fec7906dd3ef4fc36201792a9d08d94c2b95653d",
-    "mesh_count": 401,
-    "vertices": 1917780,
-    "polygons": 1083161
+    "sha256_rounded_geometry": "8d8643b7e0ed4e50b341fae0cfdbe58f1cc13dee8bfd8f96deec67346550031f",
+    "mesh_count": 402,
+    "vertices": 1842126,
+    "polygons": 1048866
   },
   "signature_matches_generation": true,
   "passed": true,
@@ -109,7 +110,7 @@
     "slabs": 129,
     "mega_columns": 8,
     "installed_CWSS_objects": 5,
-    "podium_objects": 46,
+    "podium_objects": 48,
     "full_outer_transition_slabs": 16,
     "crown_cooling_towers": 8,
     "wind_turbine_shafts": 270,
@@ -153,118 +154,117 @@
     "vent_count": 77,
     "apertures_cut_in_saved_registry": 80,
     "entry_mesh_faces": [
-      3174,
-      90,
-      12,
-      48
+      3744,
+      544,
+      21,
+      84
     ],
     "green_curve_curbs": 5
   },
-  "v11_actual_notches": [
-    {
-      "object": "F006_DERIVED_SLAB",
-      "remaining_top_slab_area_in_notch_m2": 6.783669965315653e-06,
-      "passed": true,
-      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
-    },
-    {
-      "object": "F007_DERIVED_SLAB",
-      "remaining_top_slab_area_in_notch_m2": 1.9381337050816683e-06,
-      "passed": true,
-      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
-    },
-    {
-      "object": "F020_DERIVED_SLAB",
-      "remaining_top_slab_area_in_notch_m2": 7.324162965005598e-06,
-      "passed": true,
-      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
-    },
-    {
-      "object": "F021_DERIVED_SLAB",
-      "remaining_top_slab_area_in_notch_m2": 9.1222846165806e-07,
-      "passed": true,
-      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
-    },
-    {
-      "object": "F036_DERIVED_SLAB",
-      "remaining_top_slab_area_in_notch_m2": 6.969705927062364e-06,
-      "passed": true,
-      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
-    },
-    {
-      "object": "F037_DERIVED_SLAB",
-      "remaining_top_slab_area_in_notch_m2": 1.1396518964090774e-06,
-      "passed": true,
-      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
-    },
-    {
-      "object": "F050_DERIVED_SLAB",
-      "remaining_top_slab_area_in_notch_m2": 1.1866468090815374e-05,
-      "passed": true,
-      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
-    },
-    {
-      "object": "F051_DERIVED_SLAB",
-      "remaining_top_slab_area_in_notch_m2": 8.894977593598696e-06,
-      "passed": true,
-      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
-    },
-    {
-      "object": "F066_DERIVED_SLAB",
-      "remaining_top_slab_area_in_notch_m2": 4.659103276516419e-06,
-      "passed": true,
-      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
-    },
-    {
-      "object": "F067_DERIVED_SLAB",
-      "remaining_top_slab_area_in_notch_m2": 1.1040539088735812e-05,
-      "passed": true,
-      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
-    },
-    {
-      "object": "F083_DERIVED_SLAB",
-      "remaining_top_slab_area_in_notch_m2": 7.347235552845888e-06,
-      "passed": true,
-      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
-    },
-    {
-      "object": "F084_DERIVED_SLAB",
-      "remaining_top_slab_area_in_notch_m2": 8.018332921744253e-06,
-      "passed": true,
-      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
-    },
-    {
-      "object": "F099_DERIVED_SLAB",
-      "remaining_top_slab_area_in_notch_m2": 1.2237584936514168e-06,
-      "passed": true,
-      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
-    },
-    {
-      "object": "F100_DERIVED_SLAB",
-      "remaining_top_slab_area_in_notch_m2": 3.904527952958148e-06,
-      "passed": true,
-      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
-    },
-    {
-      "object": "F116_DERIVED_SLAB",
-      "remaining_top_slab_area_in_notch_m2": 1.1558557035939998e-06,
-      "passed": true,
-      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
-    },
-    {
-      "object": "F117_DERIVED_SLAB",
-      "remaining_top_slab_area_in_notch_m2": 1.419278994330142e-06,
-      "passed": true,
-      "tolerance_basis": "Software float mesh arithmetic; not as-built measurement tolerance"
-    }
-  ],
-  "v12_actual_entities": {
-    "balcony_z_m": 22.0,
-    "inset_glass_top_m": 12.600000381469727,
-    "guard_top_m": 23.100000381469727,
-    "landscape_z_max_m": 1.5469471216201782,
-    "sunken_pool_z_m": -3.513000011444092,
-    "roof_disc_radius_m": 15.300000589517992,
-    "old_full_height_side_glass_absent": true
+  "v13_actual_entities": {
+    "ring_apertures": [
+      {
+        "id": "TRANSITION_01_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          27.535,
+          28.135
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_02_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          93.95714285714286,
+          94.55714285714285
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_03_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          168.68749999999997,
+          169.2875
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_04_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          234.35714285714283,
+          234.95714285714286
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_05_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          309.0571428571429,
+          309.6571428571429
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_06_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          388.2875,
+          388.88750000000005
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_07_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          460.53749999999997,
+          461.1375
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_08_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          537.1375,
+          537.7375
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      }
+    ],
+    "old_slab_notches": 0,
+    "restored_full_transition_slabs": 16,
+    "slit_scope": "Outer A including V only; not slab holes; exact height and width unconfirmed.",
+    "open_end_glass_top_m": 19.0,
+    "closed_arch_exists": true,
+    "old_side_balcony_absent": true
   }
 }

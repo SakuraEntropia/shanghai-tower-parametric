@@ -886,7 +886,7 @@
       "original_units": "相对玻璃格；无米制测量",
       "scale_or_version": "版次待确认",
       "support": "拓扑和相对间隔；不证实绝对坐标",
-      "limitations": "无原图、孔表、入口立面、层间楼板开洞图及terrace测量尺寸",
+      "limitations": "无原图、孔表、入口立面、层间楼板开洞图及terrace测量尺寸；v13用户明确澄清为外幕墙横环缺带，v11/v12楼板豁口解释撤回。",
       "retrieved_on": "2026-10-12",
       "credibility": "按用户明确观察执行，尺寸拟合为候选"
     },
@@ -921,6 +921,48 @@
       "limitations": "不能由效果图证实实际孔位、楼层标高或施工节点",
       "retrieved_on": "2026-10-12",
       "credibility": "一手设计介绍；明确限制设计与竣工混用"
+    },
+    {
+      "id": "USER_IMAGES_V13_RENDER",
+      "title": "R.9bff88b0086166e268e6f186e7ec7b12.jpeg",
+      "institution": "原发布者待核验；由用户提供",
+      "publication_date": null,
+      "url": null,
+      "type": "用户提供疑似设计效果图",
+      "primary": false,
+      "locator": "本轮用户图片附件；本地文件名与SHA256用于追溯",
+      "sha256": "833c9a36b66efe562fad9f05d3e67c3334f9a133fd91a5cbbb17bb23c6a56cdc",
+      "image_size_px": [
+        600,
+        373
+      ],
+      "original_units": "像素；无比例尺",
+      "scale_or_version": "设计/竣工版次、摄影日期、拍摄方位和镜头未确认",
+      "support": "金壳、白石材入口框、横窗、开放庭院的拓扑；优先级低于街景与Gensler实际航拍",
+      "limitations": "未进行透视标定；只拟合可见形态。单图不证实三维坐标、标高、窗洞净尺寸或剖面。遮挡区未知；不重新发布原图。",
+      "retrieved_on": "2026-10-12",
+      "credibility": "可直接查看的图像依据；发布机构/所有权未核验，不能升级为已证实绝对尺寸"
+    },
+    {
+      "id": "USER_IMAGES_V13_STREET",
+      "title": "9a504fc2d5628535e5dd68e84fbc61c6a7efcf1bc5e4.jpeg",
+      "institution": "原发布者待核验；由用户提供",
+      "publication_date": null,
+      "url": null,
+      "type": "用户提供街景照片",
+      "primary": false,
+      "locator": "本轮用户图片附件；本地文件名与SHA256用于追溯",
+      "sha256": "57c25c74c2977e2c741556114b56e2cbbaaf82cc14223d27277fff66a014ac86",
+      "image_size_px": [
+        604,
+        502
+      ],
+      "original_units": "像素；无比例尺",
+      "scale_or_version": "设计/竣工版次、摄影日期、拍摄方位和镜头未确认",
+      "support": "封闭玻璃拱端与长侧石材斜肩、宽内嵌玻璃、三条可见小横窗；用户澄清外幕墙环缺带",
+      "limitations": "未进行透视标定；只拟合可见形态。单图不证实三维坐标、标高、窗洞净尺寸或剖面。遮挡区未知；不重新发布原图。",
+      "retrieved_on": "2026-10-12",
+      "credibility": "可直接查看的图像依据；发布机构/所有权未核验，不能升级为已证实绝对尺寸"
     }
   ]
 }

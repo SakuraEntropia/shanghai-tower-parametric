@@ -34,14 +34,15 @@
   "transition_glass_source_locator": "G01 PDFp16 Fig34: mechanical intake/exhaust facade at each zone is a variant of overall system",
   "uncertainty": "Upper nominal interface heights are published design controls. Exact full-floor edges, lower levels, panel cut lines, spandrel/frit/vent maps, slab offset and as-built crosswalk remain unconfirmed. Below45m outer profile is extrapolated. No bounded systematic design-version error available.",
   "asbuilt_verified": false,
-  "interlayer_notch_v11": {
-    "width_candidate_m": 3.0,
-    "inner_clearance_candidate_m": 0.3,
-    "azimuth_relative_candidate_deg": 0.0,
+  "horizontal_slits_v13": {
+    "enabled": true,
+    "clear_glass_height_candidate_m": 0.6,
     "source_ids": [
-      "USER_OBSERVATION_V11"
+      "USER_IMAGES_V13_STREET"
     ],
     "evidence_level": "待确认",
-    "scope": "One aligned interlayer floor notch per section interface through both candidate transition plates; actual placement/width unverified."
+    "center_rule": "candidate transition z_middle_m",
+    "scope": "outer A and reentrant V only; no floor cuts",
+    "uncertainty": "User-requested narrow mid-height circumferential slit. Width0.6m is editable candidate, photo uncalibrated; source lower levels and as-built opening positions unavailable."
   }
 }

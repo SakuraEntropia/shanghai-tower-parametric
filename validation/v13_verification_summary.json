@@ -1,0 +1,122 @@
+{
+  "version": "v13",
+  "generated_on": "2026-10-12",
+  "unit_tests_passed": 82,
+  "scene_checks_passed": 228,
+  "independent_reopen_passed": true,
+  "geometry_signature": {
+    "sha256_rounded_geometry": "8d8643b7e0ed4e50b341fae0cfdbe58f1cc13dee8bfd8f96deec67346550031f",
+    "mesh_count": 402,
+    "vertices": 1842126,
+    "polygons": 1048866
+  },
+  "actual_geometry": {
+    "ring_apertures": [
+      {
+        "id": "TRANSITION_01_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          27.535,
+          28.135
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_02_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          93.95714285714286,
+          94.55714285714285
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_03_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          168.68749999999997,
+          169.2875
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_04_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          234.35714285714283,
+          234.95714285714286
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_05_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          309.0571428571429,
+          309.6571428571429
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_06_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          388.2875,
+          388.88750000000005
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_07_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          460.53749999999997,
+          461.1375
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      },
+      {
+        "id": "TRANSITION_08_A_HORIZONTAL_SLIT",
+        "z_range_m": [
+          537.1375,
+          537.7375
+        ],
+        "crossing_glass_faces": [],
+        "crossing_display_frame_or_seal_elements": [],
+        "lower_boundary_panels": 138,
+        "upper_boundary_panels": 138,
+        "passed": true
+      }
+    ],
+    "old_slab_notches": 0,
+    "restored_full_transition_slabs": 16,
+    "slit_scope": "Outer A including V only; not slab holes; exact height and width unconfirmed.",
+    "open_end_glass_top_m": 19.0,
+    "closed_arch_exists": true,
+    "old_side_balcony_absent": true
+  },
+  "asbuilt_verified": false,
+  "source_image_provenance": "User supplied render/photo, publisher/date/lens/scale unverified. Gensler actual aerial takes priority for open end topology.",
+  "precision_limit": "Ring widths/centers, podium t/u position, upper shell, PS/entry/terrace dimensions are candidates; no final CAD, curtain-wall or architectural shop schedule."
+}
